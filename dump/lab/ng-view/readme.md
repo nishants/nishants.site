@@ -1,1 +1,0 @@
-a simple implementation of router with angularjs.

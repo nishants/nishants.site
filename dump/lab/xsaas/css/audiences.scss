@@ -1,9 +1,0 @@
-@import "config";
-$sectionHeaderHeight : $topBarHeight;
-
-#power-access > #audiences{
-    .content{
-      overflow: auto;
-      height: calc(#{"100vh -  #{$sectionHeaderHeight + $topBarHeight}"});
-    }
-}

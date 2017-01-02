@@ -1,7 +1,0 @@
-.sub-bar.navigation{
-  pointer-events: all; //prevents menu from collapsing, when leaving menu bar.
-}
-
-.collapse-navigation .sub-bar.navigation{
-  @extend .collapse;
-}

@@ -1,7 +1,0 @@
-@import '../../lib/config';
-@import 'blast-frames';
-@import 'blast-away-frames';
-
-.blast.animate{
-  @extend .blast-animate;
-}

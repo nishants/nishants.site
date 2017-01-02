@@ -1,9 +1,0 @@
-#blog:not(.scrolled)  #top-bar{
-  @include transform(scale(0));
-}
-
-#top-bar{
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-}

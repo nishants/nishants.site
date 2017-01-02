@@ -1,8 +1,0 @@
--------------------------
-var mirage = require("mirage").create();
-mirage.get("/samples/paths/one").sendFile("../sample/paths/one.json");
-mirage.get("/samples/paths/two").sendFile("../sample/paths/two.json");
-mirage.get("/samples/paths/:id").sendFile("../sample/paths/any.json");
--------------------------
--------------------------
--------------------------

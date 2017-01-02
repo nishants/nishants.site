@@ -1,6 +1,0 @@
-.subject.externalService svg g#Canvas > g:not(#External-Services-) {
-  opacity: 0; }
-.subject.externalService svg g#External-Services- g#action {
-  opacity: 0; }
-
-/*# sourceMappingURL=external-serivices.css.map */
