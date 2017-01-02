@@ -62,7 +62,8 @@ ul.inline-list {
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.39); }
 
 body {
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  background: black; }
 
 #placeholder-screen {
   width: 100%; }
