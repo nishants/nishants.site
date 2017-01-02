@@ -5,7 +5,7 @@ $item_height : 60px;
   ul.work-history{
     @extend .undo-list;
     margin-left: $side_padding * 2;
-
+    margin-right: $side_padding * 2;
 
     > li{
       display: block;
