@@ -1,4 +1,4 @@
-@import "../../style/base";
+@import "base";
 
 $padding: 10px;
 $side_padding: 20px;
@@ -62,10 +62,10 @@ body{
   }
 }
 
-@import "intro";
-@import "top_bar";
-@import "cover";
-@import "profile/title";
-@import "footer";
-@import "contacts";
-@import "profile/work-history";
+@import "homepage/intro";
+@import "homepage/top_bar";
+@import "homepage/cover";
+@import "homepage/profile/title";
+@import "homepage/footer";
+@import "homepage/contacts";
+@import "homepage/profile/work-history";
