@@ -8,7 +8,6 @@ $topBarHeight: $profile_pic_size/2;
   position: fixed;
   z-index: $top_bar_index;
   top: 0px;
-  margin: 0px $side_padding;
 
   height: $topBarHeight;
   width: calc(100% - #{2 * $side_padding});
@@ -16,6 +15,7 @@ $topBarHeight: $profile_pic_size/2;
   background: white;
   overflow: hidden;
 
+  @extend .app-layer;
   @extend .top-bar-transition;
   .heading{
     position: relative;

@@ -3,11 +3,13 @@
   display  : block;
   position : fixed;
   top      : 0;
-  left     : 0;
+  left     : auto;
   width    : 100%;
   z-index  : -1;
   //background: $background;
   padding-bottom: 100vh;
+
+  @extend .app-layer;
 
   .bg-wrapper{
     background: $background;

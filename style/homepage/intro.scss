@@ -38,7 +38,7 @@ $top_bar_index: 99;
 }
 
 .page{
-  margin: $padding/2 $side_padding;
+  margin: $padding/2 auto;
   background: white;
   padding: $profile_pic_size/2 $side_padding  $profile_pic_size/2 $side_padding;
   color: rgba(0, 0, 0, 0.91);
@@ -46,7 +46,7 @@ $top_bar_index: 99;
 }
 
 .introduction{
-  margin: 0px $side_padding;
+  margin: 0px auto;
   border-top-left-radius: $picture_radius;
   border-top-right-radius: $picture_radius;
   padding-bottom: $padding;

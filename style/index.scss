@@ -1,21 +1,17 @@
 @import "base";
 
-$padding: 10px;
-$side_padding: 20px;
-$row_height : $rowHeight;
-$border_light: rgba(0, 0, 0, 0.1);
-$light_text: rgba(0, 0, 0, 0.5);
-$dark_text: rgba(0, 0, 0, 0.7);
-$link_color: #bda6e0;
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,600,500,700');
 
-$bold_text: 600;
-$medium_bold_text: 500;
-$medium_light_text: 300;
-$super_bold_text: 700;
-
-$top_bar_duration: 300ms;
-$border_radius:3px;
-$picture_radius  : 25px;
+.app-layer{
+  max-width: $screen_max_width;
+  margin: 0px auto;
+  width: 100%;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+  background: black;
+  @extend .app-layer;
+}
 
 .ruby-gem{
   color: rgba(255, 255, 255, 0.8);
@@ -23,16 +19,6 @@ $picture_radius  : 25px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.39);
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,600,500,700');
-
-body{
-  font-family: 'Raleway', sans-serif;
-  background: black;
-}
-
-#placeholder-screen {
-  width: 100%;
-}
 .top-bar-transition {
   @include transition(all $top_bar_duration  ease);
 }
@@ -51,15 +37,6 @@ body{
 .small-bold-text{
   font-size: small;
   font-weight: $medium_bold_text;
-}
-
-.page{
-  h1.head{
-    padding: $padding;
-    margin-left: $padding;
-    margin-bottom: $side_padding;
-  }
-
 }
 
 .under-lined{
