@@ -170,7 +170,6 @@ body {
   z-index: 99;
   top: 0px;
   height: 100px;
-  width: calc(100% - 40px);
   background: white;
   overflow: hidden; }
   .top-bar .heading {

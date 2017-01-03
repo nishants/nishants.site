@@ -10,7 +10,6 @@ $topBarHeight: $profile_pic_size/2;
   top: 0px;
 
   height: $topBarHeight;
-  width: calc(100% - #{2 * $side_padding});
 
   background: white;
   overflow: hidden;
