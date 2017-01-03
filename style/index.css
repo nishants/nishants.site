@@ -92,6 +92,11 @@ body {
   margin-left: 10px;
   margin-bottom: 20px; }
 
+.under-lined {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+
 .invert-gradience {
   background: -moz-linear-gradient(bottom, black 0%, transparent 100%);
   /* FF3.6-15 */
@@ -355,5 +360,39 @@ body {
         color: rgba(0, 0, 0, 0.5); }
       .page ul.work-history > li .detail .link {
         color: #bda6e0; }
+
+@media screen and (max-width: 750px) {
+  .page {
+    margin: 0px;
+    border-radius: 0px; }
+    .page .head {
+      text-align: center;
+      padding-bottom: 20px; }
+
+  .page ul.work-history > li {
+    margin: 20px auto; }
+    .page ul.work-history > li > .logo {
+      float: none;
+      width: auto;
+      text-align: center;
+      display: block; }
+    .page ul.work-history > li > .detail {
+      margin-top: 20px;
+      float: none;
+      max-width: 100%; }
+      .page ul.work-history > li > .detail > label {
+        text-align: center; }
+      .page ul.work-history > li > .detail > label.period {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        padding-top: 10px; }
+      .page ul.work-history > li > .detail label.title.link {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        padding-bottom: 10px; }
+
+  .top-bar {
+    margin: 0px;
+    width: 100%; } }
 
 /*# sourceMappingURL=index.css.map */

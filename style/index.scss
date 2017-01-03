@@ -62,6 +62,12 @@ body{
 
 }
 
+.under-lined{
+  border-bottom: 1px solid $border_light;
+  margin-bottom: $padding;
+  padding-bottom: $padding;
+}
+
 @import "homepage/intro";
 @import "homepage/top_bar";
 @import "homepage/cover";
@@ -69,3 +75,4 @@ body{
 @import "homepage/footer";
 @import "homepage/contacts";
 @import "homepage/profile/work-history";
+@import "mobile";
