@@ -94,6 +94,11 @@ body {
   margin-bottom: 10px;
   padding-bottom: 10px; }
 
+.page h1.head {
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px; }
+
 .invert-gradience {
   background: -moz-linear-gradient(bottom, black 0%, transparent 100%);
   /* FF3.6-15 */
@@ -348,7 +353,7 @@ body {
         line-height: 20px;
         text-align: left;
         display: block;
-        padding: 0px 10px;
+        padding: 0px 10px 0px 15px;
         font-size: small;
         margin: 0px; }
       .page ul.work-history > li .detail > label:not(.title) {

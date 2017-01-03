@@ -34,7 +34,7 @@ body{
   font-weight: $medium_light_text;
 }
 
-.small-bold-text{
+.small-bold-text{ 
   font-size: small;
   font-weight: $medium_bold_text;
 }
@@ -45,6 +45,7 @@ body{
   padding-bottom: $padding;
 }
 
+@import "homepage/page";
 @import "homepage/intro";
 @import "homepage/top_bar";
 @import "homepage/cover";
