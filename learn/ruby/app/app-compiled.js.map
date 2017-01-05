@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.js"],"names":[],"mappings":"AAAA,OAAO,GAAP,GAAa,QAAQ,MAAR,CAAe,KAAf,EAAsB,EAAtB,CAAb","file":"app-compiled.js","sourcesContent":["window.app = angular.module(\"app\", []);"]}
