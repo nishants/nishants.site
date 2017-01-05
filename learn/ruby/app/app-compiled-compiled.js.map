@@ -1,1 +1,0 @@
-{"version":3,"sources":["app-compiled.js"],"names":[],"mappings":"AAAA,OAAO,GAAP,GAAa,QAAQ,MAAR,CAAe,KAAf,EAAsB,EAAtB,CAAb;;AAEA","file":"app-compiled-compiled.js","sourcesContent":["window.app = angular.module(\"app\", []);\n\n//# sourceMappingURL=app-compiled.js.map"]}
