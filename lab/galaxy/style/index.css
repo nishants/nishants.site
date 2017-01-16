@@ -36,12 +36,12 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after {
+.resize-container:after, ul.inline-list:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list {
+ul.undo-list, ul.inline-list, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -70,7 +70,9 @@ body {
   text-align: center; }
   .modal-window .content {
     display: inline-block;
-    line-height: 25px; }
+    line-height: 25px;
+    background: white;
+    padding: 50px; }
 
 .modal-window:not(.show) {
   opacity: 0;
@@ -78,13 +80,10 @@ body {
   .modal-window:not(.show) * {
     pointer-events: none !important; }
 
-#intro .content {
-  background: white;
-  padding: 50px; }
-  #intro .content .skip {
-    margin-top: 10px;
-    padding: 10px;
-    float: right; }
+#intro .content .skip {
+  margin-top: 10px;
+  padding: 10px;
+  float: right; }
 
 #background.star-world {
   position: fixed;
@@ -119,5 +118,32 @@ body {
     float: left;
     width: 50%;
     text-align: center; }
+
+#mission-wizard .wizard {
+  width: 500px; }
+  #mission-wizard .wizard ul.panes > li, #mission-wizard .wizard ul.status > li {
+    float: left; }
+  #mission-wizard .wizard ul.status {
+    width: 100%; }
+    #mission-wizard .wizard ul.status > li {
+      width: 50%;
+      text-align: center; }
+  #mission-wizard .wizard .window {
+    width: 100%;
+    overflow: hidden; }
+    #mission-wizard .wizard .window ul.panes {
+      width: 200%;
+      overflow: hidden; }
+      #mission-wizard .wizard .window ul.panes > li {
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        border: 1px solid black; }
+#mission-wizard .wizard.vehicle-select .window ul.panes {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
 
 /*# sourceMappingURL=index.css.map */

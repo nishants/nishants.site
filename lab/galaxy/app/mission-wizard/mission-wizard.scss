@@ -1,0 +1,44 @@
+#mission-wizard{
+  .wizard{
+    width: $wizard_width;
+
+    ul.panes, ul.status{
+      @extend .undo-list;
+      @extend .resize-container;
+      > li{
+        float: left;
+      }
+    }
+
+    ul.status{
+      width: 100%;
+      > li {
+        width: 50%;
+        text-align: center;
+      }
+    }
+    .window{
+      width   : 100%;
+      overflow: hidden;
+
+      ul.panes{
+        width: 200%;
+        overflow: hidden;
+
+        > li {
+          width: 50%;
+          height: 100%;
+          text-align: center;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+  .wizard.vehicle-select{
+    .window{
+      ul.panes{
+        @include transform(translateX(-50%));
+      }
+    }
+  }
+}

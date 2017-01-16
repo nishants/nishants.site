@@ -5,6 +5,7 @@ $padding        : 10px;
 $modal_bg_color : rgba(0, 0, 0, 0.75);
 $line_height    : 25px;
 $modal_layer    : 1;
+$wizard_width   : 500px;
 
 $background_image: url(../images/twinkle.gif);
 
@@ -25,6 +26,8 @@ body{
   .content{
     display   : inline-block;
     line-height: $line_height;
+    background: white;
+    padding : $padding*5;
   }
 }
 
@@ -33,10 +36,12 @@ body{
   pointer-events: none;
   * { pointer-events: none !important;  }
 }
+
 @import "intro/intro";
 @import "home/home";
 @import "top-bar/top-bar";
 @import "bottom-bar/bottom-bar";
+@import "mission-wizard/mission-wizard";
 
 @media screen and (max-width: $mobile_at) {
   @import "home/home.mobile";
