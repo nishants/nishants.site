@@ -49,10 +49,14 @@ body{
     display: block;
   }
 }
+#main-content{
+  position: relative;
+}
 
 @import "intro/intro";
 @import "home/home";
-@import "bottom-bar/bottom-bar";
+@import "home/missions";
+@import "home/bottom-bar/bottom-bar";
 @import "mission-wizard/mission-wizard";
 
 @media screen and (max-width: $mobile_at) {

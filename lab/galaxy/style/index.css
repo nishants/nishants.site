@@ -41,7 +41,7 @@ input {
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
+ul.undo-list, ul.inline-list, #missions-selected > ul, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -88,6 +88,9 @@ body {
   width: 100%;
   display: block; }
 
+#main-content {
+  position: relative; }
+
 #intro .content .skip {
   margin-top: 10px;
   padding: 10px;
@@ -100,6 +103,10 @@ body {
   height: 100vh;
   width: 100vw;
   background: url(../images/twinkle.gif) repeat fixed center center; }
+
+#home {
+  color: white;
+  text-align: center; }
 
 #bottom-bar {
   position: fixed;

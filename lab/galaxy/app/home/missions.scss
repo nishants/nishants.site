@@ -1,0 +1,5 @@
+#missions-selected{
+  > ul {
+    @extend .undo-list;
+  }
+}
