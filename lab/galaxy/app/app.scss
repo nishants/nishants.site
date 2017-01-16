@@ -1,0 +1,17 @@
+$mobile_at      : 750px;
+$top_bar_color  : #EEE;
+$top_bar_height : 60px;
+$padding        : 10px;
+$background_image: url(../images/twinkle.gif);
+
+body{
+   padding: 10px;
+}
+
+@import "home/home";
+@import "top-bar/top-bar";
+@import "bottom-bar/bottom-bar";
+
+@media screen and (max-width: $mobile_at) {
+  @import "home/home.mobile";
+}

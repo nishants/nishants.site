@@ -1,0 +1,15 @@
+#bottom-bar{
+  position: fixed;
+  bottom  : 0px;
+  left    : 0px;
+  height  : $top_bar_height;
+  line-height  : $top_bar_height;
+  width   : 100vw;
+  padding : $padding;
+  background-color: $top_bar_color;
+  .mission-time,.send-mission {
+    float: left;
+    width: 50%;
+    text-align: center;
+  }
+}

@@ -1,3 +1,6 @@
 .idea
 *-compiled.js
 *-compiled.js.map
+/lab/galaxy/style/index.css.map
+/lab/galaxy/app/app-compiled.js
+/lab/galaxy/app/app-compiled.js.map
