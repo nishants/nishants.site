@@ -1,7 +1,11 @@
 #app(ng-app='galaxy')
   #background.star-world
-  #top-bar
-    include top-bar/top-bar
   #main-content
-  #bottom-bar
-    include bottom-bar/bottom-bar
+    #intro.modal-window
+      .content
+        include intro/intro
+    #home
+      #top-bar
+        include top-bar/top-bar
+      #bottom-bar
+        include bottom-bar/bottom-bar

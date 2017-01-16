@@ -2,12 +2,38 @@ $mobile_at      : 750px;
 $top_bar_color  : #EEE;
 $top_bar_height : 60px;
 $padding        : 10px;
+$modal_bg_color : rgba(0, 0, 0, 0.75);
+$line_height    : 25px;
+$modal_layer    : 1;
+
 $background_image: url(../images/twinkle.gif);
 
 body{
    padding: 10px;
 }
 
+.modal-window{
+  position: fixed;
+  z-index : $modal_layer;
+  top     : 0px;
+  left    : 0px;
+  height  : 100vh;
+  width   : 100vw;
+  background: $modal_bg_color;
+  line-height: 100vh;
+  text-align: center;
+  .content{
+    display   : inline-block;
+    line-height: $line_height;
+  }
+}
+
+.modal-window:not(.show){
+  opacity: 0;
+  pointer-events: none;
+  * { pointer-events: none !important;  }
+}
+@import "intro/intro";
 @import "home/home";
 @import "top-bar/top-bar";
 @import "bottom-bar/bottom-bar";

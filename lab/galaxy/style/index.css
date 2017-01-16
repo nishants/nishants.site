@@ -58,6 +58,34 @@ ul.inline-list {
 body {
   padding: 10px; }
 
+.modal-window {
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.75);
+  line-height: 100vh;
+  text-align: center; }
+  .modal-window .content {
+    display: inline-block;
+    line-height: 25px; }
+
+.modal-window:not(.show) {
+  opacity: 0;
+  pointer-events: none; }
+  .modal-window:not(.show) * {
+    pointer-events: none !important; }
+
+#intro .content {
+  background: white;
+  padding: 50px; }
+  #intro .content .skip {
+    margin-top: 10px;
+    padding: 10px;
+    float: right; }
+
 #background.star-world {
   position: fixed;
   top: 0;
