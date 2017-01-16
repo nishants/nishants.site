@@ -1,16 +1,19 @@
 $mobile_at      : 750px;
-$top_bar_color  : #EEE;
-$top_bar_height : 60px;
 $padding        : 10px;
 $modal_bg_color : rgba(0, 0, 0, 0.75);
 $line_height    : 25px;
 $modal_layer    : 1;
 $wizard_width   : 500px;
+$station_color  : #316487;
+
+$bottom_bar_color: $station_color;
+$bar_height     : 60px;
 
 $background_image: url(../images/twinkle.gif);
 
 body{
-   padding: 10px;
+  padding: 10px;
+  background: black;
 }
 
 .modal-window{
@@ -37,9 +40,18 @@ body{
   * { pointer-events: none !important;  }
 }
 
+#background{
+  .space-station{
+    position: absolute;
+    bottom: $bar_height;
+    left: 0;
+    width: 100%;
+    display: block;
+  }
+}
+
 @import "intro/intro";
 @import "home/home";
-@import "top-bar/top-bar";
 @import "bottom-bar/bottom-bar";
 @import "mission-wizard/mission-wizard";
 

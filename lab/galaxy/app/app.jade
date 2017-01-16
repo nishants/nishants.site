@@ -1,13 +1,12 @@
 #app(ng-app='galaxy')
   #background.star-world
+    img.space-station(src='images/space-center.png')
   #main-content
     #intro.modal-window
       .content
         include intro/intro
     #home
-      #top-bar
-        include top-bar/top-bar
       #bottom-bar
         include bottom-bar/bottom-bar
-    #mission-wizard.modal-window.show
+    #mission-wizard.modal-window
       include mission-wizard/mission-wizard
