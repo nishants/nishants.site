@@ -12,10 +12,13 @@ $bar_height     : 60px;
 
 $background_image: url(../images/twinkle.gif);
 
+$theme_green_color    : #A4C936;
+$theme_green_border   : #DFFF81;
+
 $progress_height: 2px;
 $progress_width : $window_width;
-$progress_bg    : #A4CDFF;
-$progress_fg    : #3083FB;
+$progress_bg    : rgba(255, 255, 255, 0.86);
+$progress_fg    : $theme_green_color;
 
 $game_progess_levels: 4;
 

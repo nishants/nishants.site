@@ -116,12 +116,17 @@ body {
     #home #mission-action button.create-mission {
       width: 100%;
       padding: 10px;
-      border-radius: 10px; }
+      color: white;
+      font-size: large;
+      outline: 1px solid #DFFF81;
+      background-color: #A4C936;
+      border: 1px solid #DFFF81;
+      opacity: 0.9; }
   #home .game-progress {
     width: calc(100% - 120px);
     margin: 10px auto;
     height: 2px;
-    background-color: #A4CDFF;
+    background-color: rgba(255, 255, 255, 0.86);
     position: relative;
     border-radius: 1px;
     overflow: hidden; }
@@ -131,7 +136,7 @@ body {
     left: 0;
     height: 2px;
     width: 100%;
-    background: #3083FB;
+    background: #A4C936;
     content: " ";
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
