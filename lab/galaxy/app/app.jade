@@ -1,15 +1,15 @@
-#app(ng-app='galaxy')
+#app(ng-app='galaxy', ng-controller='uiController')
   #background.star-world
     img.space-station(src='images/space-center.png')
   #main-content
-    #intro.modal-window
+    #intro.modal-window(ng-class='{"show" : !ui.skipIntro}')
       .content
         include intro/intro
     #home
       #mission-action
-        button.create-mission Add 1 more Mission
+        button.create-mission(ng-click='ui.createMission()') Add 1 more Mission
       .game-progress.two
       #missions-selected
         include home/missions
-    #mission-wizard.modal-window.show
+    #mission-wizard.modal-window(ng-class='{"show" : ui.showMissionsWizard}')
       include mission-wizard/mission-wizard
