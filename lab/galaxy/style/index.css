@@ -82,11 +82,28 @@ body {
   .modal-window:not(.show) * {
     pointer-events: none !important; }
 
+.thumbnail, ul.deck > li .card .icon {
+  height: 50px;
+  width: 50px; }
+
 ul.deck {
   display: block; }
   ul.deck > li {
-    display: block;
-    float: left; }
+    display: inline-block;
+    margin: 10px; }
+    ul.deck > li .card {
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.1); }
+      ul.deck > li .card .name {
+        padding-top: 10px; }
+      ul.deck > li .card .caption {
+        font-size: small;
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.25);
+        line-height: 15px; }
+      ul.deck > li .card .icon {
+        display: block;
+        margin: auto; }
 
 #background .space-station {
   position: absolute;
@@ -182,7 +199,9 @@ ul.deck {
   #mission-wizard .wizard ul.panes > li, #mission-wizard .wizard ul.status > li {
     float: left; }
   #mission-wizard .wizard ul.status {
-    width: 100%; }
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px; }
     #mission-wizard .wizard ul.status > li {
       width: 50%;
       text-align: center; }
@@ -195,8 +214,7 @@ ul.deck {
       #mission-wizard .wizard .window ul.panes > li {
         width: 50%;
         height: 100%;
-        text-align: center;
-        border: 1px solid black; }
+        text-align: center; }
 #mission-wizard .wizard.vehicle-select .window ul.panes {
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);

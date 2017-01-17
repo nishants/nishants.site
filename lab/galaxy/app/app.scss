@@ -21,6 +21,8 @@ $progress_bg    : rgba(255, 255, 255, 0.86);
 $progress_fg    : $theme_green_color;
 
 $game_progess_levels: 4;
+$thumbnail_height: 50px;
+$thumbnail_width: 50px;
 
 body{
   padding: 10px;
@@ -52,12 +54,35 @@ body{
   * { pointer-events: none !important;  }
 }
 
+.thumbnail{
+  height: $thumbnail_height;
+  width: $thumbnail_width;
+}
+
 ul.deck{
   @extend .undo-list;
   display: block;
   > li {
-    display: block;
-    float: left;
+    display: inline-block;
+    margin : $padding;
+    .card{
+      padding: $padding;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      .name{
+        padding-top: $padding;
+      }
+      .caption{
+        font-size: small;
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.25);
+        line-height: $line_height - $padding;
+      }
+      .icon{
+        display: block;
+        margin: auto;
+        @extend .thumbnail;
+      }
+    }
   }
 }
 

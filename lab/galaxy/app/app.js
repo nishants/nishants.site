@@ -2,13 +2,13 @@ var app = angular.module("galaxy", []);
 app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
 app.value("planetIcons", {
-  "Donlon"  : "images/Donlon.png",
-  "Enchai"  : "images/Enchai.jpg",
-  "Jebing"  : "images/Jebing.jpeg",
-  "Sapir"   : "images/Sapir.png",
-  "Lerbin"  : "images/Lerbin.jpg",
-  "Pingasor": "images/Pingasor.jpeg",
-  "other"   : "images/other-planet.png"
+  "Donlon"  : "images/planets/Donlon.png",
+  "Enchai"  : "images/planets/Enchai.jpg",
+  "Jebing"  : "images/planets/Jebing.jpeg",
+  "Sapir"   : "images/planets/Sapir.png",
+  "Lerbin"  : "images/planets/Lerbin.jpg",
+  "Pingasor": "images/planets/Pingasor.jpeg",
+  "other"   : "images/planets/other-planet.png"
 });
 
 app.value("vehicleIcons", {
