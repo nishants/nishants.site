@@ -3,13 +3,21 @@ $padding        : 10px;
 $modal_bg_color : rgba(0, 0, 0, 0.75);
 $line_height    : 25px;
 $modal_layer    : 1;
-$wizard_width   : 500px;
+$window_width   : 500px;
+$wizard_width   : $window_width;
 $station_color  : #316487;
 
 $bottom_bar_color: $station_color;
 $bar_height     : 60px;
 
 $background_image: url(../images/twinkle.gif);
+
+$progress_height: 2px;
+$progress_width : $window_width;
+$progress_bg    : #A4CDFF;
+$progress_fg    : #3083FB;
+
+$game_progess_levels: 4;
 
 body{
   padding: 10px;
@@ -43,7 +51,7 @@ body{
 #background{
   .space-station{
     position: absolute;
-    bottom: $bar_height;
+    bottom: 0;
     left: 0;
     width: 100%;
     display: block;
@@ -56,7 +64,6 @@ body{
 @import "intro/intro";
 @import "home/home";
 @import "home/missions";
-@import "home/bottom-bar/bottom-bar";
 @import "mission-wizard/mission-wizard";
 
 @media screen and (max-width: $mobile_at) {

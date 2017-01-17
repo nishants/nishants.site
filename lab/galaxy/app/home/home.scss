@@ -3,11 +3,57 @@
   top     : 0;
   left    : 0;
   height  : 100vh;
-  width   : 100vw;
+  width   : 100%;
   background: $background_image repeat fixed center center;
 }
 
 #home{
   color:white;
   text-align: center;
+  margin: $padding*2 auto;
+  max-width: $window_width;
+
+  #mission-action{
+    width: 100%;
+    margin-top: 5*$padding;
+    padding: 0px 5*$padding;
+    button.create-mission{
+      width: 100%;
+      padding: $padding ;
+      border-radius: $padding;
+    }
+  }
+
+.game-progress{
+    width: calc(100% - #{10*$padding + 2*$padding});
+    margin: $padding auto;
+    height: $progress_height;
+    background-color: $progress_bg;
+    position: relative;
+    border-radius: $progress_height/2;
+    overflow: hidden;
+  }
+  .game-progress:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $progress_height;
+    width: 100%;
+    background: $progress_fg;
+    content: " ";
+    @include transform(scaleX(0));
+    @include transformOrigin(0 0);
+  }
+  .game-progress.two:after{
+    @include transform(scaleX(2/$game_progess_levels));
+  }
+  .game-progress.three:after{
+    @include transform(scaleX(3/$game_progess_levels));
+  }
+  .game-progress.four:after{
+    @include transform(scaleX(4/$game_progess_levels));
+  }
+  .game-progress.one:after{
+    @include transform(scaleX(1/$game_progess_levels));
+  }
 }
