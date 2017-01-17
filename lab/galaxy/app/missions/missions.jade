@@ -1,5 +1,5 @@
 ul
-  li.mission(ng-repeat='mission in ui.missions.list')
+  li.mission(ng-repeat='mission in missions.list')
     span.planet(ng-bind='mission.planet.name')
     span.vehicle(ng-bind='mission.vehicle.name')
-    span.canel.fa.fa-remove
+    span.canel.fa.fa-remove(ng-click='missions.remove($index)')

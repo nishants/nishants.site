@@ -3,7 +3,8 @@ app.service("uiService", ["missionsService",function(missionsService){
     skipIntro: false,
     showMissionsWizard: false,
     createMission: function () {
-      ui.showMissionsWizard = true;
+      missionsService.add({},{});
+      //ui.showMissionsWizard = true;
     },
     missions: missionsService,
     regiment: []
