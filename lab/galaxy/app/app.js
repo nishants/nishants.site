@@ -11,9 +11,18 @@ app.value("planetIcons", {
   "other"   : "images/other-planet.png"
 });
 
-app.run(["remote", "$http", "tokenService", "requestConfig","planetsService", function(remote, $http, tokenService, requestConfig, planetsService){
+app.value("vehicleIcons", {
+  "Space pod"     : "images/vehicles/space-pod.jpg",
+  "Space rocket"  : "images/vehicles/space-rocket.png",
+  "Space shuttle" : "images/vehicles/shutle.jpeg",
+  "Space ship"    : "images/vehicles/spaceship.png",
+  "other"         : "images/vehicles/other-vehicle.jpg"
+});
+
+app.run(["remote", "$http", "tokenService", "requestConfig","planetsService", "vehiclesService", function(remote, $http, tokenService, requestConfig, planetsService, vehiclesService){
   $http.post(remote + "/token", {}, requestConfig).then(function(response){
     tokenService.set(response.data.token);
   });
   planetsService.load();
+  vehiclesService.load();
 }]);

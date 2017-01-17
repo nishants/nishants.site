@@ -21,6 +21,8 @@ describe('planetsService', function () {
         .respond({token: "token"});
     $httpBackend.when('GET', remote + '/planets')
         .respond(planets);
+    $httpBackend.when('GET', remote + '/vehicles')
+        .respond([]);
 
   }));
 
