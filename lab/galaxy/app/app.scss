@@ -115,7 +115,7 @@ $sky_rotation_speed : 700s;
     @include transform(scale(1.5) rotate(0deg));
   }
   50% {
-    @include transform(scale(2.9) rotate(-360deg));
+    @include transform(scale(2) rotate(-360deg));
   }
   100% {
     @include transform(scale(1.5) rotate(0deg));
