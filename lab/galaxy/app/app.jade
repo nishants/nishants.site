@@ -7,7 +7,7 @@
         include intro/intro
     #home(ng-controller='missionsController')
       #mission-action
-        button.create-mission(ng-click='ui.createMission()', ng-bind='help.message(missions)')
+        button.create-mission(ng-click='createMission()', ng-bind='help.message(missions)')
       .game-progress.two
       #missions-selected
         include missions/missions

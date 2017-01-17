@@ -1,13 +1,10 @@
-app.service("uiService", ["missionsService",function(missionsService){
+app.service("uiService", [function(){
   var ui = {
-    skipIntro: false,
-    showMissionsWizard: false,
+    skipIntro: true,
+    showMissionsWizard: true,
     createMission: function () {
-      missionsService.add({},{});
-      //ui.showMissionsWizard = true;
+      ui.showMissionsWizard = true;
     },
-    missions: missionsService,
-    regiment: []
   };
   return ui;
 }]);

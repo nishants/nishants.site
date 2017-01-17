@@ -52,6 +52,15 @@ body{
   * { pointer-events: none !important;  }
 }
 
+ul.deck{
+  @extend .undo-list;
+  display: block;
+  > li {
+    display: block;
+    float: left;
+  }
+}
+
 #background{
   .space-station{
     position: absolute;

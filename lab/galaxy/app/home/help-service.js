@@ -11,7 +11,7 @@ app.service("helpService", ["missionsService", "uiService", function (missionsSe
           {
             name: "no-missions",
             message: function (missions) {
-              return "Create 4 Missions";
+              return "Create a mission";
             },
             select: function (missions) {
               return missions.list.length == 0;
@@ -21,7 +21,7 @@ app.service("helpService", ["missionsService", "uiService", function (missionsSe
             name: "need-more-missions",
             message: function (missions) {
               var missionsLeft = MAX_MISSIONS - missions.list.length;
-              return "Create <count> more Mission<s>".replace("<count>", missionsLeft).replace("<s>", missionsLeft > 1 ? "s" : "");
+              return "Create <count> more mission<s>".replace("<count>", missionsLeft).replace("<s>", missionsLeft > 1 ? "s" : "");
             },
             select: function (missions) {
               return missions.list.length > 0 && missions.list.length < MAX_MISSIONS;

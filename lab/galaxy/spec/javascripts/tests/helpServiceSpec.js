@@ -5,19 +5,19 @@ describe('helpService', function() {
           name    : "message for no missions",
           ui      : {},
           missions: {list: []},
-          expected: "Create 4 Missions"
+          expected: "Create a mission"
         },
         {
           name    : "need more missions",
           ui      : {},
           missions: {list: [{},{}]},
-          expected: "Create 2 more Missions"
+          expected: "Create 2 more missions"
         },
         {
           name    : "need one more missions",
           ui      : {},
           missions: {list: [{},{},{}]},
-          expected: "Create 1 more Mission"
+          expected: "Create 1 more mission"
         },
         {
           name    : "send missionaries",
