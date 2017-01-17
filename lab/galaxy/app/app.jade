@@ -5,9 +5,9 @@
     #intro.modal-window(ng-class='{"show" : !ui.skipIntro}')
       .content
         include intro/intro
-    #home
+    #home(ng-controller='missionsController')
       #mission-action
-        button.create-mission(ng-click='ui.createMission()') Add 1 more Mission
+        button.create-mission(ng-click='ui.createMission()', ng-bind='help()')
       .game-progress.two
       #missions-selected
         include missions/missions
