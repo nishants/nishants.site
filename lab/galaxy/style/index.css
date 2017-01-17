@@ -215,11 +215,19 @@ ul.deck {
         width: 50%;
         height: 100%;
         text-align: center; }
+#mission-wizard .active-status, #mission-wizard .wizard.vehicle-select ul.status li.vehicle, #mission-wizard .wizard:not(.vehicle-select) ul.status li.planet {
+  border: 1px solid black; }
 #mission-wizard .wizard.vehicle-select .window ul.panes {
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%); }
+
+#mission-planet ul.deck > li.assigned {
+  display: none; }
+
+#mission-vehicle ul.deck > li.none {
+  display: none; }
 
 /*# sourceMappingURL=index.css.map */

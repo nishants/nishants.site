@@ -1,6 +1,6 @@
-app.controller("missionsController", ['$scope', 'helpService', 'missionsService', "uiService", function($scope, helpService, missionsService, uiService){
+app.controller("missionsController", ['$scope', 'helpService', 'missionsService', "wizardService", function($scope, helpService, missionsService, wizardService){
   $scope.missions = missionsService;
   $scope.help = helpService;
-  $scope.createMission = uiService.createMission;
+  $scope.createMission = wizardService.show;
 }]);
 

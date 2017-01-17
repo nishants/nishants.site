@@ -1,17 +1,17 @@
-.wizard.content.vehicle-select(ng-controller='wizardController')
+.wizard.content(ng-class='{"vehicle-select" : wizard.selectVehicle}')
   .head
     h1 Create Mission
   ul.status
-    li.planet Destination
-    li.vehicle Vehicle
+    li.planet 1. Select Destination
+    li.vehicle 2. Select Vehicle
   .window
     ul.panes
       li#mission-planet
         ul.deck
-          li(ng-repeat='planet in planets.list')
+          li(ng-repeat='planet in planets.list', ng-click='wizard.setPlanet(planet)',ng-class='{"assigned" : planet.assigned}')
             include ../planets/planet
 
       li#mission-vehicle
         ul.deck
-          li(ng-repeat='vehicle in vehicles.list')
+          li(ng-repeat='vehicle in vehicles.list', ng-click='wizard.setVehicle(vehicle)', ng-class='{"none" : !vehicle.remaining}')
             include ../vehicles/vehicle

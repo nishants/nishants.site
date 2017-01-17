@@ -103,6 +103,8 @@ ul.deck{
 @import "home/home";
 @import "missions/missions";
 @import "mission-wizard/mission-wizard";
+@import "planets/planets";
+@import "vehicles/vehicles";
 
 @media screen and (max-width: $mobile_at) {
   @import "home/home.mobile";

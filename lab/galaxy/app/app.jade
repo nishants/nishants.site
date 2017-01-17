@@ -11,5 +11,5 @@
       .game-progress.two
       #missions-selected
         include missions/missions
-    #mission-wizard.modal-window(ng-class='{"show" : ui.showMissionsWizard}')
+    #mission-wizard.modal-window(ng-controller='wizardController', ng-class='{"show" : wizard.showWizard}')
       include mission-wizard/mission-wizard

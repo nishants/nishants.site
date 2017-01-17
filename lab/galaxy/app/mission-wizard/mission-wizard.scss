@@ -36,10 +36,26 @@
       }
     }
   }
+  .active-status{
+    border: 1px solid black;
+  }
   .wizard.vehicle-select{
-    .window{
+    ul.status {
+      li.vehicle{
+        @extend .active-status;
+      }
+    }
+
+  .window{
       ul.panes{
         @include transform(translateX(-50%));
+      }
+    }
+  }
+  .wizard:not(.vehicle-select){
+    ul.status {
+      li.planet{
+        @extend .active-status;
       }
     }
   }
