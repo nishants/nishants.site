@@ -1,4 +1,4 @@
-.wizard.content(ng-controller='wizardController')
+.wizard.content.vehicle-select(ng-controller='wizardController')
   .head
     h1 Create Mission
   ul.status
@@ -11,4 +11,7 @@
           li(ng-repeat='planet in planets.list')
             include ../planets/planet
 
-      li#mission-vehicle Select Vehicle
+      li#mission-vehicle
+        ul.deck
+          li(ng-repeat='vehicle in vehicles.list')
+            include ../vehicles/vehicle

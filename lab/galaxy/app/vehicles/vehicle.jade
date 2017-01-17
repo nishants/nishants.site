@@ -1,0 +1,11 @@
+.card.vehicle
+  img.icon(ng-src='{{vehicle.icon}}')
+  .name
+    span(ng-bind='vehicle.name')
+    span  ({{vehicle.total_no}})
+  .range.caption
+    span(ng-bind='vehicle.max_distance')
+    span  megamiles
+  .speed.caption
+    span(ng-bind='vehicle.speed')
+    span  megamiles/day
