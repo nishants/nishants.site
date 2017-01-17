@@ -237,19 +237,26 @@ ul.deck {
   display: none; }
 
 @keyframes travelerSky {
-  from {
+  0% {
     -webkit-transform: scale(1.5) rotate(0deg);
     -moz-transform: scale(1.5) rotate(0deg);
     -ms-transform: scale(1.5) rotate(0deg);
     -o-transform: scale(1.5) rotate(0deg);
     transform: scale(1.5) rotate(0deg); }
-  to {
-    -webkit-transform: scale(1.5) rotate(-360deg);
-    -moz-transform: scale(1.5) rotate(-360deg);
-    -ms-transform: scale(1.5) rotate(-360deg);
-    -o-transform: scale(1.5) rotate(-360deg);
-    transform: scale(1.5) rotate(-360deg); } }
+  50% {
+    -webkit-transform: scale(2.9) rotate(-360deg);
+    -moz-transform: scale(2.9) rotate(-360deg);
+    -ms-transform: scale(2.9) rotate(-360deg);
+    -o-transform: scale(2.9) rotate(-360deg);
+    transform: scale(2.9) rotate(-360deg); }
+  100% {
+    -webkit-transform: scale(1.5) rotate(0deg);
+    -moz-transform: scale(1.5) rotate(0deg);
+    -ms-transform: scale(1.5) rotate(0deg);
+    -o-transform: scale(1.5) rotate(0deg);
+    transform: scale(1.5) rotate(0deg); } }
 .traveler-sky {
-  animation: travelerSky 300s infinite; }
+  animation: travelerSky 700s infinite;
+  animation-timing-function: linear; }
 
 /*# sourceMappingURL=index.css.map */
