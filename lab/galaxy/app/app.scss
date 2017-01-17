@@ -109,3 +109,16 @@ ul.deck{
 @media screen and (max-width: $mobile_at) {
   @import "home/home.mobile";
 }
+$sky_rotation_speed : 300s;
+@keyframes travelerSky {
+  from {
+    @include transform(scale(1.5) rotate(0deg));
+  }
+  to {
+    @include transform(scale(1.5) rotate(-360deg));
+  }
+}
+
+.traveler-sky{
+  animation: travelerSky $sky_rotation_speed infinite;
+}

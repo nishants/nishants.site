@@ -105,12 +105,15 @@ ul.deck {
         display: block;
         margin: auto; }
 
-#background .space-station {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: block; }
+#background {
+  text-align: center;
+  line-height: 100vh; }
+  #background .space-station {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block; }
 
 #main-content {
   position: relative; }
@@ -119,13 +122,19 @@ ul.deck {
   margin-top: 10px;
   padding: 10px 50px; }
 
-#background.star-world {
+#background {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%;
-  background: url(../images/twinkle.gif) repeat fixed center center; }
+  width: 100%; }
+  #background .star-world {
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    background: url(../images/twinkle.gif) repeat fixed center center; }
 
 #home {
   color: white;
@@ -229,5 +238,21 @@ ul.deck {
 
 #mission-vehicle ul.deck > li.none {
   display: none; }
+
+@keyframes travelerSky {
+  from {
+    -webkit-transform: scale(1.5) rotate(0deg);
+    -moz-transform: scale(1.5) rotate(0deg);
+    -ms-transform: scale(1.5) rotate(0deg);
+    -o-transform: scale(1.5) rotate(0deg);
+    transform: scale(1.5) rotate(0deg); }
+  to {
+    -webkit-transform: scale(1.5) rotate(-360deg);
+    -moz-transform: scale(1.5) rotate(-360deg);
+    -ms-transform: scale(1.5) rotate(-360deg);
+    -o-transform: scale(1.5) rotate(-360deg);
+    transform: scale(1.5) rotate(-360deg); } }
+.traveler-sky {
+  animation: travelerSky 300s infinite; }
 
 /*# sourceMappingURL=index.css.map */
