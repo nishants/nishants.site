@@ -2,8 +2,7 @@
   .content{
     .skip{
       margin-top  : $padding;
-      padding : $padding;
-      float   : right;
+      padding     : $padding $padding*5;
     }
   }
 }

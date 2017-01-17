@@ -38,7 +38,8 @@ body{
     display   : inline-block;
     line-height: $line_height;
     background: white;
-    padding : $padding*5;
+    padding : $padding*2;
+    margin: $padding*5;
   }
 }
 

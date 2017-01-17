@@ -73,7 +73,8 @@ body {
     display: inline-block;
     line-height: 25px;
     background: white;
-    padding: 50px; }
+    padding: 20px;
+    margin: 50px; }
 
 .modal-window:not(.show) {
   opacity: 0;
@@ -93,8 +94,7 @@ body {
 
 #intro .content .skip {
   margin-top: 10px;
-  padding: 10px;
-  float: right; }
+  padding: 10px 50px; }
 
 #background.star-world {
   position: fixed;
