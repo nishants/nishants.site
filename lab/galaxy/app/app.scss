@@ -17,6 +17,7 @@ $theme_green_color  : #3dc743;
 $theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
 $theme_green_disabled   : rgba(0, 255, 128, 0.21);
+$theme_green_disabled_solid   : #1e6321;
 
 $progress_height: 6px;
 $progress_width : $window_width;
@@ -36,6 +37,9 @@ $transition_function   : ease;
 
 $wizard_min_height: 300px;
 
+[ng-click]{
+  cursor: pointer;
+}
 body{
   padding: 10px;
   background: black;
@@ -153,6 +157,7 @@ $sky_rotation_speed : 700s;
 
 .appear-from-bottom{
   animation: fromBottom $transition_time_slow;
+  animation-timing-function: $transition_function_swing;
 }
 
 @keyframes fromBottom {

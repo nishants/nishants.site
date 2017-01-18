@@ -19,12 +19,41 @@
       @extend .title-text;
 
       > li {
+        position: relative;
         width: 50%;
         padding: $padding;
         text-align: center;
-        background: $theme_green_color;
-        opacity: 0.5;
         color: $white;
+        background: $theme_green_disabled_solid;
+        overflow: hidden;
+        border: 1px solid transparent;
+        opacity: 0.5;
+        @include transition(all $transition_time_slow $transition_function);
+
+        label{
+          position: relative;
+          z-index: 2;
+        }
+        .bg{
+          position: absolute;
+          top:0;
+          left:0;
+          height: 100%;
+          width: 100%;
+          background: $theme_green_color;
+          //opacity: 0;
+          @include transition(all $transition_time_slow $transition_function);
+        }
+      }
+      > li.planet{
+        .bg{
+          @include transform(translateX(100%));
+        }
+      }
+      > li.vehicle{
+        .bg{
+          @include transform(translateX(-100%));
+        }
       }
     }
     .window{
@@ -34,6 +63,7 @@
       ul.panes{
         width: 200%;
         overflow: hidden;
+        @include transition(transform $transition_time_slow $transition_function);
 
         > li {
           width: 50%;
@@ -55,6 +85,11 @@
     border: 1px solid black;
     color: white;
     opacity: 1;
+
+    .bg{
+      opacity: 1;
+      @include transform(translateX(0));
+    }
   }
   .wizard.vehicle-select{
     ul.status {
@@ -65,7 +100,6 @@
 
   .window{
       ul.panes{
-        @include transition(transform $transition_time_slow $transition_function);
         @include transform(translateX(-50%));
       }
     }

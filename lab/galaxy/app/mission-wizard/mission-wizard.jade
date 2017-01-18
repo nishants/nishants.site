@@ -1,7 +1,12 @@
 .wizard.content(ng-class='{"vehicle-select" : wizard.selectVehicle}')
   ul.status
-    li.planet 1. Select Planet
-    li.vehicle 2. Select Vehicle
+    li.planet(ng-click='wizard.showVehicle(false)')
+      .bg
+      label 1. Select Planet
+    li.vehicle
+      .bg
+      label 2. Select Vehicle
+
   .window
     ul.panes
       li#mission-planet

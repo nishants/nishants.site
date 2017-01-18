@@ -60,6 +60,9 @@ ul.inline-list {
 .title-text, button, #missions-selected > ul.missions > li, #mission-wizard .wizard ul.status, #mission-wizard .wizard .window ul.panes > li {
   font-family: 'Aldrich', sans-serif; }
 
+[ng-click] {
+  cursor: pointer; }
+
 body {
   padding: 10px;
   background: black; }
@@ -295,18 +298,55 @@ ul.deck {
     letter-spacing: 2px;
     font-size: small; }
     #mission-wizard .wizard ul.status > li {
+      position: relative;
       width: 50%;
       padding: 10px;
       text-align: center;
-      background: #3dc743;
+      color: rgba(255, 255, 255, 0.95);
+      background: #1e6321;
+      overflow: hidden;
+      border: 1px solid transparent;
       opacity: 0.5;
-      color: rgba(255, 255, 255, 0.95); }
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease; }
+      #mission-wizard .wizard ul.status > li label {
+        position: relative;
+        z-index: 2; }
+      #mission-wizard .wizard ul.status > li .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #3dc743;
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        transition: all 500ms ease; }
+    #mission-wizard .wizard ul.status > li.planet .bg {
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%); }
+    #mission-wizard .wizard ul.status > li.vehicle .bg {
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      transform: translateX(-100%); }
   #mission-wizard .wizard .window {
     width: 100%;
     overflow: hidden; }
     #mission-wizard .wizard .window ul.panes {
       width: 200%;
-      overflow: hidden; }
+      overflow: hidden;
+      -webkit-transition: transform 500ms ease;
+      -moz-transition: transform 500ms ease;
+      -o-transition: transform 500ms ease;
+      transition: transform 500ms ease; }
       #mission-wizard .wizard .window ul.panes > li {
         width: 50%;
         height: 100%;
@@ -319,11 +359,14 @@ ul.deck {
   border: 1px solid black;
   color: white;
   opacity: 1; }
+  #mission-wizard .active-status .bg, #mission-wizard .wizard.vehicle-select ul.status li.vehicle .bg, #mission-wizard .wizard:not(.vehicle-select) ul.status li.planet .bg {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0); }
 #mission-wizard .wizard.vehicle-select .window ul.panes {
-  -webkit-transition: transform 500ms ease;
-  -moz-transition: transform 500ms ease;
-  -o-transition: transform 500ms ease;
-  transition: transform 500ms ease;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -357,7 +400,8 @@ ul.deck {
   animation-timing-function: linear; }
 
 .appear-from-bottom {
-  animation: fromBottom 500ms; }
+  animation: fromBottom 500ms;
+  animation-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1); }
 
 @keyframes fromBottom {
   0% {
