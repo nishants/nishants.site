@@ -12,12 +12,13 @@ $bar_height     : 60px;
 
 $background_image: url(../images/twinkle.gif);
 
-$theme_green_color    : #A4C936;
-$theme_green_border   : #DFFF81;
+$theme_green_color  : #3dc743;
+$theme_green_border : #DFFF81;
+$theme_green_text   : #00FF80;
 
-$progress_height: 2px;
+$progress_height: 6px;
 $progress_width : $window_width;
-$progress_bg    : rgba(255, 255, 255, 0.86);
+$progress_bg    : rgba(255, 255, 255, 0.5);
 $progress_fg    : $theme_green_color;
 
 $game_progess_levels: 4;
@@ -102,6 +103,7 @@ ul.deck{
 @import "intro/intro";
 @import "home/home";
 @import "missions/missions";
+@import "missions/progress";
 @import "mission-wizard/mission-wizard";
 @import "planets/planets";
 @import "vehicles/vehicles";

@@ -25,45 +25,14 @@
     button.create-mission{
       width: 100%;
       padding: $padding ;
-      color: white;
+      color: rgba(255, 255, 255, 0.95);
       font-size: large;
-      outline: 1px solid $theme_green_border;
       background-color: $theme_green_color;
-      border: 1px solid $theme_green_border;
-      opacity: 0.9;
+      border: 1px solid transparent;
+      opacity: 0.95;
     }
   }
 
-.game-progress{
-    width: calc(100% - #{10*$padding + 2*$padding});
-    margin: $padding auto;
-    height: $progress_height;
-    background-color: $progress_bg;
-    position: relative;
-    border-radius: $progress_height/2;
-    overflow: hidden;
-  }
-  .game-progress:after{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: $progress_height;
-    width: 100%;
-    background: $progress_fg;
-    content: " ";
-    @include transform(scaleX(0));
-    @include transformOrigin(0 0);
-  }
-  .game-progress.two:after{
-    @include transform(scaleX(2/$game_progess_levels));
-  }
-  .game-progress.three:after{
-    @include transform(scaleX(3/$game_progess_levels));
-  }
-  .game-progress.four:after{
-    @include transform(scaleX(4/$game_progess_levels));
-  }
-  .game-progress.one:after{
-    @include transform(scaleX(1/$game_progess_levels));
-  }
+
+
 }

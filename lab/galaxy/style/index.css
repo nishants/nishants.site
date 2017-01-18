@@ -41,7 +41,7 @@ input {
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list, ul.deck, #missions-selected > ul, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
+ul.undo-list, ul.inline-list, ul.deck, #missions-selected > ul.missions, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -145,60 +145,88 @@ ul.deck {
     #home #mission-action button.create-mission {
       width: 100%;
       padding: 10px;
-      color: white;
+      color: rgba(255, 255, 255, 0.95);
       font-size: large;
-      outline: 1px solid #DFFF81;
-      background-color: #A4C936;
-      border: 1px solid #DFFF81;
-      opacity: 0.9; }
-  #home .game-progress {
-    width: calc(100% - 120px);
-    margin: 10px auto;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.86);
-    position: relative;
-    border-radius: 1px;
-    overflow: hidden; }
-  #home .game-progress:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: #A4C936;
-    content: " ";
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    -o-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    transform-origin: 0 0; }
-  #home .game-progress.two:after {
-    -webkit-transform: scaleX(0.5);
-    -moz-transform: scaleX(0.5);
-    -ms-transform: scaleX(0.5);
-    -o-transform: scaleX(0.5);
-    transform: scaleX(0.5); }
-  #home .game-progress.three:after {
-    -webkit-transform: scaleX(0.75);
-    -moz-transform: scaleX(0.75);
-    -ms-transform: scaleX(0.75);
-    -o-transform: scaleX(0.75);
-    transform: scaleX(0.75); }
-  #home .game-progress.four:after {
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-    -o-transform: scaleX(1);
-    transform: scaleX(1); }
-  #home .game-progress.one:after {
-    -webkit-transform: scaleX(0.25);
-    -moz-transform: scaleX(0.25);
-    -ms-transform: scaleX(0.25);
-    -o-transform: scaleX(0.25);
-    transform: scaleX(0.25); }
+      background-color: #3dc743;
+      border: 1px solid transparent;
+      opacity: 0.95; }
+
+#missions-selected > ul.missions {
+  padding-top: 10px;
+  margin-top: 10px; }
+  #missions-selected > ul.missions > li {
+    display: block;
+    margin: auto;
+    width: 550px;
+    font-size: large;
+    color: #00FF80;
+    text-transform: capitalize; }
+    #missions-selected > ul.missions > li .planet, #missions-selected > ul.missions > li .vehicle, #missions-selected > ul.missions > li .overview, #missions-selected > ul.missions > li .cancel {
+      float: left;
+      text-align: left; }
+    #missions-selected > ul.missions > li .planet {
+      width: 100px; }
+    #missions-selected > ul.missions > li .vehicle {
+      width: 150px; }
+    #missions-selected > ul.missions > li .overview {
+      width: 250px; }
+    #missions-selected > ul.missions > li .cancel {
+      width: 50px; }
+
+.game-progress {
+  width: calc(100% - 120px);
+  margin: 10px auto;
+  height: 6px;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5); }
+
+.game-progress:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: #3dc743;
+  content: " ";
+  border-radius: 3px;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0; }
+
+.game-progress.two:after {
+  -webkit-transform: scaleX(0.5);
+  -moz-transform: scaleX(0.5);
+  -ms-transform: scaleX(0.5);
+  -o-transform: scaleX(0.5);
+  transform: scaleX(0.5); }
+
+.game-progress.three:after {
+  -webkit-transform: scaleX(0.75);
+  -moz-transform: scaleX(0.75);
+  -ms-transform: scaleX(0.75);
+  -o-transform: scaleX(0.75);
+  transform: scaleX(0.75); }
+
+.game-progress.four:after {
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1); }
+
+.game-progress.one:after {
+  -webkit-transform: scaleX(0.25);
+  -moz-transform: scaleX(0.25);
+  -ms-transform: scaleX(0.25);
+  -o-transform: scaleX(0.25);
+  transform: scaleX(0.25); }
 
 #mission-wizard .wizard {
   width: 500px; }

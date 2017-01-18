@@ -1,5 +1,39 @@
+$planet_width  : 100px;
+$vehicle_width : 150px;
+$overview_width: 250px;
+$cancel_width  : 50px;
+
+
 #missions-selected{
-  > ul {
+  > ul.missions {
     @extend .undo-list;
+    padding-top: $padding;
+    margin-top: $padding;
+    > li{
+      display   : block;
+      margin    : auto;
+      width     : $planet_width + $vehicle_width + $overview_width + $cancel_width;
+
+      font-size : large;
+      color     : $theme_green_text;
+      text-transform: capitalize;
+
+      .planet,.vehicle, .overview, .cancel,{
+        float: left;
+        text-align: left;
+      }
+      .planet{
+        width: $planet_width;
+      }
+      .vehicle{
+        width: $vehicle_width;
+      }
+      .overview{
+        width: $overview_width;
+      }
+      .cancel{
+        width: $cancel_width;
+      }
+    }
   }
 }

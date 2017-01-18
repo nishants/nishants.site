@@ -1,5 +1,6 @@
-ul
-  li.mission(ng-repeat='mission in missions.list')
-    span.planet(ng-bind='mission.planet.name')
-    span.vehicle(ng-bind='mission.vehicle.name')
-    span.canel.fa.fa-remove(ng-click='missions.remove($index)')
+ul.missions
+  li(ng-repeat='mission in missions.list')
+    .planet(ng-bind='mission.planet.name')
+    .vehicle(ng-bind='mission.vehicle.name')
+    .overview {{mission.planet.distance}} megamiles in {{mission.planet.distance/mission.vehicle.speed}} days
+    .canel.fa.fa-remove(ng-click='missions.remove($index)')
