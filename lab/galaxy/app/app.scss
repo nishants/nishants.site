@@ -16,6 +16,7 @@ $background_image: url(../images/twinkle.gif);
 $theme_green_color  : #3dc743;
 $theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
+$theme_green_disabled   : rgba(0, 255, 128, 0.21);
 
 $progress_height: 6px;
 $progress_width : $window_width;
@@ -31,6 +32,7 @@ $transition_time_medium : 250ms;
 $transition_time_slow   : 500ms;
 
 $transition_function_swing   : cubic-bezier(0.64, 0.57, 0.67, 1);
+$transition_function   : ease;
 
 $wizard_min_height: 300px;
 
@@ -57,7 +59,7 @@ button{
   background: $modal_bg_color;
   line-height: 100vh;
   text-align: center;
-  @include transition(opacity $transition_time_medium $transition_function_swing);
+  @include transition(opacity $transition_time_normal $transition_function);
   .content{
     display   : inline-block;
     line-height: $line_height;
@@ -123,9 +125,9 @@ ul.deck{
 @import "home/home";
 @import "missions/missions";
 @import "missions/progress";
-@import "mission-wizard/mission-wizard";
 @import "planets/planets";
 @import "vehicles/vehicles";
+@import "mission-wizard/mission-wizard";
 
 @media screen and (max-width: $mobile_at) {
   @import "home/home.mobile";

@@ -1,7 +1,27 @@
+$vehicle_height: 140px;
 #mission-vehicle{
   ul.deck{
-    > li.none {
-      display: none;
+    > li.none, > li.no-range {
+      position: relative;
+      pointer-events: none;
+      border: 1px solid $theme_green_disabled !important;
+    }
+    > li.none:after, >li.no-range:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      line-height: $vehicle_height;
+      width: 100%;
+      color: $white;
+      background: rgba(0, 0, 0, 0.8);
+      cursor: not-allowed;
+    }
+    >li.no-range:after{
+      content: "Out Of Range";
+    }
+    > li.none:after{
+      content: "None Left";
     }
   }
 }

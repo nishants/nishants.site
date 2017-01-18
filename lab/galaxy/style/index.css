@@ -81,10 +81,10 @@ button {
   background: rgba(0, 0, 0, 0.9);
   line-height: 100vh;
   text-align: center;
-  -webkit-transition: opacity 250ms cubic-bezier(0.64, 0.57, 0.67, 1);
-  -moz-transition: opacity 250ms cubic-bezier(0.64, 0.57, 0.67, 1);
-  -o-transition: opacity 250ms cubic-bezier(0.64, 0.57, 0.67, 1);
-  transition: opacity 250ms cubic-bezier(0.64, 0.57, 0.67, 1); }
+  -webkit-transition: opacity 150ms ease;
+  -moz-transition: opacity 150ms ease;
+  -o-transition: opacity 150ms ease;
+  transition: opacity 150ms ease; }
   .modal-window .content {
     display: inline-block;
     line-height: 25px;
@@ -262,6 +262,28 @@ ul.deck {
   -o-transform: scaleX(0.25);
   transform: scaleX(0.25); }
 
+#mission-planet ul.deck > li.assigned {
+  display: none; }
+
+#mission-vehicle ul.deck > li.none, #mission-vehicle ul.deck > li.no-range {
+  position: relative;
+  pointer-events: none;
+  border: 1px solid rgba(0, 255, 128, 0.21) !important; }
+#mission-vehicle ul.deck > li.none:after, #mission-vehicle ul.deck > li.no-range:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  line-height: 140px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.8);
+  cursor: not-allowed; }
+#mission-vehicle ul.deck > li.no-range:after {
+  content: "Out Of Range"; }
+#mission-vehicle ul.deck > li.none:after {
+  content: "None Left"; }
+
 #mission-wizard .wizard {
   width: 500px; }
   #mission-wizard .wizard ul.panes > li, #mission-wizard .wizard ul.status > li {
@@ -298,17 +320,18 @@ ul.deck {
   color: white;
   opacity: 1; }
 #mission-wizard .wizard.vehicle-select .window ul.panes {
+  -webkit-transition: transform 500ms ease;
+  -moz-transition: transform 500ms ease;
+  -o-transition: transform 500ms ease;
+  transition: transform 500ms ease;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%); }
 
-#mission-planet ul.deck > li.assigned {
-  display: none; }
-
-#mission-vehicle ul.deck > li.none {
-  display: none; }
+.modal-window:not(.show) #mission-wizard {
+  opacity: 0; }
 
 @keyframes travelerSky {
   0% {

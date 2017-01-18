@@ -65,6 +65,7 @@
 
   .window{
       ul.panes{
+        @include transition(transform $transition_time_slow $transition_function);
         @include transform(translateX(-50%));
       }
     }
@@ -75,5 +76,11 @@
         @extend .active-status;
       }
     }
+  }
+}
+
+.modal-window:not(.show){
+  #mission-wizard{
+    opacity: 0;
   }
 }

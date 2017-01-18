@@ -11,5 +11,5 @@
 
       li#mission-vehicle
         ul.deck
-          li(ng-repeat='vehicle in vehicles.list', ng-click='wizard.setVehicle(vehicle)', ng-class='{"none" : !wizard.isSelectable(vehicle)}')
+          li(ng-repeat='vehicle in vehicles.list', ng-click='wizard.setVehicle(vehicle)', ng-class='{"none": !vehicle.remaining,"no-range" : !wizard.isSelectable(vehicle)}')
             include ../vehicles/vehicle

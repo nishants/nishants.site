@@ -8,9 +8,7 @@ app.service("wizardService", ['missionsService', function (missionsService) {
       wizard.showWizard = true;
     },
     isSelectable: function(vehicle){
-      var remaining       = vehicle.remaining > 0,
-          canReachPlanet  = wizard.planet  && vehicle.max_distance >= wizard.planet.distance;
-      return remaining && canReachPlanet;
+      return wizard.planet  && vehicle.max_distance >= wizard.planet.distance;
      },
     showVehicle: function(selectVehicle){
       wizard.selectVehicle = selectVehicle;

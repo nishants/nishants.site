@@ -1,5 +1,8 @@
+
 #mission-planet{
   ul.deck{
+    > li {
+    }
     > li.assigned {
       display: none;
     }
