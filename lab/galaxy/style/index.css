@@ -306,4 +306,25 @@ ul.deck {
   animation: travelerSky 700s infinite;
   animation-timing-function: linear; }
 
+.appear-from-bottom {
+  animation: fromBottom 500ms; }
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0; }
+  1% {
+    opacity: 0;
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    -o-transform: translateY(300%);
+    transform: translateY(300%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+
 /*# sourceMappingURL=index.css.map */

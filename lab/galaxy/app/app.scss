@@ -118,6 +118,7 @@ ul.deck{
 @media screen and (max-width: $mobile_at) {
   @import "home/home.mobile";
 }
+
 $sky_rotation_speed : 700s;
 @keyframes travelerSky {
   0% {
@@ -134,4 +135,22 @@ $sky_rotation_speed : 700s;
 .traveler-sky{
   animation: travelerSky $sky_rotation_speed infinite;
   animation-timing-function: linear;
+}
+
+.appear-from-bottom{
+  animation: fromBottom $transition_time_slow;
+}
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0;
+    @include transform(translateY(300%));
+  }
+  100% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
 }
