@@ -1,5 +1,9 @@
 #intro{
   .content{
+    border: 1px solid;
+    .message{
+      text-align: left;
+    }
     .skip{
       margin-top  : $padding;
       padding     : $padding $padding*5;

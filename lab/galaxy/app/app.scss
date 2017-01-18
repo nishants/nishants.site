@@ -38,6 +38,14 @@ body{
   padding: 10px;
   background: black;
 }
+button{
+  padding: $padding ;
+  color: $white;
+  font-size: large;
+  background-color: $theme_green_color;
+  border: 1px solid transparent;
+  @extend .title-text;
+}
 
 .modal-window{
   position: fixed;

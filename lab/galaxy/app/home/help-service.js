@@ -1,4 +1,4 @@
-app.service("helpService", ["missionsService", "uiService", function (missionsService, uiService) {
+app.service("helpService", [function () {
   var MAX_MISSIONS = 4,
       help = {
         message: function (missions, ui) {
