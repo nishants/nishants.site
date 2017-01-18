@@ -13,7 +13,7 @@ $bar_height     : 60px;
 $background_image: url(../images/twinkle.gif);
 
 $theme_green_color  : #3dc743;
-$theme_green_border : #DFFF81;
+$theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
 
 $progress_height: 6px;
@@ -24,6 +24,13 @@ $progress_fg    : $theme_green_color;
 $game_progess_levels: 4;
 $thumbnail_height: 50px;
 $thumbnail_width: 50px;
+
+$transition_time_normal : 150ms;
+$transition_time_medium : 250ms;
+$transition_time_slow   : 500ms;
+
+$transition_function_swing   : cubic-bezier(0.64, 0.57, 0.67, 1);
+
 
 body{
   padding: 10px;

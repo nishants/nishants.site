@@ -1,6 +1,6 @@
 $planet_width  : 100px;
 $vehicle_width : 150px;
-$overview_width: 250px;
+$overview_width: 200px;
 $cancel_width  : 50px;
 
 
@@ -9,10 +9,14 @@ $cancel_width  : 50px;
     @extend .undo-list;
     padding-top: $padding;
     margin-top: $padding;
+    width     : $planet_width + $vehicle_width + $overview_width + $cancel_width;
+    background: rgba(0, 0, 0, 0.6);
+
     > li{
       display   : block;
       margin    : auto;
-      width     : $planet_width + $vehicle_width + $overview_width + $cancel_width;
+      width     : 100%;
+      line-height: 40px;
 
       font-size : large;
       color     : $theme_green_text;
