@@ -6,7 +6,7 @@ $vehicle_height: 140px;
       pointer-events: none;
       border: 1px solid $theme_green_disabled !important;
     }
-    > li.none:after, >li.no-range:after {
+    > li:after{
       position: absolute;
       top: 0;
       left: 0;
@@ -15,13 +15,17 @@ $vehicle_height: 140px;
       width: 100%;
       color: $white;
       background: rgba(0, 0, 0, 0.8);
-      cursor: not-allowed;
+      opacity: 0;
+      content: " ";
+      @include transition(opacity $transition_time_slow $transition_function);
     }
     >li.no-range:after{
       content: "Out Of Range";
+      opacity: 1;
     }
     > li.none:after{
       content: "None Left";
+      opacity: 1;
     }
   }
 }

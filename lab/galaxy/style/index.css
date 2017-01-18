@@ -272,7 +272,7 @@ ul.deck {
   position: relative;
   pointer-events: none;
   border: 1px solid rgba(0, 255, 128, 0.21) !important; }
-#mission-vehicle ul.deck > li.none:after, #mission-vehicle ul.deck > li.no-range:after {
+#mission-vehicle ul.deck > li:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -281,11 +281,18 @@ ul.deck {
   width: 100%;
   color: rgba(255, 255, 255, 0.95);
   background: rgba(0, 0, 0, 0.8);
-  cursor: not-allowed; }
+  opacity: 0;
+  content: " ";
+  -webkit-transition: opacity 500ms ease;
+  -moz-transition: opacity 500ms ease;
+  -o-transition: opacity 500ms ease;
+  transition: opacity 500ms ease; }
 #mission-vehicle ul.deck > li.no-range:after {
-  content: "Out Of Range"; }
+  content: "Out Of Range";
+  opacity: 1; }
 #mission-vehicle ul.deck > li.none:after {
-  content: "None Left"; }
+  content: "None Left";
+  opacity: 1; }
 
 #mission-wizard .wizard {
   width: 500px; }
