@@ -14,10 +14,17 @@
       width: 100%;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       padding-bottom: $padding;
+      letter-spacing: 2px;
+      font-size: small;
+      @extend .title-text;
 
       > li {
         width: 50%;
+        padding: $padding;
         text-align: center;
+        background: $theme_green_color;
+        opacity: 0.5;
+        color: $white;
       }
     }
     .window{
@@ -32,12 +39,22 @@
           width: 50%;
           height: 100%;
           text-align: center;
+          @extend .title-text;
+
+          ul.deck{
+            min-height: $wizard_min_height;
+            > li {
+              border: 1px solid;
+            }
+          }
         }
       }
     }
   }
   .active-status{
     border: 1px solid black;
+    color: white;
+    opacity: 1;
   }
   .wizard.vehicle-select{
     ul.status {

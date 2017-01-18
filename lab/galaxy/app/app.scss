@@ -1,12 +1,13 @@
 $mobile_at      : 750px;
 $padding        : 10px;
-$modal_bg_color : rgba(0, 0, 0, 0.75);
+$modal_bg_color : rgba(0, 0, 0, 0.9);
 $line_height    : 25px;
 $modal_layer    : 1;
 $window_width   : 500px;
 $wizard_width   : $window_width;
 $station_color  : #316487;
 
+$white          : rgba(255, 255, 255, 0.95);
 $bottom_bar_color: $station_color;
 $bar_height     : 60px;
 
@@ -31,6 +32,7 @@ $transition_time_slow   : 500ms;
 
 $transition_function_swing   : cubic-bezier(0.64, 0.57, 0.67, 1);
 
+$wizard_min_height: 300px;
 
 body{
   padding: 10px;
@@ -50,9 +52,10 @@ body{
   .content{
     display   : inline-block;
     line-height: $line_height;
-    background: white;
+    color : $theme_green_text;
     padding : $padding*2;
     margin: $padding*5;
+    background: black;
   }
 }
 
@@ -82,8 +85,8 @@ ul.deck{
       .caption{
         font-size: small;
         font-style: italic;
-        color: rgba(0, 0, 0, 0.25);
         line-height: $line_height - $padding;
+        opacity: 0.5;
       }
       .icon{
         display: block;

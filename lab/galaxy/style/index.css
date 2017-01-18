@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+@import url("https://fonts.googleapis.com/css?family=Aldrich|Orbitron");
 p {
   margin-bottom: 1em; }
 
@@ -55,6 +57,9 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
+.title-text, #home #mission-action button.create-mission, #missions-selected > ul.missions > li, #mission-wizard .wizard ul.status, #mission-wizard .wizard .window ul.panes > li {
+  font-family: 'Aldrich', sans-serif; }
+
 body {
   padding: 10px;
   background: black; }
@@ -66,15 +71,16 @@ body {
   left: 0px;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.9);
   line-height: 100vh;
   text-align: center; }
   .modal-window .content {
     display: inline-block;
     line-height: 25px;
-    background: white;
+    color: #00FF80;
     padding: 20px;
-    margin: 50px; }
+    margin: 50px;
+    background: black; }
 
 .modal-window:not(.show) {
   opacity: 0;
@@ -99,8 +105,8 @@ ul.deck {
       ul.deck > li .card .caption {
         font-size: small;
         font-style: italic;
-        color: rgba(0, 0, 0, 0.25);
-        line-height: 15px; }
+        line-height: 15px;
+        opacity: 0.5; }
       ul.deck > li .card .icon {
         display: block;
         margin: auto; }
@@ -161,7 +167,6 @@ ul.deck {
     margin: auto;
     width: 100%;
     line-height: 40px;
-    font-size: large;
     color: #00FF80;
     text-transform: capitalize; }
     #missions-selected > ul.missions > li .planet, #missions-selected > ul.missions > li .vehicle, #missions-selected > ul.missions > li .overview, #missions-selected > ul.missions > li .cancel {
@@ -254,10 +259,16 @@ ul.deck {
   #mission-wizard .wizard ul.status {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+    font-size: small; }
     #mission-wizard .wizard ul.status > li {
       width: 50%;
-      text-align: center; }
+      padding: 10px;
+      text-align: center;
+      background: #3dc743;
+      opacity: 0.5;
+      color: rgba(255, 255, 255, 0.95); }
   #mission-wizard .wizard .window {
     width: 100%;
     overflow: hidden; }
@@ -268,8 +279,14 @@ ul.deck {
         width: 50%;
         height: 100%;
         text-align: center; }
+        #mission-wizard .wizard .window ul.panes > li ul.deck {
+          min-height: 300px; }
+          #mission-wizard .wizard .window ul.panes > li ul.deck > li {
+            border: 1px solid; }
 #mission-wizard .active-status, #mission-wizard .wizard.vehicle-select ul.status li.vehicle, #mission-wizard .wizard:not(.vehicle-select) ul.status li.planet {
-  border: 1px solid black; }
+  border: 1px solid black;
+  color: white;
+  opacity: 1; }
 #mission-wizard .wizard.vehicle-select .window ul.panes {
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);

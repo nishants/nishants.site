@@ -17,10 +17,9 @@ $cancel_width  : 50px;
       margin    : auto;
       width     : 100%;
       line-height: 40px;
-
-      font-size : large;
       color     : $theme_green_text;
       text-transform: capitalize;
+      @extend .title-text;
 
       .planet,.vehicle, .overview, .cancel,{
         float: left;
