@@ -30,3 +30,13 @@ app.run(["remote", "$http", "tokenService", "requestConfig","planetsService", "v
   planetsService.load();
   vehiclesService.load();
 }]);
+
+function fullScreen(){
+  var el = document.documentElement,
+      rfs = el.requestFullscreen
+          || el.webkitRequestFullScreen
+          || el.mozRequestFullScreen
+          || el.msRequestFullscreen ;
+
+  rfs.call(el);
+}

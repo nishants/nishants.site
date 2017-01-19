@@ -8,6 +8,9 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
       },
       service = {
         outcome : null,
+        reset : function(){
+          service.outcome = null;
+        },
         submit : function (missionList) {
           var token   = tokenService.get(),
               request = {
@@ -19,8 +22,8 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
           return $http.post(remote + "/find", request, requestConfig).then(function (response) {
             service.outcome = {
               planet_name  : response.data.planet_name,
-              status       : response.data.status,
-              vehicle_name : response.data.status ? missionList.find(vehicleFor(response.data.planet_name)).vehicle.name : null,
+              status       : response.data.status != "false",
+              vehicle_name : response.data.planet_name ? missionList.find(vehicleFor(response.data.planet_name)).vehicle.name : null,
             };
           });
         }

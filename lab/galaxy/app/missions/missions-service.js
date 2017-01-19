@@ -13,6 +13,11 @@ app.service("missionsService", [function () {
         remaining: function(){
           return (MAX_MISSIONS - missions.list.length);
         },
+        reset: function(){
+          while(missions.remaining() < MAX_MISSIONS){
+            missions.remove(0);
+          }
+        },
         remove: function (index) {
           var mission = missions.list[index];
           mission.planet.reset();

@@ -1,8 +1,7 @@
-app.controller("resultController", ['$scope', "resultService",  "$window", function($scope, resultService, $window){
+app.controller("resultController", ['$scope', "resultService",  "$window", "missionsService", function($scope, resultService, $window, missionsService){
   $scope.result = resultService;
   $scope.playAgain = function(){
-    $window.location.reload();
+    missionsService.reset();
+    resultService.reset();
   };
-
-  window.$window = $window;
 }]);
