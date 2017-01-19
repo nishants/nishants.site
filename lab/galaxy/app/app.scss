@@ -1,6 +1,6 @@
 $mobile_at      : 750px;
 $padding        : 10px;
-$modal_bg_color : rgba(0, 0, 0, 0.9);
+$modal_bg_color : rgba(0, 0, 0, 0.5);
 $line_height    : 25px;
 $modal_layer    : 1;
 $window_width   : 500px;
@@ -16,8 +16,9 @@ $background_image: url(../images/twinkle.gif);
 $theme_green_color  : #3dc743;
 $theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
-$theme_green_disabled   : rgba(0, 255, 128, 0.21);
+$theme_green_disabled   : rgba(0, 255, 128, 0.3);
 $theme_green_disabled_solid   : #1e6321;
+$white_light : rgba(255, 255, 255, 0.3);
 
 $progress_height: 6px;
 $progress_width : $window_width;
@@ -68,9 +69,18 @@ button{
     display   : inline-block;
     line-height: $line_height;
     color : $theme_green_text;
-    padding : $padding*2;
-    margin: $padding*5;
+    padding : $padding;
+    margin: $padding;
     background: black;
+    border: 1px solid $theme_green_disabled;
+    .bar{
+      @extend .resize-container;
+      padding-bottom : $padding;
+      .close-modal{
+        font-size: 30px;
+        float: right;
+      }
+    }
   }
 }
 

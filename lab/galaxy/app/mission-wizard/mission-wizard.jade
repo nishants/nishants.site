@@ -1,4 +1,6 @@
 .wizard.content(ng-class='{"vehicle-select" : wizard.selectVehicle}')
+  .bar
+    .close-modal.fa.fa-close(ng-click="wizard.reset()")
   ul.status
     li.planet(ng-click='wizard.showVehicle(false)')
       .bg

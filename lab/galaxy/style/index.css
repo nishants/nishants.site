@@ -39,7 +39,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
+.resize-container:after, ul.inline-list:after, .modal-window .content .bar:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
   content: "";
   display: table;
   clear: both; }
@@ -2406,7 +2406,7 @@ button {
   left: 0px;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.5);
   line-height: 100vh;
   text-align: center;
   -webkit-transition: opacity 150ms ease;
@@ -2417,9 +2417,15 @@ button {
     display: inline-block;
     line-height: 25px;
     color: #00FF80;
-    padding: 20px;
-    margin: 50px;
-    background: black; }
+    padding: 10px;
+    margin: 10px;
+    background: black;
+    border: 1px solid rgba(0, 255, 128, 0.3); }
+    .modal-window .content .bar {
+      padding-bottom: 10px; }
+      .modal-window .content .bar .close-modal {
+        font-size: 30px;
+        float: right; }
 
 .modal-window:not(.show) {
   opacity: 0;
@@ -2599,7 +2605,7 @@ ul.deck {
 #mission-vehicle ul.deck > li.none, #mission-vehicle ul.deck > li.no-range {
   position: relative;
   pointer-events: none;
-  border: 1px solid rgba(0, 255, 128, 0.21) !important; }
+  border: 1px solid rgba(255, 255, 255, 0.3) !important; }
 #mission-vehicle ul.deck > li:after {
   position: absolute;
   top: 0;

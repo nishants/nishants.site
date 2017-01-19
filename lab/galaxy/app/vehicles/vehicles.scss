@@ -4,7 +4,7 @@ $vehicle_height: 140px;
     > li.none, > li.no-range {
       position: relative;
       pointer-events: none;
-      border: 1px solid $theme_green_disabled !important;
+      border: 1px solid $white_light !important;
     }
     > li:after{
       position: absolute;
