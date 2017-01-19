@@ -2510,7 +2510,8 @@ ul.deck {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+  background: black; }
   #background .star-world {
     min-width: 100%;
     min-height: 100%;
@@ -2525,6 +2526,10 @@ ul.deck {
   margin: 20px auto;
   max-width: 500px; }
   #home #help-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 20px;
     text-align: right;
     font-size: 30px; }
     #home #help-button > .fa {
@@ -2781,7 +2786,7 @@ ul.deck {
 
 .appear-from-bottom {
   animation: fromBottom 150ms;
-  animation-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1); }
+  animation-timing-function: ease; }
 
 @keyframes fromBottom {
   0% {
