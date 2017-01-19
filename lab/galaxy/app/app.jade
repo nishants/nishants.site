@@ -5,7 +5,7 @@
   #main-content
     #intro.modal-window(ng-class='{"show" : !ui.skipIntro}')
       .content
-        include intro/intro
+        include help/intro
     #home(ng-controller='missionsController')
       #help-button
         span.fa.fa-question-circle(ng-click='ui.skipIntro = false')

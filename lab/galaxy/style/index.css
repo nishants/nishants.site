@@ -2468,6 +2468,7 @@ ul.deck {
   position: relative; }
 
 #intro .content {
+  padding: 10px;
   border: 1px solid; }
   #intro .content .message {
     text-align: left; }
