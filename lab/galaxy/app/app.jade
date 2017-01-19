@@ -7,6 +7,8 @@
       .content
         include intro/intro
     #home(ng-controller='missionsController')
+      #help-button
+        span.fa.fa-question-circle(ng-click='ui.skipIntro = false')
       #mission-action
         button.create-mission(ng-click='createMission()', ng-bind='help.message(missions)')
       .game-progress(class="{{progress.state}}")

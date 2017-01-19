@@ -77,8 +77,9 @@ button{
       @extend .resize-container;
       padding-bottom : $padding;
       .close-modal{
-        font-size: 30px;
         float: right;
+        padding: $padding;
+        border: 1px solid $theme_green_disabled;
       }
     }
   }
