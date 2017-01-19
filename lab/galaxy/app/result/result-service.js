@@ -7,8 +7,10 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
         };
       },
       service = {
+        loading : false,
         outcome : null,
         reset : function(){
+          service.loading = false;
           service.outcome = null;
         },
         submit : function (missionList) {
@@ -18,13 +20,14 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
                 planet_names  : missionList.map(planetNames),
                 vehicle_names : missionList.map(vehicleNames)
               };
-
+          service.loading = true;
           return $http.post(remote + "/find", request, requestConfig).then(function (response) {
             service.outcome = {
               planet_name  : response.data.planet_name,
               status       : response.data.status != "false",
               vehicle_name : response.data.planet_name ? missionList.find(vehicleFor(response.data.planet_name)).vehicle.name : null,
             };
+            service.loading = false;
           });
         }
       };

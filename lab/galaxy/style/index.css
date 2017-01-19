@@ -2476,16 +2476,25 @@ ul.deck {
     margin-top: 20px; }
     #game-result .content .restart button {
       padding: 10px 50px; }
-
-#game-result.won {
-  padding: 20px; }
-  #game-result.won .content .lost.message {
+  #game-result .content .loader {
+    padding: 20px;
+    font-size: large; }
+  #game-result .content .message.lost {
     display: none; }
 
-#game-result:not(.won) {
-  padding: 20px; }
-  #game-result:not(.won) .content .won.message {
-    display: none; }
+#game-result.loading .content .lost.message {
+  display: none; }
+#game-result.loading .content .restart {
+  display: none; }
+
+#game-result:not(.loading) .content .loader {
+  display: none; }
+
+#game-result:not(.won) .content .won.message {
+  display: none; }
+
+#game-result:not(.loading):not(.won) .content .lost.message {
+  display: block; }
 
 #intro .content {
   padding: 20px;

@@ -13,22 +13,48 @@
         padding: $padding $padding*5;
       }
     }
-  }
-}
-
-#game-result.won{
-  padding: $padding*2;
-  .content{
-    .lost.message{
+    .loader{
+      padding: $padding*2;
+      font-size: large;
+    }
+    .message.lost{
       display: none;
     }
   }
 }
+
+#game-result.loading{
+  .content{
+    .lost.message{
+      display: none;
+    }
+    .restart{
+      display: none;
+    }
+  }
+}
+
+#game-result:not(.loading){
+  .content{
+    .loader{
+      display: none;
+    }
+  }
+}
+
 #game-result:not(.won){
-  padding: $padding*2;
   .content{
     .won.message{
       display: none;
     }
   }
 }
+
+#game-result:not(.loading):not(.won){
+  .content{
+    .lost.message{
+      display: block;
+    }
+  }
+}
+
