@@ -11,6 +11,8 @@
     ul.panes
       li#mission-planet
         ul.deck
+          li.loader(ng-show='!planets.list.length')
+            div.fa.fa-circle-o-notch.fa-spin
           li(ng-repeat='planet in planets.list', ng-click='wizard.setPlanet(planet)',ng-class='{"assigned" : planet.assigned}')
             include ../planets/planet
 
