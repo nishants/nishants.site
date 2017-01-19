@@ -1,0 +1,34 @@
+#game-result{
+  .content{
+    padding: $padding*2;
+    border: 1p solid $theme_green_disabled;
+    .message{
+      h1{
+        margin: 0px;
+      }
+    }
+    .restart{
+      margin-top: $padding*2;
+      button{
+        padding: $padding $padding*5;
+      }
+    }
+  }
+}
+
+#game-result.won{
+  padding: $padding*2;
+  .content{
+    .lost.message{
+      display: none;
+    }
+  }
+}
+#game-result:not(.won){
+  padding: $padding*2;
+  .content{
+    .won.message{
+      display: none;
+    }
+  }
+}

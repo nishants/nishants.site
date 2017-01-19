@@ -10,9 +10,12 @@
       #help-button
         span.fa.fa-question-circle(ng-click='ui.skipIntro = false')
       #mission-action
-        button.create-mission(ng-click='createMission()', ng-bind='help.message(missions)')
+        button.create-mission(ng-show="missions.remaining()"  ng-click='createMission()', ng-bind='help.message(missions)')
+        button.send-missions(ng-hide="missions.remaining()"   ng-click='sendMissions()') Send Mission
       .game-progress(class="{{progress.state}}")
       #missions-selected
         include missions/missions
     #mission-wizard.modal-window(ng-controller='wizardController', ng-class='{"show" : wizard.showWizard}')
       include mission-wizard/mission-wizard
+    #game-result.modal-window(ng-controller="resultController", ng-class='{"show" : result.outcome, "won": result.outcome.status}') 
+      include result/result

@@ -2467,8 +2467,28 @@ ul.deck {
 #main-content {
   position: relative; }
 
+#game-result .content {
+  padding: 20px;
+  border: 1p solid rgba(0, 255, 128, 0.3); }
+  #game-result .content .message h1 {
+    margin: 0px; }
+  #game-result .content .restart {
+    margin-top: 20px; }
+    #game-result .content .restart button {
+      padding: 10px 50px; }
+
+#game-result.won {
+  padding: 20px; }
+  #game-result.won .content .lost.message {
+    display: none; }
+
+#game-result:not(.won) {
+  padding: 20px; }
+  #game-result:not(.won) .content .won.message {
+    display: none; }
+
 #intro .content {
-  padding: 10px;
+  padding: 20px;
   border: 1px solid; }
   #intro .content .message {
     text-align: left; }
@@ -2505,7 +2525,7 @@ ul.deck {
     width: 100%;
     margin-top: 50px;
     padding: 0px 50px; }
-    #home #mission-action button.create-mission {
+    #home #mission-action > button {
       width: 100%;
       opacity: 0.95; }
 
