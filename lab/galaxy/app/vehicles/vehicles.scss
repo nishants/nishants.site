@@ -1,7 +1,7 @@
 $vehicle_height: 140px;
 #mission-vehicle{
   ul.deck{
-    > li.none, > li.no-range {
+    > li.none-left, > li.no-range {
       position: relative;
       pointer-events: none;
       border: 1px solid $white_light !important;
@@ -17,19 +17,20 @@ $vehicle_height: 140px;
       background: rgba(0, 0, 0, 0.8);
       opacity: 0;
       content: " ";
+      pointer-events: none;
       @include transition(all $transition_time_slow $transition_function);
     }
-    >li.no-range:after{
-      content: "Out Of Range";
+
+    >li.no-range:after,> li.none-left:after{
       opacity: 1;
-      pointer-events: all;
       cursor: not-allowed;
     }
-    > li.none:after{
+
+    >li.no-range:after{
+      content: "Out Of Range";
+    }
+    > li.none-left:after{
       content: "None Left";
-      opacity: 1;
-      pointer-events: all;
-      cursor: not-allowed;
     }
   }
 }

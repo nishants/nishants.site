@@ -2609,7 +2609,7 @@ ul.deck {
 #mission-planet ul.deck > li.assigned {
   display: none; }
 
-#mission-vehicle ul.deck > li.none, #mission-vehicle ul.deck > li.no-range {
+#mission-vehicle ul.deck > li.none-left, #mission-vehicle ul.deck > li.no-range {
   position: relative;
   pointer-events: none;
   border: 1px solid rgba(255, 255, 255, 0.3) !important; }
@@ -2624,20 +2624,18 @@ ul.deck {
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;
   content: " ";
+  pointer-events: none;
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease; }
+#mission-vehicle ul.deck > li.no-range:after, #mission-vehicle ul.deck > li.none-left:after {
+  opacity: 1;
+  cursor: not-allowed; }
 #mission-vehicle ul.deck > li.no-range:after {
-  content: "Out Of Range";
-  opacity: 1;
-  pointer-events: all;
-  cursor: not-allowed; }
-#mission-vehicle ul.deck > li.none:after {
-  content: "None Left";
-  opacity: 1;
-  pointer-events: all;
-  cursor: not-allowed; }
+  content: "Out Of Range"; }
+#mission-vehicle ul.deck > li.none-left:after {
+  content: "None Left"; }
 
 #mission-wizard .wizard {
   width: 500px; }
