@@ -283,16 +283,20 @@ ul.deck {
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;
   content: " ";
-  -webkit-transition: opacity 500ms ease;
-  -moz-transition: opacity 500ms ease;
-  -o-transition: opacity 500ms ease;
-  transition: opacity 500ms ease; }
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; }
 #mission-vehicle ul.deck > li.no-range:after {
   content: "Out Of Range";
-  opacity: 1; }
+  opacity: 1;
+  pointer-events: all;
+  cursor: not-allowed; }
 #mission-vehicle ul.deck > li.none:after {
   content: "None Left";
-  opacity: 1; }
+  opacity: 1;
+  pointer-events: all;
+  cursor: not-allowed; }
 
 #mission-wizard .wizard {
   width: 500px; }
@@ -407,7 +411,7 @@ ul.deck {
   animation-timing-function: linear; }
 
 .appear-from-bottom {
-  animation: fromBottom 500ms;
+  animation: fromBottom 150ms;
   animation-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1); }
 
 @keyframes fromBottom {

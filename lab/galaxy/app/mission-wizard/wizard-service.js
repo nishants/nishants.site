@@ -1,4 +1,4 @@
-app.service("wizardService", ['missionsService', function (missionsService) {
+app.service("wizardService", ['missionsService','$timeout', 'wizardTimeout', function (missionsService, $timeout, wizardTimeout) {
   var wizard = {
     planet    : null,
     vehicle   : null,
@@ -15,7 +15,8 @@ app.service("wizardService", ['missionsService', function (missionsService) {
     },
     setVehicle: function(vehicle){
       wizard.vehicle = vehicle;
-      wizard.confirm();
+      wizard.showWizard  = false;
+      $timeout(wizard.confirm, wizardTimeout);
     },
     setPlanet: function(planet){
       wizard.planet = planet;

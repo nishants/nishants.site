@@ -1,4 +1,8 @@
 var app = angular.module("galaxy", []);
+
+// Delay before confirm action of wizard fro smoother transition.
+app.constant("wizardTimeout", 150);
+
 app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
 app.value("planetIcons", {

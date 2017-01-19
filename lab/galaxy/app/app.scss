@@ -156,7 +156,7 @@ $sky_rotation_speed : 700s;
 }
 
 .appear-from-bottom{
-  animation: fromBottom $transition_time_slow;
+  animation: fromBottom $transition_time_normal;
   animation-timing-function: $transition_function_swing;
 }
 

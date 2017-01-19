@@ -17,15 +17,19 @@ $vehicle_height: 140px;
       background: rgba(0, 0, 0, 0.8);
       opacity: 0;
       content: " ";
-      @include transition(opacity $transition_time_slow $transition_function);
+      @include transition(all $transition_time_slow $transition_function);
     }
     >li.no-range:after{
       content: "Out Of Range";
       opacity: 1;
+      pointer-events: all;
+      cursor: not-allowed;
     }
     > li.none:after{
       content: "None Left";
       opacity: 1;
+      pointer-events: all;
+      cursor: not-allowed;
     }
   }
 }
