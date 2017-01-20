@@ -1,13 +1,13 @@
-describe('vehiclesService', function () {
+describe('Vehicles', function () {
   var service,
       $q,
       $httpBackend,
       remote = "http://server.com/api/v1",
 
       vehicles = [
-        {name: "Vehicle One"},
-        {name: "Vehicle Two"},
-        {name: "Unknown Vehicle"},
+        {name: "Vehicle One", total_no :3},
+        {name: "Vehicle Two", total_no :3},
+        {name: "Unknown Vehicle", total_no :3},
       ],
       vehicleIcons = {
         "Vehicle One"  : "image/path/one.jpg",
@@ -44,6 +44,30 @@ describe('vehiclesService', function () {
     $httpBackend.flush();
     expect(service.list).toEqual(helper.likeArray(vehiclesWithIcons));
 
+  });
+
+  describe('Assign/Unassign Vehicles', function () {
+    it("planets can be assigned, and unassigned", function () {
+      service.load();
+      $httpBackend.flush();
+      var vehicle = service.list[1];
+
+      expect(vehicle.remaining).toEqual(3);
+
+      vehicle.assign()
+      expect(vehicle.remaining).toEqual(2);
+
+      vehicle.assign()
+      expect(vehicle.remaining).toEqual(1);
+
+      vehicle.assign()
+      expect(vehicle.remaining).toEqual(0);
+
+      vehicle.unassign();
+      vehicle.unassign();
+      vehicle.unassign();
+      expect(vehicle.remaining).toEqual(3);
+    });
   });
 
   afterEach(function () {
