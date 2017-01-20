@@ -1,37 +1,49 @@
 describe('vehiclesService', function () {
   var service,
+      $q,
       $httpBackend,
+      remote = "http://server.com/api/v1",
+
       vehicles = [
-        {name: "Space pod"},
-        {name: "Space ship"},
-        {name: "XXX"},
+        {name: "Vehicle One"},
+        {name: "Vehicle Two"},
+        {name: "Unknown Vehicle"},
       ],
+      vehicleIcons = {
+        "Vehicle One"  : "image/path/one.jpg",
+        "Vehicle Two"  : "image/path/two.jpg",
+        "other"        : "image/path/three.jpg"
+      },
       vehiclesWithIcons = [
-        {name: "Space pod" , icon: "images/vehicles/space-pod.jpg"},
-        {name: "Space ship", icon: "images/vehicles/spaceship.png"},
-        {name: "XXX"       , icon: "images/vehicles/other-vehicle.jpg"}
+        {name: "Vehicle One"    , icon: "image/path/one.jpg"},
+        {name: "Vehicle Two"    , icon: "image/path/two.jpg"},
+        {name: "Unknown Vehicle", icon: "image/path/three.jpg"}
       ];
 
-  beforeEach(module('galaxy'));
+  beforeEach(function() {
+    module('galaxy');
+    module(function($provide) {
+      $provide.value("remote", remote);
+      $provide.value("vehicleIcons", vehicleIcons);
+    });
 
-  beforeEach(inject(function (_vehiclesService_, $injector, remote) {
-    service = _vehiclesService_;
-    $httpBackend = $injector.get('$httpBackend');
-    $httpBackend.when('POST', remote + '/token')
-        .respond({token: "token"});
-    $httpBackend.when('GET', remote + '/vehicles')
-        .respond(vehicles);
+    inject(function (_vehiclesService_, $injector, _$q_) {
+      service       = _vehiclesService_;
+      $httpBackend  = $injector.get('$httpBackend');
+      $q = _$q_;
+    });
+
     $httpBackend.when('GET', remote + '/planets')
         .respond([]);
-
-  }));
+    $httpBackend.when('GET', remote + '/vehicles')
+        .respond(vehicles);
+  });
 
   it("Should add icons to vehicles", function () {
-
     service.load();
     $httpBackend.flush();
+    expect(service.list).toEqual(helper.likeArray(vehiclesWithIcons));
 
-    expect(service.list).toEqual(vehiclesWithIcons);
   });
 
   afterEach(function () {

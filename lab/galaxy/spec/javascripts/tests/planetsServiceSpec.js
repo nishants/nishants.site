@@ -4,19 +4,19 @@ describe('PlanetsService', function () {
       $httpBackend,
       remote = "http://server.com/api/v1",
       planets = [
-        {name: "Donlon", distance: 100},
-        {name: "Enchai", distance: 100},
-        {name: "XXX"   , distance: 100},
+        {name: "Planet One", distance: 100},
+        {name: "Planet Two", distance: 100},
+        {name: "Unknown"   , distance: 100},
       ],
       planetIcons = {
-        "Donlon"  : "images/Donlon.png",
-        "Enchai"  : "images/Enchai.jpg",
-        "other"   : "images/other-planet.png"
+        "Planet One"  : "images/path-one.png",
+        "Planet Two"  : "images/path-two.jpg",
+        "other"       : "images/path-three.png"
       },
       planetWithIcons = [
-        { name: 'Donlon', distance: 100, assigned: false, icon: 'images/Donlon.png' },
-        { name: 'Enchai', distance: 100, assigned: false, icon: 'images/Enchai.jpg' },
-        { name: 'XXX'   , distance: 100, assigned: false, icon: 'images/other-planet.png' }
+        { name: 'Planet One', distance: 100, assigned: false, icon: 'images/path-one.png' },
+        { name: 'Planet Two', distance: 100, assigned: false, icon: 'images/path-two.jpg' },
+        { name: 'Unknown'   , distance: 100, assigned: false, icon: 'images/path-three.png' }
       ];
 
   beforeEach(function() {
