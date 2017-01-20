@@ -16,6 +16,7 @@ $theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
 $white_light        : rgba(255, 255, 255, 0.3);
 $theme_green_disabled_solid : #1e6321;
+$theme_green_superlight :rgba(0, 255, 128, 0.12);
 $theme_green_disabled       : rgba(0, 255, 128, 0.3);
 
 $progress_height: 6px;
@@ -35,7 +36,7 @@ $transition_function_swing : cubic-bezier(0.64, 0.57, 0.67, 1);
 $transition_function       : ease;
 
 $wizard_min_height: 300px;
-
+$home_max_width: 500px;
 #main-content{
   position: relative;
 

@@ -3,4 +3,5 @@ ul.missions
     .planet(ng-bind='mission.planet.name')
     .vehicle(ng-bind='mission.vehicle.name')
     .overview {{mission.planet.distance}} megamiles in {{mission.planet.distance/mission.vehicle.speed}} days
-    .canel.fa.fa-remove(ng-click='missions.remove($index)')
+    .cancel
+      .fa.fa-remove(ng-click='missions.remove($index)')

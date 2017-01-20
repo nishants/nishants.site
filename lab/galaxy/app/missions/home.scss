@@ -1,15 +1,10 @@
 #missions-home{
   color:white;
   text-align: center;
-  margin: $padding*2 auto;
-  max-width: $window_width;
-  #help-button{
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: $padding*2;
+  margin: auto;
 
-    text-align: right;
+  #help-button{
+    padding: $padding;
     font-size: 30px;
     $help_size: 55px;
 
@@ -20,8 +15,9 @@
   }
   #mission-action{
     width: 100%;
-    margin-top: 5*$padding;
-    padding: 0px 5*$padding;
+    margin: $padding auto;
+    padding: 0px $padding;
+    max-width: $home_max_width;
     > button{
       width: 100%;
       opacity: 0.95;

@@ -12,7 +12,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .modal-window .content .bar:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
+.resize-container:after, .modal-window .content .bar:after, #missions-selected > ul.missions > li:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
   content: "";
   display: table;
   clear: both; }
@@ -28,7 +28,6 @@ ul.undo-list, ul.deck, #missions-selected > ul.missions, #mission-wizard .wizard
 
 body {
   margin: 0px;
-  padding: 10px;
   background: black; }
 
 #main-content {
@@ -184,41 +183,36 @@ ul.deck {
 #missions-home {
   color: white;
   text-align: center;
-  margin: 20px auto;
-  max-width: 500px; }
+  margin: auto; }
   #missions-home #help-button {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 20px;
-    text-align: right;
+    padding: 10px;
     font-size: 30px; }
     #missions-home #help-button > .fa {
       color: rgba(255, 255, 255, 0.3);
       text-align: center; }
   #missions-home #mission-action {
     width: 100%;
-    margin-top: 50px;
-    padding: 0px 50px; }
+    margin: 10px auto;
+    padding: 0px 10px;
+    max-width: 500px; }
     #missions-home #mission-action > button {
       width: 100%;
       opacity: 0.95; }
 
 #missions-selected > ul.missions {
   padding-top: 10px;
-  margin-top: 10px;
-  width: 550px;
   background: rgba(0, 0, 0, 0.6); }
   #missions-selected > ul.missions > li {
     display: block;
     margin: auto;
-    width: 100%;
     line-height: 40px;
     color: #00FF80;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    text-align: center;
+    width: 570px;
+    padding: 0px 10px; }
     #missions-selected > ul.missions > li .planet, #missions-selected > ul.missions > li .vehicle, #missions-selected > ul.missions > li .overview, #missions-selected > ul.missions > li .cancel {
-      float: left;
-      text-align: left; }
+      float: left; }
     #missions-selected > ul.missions > li .planet {
       width: 100px; }
     #missions-selected > ul.missions > li .vehicle {
@@ -250,7 +244,8 @@ ul.deck {
     -o-transform: translateY(0);
     transform: translateY(0); } }
 .game-progress {
-  width: calc(100% - 120px);
+  width: calc(100% - 40px);
+  max-width: 500px;
   margin: 10px auto;
   height: 6px;
   position: relative;

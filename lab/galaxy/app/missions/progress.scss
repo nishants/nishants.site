@@ -1,5 +1,7 @@
 .game-progress{
-  width: calc(100% - #{10*$padding + 2*$padding});
+  width: calc(100% - #{4*$padding});
+  max-width: $home_max_width;
+
   margin: $padding auto;
   height: $progress_height;
   position: relative;
