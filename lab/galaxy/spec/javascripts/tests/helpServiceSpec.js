@@ -1,4 +1,4 @@
-describe('helpService', function() {
+describe('Help', function() {
   var service,
       specs = [
         {
