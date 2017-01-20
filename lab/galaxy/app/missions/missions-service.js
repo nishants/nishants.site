@@ -20,7 +20,7 @@ app.service("missionsService", [function () {
         },
         remove: function (index) {
           var mission = missions.list[index];
-          mission.planet.reset();
+          mission.planet.unassign();
           mission.vehicle.unassign();
           missions.list.splice(index, 1);
         },

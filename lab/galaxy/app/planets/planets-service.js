@@ -8,7 +8,7 @@ app.service("planetsService", ["$http", "remote", "requestConfig", "planetIcons"
       assign: function () {
         planet.assigned = true;
       },
-      reset: function () {
+      unassign: function () {
         planet.assigned = false;
       }
     };

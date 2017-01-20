@@ -56,7 +56,7 @@ describe('Planets', function () {
       planet.assign()
       expect(planet.assigned).toEqual(true);
 
-      planet.reset()
+      planet.unassign()
       expect(planet.assigned).toEqual(false);
     });
   });
