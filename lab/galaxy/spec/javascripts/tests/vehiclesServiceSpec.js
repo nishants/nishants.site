@@ -15,9 +15,9 @@ describe('Vehicles', function () {
         "other"        : "image/path/three.jpg"
       },
       vehiclesWithIcons = [
-        {name: "Vehicle One"    , icon: "image/path/one.jpg"},
-        {name: "Vehicle Two"    , icon: "image/path/two.jpg"},
-        {name: "Unknown Vehicle", icon: "image/path/three.jpg"}
+        {name: "Vehicle One"    , icon: "image/path/one.jpg"  , total_no :3},
+        {name: "Vehicle Two"    , icon: "image/path/two.jpg"  , total_no :3},
+        {name: "Unknown Vehicle", icon: "image/path/three.jpg", total_no :3}
       ];
 
   beforeEach(function() {

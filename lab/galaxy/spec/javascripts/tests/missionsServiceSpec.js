@@ -24,7 +24,17 @@ describe('Missions', function () {
         "Planet One"  : "images/path-one.png",
         "Planet Two"  : "images/path-two.jpg",
         "other"       : "images/path-three.png"
-      };
+      },
+      planetWithIcons = [
+        { name: 'Planet One', distance: 100, assigned: false, icon: 'images/path-one.png' },
+        { name: 'Planet Two', distance: 100, assigned: false, icon: 'images/path-two.jpg' },
+        { name: 'Unknown'   , distance: 100, assigned: false, icon: 'images/path-three.png' }
+      ],
+      vehiclesWithIcons = [
+        {name: "Vehicle One"    , icon: "image/path/one.jpg"  , total_no :3},
+        {name: "Vehicle Two"    , icon: "image/path/two.jpg"  , total_no :3},
+        {name: "Unknown Vehicle", icon: "image/path/three.jpg", total_no :3}
+      ];
 
   beforeEach(function() {
     module('galaxy');
@@ -64,6 +74,30 @@ describe('Missions', function () {
     service.remove(0);
     expect(service.list).toEqual([]);
     expect(service.remaining()).toEqual(4);
+  });
+  describe('Reset Missions', function () {
+    beforeEach(function() {
+      service.add(planetsService.list[0], vehiclesService.list[0]);
+      service.add(planetsService.list[1], vehiclesService.list[1]);
+      service.add(planetsService.list[2], vehiclesService.list[2]);
+    });
+
+    it("should remove all missions", function () {
+      service.reset();
+      expect(service.list).toEqual([]);
+      expect(service.remaining()).toEqual(4);
+    });
+
+    it("should reset planets", function () {
+      service.reset();
+      expect(planetsService.list).toEqual(helper.likeArray(planetWithIcons));
+    });
+
+    it("should reset vehicles", function () {
+      service.reset();
+      expect(vehiclesService.list).toEqual(helper.likeArray(vehiclesWithIcons));
+    });
+
   });
 
   afterEach(function () {
