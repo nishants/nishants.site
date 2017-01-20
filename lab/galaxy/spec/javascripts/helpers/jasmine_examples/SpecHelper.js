@@ -13,3 +13,11 @@ beforeEach(function () {
     }
   });
 });
+
+helper = {
+  likeArray : function(arr){
+    return arr.map(function(e){
+      return jasmine.objectContaining(e);
+    });
+  }
+};

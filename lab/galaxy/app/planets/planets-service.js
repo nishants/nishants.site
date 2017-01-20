@@ -18,7 +18,7 @@ app.service("planetsService", ["$http", "remote", "requestConfig", "planetIcons"
   var planets = {
     list: [],
     load: function(){
-      $http.get(remote + "/planets", {}, requestConfig).then(function(response){
+      return $http.get(remote + "/planets", {}, requestConfig).then(function(response){
         planets.list = response.data.map(toPlanets);
       });
     }
