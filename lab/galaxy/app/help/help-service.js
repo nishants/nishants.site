@@ -1,6 +1,5 @@
 app.service("helpService", [function () {
-  var MAX_MISSIONS = 4,
-      help = {
+  var help = {
         message: function (missions, ui) {
           return help.states.find(function (state) {
             return state.select(missions, ui);
@@ -10,7 +9,7 @@ app.service("helpService", [function () {
         states: [
           {
             name: "no-missions",
-            message: function (missions) {
+            message: function () {
               return "Create a mission";
             },
             select: function (missions) {
@@ -20,20 +19,21 @@ app.service("helpService", [function () {
           {
             name: "need-more-missions",
             message: function (missions) {
-              var missionsLeft = MAX_MISSIONS - missions.list.length;
-              return "Create <count> more mission<s>".replace("<count>", missionsLeft).replace("<s>", missionsLeft > 1 ? "s" : "");
+              var remainingMissions = missions.remaining(),
+                  moreThanOne       = remainingMissions > 1;
+              return "Create <count> more mission<s>".replace("<count>", remainingMissions).replace("<s>", moreThanOne ? "s" : "");
             },
             select: function (missions) {
-              return missions.list.length > 0 && missions.list.length < MAX_MISSIONS;
+              return missions.list.length > 0 && missions.remaining() > 0;
             },
           },
           {
             name: "send-mission",
-            message: function (missions) {
+            message: function () {
               return "Send Missionaires";
             },
             select: function (missions) {
-              return (MAX_MISSIONS - missions.list.length) == 0;
+              return missions.remaining() == 0;
             },
           }
 

@@ -4,25 +4,25 @@ describe('Help', function() {
         {
           name    : "message for no missions",
           ui      : {},
-          missions: {list: []},
+          missions: {list: [], remaining(){return 2;}},
           expected: "Create a mission"
         },
         {
           name    : "need more missions",
           ui      : {},
-          missions: {list: [{},{}]},
+          missions: {list: [{}], remaining(){return 2;}},
           expected: "Create 2 more missions"
         },
         {
           name    : "need one more missions",
           ui      : {},
-          missions: {list: [{},{},{}]},
+          missions: {list: [{}], remaining(){return 1;}},
           expected: "Create 1 more mission"
         },
         {
           name    : "send missionaries",
           ui      : {},
-          missions: {list: [{},{},{},{}]},
+          missions: {list: [{}], remaining(){return 0;}},
           expected: "Send Missionaires"
         }
 
