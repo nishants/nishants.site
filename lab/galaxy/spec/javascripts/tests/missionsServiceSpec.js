@@ -25,12 +25,12 @@ describe('Missions', function () {
         "Planet Two"  : "images/path-two.jpg",
         "other"       : "images/path-three.png"
       },
-      planetWithIcons = [
+      expectedPlanetsAfterReset = [
         { name: 'Planet One', distance: 100, assigned: false, icon: 'images/path-one.png' },
         { name: 'Planet Two', distance: 100, assigned: false, icon: 'images/path-two.jpg' },
         { name: 'Unknown'   , distance: 100, assigned: false, icon: 'images/path-three.png' }
       ],
-      vehiclesWithIcons = [
+      expectedVehiclesAfterReset = [
         {name: "Vehicle One"    , icon: "image/path/one.jpg"  , total_no :3},
         {name: "Vehicle Two"    , icon: "image/path/two.jpg"  , total_no :3},
         {name: "Unknown Vehicle", icon: "image/path/three.jpg", total_no :3}
@@ -90,12 +90,12 @@ describe('Missions', function () {
 
     it("should reset planets", function () {
       service.reset();
-      expect(planetsService.list).toEqual(helper.likeArray(planetWithIcons));
+      expect(planetsService.list).toEqual(helper.likeArray(expectedPlanetsAfterReset));
     });
 
     it("should reset vehicles", function () {
       service.reset();
-      expect(vehiclesService.list).toEqual(helper.likeArray(vehiclesWithIcons));
+      expect(vehiclesService.list).toEqual(helper.likeArray(expectedVehiclesAfterReset));
     });
 
   });

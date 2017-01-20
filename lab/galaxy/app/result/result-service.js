@@ -3,7 +3,7 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
       vehicleNames = function (mission) {return mission.vehicle.name},
       vehicleFor   = function (planetName) {
         return function(mission){
-          return mission.planet.name = planetName;
+          return mission.planet.name == planetName;
         };
       },
       service = {
