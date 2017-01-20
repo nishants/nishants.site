@@ -38,107 +38,41 @@ $transition_function   : ease;
 
 $wizard_min_height: 300px;
 
-[ng-click]{
-  cursor: pointer;
-}
+
 body{
   padding: 10px;
   background: black;
-}
-button{
-  padding: $padding ;
-  color: $white;
-  font-size: large;
-  background-color: $theme_green_color;
-  border: 1px solid transparent;
-  @extend .title-text;
-}
 
-.modal-window{
-  position: fixed;
-  z-index : $modal_layer;
-  top     : 0px;
-  left    : 0px;
-  height  : 100vh;
-  width   : 100vw;
-  background: $modal_bg_color;
-  line-height: 100vh;
-  text-align: center;
-  @include transition(opacity $transition_time_normal $transition_function);
-  .content{
-    display   : inline-block;
-    line-height: $line_height;
-    color : $theme_green_text;
-    padding : $padding;
-    margin: $padding;
-    background: black;
-    border: 1px solid $theme_green_disabled;
-    .bar{
-      @extend .resize-container;
-      padding-bottom : $padding;
-      .close-modal{
-        float: right;
-        padding: $padding;
-        border: 1px solid $theme_green_disabled;
-      }
-    }
+  #main-content{
+    position: relative;
+  }
+
+  [ng-click]{
+    cursor: pointer;
+  }
+
+  button{
+    padding: $padding ;
+    color: $white;
+    font-size: large;
+    background-color: $theme_green_color;
+    border: 1px solid transparent;
+    @extend .title-text;
+  }
+
+  .thumbnail{
+    height: $thumbnail_height;
+    width: $thumbnail_width;
   }
 }
 
-.modal-window:not(.show){
-  opacity: 0;
-  pointer-events: none;
-  * { pointer-events: none !important;  }
-}
 
-.thumbnail{
-  height: $thumbnail_height;
-  width: $thumbnail_width;
-}
-
-ul.deck{
-  @extend .undo-list;
-  display: block;
-  > li {
-    display: inline-block;
-    margin : $padding;
-    .card{
-      padding: $padding;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      .name{
-        padding-top: $padding;
-      }
-      .caption{
-        font-size: small;
-        font-style: italic;
-        line-height: $line_height - $padding;
-        opacity: 0.5;
-      }
-      .icon{
-        display: block;
-        margin: auto;
-        @extend .thumbnail;
-      }
-    }
-  }
-}
-
-#background{
-  .space-station{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: block;
-  }
-}
-#main-content{
-  position: relative;
-}
-
+@import "components/modal";
+@import "components/deck";
+@import "components/background";
 @import "result/result";
-@import "help/intro";
-@import "home/home";
+@import "help/help";
+@import "missions/home";
 @import "missions/missions";
 @import "missions/progress";
 @import "planets/planets";
@@ -146,42 +80,5 @@ ul.deck{
 @import "mission-wizard/mission-wizard";
 
 @media screen and (max-width: $mobile_at) {
-  @import "home/home.mobile";
-}
-
-$sky_rotation_speed : 700s;
-@keyframes travelerSky {
-  0% {
-    @include transform(scale(1.5) rotate(0deg));
-  }
-  50% {
-    @include transform(scale(2) rotate(-360deg));
-  }
-  100% {
-    @include transform(scale(1.5) rotate(0deg));
-  }
-}
-
-.traveler-sky{
-  animation: travelerSky $sky_rotation_speed infinite;
-  animation-timing-function: linear;
-}
-
-.appear-from-bottom{
-  animation: fromBottom $transition_time_normal;
-  animation-timing-function: $transition_function;
-}
-
-@keyframes fromBottom {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    opacity: 0;
-    @include transform(translateY(100%));
-  }
-  100% {
-    opacity: 1;
-    @include transform(translateY(0));
-  }
+  @import "missions/home.mobile";
 }

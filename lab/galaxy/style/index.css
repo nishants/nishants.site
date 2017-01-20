@@ -56,22 +56,25 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
-.title-text, button, #missions-selected > ul.missions > li, #mission-wizard .wizard ul.status, #mission-wizard .wizard .window ul.panes > li {
+.title-text, body button, #missions-selected > ul.missions > li, #mission-wizard .wizard ul.status, #mission-wizard .wizard .window ul.panes > li {
   font-family: 'Aldrich', sans-serif; }
-
-[ng-click] {
-  cursor: pointer; }
 
 body {
   padding: 10px;
   background: black; }
-
-button {
-  padding: 10px;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: large;
-  background-color: #3dc743;
-  border: 1px solid transparent; }
+  body #main-content {
+    position: relative; }
+  body [ng-click] {
+    cursor: pointer; }
+  body button {
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: large;
+    background-color: #3dc743;
+    border: 1px solid transparent; }
+  body .thumbnail, body ul.deck > li .card .icon, ul.deck > li .card body .icon {
+    height: 50px;
+    width: 50px; }
 
 .modal-window {
   position: fixed;
@@ -108,10 +111,6 @@ button {
   .modal-window:not(.show) * {
     pointer-events: none !important; }
 
-.thumbnail, ul.deck > li .card .icon {
-  height: 50px;
-  width: 50px; }
-
 ul.deck {
   display: block; }
   ul.deck > li {
@@ -131,15 +130,49 @@ ul.deck {
         display: block;
         margin: auto; }
 
-#background .space-station {
-  position: absolute;
-  bottom: 0;
+#background {
+  position: fixed;
+  top: 0;
   left: 0;
+  height: 100vh;
   width: 100%;
-  display: block; }
+  background: black; }
+  #background .star-world {
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    background: url(../images/twinkle.gif) repeat fixed center center; }
+  #background .space-station {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block; }
 
-#main-content {
-  position: relative; }
+@keyframes travelerSky {
+  0% {
+    -webkit-transform: scale(1.5) rotate(0deg);
+    -moz-transform: scale(1.5) rotate(0deg);
+    -ms-transform: scale(1.5) rotate(0deg);
+    -o-transform: scale(1.5) rotate(0deg);
+    transform: scale(1.5) rotate(0deg); }
+  50% {
+    -webkit-transform: scale(2) rotate(-360deg);
+    -moz-transform: scale(2) rotate(-360deg);
+    -ms-transform: scale(2) rotate(-360deg);
+    -o-transform: scale(2) rotate(-360deg);
+    transform: scale(2) rotate(-360deg); }
+  100% {
+    -webkit-transform: scale(1.5) rotate(0deg);
+    -moz-transform: scale(1.5) rotate(0deg);
+    -ms-transform: scale(1.5) rotate(0deg);
+    -o-transform: scale(1.5) rotate(0deg);
+    transform: scale(1.5) rotate(0deg); } }
+.traveler-sky {
+  animation: travelerSky 700s infinite;
+  animation-timing-function: linear; }
 
 #game-result .content {
   padding: 20px;
@@ -170,50 +203,35 @@ ul.deck {
 #game-result:not(.loading):not(.won) .content .lost.message {
   display: block; }
 
-#intro .content {
+#help .content {
   padding: 20px;
   border: 1px solid; }
-  #intro .content .message {
+  #help .content .message {
     text-align: left; }
-  #intro .content .skip {
+  #help .content .skip {
     margin-top: 10px;
     padding: 10px 50px; }
 
-#background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background: black; }
-  #background .star-world {
-    min-width: 100%;
-    min-height: 100%;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    background: url(../images/twinkle.gif) repeat fixed center center; }
-
-#home {
+#missions-home {
   color: white;
   text-align: center;
   margin: 20px auto;
   max-width: 500px; }
-  #home #help-button {
+  #missions-home #help-button {
     position: fixed;
     top: 0;
     right: 0;
     margin: 20px;
     text-align: right;
     font-size: 30px; }
-    #home #help-button > .fa {
+    #missions-home #help-button > .fa {
       color: rgba(255, 255, 255, 0.3);
       text-align: center; }
-  #home #mission-action {
+  #missions-home #mission-action {
     width: 100%;
     margin-top: 50px;
     padding: 0px 50px; }
-    #home #mission-action > button {
+    #missions-home #mission-action > button {
       width: 100%;
       opacity: 0.95; }
 
@@ -241,6 +259,27 @@ ul.deck {
     #missions-selected > ul.missions > li .cancel {
       width: 50px; }
 
+.appear-from-bottom, #missions-selected > ul.missions > li {
+  animation: fromBottom 150ms;
+  animation-timing-function: ease; }
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0; }
+  1% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
 .game-progress {
   width: calc(100% - 120px);
   margin: 10px auto;
@@ -434,50 +473,5 @@ ul.deck {
 
 .modal-window:not(.show) #mission-wizard {
   opacity: 0; }
-
-@keyframes travelerSky {
-  0% {
-    -webkit-transform: scale(1.5) rotate(0deg);
-    -moz-transform: scale(1.5) rotate(0deg);
-    -ms-transform: scale(1.5) rotate(0deg);
-    -o-transform: scale(1.5) rotate(0deg);
-    transform: scale(1.5) rotate(0deg); }
-  50% {
-    -webkit-transform: scale(2) rotate(-360deg);
-    -moz-transform: scale(2) rotate(-360deg);
-    -ms-transform: scale(2) rotate(-360deg);
-    -o-transform: scale(2) rotate(-360deg);
-    transform: scale(2) rotate(-360deg); }
-  100% {
-    -webkit-transform: scale(1.5) rotate(0deg);
-    -moz-transform: scale(1.5) rotate(0deg);
-    -ms-transform: scale(1.5) rotate(0deg);
-    -o-transform: scale(1.5) rotate(0deg);
-    transform: scale(1.5) rotate(0deg); } }
-.traveler-sky {
-  animation: travelerSky 700s infinite;
-  animation-timing-function: linear; }
-
-.appear-from-bottom {
-  animation: fromBottom 150ms;
-  animation-timing-function: ease; }
-
-@keyframes fromBottom {
-  0% {
-    opacity: 0; }
-  1% {
-    opacity: 0;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    transform: translateY(100%); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); } }
 
 /*# sourceMappingURL=index.css.map */

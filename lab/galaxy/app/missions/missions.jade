@@ -1,5 +1,5 @@
 ul.missions
-  li.appear-from-bottom(ng-repeat='mission in missions.list')
+  li(ng-repeat='mission in missions.list')
     .planet(ng-bind='mission.planet.name')
     .vehicle(ng-bind='mission.vehicle.name')
     .overview {{mission.planet.distance}} megamiles in {{mission.planet.distance/mission.vehicle.speed}} days

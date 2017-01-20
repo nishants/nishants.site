@@ -1,14 +1,14 @@
-#app(ng-app='galaxy')
+#app(ng-app='galaxy', ng-init='ui.showHelp = true')
   #background
     .star-world.traveler-sky
     img.space-station(src='images/space-center.png')
   #main-content
-    #intro.modal-window(ng-class='{"show" : !ui.skipIntro}')
+    #help.modal-window(ng-class='{"show" : ui.showHelp}')
       .content
-        include help/intro
-    #home(ng-controller='missionsController')
+        include help/help
+    #missions-home(ng-controller='missionsController')
       #help-button
-        span.fa.fa-question-circle(ng-click='ui.skipIntro = false')
+        span.fa.fa-question-circle(ng-click='ui.showHelp = true')
       #mission-action
         button.create-mission(ng-show="missions.remaining()"  ng-click='createMission()', ng-bind='help.message(missions)')
         button.send-missions(ng-hide="missions.remaining()"   ng-click='sendMissions()') Send Mission
