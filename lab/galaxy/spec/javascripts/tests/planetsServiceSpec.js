@@ -1,4 +1,4 @@
-describe('PlanetsService', function () {
+describe('Planets', function () {
   var service,
       $q,
       $httpBackend,
@@ -43,6 +43,22 @@ describe('PlanetsService', function () {
     $httpBackend.flush();
     expect(service.list).toEqual(helper.likeArray(planetWithIcons));
 
+  });
+
+  describe('Assign/Unassign Planets', function () {
+    it("planets can be assigned, and unassigned", function () {
+      service.load();
+      $httpBackend.flush();
+      var planet = service.list[1];
+
+      expect(planet.assigned).toEqual(false);
+
+      planet.assign()
+      expect(planet.assigned).toEqual(true);
+
+      planet.reset()
+      expect(planet.assigned).toEqual(false);
+    });
   });
 
   afterEach(function () {
