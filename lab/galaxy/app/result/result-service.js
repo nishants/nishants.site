@@ -14,20 +14,23 @@ app.service("resultService", ["tokenService", "$http", "remote", "requestConfig"
           service.outcome = null;
         },
         submit : function (missionList) {
-          var token   = tokenService.get(),
-              request = {
-                token         : token,
-                planet_names  : missionList.map(planetNames),
-                vehicle_names : missionList.map(vehicleNames)
-              };
           service.loading = true;
-          return $http.post(remote + "/find", request, requestConfig).then(function (response) {
-            service.outcome = {
-              planet_name  : response.data.planet_name,
-              status       : response.data.status != "false",
-              vehicle_name : response.data.planet_name ? missionList.find(vehicleFor(response.data.planet_name)).vehicle.name : null,
-            };
-            service.loading = false;
+          return $http.post(remote + "/token", {}, requestConfig).then(function(response){
+            var token   = response.data.token,
+                request = {
+                  token         : token,
+                  planet_names  : missionList.map(planetNames),
+                  vehicle_names : missionList.map(vehicleNames)
+                };
+            return $http.post(remote + "/find", request, requestConfig).then(function (response) {
+              service.outcome = {
+                planet_name  : response.data.planet_name,
+                status       : response.data.status != "false",
+                vehicle_name : response.data.planet_name ? missionList.find(vehicleFor(response.data.planet_name)).vehicle.name : null,
+              };
+              service.loading = false;
+            });
+
           });
         }
       };

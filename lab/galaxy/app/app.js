@@ -23,10 +23,7 @@ app.value("vehicleIcons", {
   "other"         : "images/vehicles/other-vehicle.jpg"
 });
 
-app.run(["remote", "$http", "tokenService", "requestConfig","planetsService", "vehiclesService", function(remote, $http, tokenService, requestConfig, planetsService, vehiclesService){
-  $http.post(remote + "/token", {}, requestConfig).then(function(response){
-    tokenService.set(response.data.token);
-  });
+app.run(["remote", "$http", "requestConfig","planetsService", "vehiclesService", function(remote, $http, requestConfig, planetsService, vehiclesService){
   planetsService.load();
   vehiclesService.load();
 }]);
