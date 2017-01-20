@@ -1,13 +1,18 @@
-@import "../../../style/base";
+$mobile_at      : 750px;
+$alien_font     : 'Aldrich', sans-serif;
+$background_image: url(../images/twinkle.gif);
+
+@import "base";
 @import url('https://fonts.googleapis.com/css?family=Aldrich|Orbitron');
 
-.title-text{
-  font-family: 'Aldrich', sans-serif;
+body{
+  margin    : 0px;
+  padding   : 10px;
+  background: black;
 }
 
-//body *{
-//  font-family: 'Orbitron', sans-serif;
-//  font-size: small;
-//}
-
 @import "../app/app";
+
+@media screen and (max-width: $mobile_at) {
+  @import "../app/app.mobile";
+}

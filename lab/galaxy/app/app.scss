@@ -1,4 +1,3 @@
-$mobile_at      : 750px;
 $padding        : 10px;
 $modal_bg_color : rgba(0, 0, 0, 0.5);
 $line_height    : 25px;
@@ -8,17 +7,16 @@ $wizard_width   : $window_width;
 $station_color  : #316487;
 
 $white          : rgba(255, 255, 255, 0.95);
-$bottom_bar_color: $station_color;
 $bar_height     : 60px;
+$bottom_bar_color: $station_color;
 
-$background_image: url(../images/twinkle.gif);
 
 $theme_green_color  : #3dc743;
 $theme_green_border : rgba(61, 199, 67, 0.3);
 $theme_green_text   : #00FF80;
-$theme_green_disabled   : rgba(0, 255, 128, 0.3);
-$theme_green_disabled_solid   : #1e6321;
-$white_light : rgba(255, 255, 255, 0.3);
+$white_light        : rgba(255, 255, 255, 0.3);
+$theme_green_disabled_solid : #1e6321;
+$theme_green_disabled       : rgba(0, 255, 128, 0.3);
 
 $progress_height: 6px;
 $progress_width : $window_width;
@@ -26,46 +24,37 @@ $progress_bg    : rgba(255, 255, 255, 0.5);
 $progress_fg    : $theme_green_color;
 
 $game_progess_levels: 4;
-$thumbnail_height: 50px;
-$thumbnail_width: 50px;
+$thumbnail_height   : 50px;
+$thumbnail_width    : 50px;
 
 $transition_time_normal : 150ms;
 $transition_time_medium : 250ms;
 $transition_time_slow   : 500ms;
 
-$transition_function_swing   : cubic-bezier(0.64, 0.57, 0.67, 1);
-$transition_function   : ease;
+$transition_function_swing : cubic-bezier(0.64, 0.57, 0.67, 1);
+$transition_function       : ease;
 
 $wizard_min_height: 300px;
 
-
-body{
-  padding: 10px;
-  background: black;
-
-  #main-content{
-    position: relative;
-  }
-
-  [ng-click]{
-    cursor: pointer;
-  }
+#main-content{
+  position: relative;
 
   button{
-    padding: $padding ;
-    color: $white;
-    font-size: large;
+    padding   : $padding ;
+    color     : $white;
+    border    : 1px solid transparent;
+    font-size : large;
     background-color: $theme_green_color;
-    border: 1px solid transparent;
     @extend .title-text;
   }
-
   .thumbnail{
     height: $thumbnail_height;
-    width: $thumbnail_width;
+    width : $thumbnail_width;
+  }
+  .title-text{
+    font-family: $alien_font;
   }
 }
-
 
 @import "components/modal";
 @import "components/deck";
@@ -78,7 +67,3 @@ body{
 @import "planets/planets";
 @import "vehicles/vehicles";
 @import "mission-wizard/mission-wizard";
-
-@media screen and (max-width: $mobile_at) {
-  @import "missions/home.mobile";
-}

@@ -1,29 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich|Orbitron");
-p {
-  margin-bottom: 1em; }
-
-.heading {
-  margin-bottom: 0.618em; }
-  .heading.-large, h1 {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 30px; }
-  .heading.-medium, h2 {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 20px; }
-  .heading.-small, h3 {
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 13.33333px; }
-  .heading.-smallest {
-    font-size: 10px;
-    font-weight: bold; }
-
-body {
-  margin: 0px;
-  padding: 0px; }
-
 body * {
   box-sizing: border-box; }
 
@@ -37,44 +12,38 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, .modal-window .content .bar:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
+.resize-container:after, .modal-window .content .bar:after, #mission-wizard .wizard ul.panes:after, #mission-wizard .wizard ul.status:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list, ul.deck, #missions-selected > ul.missions, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
+ul.undo-list, ul.deck, #missions-selected > ul.missions, #mission-wizard .wizard ul.panes, #mission-wizard .wizard ul.status {
   list-style: none;
   margin: 0px;
   padding: 0px;
   display: block; }
 
-ul.inline-list {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  display: inline-block; }
-  ul.inline-list > li {
-    float: left; }
-
-.title-text, body button, #missions-selected > ul.missions > li, #mission-wizard .wizard ul.status, #mission-wizard .wizard .window ul.panes > li {
-  font-family: 'Aldrich', sans-serif; }
+[ng-click] {
+  cursor: pointer; }
 
 body {
+  margin: 0px;
   padding: 10px;
   background: black; }
-  body #main-content {
-    position: relative; }
-  body [ng-click] {
-    cursor: pointer; }
-  body button {
+
+#main-content {
+  position: relative; }
+  #main-content button {
     padding: 10px;
     color: rgba(255, 255, 255, 0.95);
+    border: 1px solid transparent;
     font-size: large;
-    background-color: #3dc743;
-    border: 1px solid transparent; }
-  body .thumbnail, body ul.deck > li .card .icon, ul.deck > li .card body .icon {
+    background-color: #3dc743; }
+  #main-content .thumbnail, #main-content ul.deck > li .card .icon, ul.deck > li .card #main-content .icon {
     height: 50px;
     width: 50px; }
+  #main-content .title-text, #main-content button, #main-content #missions-selected > ul.missions > li, #main-content #mission-wizard .wizard ul.status, #mission-wizard .wizard #main-content ul.status, #main-content #mission-wizard .wizard .window ul.panes > li, #mission-wizard .wizard .window #main-content ul.panes > li {
+    font-family: "Aldrich", sans-serif; }
 
 .modal-window {
   position: fixed;
