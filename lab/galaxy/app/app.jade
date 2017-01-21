@@ -17,5 +17,5 @@
         include missions/missions
     #mission-wizard.modal-window(ng-controller='wizardController', ng-class='{"show" : wizard.showWizard}')
       include mission-wizard/mission-wizard
-    #game-result.modal-window(ng-controller="resultController", ng-class='{"show" : result.outcome || result.loading, "won": result.outcome.status, "loading": result.loading}')
+    #game-result.modal-window(ng-controller="resultController", ng-class='{"show" : result.outcome || result.loading, "won": result.outcome.status,"lost": result.outcome || !result.outcome.status, "loading": result.loading}')
       include result/result

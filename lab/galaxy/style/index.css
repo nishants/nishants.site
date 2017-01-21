@@ -163,9 +163,10 @@ ul.deck {
   #game-result .content .message.lost {
     display: none; }
 
-#game-result.loading .content .lost.message {
-  display: none; }
 #game-result.loading .content .restart {
+  display: none; }
+
+#game-result:not(.lost) .content .message.lost {
   display: none; }
 
 #game-result:not(.loading) .content .loader {
@@ -173,9 +174,6 @@ ul.deck {
 
 #game-result:not(.won) .content .won.message {
   display: none; }
-
-#game-result:not(.loading):not(.won) .content .lost.message {
-  display: block; }
 
 #help .content {
   padding: 20px;
