@@ -39,6 +39,7 @@ $wizard_min_height: 300px;
 $home_max_width: 500px;
 #main-content{
   position: relative;
+  overflow: hidden;
 
   button{
     padding   : $padding ;
@@ -46,6 +47,8 @@ $home_max_width: 500px;
     border    : 1px solid transparent;
     font-size : large;
     background-color: $theme_green_color;
+    @include transition(all $transition_time_normal $transition_function);
+
     @extend .title-text;
   }
   .thumbnail{

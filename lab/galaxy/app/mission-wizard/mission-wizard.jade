@@ -4,10 +4,12 @@
   ul.status
     li.planet(ng-click='wizard.showVehicle(false)')
       .bg
-      label 1. Select Planet
+      label.no-mobile 1. Select Planet
+      label.mobile-only 1. Planet
     li.vehicle
       .bg
-      label 2. Select Vehicle
+      label.no-mobile 2. Select Vehicle
+      label.mobile-only 2. Vehicle
 
   .window
     ul.panes

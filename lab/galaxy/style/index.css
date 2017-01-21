@@ -31,13 +31,18 @@ body {
   background: black; }
 
 #main-content {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   #main-content button {
     padding: 10px;
     color: rgba(255, 255, 255, 0.95);
     border: 1px solid transparent;
     font-size: large;
-    background-color: #3dc743; }
+    background-color: #3dc743;
+    -webkit-transition: all 150ms ease;
+    -moz-transition: all 150ms ease;
+    -o-transition: all 150ms ease;
+    transition: all 150ms ease; }
   #main-content .thumbnail, #main-content ul.deck > li .card .icon, ul.deck > li .card #main-content .icon {
     height: 50px;
     width: 50px; }
@@ -51,6 +56,8 @@ body {
   left: 0px;
   height: 100vh;
   width: 100vw;
+  padding: 10px;
+  overflow: auto;
   background: rgba(0, 0, 0, 0.5);
   line-height: 100vh;
   text-align: center;
@@ -63,7 +70,6 @@ body {
     line-height: 25px;
     color: #00FF80;
     padding: 10px;
-    margin: 10px;
     background: black;
     border: 1px solid rgba(0, 255, 128, 0.3); }
     .modal-window .content .bar {
@@ -350,7 +356,8 @@ ul.deck {
   content: "None Left"; }
 
 #mission-wizard .wizard {
-  width: 500px; }
+  max-width: 500px;
+  margin: auto; }
   #mission-wizard .wizard ul.panes > li, #mission-wizard .wizard ul.status > li {
     float: left; }
   #mission-wizard .wizard ul.status {
@@ -400,7 +407,7 @@ ul.deck {
       -o-transform: translateX(-100%);
       transform: translateX(-100%); }
   #mission-wizard .wizard .window {
-    width: 100%;
+    max-width: 100%;
     overflow: hidden; }
     #mission-wizard .wizard .window ul.panes {
       width: 200%;
@@ -411,7 +418,8 @@ ul.deck {
       transition: transform 500ms ease; }
       #mission-wizard .wizard .window ul.panes > li {
         width: 50%;
-        height: 100%;
+        max-height: 100%;
+        overflow: auto;
         text-align: center; }
         #mission-wizard .wizard .window ul.panes > li ul.deck {
           min-height: 300px; }
@@ -437,5 +445,12 @@ ul.deck {
 
 .modal-window:not(.show) #mission-wizard {
   opacity: 0; }
+
+@media screen and (max-width: 750px) {
+  .no-mobile {
+    display: none; } }
+@media screen and (min-width: 750px) {
+  .mobile-only {
+    display: none; } }
 
 /*# sourceMappingURL=index.css.map */

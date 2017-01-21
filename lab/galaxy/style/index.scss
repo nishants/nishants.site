@@ -14,4 +14,14 @@ body{
 
 @media screen and (max-width: $mobile_at) {
   @import "../app/app.mobile";
+  .no-mobile{
+    display: none;
+  }
+}
+
+@media screen and (min-width: $mobile_at) {
+  @import "../app/app.mobile";
+  .mobile-only{
+    display: none;
+  }
 }

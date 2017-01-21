@@ -1,7 +1,7 @@
 #mission-wizard{
   .wizard{
-    width: $wizard_width;
-
+    max-width: $home_max_width;
+    margin: auto;
     ul.panes, ul.status{
       @extend .undo-list;
       @extend .resize-container;
@@ -57,7 +57,7 @@
       }
     }
     .window{
-      width   : 100%;
+      max-width   : 100%;
       overflow: hidden;
 
       ul.panes{
@@ -67,7 +67,8 @@
 
         > li {
           width: 50%;
-          height: 100%;
+          max-height: 100%;
+          overflow: auto;
           text-align: center;
           @extend .title-text;
 
