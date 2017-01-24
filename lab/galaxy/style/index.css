@@ -445,32 +445,26 @@ ul.deck {
   opacity: 0; }
 
 @media screen and (max-width: 750px) {
-  #mission-wizard {
-    overflow: hidden; }
-    #mission-wizard .wizard {
-      max-width: 500px;
-      margin: auto;
-      max-height: 100%; }
-      #mission-wizard .wizard .bar, #mission-wizard .wizard .status {
-        height: 48px; }
-      #mission-wizard .wizard .window {
-        height: calc(100% - 2*48px);
-        overflow: auto; }
+  #mission-planet ul.deck {
+    width: 300px;
+    margin: auto; }
+    #mission-planet ul.deck > li {
+      float: left;
+      height: 125px;
+      width: 125px;
+      overflow: hidden; }
 
   .no-mobile {
     display: none; } }
 @media screen and (min-width: 750px) {
-  #mission-wizard {
-    overflow: hidden; }
-    #mission-wizard .wizard {
-      max-width: 500px;
-      margin: auto;
-      max-height: 100%; }
-      #mission-wizard .wizard .bar, #mission-wizard .wizard .status {
-        height: 48px; }
-      #mission-wizard .wizard .window {
-        height: calc(100% - 2*48px);
-        overflow: auto; }
+  #mission-planet ul.deck {
+    width: 300px;
+    margin: auto; }
+    #mission-planet ul.deck > li {
+      float: left;
+      height: 125px;
+      width: 125px;
+      overflow: hidden; }
 
   .mobile-only {
     display: none; } }
