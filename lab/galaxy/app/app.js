@@ -7,11 +7,11 @@ app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
 app.value("planetIcons", {
   "Donlon"  : "images/planets/Donlon.png",
-  "Enchai"  : "images/planets/Enchai.jpg",
-  "Jebing"  : "images/planets/Jebing.jpeg",
+  "Enchai"  : "images/planets/Enchai.ico",
+  "Jebing"  : "images/planets/Jebing.png",
   "Sapir"   : "images/planets/Sapir.png",
   "Lerbin"  : "images/planets/Lerbin.jpg",
-  "Pingasor": "images/planets/Pingasor.jpeg",
+  "Pingasor": "images/planets/Pingasor.ico",
   "other"   : "images/planets/other-planet.png"
 });
 
