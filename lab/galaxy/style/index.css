@@ -160,8 +160,6 @@ ul.deck {
   #game-result .content .loader {
     padding: 20px;
     font-size: large; }
-  #game-result .content .message.lost {
-    display: none; }
 
 #game-result.loading .content .restart {
   display: none; }
