@@ -31,11 +31,12 @@ describe('Planets', function () {
       $httpBackend  = $injector.get('$httpBackend');
       $q = _$q_;
     });
+    helper.initializeWith({
+      planets : planets,
+      vehicles: [],
+      remote  : remote
+    },$httpBackend);
 
-    $httpBackend.when('GET', remote + '/planets')
-        .respond(planets);
-    $httpBackend.when('GET', remote + '/vehicles')
-        .respond([]);
   });
 
   it("Should add icons to planets", function () {

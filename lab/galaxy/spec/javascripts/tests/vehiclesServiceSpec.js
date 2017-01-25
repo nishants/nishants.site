@@ -33,10 +33,11 @@ describe('Vehicles', function () {
       $q = _$q_;
     });
 
-    $httpBackend.when('GET', remote + '/planets')
-        .respond([]);
-    $httpBackend.when('GET', remote + '/vehicles')
-        .respond(vehicles);
+    helper.initializeWith({
+      planets : [],
+      vehicles: vehicles,
+      remote  : remote,
+    },$httpBackend);
   });
 
   it("Should add icons to vehicles", function () {

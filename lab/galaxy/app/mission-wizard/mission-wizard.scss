@@ -114,8 +114,7 @@
   }
 }
 
-.modal-window:not(.show){
-  #mission-wizard{
+#mission-wizard:not(.show){
     opacity: 0;
-  }
+  @include transition(none);
 }

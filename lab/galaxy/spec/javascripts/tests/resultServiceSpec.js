@@ -26,21 +26,21 @@ describe('Results', function () {
       $httpBackend  = $injector.get('$httpBackend');
     });
 
-    $httpBackend.when('GET', remote + '/planets')
-        .respond([]);
-    $httpBackend.when('GET', remote + '/vehicles')
-        .respond([]);
+    helper.initializeWith({
+      planets  : [],
+      vehicles : [],
+      remote   : remote,
+    },$httpBackend);
+
     $httpBackend.when('POST', remote + '/token', {})
         .respond(tokenResponse);
   });
 
   it("Should have no outcome initially", function () {
-    $httpBackend.flush();
     expect(service.outcome).toBeNull();
   });
 
   it("Should have outcome status as false if game is user lost", function (done) {
-    $httpBackend.flush();
     $httpBackend.when('POST', remote + '/find', expectedRequest)
         .respond(failureResponse);
 
@@ -49,11 +49,14 @@ describe('Results', function () {
     $httpBackend.flush();
     expect(service.outcome).toBeDefined();
     expect(service.outcome.status).toBeFalsy();
+
+    service.reset();
+    expect(service.outcome).toBeNull();
+
     done();
   });
 
   it("Should have outcome status as true if game is user won", function (done) {
-    $httpBackend.flush();
     $httpBackend.when('POST', remote + '/find', expectedRequest)
         .respond(successResponse);
 
@@ -64,6 +67,9 @@ describe('Results', function () {
     expect(service.outcome.status).toBeTruthy();
     expect(service.outcome.planet_name).toEqual("Mars");
     expect(service.outcome.vehicle_name).toEqual("Dragon");
+    service.reset();
+    expect(service.outcome).toBeNull();
+
     done();
   });
 

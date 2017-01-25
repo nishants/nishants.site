@@ -439,8 +439,12 @@ ul.deck {
   -o-transform: translateX(-50%);
   transform: translateX(-50%); }
 
-.modal-window:not(.show) #mission-wizard {
-  opacity: 0; }
+#mission-wizard:not(.show) {
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none; }
 
 @media screen and (max-width: 750px) {
   #mission-planet ul.deck {

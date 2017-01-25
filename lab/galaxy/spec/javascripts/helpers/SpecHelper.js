@@ -19,5 +19,13 @@ helper = {
     return arr.map(function(e){
       return jasmine.objectContaining(e);
     });
+  },
+
+  initializeWith: function(params, $httpBackend){
+    $httpBackend.when('GET', params.remote + '/planets')
+        .respond(params.planets);
+    $httpBackend.when('GET', params.remote + '/vehicles')
+        .respond(params.vehicles);
+    $httpBackend.flush();
   }
 };

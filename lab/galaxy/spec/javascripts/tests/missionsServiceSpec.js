@@ -49,15 +49,15 @@ describe('Missions', function () {
       vehiclesService = _vehiclesService_;
       PlanetsService  =_PlanetsService_;
 
-          $httpBackend  = $injector.get('$httpBackend');
+      $httpBackend  = $injector.get('$httpBackend');
       $q = _$q_;
     });
 
-    $httpBackend.when('GET', remote + '/planets')
-        .respond(planets);
-    $httpBackend.when('GET', remote + '/vehicles')
-        .respond(vehicles);
-    $httpBackend.flush();
+    helper.initializeWith({
+      planets : planets,
+      vehicles: vehicles,
+      remote  : remote,
+    },$httpBackend);
   });
 
   it("missions should be empty at start", function () {
