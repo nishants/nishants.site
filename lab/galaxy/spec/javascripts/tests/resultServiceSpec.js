@@ -21,8 +21,8 @@ describe('Results', function () {
       $provide.value("remote", remote);
     });
 
-    inject(function (_resultService_, $injector) {
-      service       = _resultService_;
+    inject(function (_ResultService_, $injector) {
+      service       = _ResultService_;
       $httpBackend  = $injector.get('$httpBackend');
     });
 

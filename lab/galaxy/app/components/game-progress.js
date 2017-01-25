@@ -1,4 +1,4 @@
-app.directive("gameProgress", ["missionsService", function(missionsService){
+app.directive("gameProgress", ["MissionsService", function(MissionsService){
 
   var states = {
     4: "zero",
@@ -13,10 +13,10 @@ app.directive("gameProgress", ["missionsService", function(missionsService){
     scope   : true,
     link : function(scope, element, attrs){
 
-      scope.progress = {state: states[missionsService.remaining()]};
+      scope.progress = {state: states[MissionsService.remaining()]};
 
       scope.$watch(function(){
-        return missionsService.remaining();
+        return MissionsService.remaining();
       }, function(value){
         scope.progress.state = states[value];
       });

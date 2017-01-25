@@ -26,8 +26,8 @@ describe('Planets', function () {
       $provide.value("planetIcons", planetIcons);
     });
 
-    inject(function (_planetsService_, $injector, _$q_) {
-      service       = _planetsService_;
+    inject(function (_PlanetsService_, $injector, _$q_) {
+      service       = _PlanetsService_;
       $httpBackend  = $injector.get('$httpBackend');
       $q = _$q_;
     });

@@ -6,7 +6,7 @@
     #help.modal-window(ng-class='{"show" : ui.showHelp}')
       .content
         include help/help
-    #missions-home(ng-controller='missionsController')
+    #missions-home(ng-controller='MissionsController')
       #help-button
         span.fa.fa-question-circle(ng-click='ui.showHelp = true')
       #mission-action
@@ -15,7 +15,7 @@
       .game-progress(class="{{progress.state}}")
       #missions-selected
         include missions/missions
-    #mission-wizard.modal-window(ng-controller='wizardController', ng-class='{"show" : wizard.showWizard}')
+    #mission-wizard.modal-window(ng-controller='WizardController', ng-class='{"show" : wizard.showWizard}')
       include mission-wizard/mission-wizard
-    #game-result.modal-window(ng-controller="resultController", ng-class='{"show" : result.outcome || result.loading, "won": result.outcome.status,"lost": result.outcome && !result.outcome.status, "loading": result.loading}')
+    #game-result.modal-window(ng-controller="ResultController", ng-class='{"show" : result.outcome || result.loading, "won": result.outcome.status,"lost": result.outcome && !result.outcome.status, "loading": result.loading}')
       include result/result

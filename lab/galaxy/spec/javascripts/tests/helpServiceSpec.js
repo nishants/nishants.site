@@ -30,8 +30,8 @@ describe('Help', function() {
 
   beforeEach(module('galaxy'));
 
-  beforeEach(inject(function (_helpService_) {
-    service = _helpService_;
+  beforeEach(inject(function (_HelpService_) {
+    service = _HelpService_;
   }));
 
   specs.forEach(function (spec) {

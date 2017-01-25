@@ -1,4 +1,4 @@
-app.service("resultService", ["$http", "remote", "requestConfig", function ($http, remote, requestConfig) {
+app.service("ResultService", ["$http", "remote", "requestConfig", function ($http, remote, requestConfig) {
   var planetNames = function (mission) {return mission.planet.name},
       vehicleNames = function (mission) {return mission.vehicle.name},
       vehicleFor   = function (planetName) {

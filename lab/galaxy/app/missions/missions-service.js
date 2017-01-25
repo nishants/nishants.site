@@ -1,4 +1,4 @@
-app.service("missionsService", [function () {
+app.service("MissionsService", [function () {
   var
       MAX_MISSIONS = 4,
       missions = {

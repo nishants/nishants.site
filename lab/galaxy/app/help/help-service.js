@@ -1,4 +1,4 @@
-app.service("helpService", [function () {
+app.service("HelpService", [function () {
   var help = {
         message: function (missions, ui) {
           return help.states.find(function (state) {

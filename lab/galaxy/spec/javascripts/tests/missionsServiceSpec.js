@@ -4,7 +4,7 @@ describe('Missions', function () {
       $httpBackend,
       remote = "http://server.com/api/v1",
       vehiclesService,
-      planetsService,
+      PlanetsService,
       vehicles = [
         {name: "Vehicle One", total_no :3},
         {name: "Vehicle Two", total_no :3},
@@ -44,10 +44,10 @@ describe('Missions', function () {
       $provide.value("planetIcons", planetIcons);
     });
 
-    inject(function (_missionsService_,_planetsService_,_vehiclesService_, $injector, _$q_) {
-      service         = _missionsService_;
+    inject(function (_MissionsService_,_PlanetsService_,_vehiclesService_, $injector, _$q_) {
+      service         = _MissionsService_;
       vehiclesService = _vehiclesService_;
-      planetsService  =_planetsService_;
+      PlanetsService  =_PlanetsService_;
 
           $httpBackend  = $injector.get('$httpBackend');
       $q = _$q_;
@@ -65,7 +65,7 @@ describe('Missions', function () {
   });
 
   it("can add/remove more mission", function () {
-    var planet  = planetsService.list[0],
+    var planet  = PlanetsService.list[0],
         vehicle = vehiclesService.list[0];
 
     service.add(planet, vehicle);
@@ -77,9 +77,9 @@ describe('Missions', function () {
   });
   describe('Reset Missions', function () {
     beforeEach(function() {
-      service.add(planetsService.list[0], vehiclesService.list[0]);
-      service.add(planetsService.list[1], vehiclesService.list[1]);
-      service.add(planetsService.list[2], vehiclesService.list[2]);
+      service.add(PlanetsService.list[0], vehiclesService.list[0]);
+      service.add(PlanetsService.list[1], vehiclesService.list[1]);
+      service.add(PlanetsService.list[2], vehiclesService.list[2]);
     });
 
     it("should remove all missions", function () {
@@ -90,7 +90,7 @@ describe('Missions', function () {
 
     it("should reset planets", function () {
       service.reset();
-      expect(planetsService.list).toEqual(helper.likeArray(expectedPlanetList));
+      expect(PlanetsService.list).toEqual(helper.likeArray(expectedPlanetList));
     });
 
     it("should reset vehicles", function () {

@@ -1,4 +1,4 @@
-app.service("planetsService", ["$http", "remote", "requestConfig", "planetIcons", function($http, remote, requestConfig, planetIcons){
+app.service("PlanetsService", ["$http", "remote", "requestConfig", "planetIcons", function($http, remote, requestConfig, planetIcons){
   var toPlanets = function(data){
     var planet = {
       name    : data.name,

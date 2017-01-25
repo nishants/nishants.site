@@ -23,7 +23,7 @@ app.value("vehicleIcons", {
   "other"         : "images/vehicles/other-vehicle.jpg"
 });
 
-app.run(["remote", "$http", "requestConfig","planetsService", "vehiclesService", function(remote, $http, requestConfig, planetsService, vehiclesService){
-  planetsService.load();
+app.run(["remote", "$http", "requestConfig","PlanetsService", "vehiclesService", function(remote, $http, requestConfig, PlanetsService, vehiclesService){
+  PlanetsService.load();
   vehiclesService.load();
 }]);
