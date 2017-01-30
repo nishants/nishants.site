@@ -2,7 +2,23 @@
   "use strict"
 
   var app = angular.module("slate", []);
-  app.directive("slate", [function () {
+
+	app.run(["$http", "cardService", function($http, cardService){
+		$http.get("data/cards.json").then(cardService.load)
+	}]);
+
+	app.service("cardService",[function(){
+		var cards = {
+			current : -1,
+			list: [],
+			load: function (response) {
+				cards.list = response.data.cards;
+			}
+		};
+		return cards;
+	}]);
+
+  app.directive("slate", ["cardService",function (cardService) {
     var select = function (index) {
           var card = $($(".deck > li")[index]),
               offsetPadding = 10,
@@ -20,29 +36,7 @@
       scope: true,
       transclude: false,
       link: function (scope, element, attrs) {
-        scope.deck = {
-          current: -1,
-          cards: [
-            {id: 0},
-            {id: 1},
-            {id: 2},
-            {id: 3},
-            {id: 4},
-            {id: 5},
-            {id: 6},
-            {id: 7},
-            {id: 8},
-            {id: 9},
-            {id: 10},
-            {id: 11},
-            {id: 12},
-            {id: 13},
-            {id: 14},
-            {id: 15},
-            {id: 16},
-            {id: 17},
-          ]
-        };
+        scope.deck = cardService;
         scope.$watch("deck.current", function (now, previous) {
           now != -1 && select(now);
           previous != -1 && unSelect(previous);
