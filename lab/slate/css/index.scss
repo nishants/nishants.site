@@ -1,0 +1,85 @@
+@import 'config';
+
+$modalBackdrop: rgba(0,0,0,0);
+$contentTransitionDuration : $transitionDuration + 100;
+
+#slate{
+  overflow: hidden;
+  height: 100vh;
+  h1{margin: 0px auto;}
+  *{box-sizing: border-box;};
+  nav{
+    height: $navigationBarHeight;
+    background-color: black;
+    width: 100%;
+  }
+
+  .deck{
+    height: calc(100% - #{$navigationBarHeight});
+  }
+
+  .modal{
+    position: relative;
+    top: calc(-100vh + #{$navigationBarHeight});
+    height: calc(100% - #{$navigationBarHeight});
+    min-width: 100vw;
+    background-color: $modalBackdrop;
+    padding: $containerPadding;
+    pointer-events: none;
+    .content, .overview{
+      padding: $containerPadding;
+      height: 100%;
+      float: left;
+    }
+    .overview{
+      .card-space{
+        width: $cardWidth;
+        height: $cardHeight;
+      }
+      .card-actions{
+        @include transition(#{transform $transitionDuration ease});
+        width: $cardWidth;
+        height: 300px;
+        pointer-events: all;
+        padding: $containerPadding;
+        button{
+          width: 100%;
+          height: 50px;
+          background-color: rgba(0,0,0,0.075);
+          border: 1px solid rgba(0,0,0,0.05);
+        }
+      }
+    }
+    .content{
+      @include transition(#{transform $contentTransitionDuration ease, opacity $contentTransitionDuration ease});
+      width: calc(100% - #{$cardWidth + 2 * $containerPadding});
+      .frame{
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba(255, 255, 255, 1);
+        border: none;
+        pointer-events: all;
+      }
+    }
+
+  }
+}
+
+#slate:not(.show-modal){
+  .modal{
+    @include transform(scale(0));
+    @include transitionDelay($transitionDuration);
+
+    .overview{
+      .card-actions{
+        @include transform(translateY(100vh));
+      }
+    }
+    .content{
+      @include transform(translateX(100vw));
+    }
+  }
+}
+
+@import 'cards';

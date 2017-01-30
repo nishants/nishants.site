@@ -1,0 +1,52 @@
+$duration: 500ms;
+$rotate : 0deg;
+$cleanupDuration: $transitionDuration;
+$cleanupFunction: ease;
+
+ul.deck {
+  margin: 0;
+  padding: $containerPadding;
+  display: block;
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  overflow: auto;
+  > li{
+    padding: $containerPadding;
+    display: inline-block;
+    @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
+
+    .card{
+      height: $cardHeight;
+      width: $cardWidth;
+      border: 1px solid rgba(128, 128, 128, 0.14);
+      img{width: 100%;}
+    }
+
+  }
+}
+
+.deck.focus{
+  pointer-events: none;
+  li.selected{
+    pointer-events: none; //TODO : enables scroll on firefox
+  }
+
+  li.selected-head{
+    @include transform(translateY(50px) rotate($rotate));
+  }
+
+  li.selected-tail{
+    @include transform(translateY(-50px) rotate(-$rotate));
+  }
+  li.selected-pre{
+    @include transform(translateX(50px) rotate($rotate));
+  }
+
+  li.selected-post{
+    @include transform(translateX(-50px) rotate(-$rotate));
+  }
+  li:not(.selected){
+    opacity: 0;
+  }
+}

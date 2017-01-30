@@ -1,0 +1,58 @@
+$transitionDuration: 250ms;
+
+$navigationBarHeight: 60px;
+$topBarLayer: 1000;
+$containerPadding: 10px;
+
+$cardWidth: 250px;
+$cardHeight: 250px;
+
+ul.undo-list{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+input{
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  box-sizing: border-box;
+  border: none;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform:    $value;
+  -ms-transform:     $value;
+  -o-transform:      $value;
+  transform:         $value;
+}
+
+@mixin transformStyle($value) {
+  -webkit-transform-style:  $value;
+  -moz-transform-style:     $value;
+  transform-style:          $value;
+}
+
+@mixin transformOrigin($value) {
+  -webkit-transform-origin: $value;
+  -moz-transform-origin: $value;
+  transform-origin: $value;
+}
+
+@mixin transitionDelay($time){
+  -webkit-transition-delay: $time;
+  -moz-transition-delay: $time;
+  -ms-transition-delay: $time;
+  -o-transition-delay: $time;
+  transition-delay: $time;
+}
+
+@mixin transition($value){
+  -webkit-transition: $value;
+  -moz-transition:    $value;
+  -o-transition:      $value;
+  transition:         $value;
+}

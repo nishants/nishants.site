@@ -1,0 +1,9 @@
+ul.deck {
+  text-align: left; }
+  ul.deck .card {
+    margin: 10px; }
+
+.card-container {
+  transition: transform 500ms ease; }
+
+/*# sourceMappingURL=cards.css.map */

@@ -1,0 +1,147 @@
+ul.undo-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: block; }
+
+input {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  box-sizing: border-box;
+  border: none; }
+
+#slate {
+  overflow: hidden;
+  height: 100vh; }
+  #slate h1 {
+    margin: 0px auto; }
+  #slate * {
+    box-sizing: border-box; }
+  #slate nav {
+    height: 60px;
+    background-color: black;
+    width: 100%; }
+  #slate .deck {
+    height: calc(100% - 60px); }
+  #slate .modal {
+    position: relative;
+    top: calc(-100vh + 60px);
+    height: calc(100% - 60px);
+    min-width: 100vw;
+    background-color: transparent;
+    padding: 10px;
+    pointer-events: none; }
+    #slate .modal .content, #slate .modal .overview {
+      padding: 10px;
+      height: 100%;
+      float: left; }
+    #slate .modal .overview .card-space {
+      width: 250px;
+      height: 250px; }
+    #slate .modal .overview .card-actions {
+      -webkit-transition: transform 250ms ease;
+      -moz-transition: transform 250ms ease;
+      -o-transition: transform 250ms ease;
+      transition: transform 250ms ease;
+      width: 250px;
+      height: 300px;
+      pointer-events: all;
+      padding: 10px; }
+      #slate .modal .overview .card-actions button {
+        width: 100%;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.075);
+        border: 1px solid rgba(0, 0, 0, 0.05); }
+    #slate .modal .content {
+      -webkit-transition: transform 350ms ease, opacity 350ms ease;
+      -moz-transition: transform 350ms ease, opacity 350ms ease;
+      -o-transition: transform 350ms ease, opacity 350ms ease;
+      transition: transform 350ms ease, opacity 350ms ease;
+      width: calc(100% - 270px); }
+      #slate .modal .content .frame {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: white;
+        border: none;
+        pointer-events: all; }
+
+#slate:not(.show-modal) .modal {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-delay: 250ms;
+  -moz-transition-delay: 250ms;
+  -ms-transition-delay: 250ms;
+  -o-transition-delay: 250ms;
+  transition-delay: 250ms; }
+  #slate:not(.show-modal) .modal .overview .card-actions {
+    -webkit-transform: translateY(100vh);
+    -moz-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    -o-transform: translateY(100vh);
+    transform: translateY(100vh); }
+  #slate:not(.show-modal) .modal .content {
+    -webkit-transform: translateX(100vw);
+    -moz-transform: translateX(100vw);
+    -ms-transform: translateX(100vw);
+    -o-transform: translateX(100vw);
+    transform: translateX(100vw); }
+
+ul.deck {
+  margin: 0;
+  padding: 10px;
+  display: block;
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  overflow: auto; }
+  ul.deck > li {
+    padding: 10px;
+    display: inline-block;
+    -webkit-transition: opacity 250ms ease, transform 250ms ease;
+    -moz-transition: opacity 250ms ease, transform 250ms ease;
+    -o-transition: opacity 250ms ease, transform 250ms ease;
+    transition: opacity 250ms ease, transform 250ms ease; }
+    ul.deck > li .card {
+      height: 250px;
+      width: 250px;
+      border: 1px solid rgba(128, 128, 128, 0.14); }
+      ul.deck > li .card img {
+        width: 100%; }
+
+.deck.focus {
+  pointer-events: none; }
+  .deck.focus li.selected {
+    pointer-events: none; }
+  .deck.focus li.selected-head {
+    -webkit-transform: translateY(50px) rotate(0deg);
+    -moz-transform: translateY(50px) rotate(0deg);
+    -ms-transform: translateY(50px) rotate(0deg);
+    -o-transform: translateY(50px) rotate(0deg);
+    transform: translateY(50px) rotate(0deg); }
+  .deck.focus li.selected-tail {
+    -webkit-transform: translateY(-50px) rotate(0deg);
+    -moz-transform: translateY(-50px) rotate(0deg);
+    -ms-transform: translateY(-50px) rotate(0deg);
+    -o-transform: translateY(-50px) rotate(0deg);
+    transform: translateY(-50px) rotate(0deg); }
+  .deck.focus li.selected-pre {
+    -webkit-transform: translateX(50px) rotate(0deg);
+    -moz-transform: translateX(50px) rotate(0deg);
+    -ms-transform: translateX(50px) rotate(0deg);
+    -o-transform: translateX(50px) rotate(0deg);
+    transform: translateX(50px) rotate(0deg); }
+  .deck.focus li.selected-post {
+    -webkit-transform: translateX(-50px) rotate(0deg);
+    -moz-transform: translateX(-50px) rotate(0deg);
+    -ms-transform: translateX(-50px) rotate(0deg);
+    -o-transform: translateX(-50px) rotate(0deg);
+    transform: translateX(-50px) rotate(0deg); }
+  .deck.focus li:not(.selected) {
+    opacity: 0; }
+
+/*# sourceMappingURL=index.css.map */
