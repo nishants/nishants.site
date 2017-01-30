@@ -1,1 +1,5 @@
-img(ng-src="{{'images/carousel/carousel-1.jpg'}}")
+.image(ng-if='card.image')
+  img(ng-src='{{card.image}}')
+.textual(ng-if='!card.image')
+  h3.title(ng-bind='card.name')
+  p.description(ng-bind='card.description')

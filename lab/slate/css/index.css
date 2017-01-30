@@ -102,6 +102,7 @@ ul.deck {
   ul.deck > li {
     padding: 10px;
     display: inline-block;
+    float: left;
     -webkit-transition: opacity 250ms ease, transform 250ms ease;
     -moz-transition: opacity 250ms ease, transform 250ms ease;
     -o-transition: opacity 250ms ease, transform 250ms ease;
@@ -109,9 +110,16 @@ ul.deck {
     ul.deck > li .card {
       height: 250px;
       width: 250px;
+      display: block;
+      cursor: pointer;
       border: 1px solid rgba(128, 128, 128, 0.14); }
       ul.deck > li .card img {
         width: 100%; }
+      ul.deck > li .card .textual {
+        max-height: calc(100% - 2 * 10px);
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis; }
 
 .deck.focus {
   pointer-events: none; }

@@ -14,13 +14,25 @@ ul.deck {
   > li{
     padding: $containerPadding;
     display: inline-block;
+    float: left;
     @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
 
     .card{
       height: $cardHeight;
       width: $cardWidth;
+      display: block;
+      cursor: pointer;
       border: 1px solid rgba(128, 128, 128, 0.14);
       img{width: 100%;}
+      .textual {
+        max-height: calc(100% - 2 * #{$padding});
+        padding: $padding;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        .title{}
+        > .description {
+        }
+      }
     }
 
   }
