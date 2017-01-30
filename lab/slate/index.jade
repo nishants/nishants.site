@@ -9,7 +9,9 @@ html
     link(rel='stylesheet', href='css/index.css')
 
 body(ng-app='slate')
-  include slate
+  #state
+    include slate
   script(src='lib/jquery-2.1.4.min.js')
   script(src='lib/angular-1.4.3.js')
   script(src='slate.js')
+  script(src='router.js')
