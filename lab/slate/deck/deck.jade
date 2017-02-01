@@ -1,3 +1,3 @@
-li(ng-repeat="card in deck.list", ng-class="{'selected' : deck.current == $index, 'selected-head' : deck.current < $index - 1, 'selected-tail' : deck.current > $index + 1, 'selected-pre' : deck.current == $index - 1,'selected-post' : deck.current == $index + 1}")
-  a.card(ng-click="deck.current = deck.current == $index ? -1 : $index")
+li(ng-repeat="card in deck._list", ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current < $index - 1, 'selected-tail' : deck._current > $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}")
+  a.card(ng-click="deck.select($index)")
     include ../cards/card

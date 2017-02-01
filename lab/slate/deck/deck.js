@@ -1,4 +1,4 @@
-app.directive("slate", ["cardService", "modalService",function (cardService, modalService) {
+app.directive("deck", ["DeckService", "modalService",function (DeckService, modalService) {
 	var $deckItems = function(){return $(".deck > li");},
 			select = function (index) {
 				var container = $($deckItems()[index]),
@@ -16,15 +16,14 @@ app.directive("slate", ["cardService", "modalService",function (cardService, mod
 		scope: true,
 		transclude: false,
 		link: function (scope, element, attrs) {
-			scope.deck = cardService;
-			scope.$watch("deck.current", function (now, previous) {
-				var cardSelected = now != -1,
-						card = cardService.list[cardService.current],
-						cardUnselected = previous != -1;
-
-				cardSelected && select(now);
-				cardUnselected && unSelect();
-				card && modalService.show(card.src);
+			scope.$watch("deck._current", function (now, previous) {
+				var card = DeckService.selected();
+				if(card){
+					select(now);
+					modalService.show(card.src);
+				} else{
+					unSelect();
+				}
 			});
 		}
 	};

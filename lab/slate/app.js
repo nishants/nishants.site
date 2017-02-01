@@ -3,8 +3,9 @@
 
   var app = angular.module("slate", []);
 
-	app.run(["$http", "cardService", function($http, cardService){
-		$http.get("data/cards.json").then(cardService.load)
+	app.run(["$http", "DeckService", "$rootScope", function($http, DeckService, $rootScope){
+		$http.get("data/cards.json").then(DeckService.load)
+		$rootScope.deck = DeckService;
 	}]);
 	window.app = app;
 

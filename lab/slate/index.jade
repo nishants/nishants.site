@@ -9,10 +9,10 @@ html
     link(rel='stylesheet', href='index.css')
 
 body(ng-app='slate')
-  #slate.slate(ng-class="{'show-modal' : deck.current != -1}")
+  #slate.slate(ng-class="{'show-modal' : deck._current != -1}")
     #nav
       include nav/nav
-    ul.deck(ng-class="{'focus' : deck.current != -1}")
+    ul.deck(ng-class="{'focus' : deck._current != -1}")
       include deck/deck
     .modal(ng-controller='modalController')
       include modal/modal
@@ -21,7 +21,7 @@ body(ng-app='slate')
   script(src='lib/angular-1.4.3.js')
   script(src='app.js')
   script(src='deck/deck.js')
-  script(src='cards/card-service.js')
+  script(src='deck/deck-service.js')
   script(src='modal/modal-service.js')
   script(src='modal/modal-controller.js')
   script(src='router.js')

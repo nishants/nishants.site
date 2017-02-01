@@ -1,6 +1,6 @@
 .overview
   .card-space
   .card-actions
-    button(ng-click="deck.current = -1") Close
+    button(ng-click="modal.close()") Close
 .content
-  iframe.frame(ng-if="deck.current >= 0",ng-src="modal._src")
+  iframe.frame(ng-if="modal._show",ng-src="modal._src") 
