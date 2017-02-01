@@ -41,6 +41,6 @@ $transition_duration : $transitionDuration;
   }
 }
 
-@import 'cards';
+@import '../deck/cards';
 @import '../nav/nav';
 @import '../footer/footer';

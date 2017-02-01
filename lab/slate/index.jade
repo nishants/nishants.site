@@ -12,7 +12,8 @@ body(ng-app='slate')
   #slate.slate(ng-class="{'show-modal' : deck.current != -1}")
     #nav
       include nav/nav
-    include slate
+    ul.deck(ng-class="{'focus' : deck.current != -1}")
+      include deck/deck
     .modal
       include modal/modal
 
