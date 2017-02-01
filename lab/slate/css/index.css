@@ -18,14 +18,11 @@ input {
     margin: 0px auto; }
   #slate * {
     box-sizing: border-box; }
-  #slate nav {
-    height: 60px;
-    background-color: black;
-    width: 100%; }
   #slate .deck {
     height: calc(100% - 60px); }
   #slate .modal {
     position: relative;
+    margin-top: 60px;
     top: calc(-100vh + 60px);
     height: calc(100% - 60px);
     min-width: 100vw;
@@ -151,5 +148,11 @@ ul.deck {
     transform: translateX(-50px) rotate(0deg); }
   .deck.focus li:not(.selected) {
     opacity: 0; }
+
+#nav #top-bar {
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%; }
 
 /*# sourceMappingURL=index.css.map */

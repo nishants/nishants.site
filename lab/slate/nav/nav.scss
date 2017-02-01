@@ -1,0 +1,11 @@
+$nav_color: white;
+$nav_height: $navigationBarHeight;
+
+#nav {
+  #top-bar {
+    height: $nav_height;
+    background-color: $nav_color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+}
