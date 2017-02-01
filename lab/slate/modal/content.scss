@@ -48,7 +48,8 @@
       top: $frame_bar_height;
       left: 0;
       z-index: 1;
-      color: $white;
+      color: $black_text;
+      text-shadow: $text_shadow;
       background: $modal_color;
       border: 1px solid rgba(0, 0, 0, 0.1);
       line-height : $loader_size;
