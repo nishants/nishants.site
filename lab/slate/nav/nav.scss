@@ -6,6 +6,8 @@ $modal_color: #0365C0;
   overflow: hidden;
   height: $nav_height;
   text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  position: relative;
 
   #top-bar, #modal-bar {
     height: $nav_height;
