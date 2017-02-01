@@ -12,12 +12,13 @@
       position: relative;
       z-index: 1;
       background: $modal_color;
-      line-height: $frame_bar_height;
       pointer-events: all;
-
-      color: $white;
-      .close{
-        padding: 0px $padding*5;
+      color: $black_text;
+      @extend .resize-container;
+      .action{
+        line-height: $frame_bar_height;
+        padding: 0px $padding*2;
+        float: right;
       }
     }
 

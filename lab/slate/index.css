@@ -37,7 +37,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after {
+.resize-container:after, ul.inline-list:after, #slate .modal .content .frame-bar:after {
   content: "";
   display: table;
   clear: both; }
@@ -126,11 +126,12 @@ ul.inline-list {
       position: relative;
       z-index: 1;
       background: #EEE;
-      line-height: 40px;
       pointer-events: all;
-      color: rgba(255, 255, 255, 0.9); }
-      #slate .modal .content .frame-bar .close {
-        padding: 0px 50px; }
+      color: #646464; }
+      #slate .modal .content .frame-bar .action {
+        line-height: 40px;
+        padding: 0px 20px;
+        float: right; }
     #slate .modal .content .loader, #slate .modal .content .frame {
       height: calc(100% - 40px);
       width: 100%;
