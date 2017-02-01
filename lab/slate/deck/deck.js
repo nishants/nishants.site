@@ -2,11 +2,12 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 	var $deckItems = function(){return $(".deck > li");},
 			select = function (index) {
 				var container = $($deckItems()[index]),
-						offsetPadding = 10,
+						offsetPaddingX = 0,
+						offsetPaddingY = 0,
 						offsetY = $(".deck").offset().top - container.offset().top,
 						offsetX = $(".deck").offset().left - container.offset().left;
 
-				container.css("transform", "translateY(" + (offsetY + offsetPadding) + "px)" + "translateX(" + (offsetX + offsetPadding) + "px)");
+				container.css("transform", "translateY(" + (offsetY + offsetPaddingY) + "px)" + "translateX(" + (offsetX + offsetPaddingX) + "px)");
 			},
 			unSelect = function () {
 				$deckItems().css("transform", "");

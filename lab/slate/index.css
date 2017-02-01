@@ -91,7 +91,6 @@ ul.inline-list {
     height: 100%;
     min-width: 100vw;
     background-color: transparent;
-    padding: 10px;
     pointer-events: none; }
     #slate .modal .content, #slate .modal .overview {
       padding: 10px;
@@ -177,6 +176,11 @@ ul.inline-list {
     z-index: 1;
     height: 100vh;
     width: 100vw; }
+  #slate .modal .content.mobile-screen .frame {
+    display: block;
+    width: 412px;
+    height: 732px;
+    margin: auto; }
 
 #slate.show-modal .card-space {
   opacity: 1;

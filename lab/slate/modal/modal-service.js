@@ -2,6 +2,9 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 	var modal = {
 		_show 	: false,
 		_timer  : null,
+		mobile : function(mobile){
+			modal._mobile = mobile;
+		},
 		_frame   : {
 			_ready 	: false,
 			_src  	: null,
