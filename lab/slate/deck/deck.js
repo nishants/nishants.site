@@ -21,7 +21,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 				var card = DeckService.selected();
 				if(card){
 					select(now);
-					modalService.show(card.src);
+					modalService.show(card);
 				} else{
 					unSelect();
 				}

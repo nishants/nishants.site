@@ -4,6 +4,7 @@
       "type": "ui",
       "name": "Smart and Sleek Top Bar",
       "src": "http://amoeba.social/dump/concepts/treniq/",
+      "no-mobile" : "true",
       "tags": [{"name": "jquery"}, {"name": "scss"}],
       "description": {
         "lead": "Hides/Shows/Partially-shows",
@@ -15,6 +16,7 @@
       "name": "Gaming Experience with Alien Theme",
       "src": "http://nishants.site/lab/galaxy/",
       "tags": [{"name": "angular"}, {"name": "scss"}],
+      "desktop-first": true,
       "description": {
         "lead": "AngularJS and SCSS based single page app",
         "follow" : "with alien theme, optimized interaction flow and a custom widget."
@@ -23,6 +25,7 @@
     {
       "type": "ui",
       "name": "Android KitKat UI with Swipe Gesture",
+      "mobile-only" : "true",
       "src": "http://amoeba.social/dump/concepts/kitkat",
       "tags": [{"name": "angular"}, {"name": "scss"}],
       "description": {

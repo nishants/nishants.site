@@ -13,9 +13,9 @@
           a.fa.fa-expand(ng-hide="modal._frame._fullscreen",ng-click="modal._frame.fullscren(true)")
         li.minimize
           a.close.fa.fa-compress(ng-show="modal._frame._fullscreen", ng-click="modal._frame.fullscren(false)")
-        li.desktop
+        li.desktop(ng-hide="modal.props.mobileOnly")
           a.fa.fa-desktop(ng-show="modal._mobile", ng-click="modal.mobile(false)")
-        li.mobile
+        li.mobile(ng-hide="modal.props.noMobile")
           a.fa.fa-mobile(ng-hide="modal._mobile", ng-click="modal.mobile(true)")
         li.external-link
           a.fa.fa-external-link(target="_blank",href="{{modal._frame._src}}")

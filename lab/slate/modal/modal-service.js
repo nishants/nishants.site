@@ -2,6 +2,7 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 	var modal = {
 		_show 	: false,
 		_timer  : null,
+		_card   : null,
 		mobile : function(mobile){
 			modal._mobile = mobile;
 		},
@@ -13,10 +14,13 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 				modal._frame._fullscreen = fullscreen;
 			}
 		},
-		show: function(src){
+		show: function(card){
+			modal.props = card;
 			modal._show = true;
+			modal.mobile(card.mobileOnly || card.mobileFirst);
+			modal._frame.fullscren(card.noMobile);
 			modal._timer = $timeout( function(){
-				modal._frame._src = src;
+				modal._frame._src = card.src;
 			}, IFRAMETIMEOUT);
 		},
 		close: function(){

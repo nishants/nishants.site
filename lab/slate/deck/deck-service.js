@@ -2,6 +2,10 @@ app.service("DeckService",["$sce", function($sce){
 	var
 			createCard = function(card){
 				card.src = $sce.trustAsResourceUrl(card.src);
+				card.mobileOnly = card["mobile-only"];
+				card.mobileFirst = card["mobile-first"];
+				card.desktopFirst = card["desktop-first"];
+				card.noMobile = card["no-mobile"];
 				return card;
 			},
 			deck = {
