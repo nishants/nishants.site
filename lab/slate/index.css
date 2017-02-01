@@ -129,7 +129,8 @@ ul.inline-list {
       z-index: 1;
       background: #EEE;
       pointer-events: all;
-      color: #646464; }
+      color: #646464;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
       #slate .modal .content .frame-bar .action {
         line-height: 40px;
         padding: 0px 20px;
@@ -142,6 +143,7 @@ ul.inline-list {
     #slate .modal .content .loader, #slate .modal .content .frame {
       height: calc(100% - 40px);
       width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       -webkit-transition: opacity 350ms ease;
       -moz-transition: opacity 350ms ease;
       -o-transition: opacity 350ms ease;
