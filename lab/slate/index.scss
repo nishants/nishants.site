@@ -50,6 +50,9 @@ $box_shadow : -1px -1px 5px rgba(0, 0, 0, 0.21);
   font-weight: $weight_light;
 }
 
+[ng-click]{
+  cursor: pointer;
+}
 
 #slate{
   overflow: hidden;

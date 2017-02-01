@@ -4,7 +4,11 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 		_timer  : null,
 		_frame   : {
 			_ready 	: false,
-			_src  	: null
+			_src  	: null,
+			_fullscreen: false,
+			fullscren: function(fullscreen){
+				modal._frame._fullscreen = fullscreen;
+			}
 		},
 		show: function(src){
 			modal._show = true;

@@ -3,9 +3,12 @@
   .card-actions
     a(target="_blank",href="{{modal._frame._src}}") Open
     button(ng-click="modal.close()") Close
-.content(ng-class='{"ready" : modal._frame._ready}')
+.content(ng-class='{"ready" : modal._frame._ready, "full-screen": modal._frame._fullscreen}')
   .frame-bar
     .action.close.fa.fa-close(ng-click="modal.close()")
+    a.action.close.fa.fa-external-link(target="_blank",href="{{modal._frame._src}}")
+    .action.close.fa.fa-window-maximize(ng-hide="modal._frame._fullscreen",ng-click="modal._frame.fullscren(true)")
+    .action.close.fa.fa-window-minimize(ng-show="modal._frame._fullscreen", ng-click="modal._frame.fullscren(false)")
   iframe.frame(ng-if="modal._show",src="{{modal._frame._src}}", onload='iframeLoaded()')
   .loader
      .fa.fa-circle-o-notch.fa-spin
