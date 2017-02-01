@@ -3,4 +3,6 @@
 
 .ui-tutorial(ng-if='card.type == "ui"')
   h1.name(ng-bind='card.name')
-  p.description(ng-bind='card.description')
+  p.description
+    span.lead(ng-bind='card.description.lead')
+    span.follow(ng-bind='card.description.follow')

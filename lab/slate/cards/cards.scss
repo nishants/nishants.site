@@ -18,9 +18,9 @@ $card_bg: #F4F4F4;
   }
   p{
     line-height: $line_height;
-    opacity: 0.5;
     @extend .theme-font-ligth;
   }
+
 
   .ui-tutorial {
     max-height: calc(100% - 2 * #{$padding});
@@ -29,6 +29,15 @@ $card_bg: #F4F4F4;
     text-overflow: ellipsis;
     .title{}
     > .description {
+      .lead{
+        opacity: 0.7;
+        padding-right: 5px;
+        font-size: large;
+        @extend .theme-font-bold;
+      }
+      .follow{
+        opacity: 0.5;
+      }
     }
   }
 }

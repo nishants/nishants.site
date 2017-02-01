@@ -2,12 +2,25 @@
   "cards" : [
     {
       "type": "ui",
-      "name": "Carousel with JQuery and SCSS",
+      "name": "Smart and Sleek Top Bar",
       "src": "http://amoeba.social/dump/concepts/treniq/",
       "tags": [{"name": "jquery"}, {"name": "scss"}],
-      "description": "Some very long description of how it works. It might overflow, in which case it becomes elipses. Cloud analytics is a service model in which elements of the data analytics process are provided through a public or private cloud. Cloud analytics applications and services are typically offered under a subscription-based or utility (pay-per-use) pricing model. Examples of cloud analytics products and services include hosted data warehouses, software-as-a-service business intelligence (SaaS BI) and cloud-based social media analytics. SaaS BI involves delivery of business intelligence (BI) applications to end users from a hosted location."
+      "description": {
+        "lead": "Hides/Shows/Partially-shows",
+        "follow" : "the top bar by predicting user intention. Uses JQuery + AngularJS + SCSS achieve super smooth transitions with scalability. Also a design for navigation bar,search bar, ripple effect implementation."
+      }
     },
-    {"type": "ui",   "name": "Carousel with Angular and SCSS","src": "http://amoeba.social/dump/concepts/treniq/", "description": "Some very long description of how it works. It might overflow, in which case it becomes elipses. Cloud analytics is a service model in which elements of the data analytics process are provided through a public or private cloud. "},
+    {
+      "type": "ui",
+      "name": "Gaming Experience With Angular/SCSS",
+      "src": "http://nishants.site/lab/galaxy/",
+      "tags": [{"name": "angular"}, {"name": "scss"}],
+      "description": {
+        "lead": "Gaming experience with alien theme design",
+        "follow" : "created with  AngularJS and SCSS."
+      }
+    },
+    {"type": "ui",   "name": "Carousel with Angular and SCSS","src": "http://amoeba.social/dump/concepts/treniq/",       "description": {         "lead": "Hides/Shows/Partially-shows",         "follow" : "the top bar by predicting user intention. Uses JQuery + AngularJS + SCSS achieve super smooth transitions with scalability. Also a design for navigation bar,search bar, ripple effect implementation."       } },
     {"type": "image","name": "Item name","src": "http://amoeba.social/serve/", "image": "images/carousel/carousel-1.jpg", "description": "Some card description"},
     {"type": "image","name": "Item name","src": "http://amoeba.social/dump/concepts/treniq/", "image": "images/carousel/carousel-3.jpg", "description": "Some card description"},
     {"type": "image","name": "Item name","src": "http://amoeba.social/serve/", "image": "images/carousel/carousel-1.jpg", "description": "Some card description"},

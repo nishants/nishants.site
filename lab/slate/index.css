@@ -60,7 +60,7 @@ ul.inline-list {
   font-family: 'Roboto', sans-serif;
   font-weight: 400; }
 
-.theme-font-bold, .card h1 {
+.theme-font-bold, .card h1, .card .ui-tutorial > .description .lead {
   font-weight: 700; }
 
 .theme-font-ligth, .card p {
@@ -228,13 +228,18 @@ ul.inline-list {
     margin: 20px 0px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); }
   .card p {
-    line-height: 20px;
-    opacity: 0.5; }
+    line-height: 20px; }
   .card .ui-tutorial {
     max-height: calc(100% - 2 * 10px);
     padding: 10px;
     overflow: hidden;
     text-overflow: ellipsis; }
+    .card .ui-tutorial > .description .lead {
+      opacity: 0.7;
+      padding-right: 5px;
+      font-size: large; }
+    .card .ui-tutorial > .description .follow {
+      opacity: 0.5; }
 
 ul.deck {
   margin: 0;
