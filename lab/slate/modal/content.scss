@@ -1,3 +1,6 @@
+$frame_button_width: 60px;
+$frame_button_count : 6;
+$frame_actions_width: $frame_button_count*$frame_button_width;
 .modal{
   .content{
     position: relative;
@@ -15,19 +18,39 @@
       pointer-events: all;
       color: $black_text;
       border-bottom: $heavy-border;
-
+      line-height: $frame_bar_height;
       @extend .resize-container;
-      .action{
-        line-height: $frame_bar_height;
-        padding: 0px $padding*2;
-        float: right;
+      .title{
+        float: left;
+        overflow: hidden;
+        padding-left: $padding;
+        width: calc(100% - #{$frame_actions_width});
         opacity: 0.3;
-        text-decoration: none;
-        color: inherit;
+        font-size: small;
       }
-      .action:hover{
-        opacity: 1;
+
+      ul.actions{
+        @extend .undo-list;
+        @extend .resize-container;
+        float: right;
+
+        > li{
+          float: right;
+          > a{
+            display: block;
+            line-height: inherit;
+            padding: 0px $padding*2;
+            opacity: 0.3;
+            text-decoration: none;
+            color: inherit;
+            width: $frame_button_width;
+          }
+          > a:hover{
+            opacity: 1;
+          }
+        }
       }
+
     }
 
     .loader, .frame{
@@ -78,8 +101,9 @@
     top: 0;
     left: 0;
     z-index: 1;
-    height: 100vh;
-    width: 100vw;
+    height: calc(100vh - #{2*$padding});
+    width: calc(100vw - #{2*$padding});
+    margin: $padding;
   }
 }.modal {
   .content.mobile-screen {

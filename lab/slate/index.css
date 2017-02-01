@@ -37,12 +37,12 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #slate .modal .content .frame-bar:after {
+.resize-container:after, ul.inline-list:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list {
+ul.undo-list, ul.inline-list, #slate .modal .content .frame-bar ul.actions {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -130,16 +130,29 @@ ul.inline-list {
       background: #EEE;
       pointer-events: all;
       color: #646464;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
-      #slate .modal .content .frame-bar .action {
-        line-height: 40px;
-        padding: 0px 20px;
-        float: right;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      line-height: 40px; }
+      #slate .modal .content .frame-bar .title {
+        float: left;
+        overflow: hidden;
+        padding-left: 10px;
+        width: calc(100% - 360px);
         opacity: 0.3;
-        text-decoration: none;
-        color: inherit; }
-      #slate .modal .content .frame-bar .action:hover {
-        opacity: 1; }
+        font-size: small; }
+      #slate .modal .content .frame-bar ul.actions {
+        float: right; }
+        #slate .modal .content .frame-bar ul.actions > li {
+          float: right; }
+          #slate .modal .content .frame-bar ul.actions > li > a {
+            display: block;
+            line-height: inherit;
+            padding: 0px 20px;
+            opacity: 0.3;
+            text-decoration: none;
+            color: inherit;
+            width: 60px; }
+          #slate .modal .content .frame-bar ul.actions > li > a:hover {
+            opacity: 1; }
     #slate .modal .content .loader, #slate .modal .content .frame {
       height: calc(100% - 40px);
       width: 100%;
@@ -177,8 +190,9 @@ ul.inline-list {
     top: 0;
     left: 0;
     z-index: 1;
-    height: 100vh;
-    width: 100vw; }
+    height: calc(100vh - 20px);
+    width: calc(100vw - 20px);
+    margin: 10px; }
   #slate .modal .content.mobile-screen .frame {
     display: block;
     width: 412px;

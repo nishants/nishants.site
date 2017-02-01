@@ -12,12 +12,22 @@
     },
     {
       "type": "ui",
-      "name": "Gaming Experience With Angular/SCSS",
+      "name": "Gaming Experience with Alien Theme",
       "src": "http://nishants.site/lab/galaxy/",
       "tags": [{"name": "angular"}, {"name": "scss"}],
       "description": {
-        "lead": "Gaming experience with alien theme design",
-        "follow" : "created with  AngularJS and SCSS."
+        "lead": "AngularJS and SCSS based single page app",
+        "follow" : "with alien theme, optimized interaction flow and a custom widget."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Android KitKat UI with Swipe Gesture",
+      "src": "http://amoeba.social/dump/concepts/kitkat",
+      "tags": [{"name": "angular"}, {"name": "scss"}],
+      "description": {
+        "lead": "JQuery, SCSS and Fontawesome only",
+        "follow" : "implementation of android kitkat home screen. A pure JQuery implementation of swipe gesture inside google play menu. Custom router for allowing mobile back button for navigation."
       }
     },
     {"type": "ui",   "name": "Carousel with Angular and SCSS","src": "http://amoeba.social/dump/concepts/treniq/",       "description": {         "lead": "Hides/Shows/Partially-shows",         "follow" : "the top bar by predicting user intention. Uses JQuery + AngularJS + SCSS achieve super smooth transitions with scalability. Also a design for navigation bar,search bar, ripple effect implementation."       } },

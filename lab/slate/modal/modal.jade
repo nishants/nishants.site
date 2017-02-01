@@ -5,12 +5,21 @@
     button(ng-click="modal.close()") Close
 .content(ng-class='{"ready" : modal._frame._ready, "full-screen": modal._frame._fullscreen, "mobile-screen": modal._mobile}')
   .frame-bar
-    .action.close.fa.fa-close(ng-click="modal.close()")
-    .action.close.fa.fa-mobile(ng-hide="modal._mobile", ng-click="modal.mobile(true)")
-    .action.close.fa.fa-desktop(ng-show="modal._mobile", ng-click="modal.mobile(false)")
-    a.action.close.fa.fa-external-link(target="_blank",href="{{modal._frame._src}}")
-    .action.close.fa.fa-window-maximize(ng-hide="modal._frame._fullscreen",ng-click="modal._frame.fullscren(true)")
-    .action.close.fa.fa-window-minimize(ng-show="modal._frame._fullscreen", ng-click="modal._frame.fullscren(false)")
+      .title(ng-bind="deck.selected().name")
+      ul.actions
+        li.close
+          a.fa.fa-close(ng-click="modal.close()")
+        li.maximize
+          a.fa.fa-expand(ng-hide="modal._frame._fullscreen",ng-click="modal._frame.fullscren(true)")
+        li.minimize
+          a.close.fa.fa-compress(ng-show="modal._frame._fullscreen", ng-click="modal._frame.fullscren(false)")
+        li.desktop
+          a.fa.fa-desktop(ng-show="modal._mobile", ng-click="modal.mobile(false)")
+        li.mobile
+          a.fa.fa-mobile(ng-hide="modal._mobile", ng-click="modal.mobile(true)")
+        li.external-link
+          a.fa.fa-external-link(target="_blank",href="{{modal._frame._src}}")
+
   iframe.frame(ng-if="modal._show",src="{{modal._frame._src}}", onload='iframeLoaded()')
   .loader
      .fa.fa-circle-o-notch.fa-spin
