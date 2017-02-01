@@ -9,10 +9,13 @@ html
     link(rel='stylesheet', href='css/index.css')
 
 body(ng-app='slate')
-  #nav
-    nav#top-bar
-  #state
+  #slate.slate(ng-class="{'show-modal' : deck.current != -1}")
+    #nav
+      nav#top-bar
     include slate
+    #footer
+      div Designed and Developed By Nishant
+
   script(src='lib/jquery-2.1.4.min.js')
   script(src='lib/angular-1.4.3.js')
   script(src='slate.js')
