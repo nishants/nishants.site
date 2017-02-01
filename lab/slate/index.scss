@@ -2,10 +2,12 @@
 $transitionDuration: 250ms;
 
 $navigationBarHeight: 60px;
+$frame_bar_height: 40px;
+
 $topBarLayer: 1000;
 $containerPadding: 10px;
 
-$cardWidth: 350px;
+$cardWidth: 300px;
 $cardHeight: 250px;
 
 $modalBackdrop: rgba(0,0,0,0);
@@ -14,7 +16,6 @@ $padding: 10px;
 $transition_function: ease;
 $transition_duration : $transitionDuration;
 $white : rgba(255, 255, 255, 0.9);
-$duration: 500ms;
 $rotate : 0deg;
 $cleanupDuration: $transitionDuration;
 $cleanupFunction: ease;
@@ -28,9 +29,11 @@ $weight_light: 300;
 
 $line_height: 20px;
 $text_shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-$modal_color: #0365C0;
+$modal_color: #EEE;
 
 $loader_size: 50px;
+$box_shadow : -1px -1px 5px rgba(0, 0, 0, 0.21);
+
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_normal},#{$weight_bold}');
 
@@ -52,11 +55,22 @@ $loader_size: 50px;
   overflow: hidden;
   height: 100vh;
   .deck{
-    height: calc(100% - #{$navigationBarHeight});
+    height: 100%;
+  }
+  .card-space{
+    opacity: 0;
+    @include transitionDelay($transitionDuration);
+    @include transition(#{opacity $transitionDuration ease});
   }
   @import 'modal/modal';
 }
 
+#slate.show-modal{
+  .card-space{
+    opacity: 1;
+    box-shadow: $box_shadow;
+  }
+}
 #slate:not(.show-modal){
   .modal{
     @include transform(scale(0));

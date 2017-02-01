@@ -70,11 +70,22 @@ ul.inline-list {
   overflow: hidden;
   height: 100vh; }
   #slate .deck {
-    height: calc(100% - 60px); }
+    height: 100%; }
+  #slate .card-space {
+    opacity: 0;
+    -webkit-transition-delay: 250ms;
+    -moz-transition-delay: 250ms;
+    -ms-transition-delay: 250ms;
+    -o-transition-delay: 250ms;
+    transition-delay: 250ms;
+    -webkit-transition: opacity 250ms ease;
+    -moz-transition: opacity 250ms ease;
+    -o-transition: opacity 250ms ease;
+    transition: opacity 250ms ease; }
   #slate .modal {
     position: relative;
-    top: calc(-100vh + 60px);
-    height: calc(100% - 60px);
+    top: -100vh;
+    height: 100%;
     min-width: 100vw;
     background-color: transparent;
     padding: 10px;
@@ -84,14 +95,14 @@ ul.inline-list {
       height: 100%;
       float: left; }
     #slate .modal .overview .card-space {
-      width: 350px;
+      width: 300px;
       height: 250px; }
     #slate .modal .overview .card-actions {
       -webkit-transition: transform 250ms ease;
       -moz-transition: transform 250ms ease;
       -o-transition: transform 250ms ease;
       transition: transform 250ms ease;
-      width: 350px;
+      width: 300px;
       height: 300px;
       pointer-events: all;
       padding: 10px; }
@@ -100,39 +111,60 @@ ul.inline-list {
         height: 50px;
         background-color: rgba(0, 0, 0, 0.075);
         border: 1px solid rgba(0, 0, 0, 0.05); }
-    #slate .modal .content {
+  #slate .modal .content {
+    position: relative;
+    margin: 10px;
+    padding: 0px;
+    -webkit-transition: transform 350ms ease, opacity 350ms ease;
+    -moz-transition: transform 350ms ease, opacity 350ms ease;
+    -o-transition: transform 350ms ease, opacity 350ms ease;
+    transition: transform 350ms ease, opacity 350ms ease;
+    width: calc(100% - 340px);
+    border: 5px solid #EEE;
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
+    #slate .modal .content .frame-bar {
       position: relative;
-      -webkit-transition: transform 350ms ease, opacity 350ms ease;
-      -moz-transition: transform 350ms ease, opacity 350ms ease;
-      -o-transition: transform 350ms ease, opacity 350ms ease;
-      transition: transform 350ms ease, opacity 350ms ease;
-      width: calc(100% - 370px); }
-      #slate .modal .content .loader, #slate .modal .content .frame {
-        height: 100%;
-        width: 100%;
-        -webkit-transition: opacity 350ms ease;
-        -moz-transition: opacity 350ms ease;
-        -o-transition: opacity 350ms ease;
-        transition: opacity 350ms ease; }
-      #slate .modal .content .frame {
-        overflow: auto;
-        background-color: white;
-        border: none;
-        pointer-events: all; }
-      #slate .modal .content .loader {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        color: rgba(255, 255, 255, 0.9);
-        background: #0365C0;
-        line-height: 50px;
-        font-size: 50px;
-        text-align: center;
-        padding-top: 25px; }
+      z-index: 1;
+      background: #EEE;
+      line-height: 40px;
+      pointer-events: all;
+      color: rgba(255, 255, 255, 0.9); }
+      #slate .modal .content .frame-bar .close {
+        padding: 0px 50px; }
+    #slate .modal .content .loader, #slate .modal .content .frame {
+      height: calc(100% - 40px);
+      width: 100%;
+      -webkit-transition: opacity 350ms ease;
+      -moz-transition: opacity 350ms ease;
+      -o-transition: opacity 350ms ease;
+      transition: opacity 350ms ease; }
+    #slate .modal .content .frame {
+      overflow: auto;
+      background-color: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      pointer-events: all;
+      opacity: 0; }
+    #slate .modal .content .loader {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.9);
+      background: #EEE;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      line-height: 50px;
+      font-size: 50px;
+      text-align: center;
+      padding-top: 25px; }
+  #slate .modal .content.ready .frame {
+    opacity: 1; }
   #slate .modal .content.ready .loader {
     opacity: 0;
     pointer-events: none; }
+
+#slate.show-modal .card-space {
+  opacity: 1;
+  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
 
 #slate:not(.show-modal) .modal {
   -webkit-transform: scale(0);
@@ -160,7 +192,7 @@ ul.inline-list {
 
 .card {
   height: 250px;
-  width: 350px;
+  width: 300px;
   display: block;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -184,6 +216,7 @@ ul.inline-list {
 ul.deck {
   margin: 0;
   padding: 10px;
+  padding-top: 60px;
   display: block;
   list-style: none;
   text-align: left;
@@ -230,11 +263,13 @@ ul.deck {
     opacity: 0; }
 
 #nav {
-  overflow: hidden;
+  overflow: visible;
   height: 60px;
   text-align: center;
-  position: relative; }
-  #nav #top-bar, #nav #modal-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 1; }
+  #nav #top-bar {
     height: 60px;
     line-height: 60px;
     background-color: white;
@@ -243,12 +278,10 @@ ul.deck {
     -webkit-transition: all 250ms ease;
     -moz-transition: all 250ms ease;
     -o-transition: all 250ms ease;
-    transition: all 250ms ease; }
-  #nav #modal-bar {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: #0365C0; }
+    transition: all 250ms ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); }
 
-#slate.show-modal #nav #top-bar, #slate.show-modal #nav #modal-bar {
+#slate.show-modal #nav #top-bar {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);

@@ -1,30 +1,27 @@
-$nav_color: white;
+$nav_color: rgba(255, 255, 255, 1);
 $nav_height: $navigationBarHeight;
 
 #nav {
-  overflow: hidden;
+  overflow: visible;
   height: $nav_height;
   text-align: center;
-  //box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-  position: relative;
-
-  #top-bar, #modal-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  #top-bar {
     height: $nav_height;
     line-height: $nav_height;
     background-color: $nav_color;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
     @include transition(all $transition_duration $transition_function) ;
-  }
-  #modal-bar{
-    color: $white;
-    background-color: $modal_color;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 }
 
 #slate.show-modal{
   #nav{
-    #top-bar, #modal-bar{
+    #top-bar{
       @include transform(translateY(-100%));
     }
   }
