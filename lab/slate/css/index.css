@@ -192,17 +192,25 @@ ul.deck {
   .deck.focus li:not(.selected) {
     opacity: 0; }
 
-#nav #top-bar {
+#nav {
+  overflow: hidden;
   height: 60px;
-  background-color: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
-  -webkit-transition: all 250ms ease;
-  -moz-transition: all 250ms ease;
-  -o-transition: all 250ms ease;
-  transition: all 250ms ease; }
+  text-align: center; }
+  #nav #top-bar, #nav #modal-bar {
+    height: 60px;
+    line-height: 60px;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease; }
+  #nav #modal-bar {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #0365C0; }
 
-#slate.show-modal #nav #top-bar {
+#slate.show-modal #nav #top-bar, #slate.show-modal #nav #modal-bar {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);

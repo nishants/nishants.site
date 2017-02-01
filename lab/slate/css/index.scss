@@ -12,6 +12,8 @@ $contentTransitionDuration : $transitionDuration + 100;
 $padding: 10px;
 $transition_function: ease;
 $transition_duration : $transitionDuration;
+$white : rgba(255, 255, 255, 0.9);
+
 #slate{
   overflow: hidden;
   height: 100vh;

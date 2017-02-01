@@ -1,19 +1,29 @@
 $nav_color: white;
 $nav_height: $navigationBarHeight;
+$modal_color: #0365C0;
 
 #nav {
-  #top-bar {
+  overflow: hidden;
+  height: $nav_height;
+  text-align: center;
+
+  #top-bar, #modal-bar {
     height: $nav_height;
+    line-height: $nav_height;
     background-color: $nav_color;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
     @include transition(all $transition_duration $transition_function) ;
   }
+  #modal-bar{
+    color: $white;
+    background-color: $modal_color;
+  }
 }
 
 #slate.show-modal{
   #nav{
-    #top-bar{
+    #top-bar, #modal-bar{
       @include transform(translateY(-100%));
     }
   }
