@@ -1,12 +1,4 @@
-nav
 ul.deck(ng-class="{'focus' : deck.current != -1}")
   li(ng-repeat="card in deck.list", ng-class="{'selected' : deck.current == $index, 'selected-head' : deck.current < $index - 1, 'selected-tail' : deck.current > $index + 1, 'selected-pre' : deck.current == $index - 1,'selected-post' : deck.current == $index + 1}")
     a.card(ng-click="deck.current = deck.current == $index ? -1 : $index")
       include card
-.modal
-  .overview
-    .card-space
-    .card-actions
-      button(ng-click="deck.current = -1") Close
-  .content
-    iframe.frame(ng-src="http://localhost:3001/2.0/concepts/slate/index.html")

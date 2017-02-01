@@ -1,0 +1,6 @@
+.overview
+  .card-space
+  .card-actions
+    button(ng-click="deck.current = -1") Close
+.content
+  iframe.frame(ng-if="deck.current > 0",ng-src="http://amoeba.social/dump/concepts/treniq/")

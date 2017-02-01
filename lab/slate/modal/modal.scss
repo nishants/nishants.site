@@ -1,6 +1,5 @@
 .modal{
   position: relative;
-  margin-top: $navigationBarHeight;
   top: calc(-100vh + #{$navigationBarHeight});
   height: calc(100% - #{$navigationBarHeight});
   min-width: 100vw;
