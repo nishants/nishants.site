@@ -1,4 +1,4 @@
-@import '../../../style/base';
+@import '../../style/base';
 $transitionDuration: 250ms;
 
 $navigationBarHeight: 60px;
@@ -23,7 +23,7 @@ $white : rgba(255, 255, 255, 0.9);
   .deck{
     height: calc(100% - #{$navigationBarHeight});
   }
-  @import '../modal/modal';
+  @import 'modal/modal';
 
 }
 
@@ -43,5 +43,5 @@ $white : rgba(255, 255, 255, 0.9);
   }
 }
 
-@import '../cards/cards';
-@import '../nav/nav';
+@import 'cards/cards';
+@import 'nav/nav';
