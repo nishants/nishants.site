@@ -1,5 +1,10 @@
-app.service("DeckService",[function(){
-	var deck = {
+app.service("DeckService",["$sce", function($sce){
+	var
+			createCard = function(card){
+				card.src = $sce.trustAsResourceUrl(card.src);
+				return card;
+			},
+			deck = {
 		_current : -1,
 		_list: [],
 		selected: function(){
@@ -12,7 +17,7 @@ app.service("DeckService",[function(){
 			deck._current = -1;
 		},
 		load: function (response) {
-			deck._list = response.data.cards;
+			deck._list = response.data.cards.map(createCard);
 		}
 	};
 	return deck;

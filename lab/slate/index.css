@@ -101,18 +101,38 @@ ul.inline-list {
         background-color: rgba(0, 0, 0, 0.075);
         border: 1px solid rgba(0, 0, 0, 0.05); }
     #slate .modal .content {
+      position: relative;
       -webkit-transition: transform 350ms ease, opacity 350ms ease;
       -moz-transition: transform 350ms ease, opacity 350ms ease;
       -o-transition: transform 350ms ease, opacity 350ms ease;
       transition: transform 350ms ease, opacity 350ms ease;
       width: calc(100% - 370px); }
-      #slate .modal .content .frame {
+      #slate .modal .content .loader, #slate .modal .content .frame {
         height: 100%;
         width: 100%;
+        -webkit-transition: opacity 350ms ease;
+        -moz-transition: opacity 350ms ease;
+        -o-transition: opacity 350ms ease;
+        transition: opacity 350ms ease; }
+      #slate .modal .content .frame {
         overflow: auto;
         background-color: white;
         border: none;
         pointer-events: all; }
+      #slate .modal .content .loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.9);
+        background: #0365C0;
+        line-height: 50px;
+        font-size: 50px;
+        text-align: center;
+        padding-top: 25px; }
+  #slate .modal .content.ready .loader {
+    opacity: 0;
+    pointer-events: none; }
 
 #slate:not(.show-modal) .modal {
   -webkit-transform: scale(0);

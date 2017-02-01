@@ -31,16 +31,41 @@
     }
   }
   .content{
+    position: relative;
     @include transition(#{transform $contentTransitionDuration ease, opacity $contentTransitionDuration ease});
     width: calc(100% - #{$cardWidth + 2 * $containerPadding});
-    .frame{
+    .loader, .frame{
       height: 100%;
       width: 100%;
+      @include transition(#{opacity $contentTransitionDuration ease});
+    }
+    .frame{
       overflow: auto;
       background-color: rgba(255, 255, 255, 1);
       border: none;
       pointer-events: all;
     }
+    .loader{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      color: $white;
+      background: $modal_color;
+
+      line-height : $loader_size;
+      font-size   : $loader_size;
+      text-align  : center;
+      padding-top : $loader_size/2;
+    }
   }
 
+}
+.modal {
+  .content.ready {
+    .loader{
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
 }
