@@ -1,5 +1,12 @@
-@import 'config';
+@import '../../../style/base';
+$transitionDuration: 250ms;
 
+$navigationBarHeight: 60px;
+$topBarLayer: 1000;
+$containerPadding: 10px;
+
+$cardWidth: 250px;
+$cardHeight: 250px;
 $modalBackdrop: rgba(0,0,0,0);
 $contentTransitionDuration : $transitionDuration + 100;
 $padding: 10px;
