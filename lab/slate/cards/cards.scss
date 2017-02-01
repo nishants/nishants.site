@@ -1,39 +1,34 @@
-$duration: 500ms;
-$rotate : 0deg;
-$cleanupDuration: $transitionDuration;
-$cleanupFunction: ease;
+$card_bg: #F4F4F4;
 
-ul.deck {
-  margin: 0;
-  padding: $containerPadding;
+.card{
+  height: $cardHeight;
+  width: $cardWidth;
   display: block;
-  list-style: none;
-  text-align: left;
-  width: 100%;
-  overflow: auto;
-  > li{
-    padding: $containerPadding;
-    display: inline-block;
-    float: left;
-    @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: $black_text;
+  background: $card_bg;
+  img{width: 100%;}
+  padding: 0px $padding;
 
-    .card{
-      height: $cardHeight;
-      width: $cardWidth;
-      display: block;
-      cursor: pointer;
-      border: 1px solid rgba(128, 128, 128, 0.14);
-      img{width: 100%;}
-      .textual {
-        max-height: calc(100% - 2 * #{$padding});
-        padding: $padding;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        .title{}
-        > .description {
-        }
-      }
+  h1{
+    margin: 2*$padding 0px;
+    text-shadow: $text_shadow;
+    @extend .theme-font-bold;
+  }
+  p{
+    line-height: $line_height;
+    opacity: 0.5;
+    @extend .theme-font-ligth;
+  }
+
+  .ui-tutorial {
+    max-height: calc(100% - 2 * #{$padding});
+    padding: $padding;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .title{}
+    > .description {
     }
-
   }
 }

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
 p {
   margin-bottom: 1em; }
 
@@ -55,13 +56,19 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
+.theme-font {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
+
+.theme-font-bold, .card h1 {
+  font-weight: 700; }
+
+.theme-font-ligth, .card p {
+  font-weight: 300; }
+
 #slate {
   overflow: hidden;
   height: 100vh; }
-  #slate h1 {
-    margin: 0px auto; }
-  #slate * {
-    box-sizing: border-box; }
   #slate .deck {
     height: calc(100% - 60px); }
   #slate .modal {
@@ -77,14 +84,14 @@ ul.inline-list {
       height: 100%;
       float: left; }
     #slate .modal .overview .card-space {
-      width: 250px;
+      width: 350px;
       height: 250px; }
     #slate .modal .overview .card-actions {
       -webkit-transition: transform 250ms ease;
       -moz-transition: transform 250ms ease;
       -o-transition: transform 250ms ease;
       transition: transform 250ms ease;
-      width: 250px;
+      width: 350px;
       height: 300px;
       pointer-events: all;
       padding: 10px; }
@@ -98,7 +105,7 @@ ul.inline-list {
       -moz-transition: transform 350ms ease, opacity 350ms ease;
       -o-transition: transform 350ms ease, opacity 350ms ease;
       transition: transform 350ms ease, opacity 350ms ease;
-      width: calc(100% - 270px); }
+      width: calc(100% - 370px); }
       #slate .modal .content .frame {
         height: 100%;
         width: 100%;
@@ -131,6 +138,29 @@ ul.inline-list {
     -o-transform: translateX(100vw);
     transform: translateX(100vw); }
 
+.card {
+  height: 250px;
+  width: 350px;
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #646464;
+  background: #F4F4F4;
+  padding: 0px 10px; }
+  .card img {
+    width: 100%; }
+  .card h1 {
+    margin: 20px 0px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); }
+  .card p {
+    line-height: 20px;
+    opacity: 0.5; }
+  .card .ui-tutorial {
+    max-height: calc(100% - 2 * 10px);
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
 ul.deck {
   margin: 0;
   padding: 10px;
@@ -147,19 +177,6 @@ ul.deck {
     -moz-transition: opacity 250ms ease, transform 250ms ease;
     -o-transition: opacity 250ms ease, transform 250ms ease;
     transition: opacity 250ms ease, transform 250ms ease; }
-    ul.deck > li .card {
-      height: 250px;
-      width: 250px;
-      display: block;
-      cursor: pointer;
-      border: 1px solid rgba(128, 128, 128, 0.14); }
-      ul.deck > li .card img {
-        width: 100%; }
-      ul.deck > li .card .textual {
-        max-height: calc(100% - 2 * 10px);
-        padding: 10px;
-        overflow: hidden;
-        text-overflow: ellipsis; }
 
 .deck.focus {
   pointer-events: none; }
@@ -196,7 +213,6 @@ ul.deck {
   overflow: hidden;
   height: 60px;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
   position: relative; }
   #nav #top-bar, #nav #modal-bar {
     height: 60px;

@@ -1,5 +1,6 @@
-.image(ng-if='card.image')
+.image-card(ng-if='card.type == "image"')
   img(ng-src='{{card.image}}')
-.textual(ng-if='!card.image')
-  h3.title(ng-bind='card.name')
+
+.ui-tutorial(ng-if='card.type == "ui"')
+  h1.name(ng-bind='card.name')
   p.description(ng-bind='card.description')

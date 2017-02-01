@@ -1,3 +1,20 @@
+ul.deck {
+  margin: 0;
+  padding: $containerPadding;
+  display: block;
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  overflow: auto;
+  > li{
+    padding: $containerPadding;
+    display: inline-block;
+    float: left;
+    @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
+
+  }
+}
+
 .deck.focus{
   pointer-events: none;
   li.selected{

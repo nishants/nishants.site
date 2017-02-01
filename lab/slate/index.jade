@@ -9,7 +9,7 @@ html
     link(rel='stylesheet', href='index.css')
 
 body(ng-app='slate')
-  #slate(ng-class="{'show-modal' : deck._current != -1}")
+  #slate(class='theme-font', ng-class="{'show-modal' : deck._current != -1}")
     #nav
       include nav/nav
     ul.deck(ng-class="{'focus' : deck._current != -1}")

@@ -5,26 +5,53 @@ $navigationBarHeight: 60px;
 $topBarLayer: 1000;
 $containerPadding: 10px;
 
-$cardWidth: 250px;
+$cardWidth: 350px;
 $cardHeight: 250px;
+
 $modalBackdrop: rgba(0,0,0,0);
 $contentTransitionDuration : $transitionDuration + 100;
 $padding: 10px;
 $transition_function: ease;
 $transition_duration : $transitionDuration;
 $white : rgba(255, 255, 255, 0.9);
+$duration: 500ms;
+$rotate : 0deg;
+$cleanupDuration: $transitionDuration;
+$cleanupFunction: ease;
+
+$black_text: #646464;
+$side_padding: 10px;
+
+$weight_normal: 400;
+$weight_bold: 700;
+$weight_light: 300;
+
+$line_height: 20px;
+$text_shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_normal},#{$weight_bold}');
+
+.theme-font{
+  font-family: 'Roboto', sans-serif;
+  font-weight: $weight_normal;
+}
+
+.theme-font-bold{
+  font-weight: $weight_bold;
+}
+
+.theme-font-ligth{
+  font-weight: $weight_light;
+}
+
 
 #slate{
   overflow: hidden;
   height: 100vh;
-  h1{margin: 0px auto;}
-  *{box-sizing: border-box;};
-
   .deck{
     height: calc(100% - #{$navigationBarHeight});
   }
   @import 'modal/modal';
-
 }
 
 #slate:not(.show-modal){
