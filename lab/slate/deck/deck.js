@@ -1,14 +1,15 @@
-app.directive("slate", ["cardService",function (cardService) {
-	var select = function (index) {
-				var card = $($(".deck > li")[index]),
+app.directive("slate", ["cardService", "modalService",function (cardService, modalService) {
+	var $deckItems = function(){return $(".deck > li");},
+			select = function (index) {
+				var container = $($deckItems()[index]),
 						offsetPadding = 10,
-						offsetY = $(".deck").offset().top - card.offset().top,
-						offsetX = $(".deck").offset().left - card.offset().left;
+						offsetY = $(".deck").offset().top - container.offset().top,
+						offsetX = $(".deck").offset().left - container.offset().left;
 
-				card.css("transform", "translateY(" + (offsetY + offsetPadding) + "px)" + "translateX(" + (offsetX + offsetPadding) + "px)");
+				container.css("transform", "translateY(" + (offsetY + offsetPadding) + "px)" + "translateX(" + (offsetX + offsetPadding) + "px)");
 			},
 			unSelect = function () {
-				$(".deck > li").css("transform", "");
+				$deckItems().css("transform", "");
 			};
 	return {
 		restrict: "C",
@@ -17,8 +18,13 @@ app.directive("slate", ["cardService",function (cardService) {
 		link: function (scope, element, attrs) {
 			scope.deck = cardService;
 			scope.$watch("deck.current", function (now, previous) {
-				now != -1 && select(now);
-				previous != -1 && unSelect();
+				var cardSelected = now != -1,
+						card = cardService.list[cardService.current],
+						cardUnselected = previous != -1;
+
+				cardSelected && select(now);
+				cardUnselected && unSelect();
+				card && modalService.show(card.src);
 			});
 		}
 	};

@@ -14,7 +14,7 @@ body(ng-app='slate')
       include nav/nav
     ul.deck(ng-class="{'focus' : deck.current != -1}")
       include deck/deck
-    .modal
+    .modal(ng-controller='modalController')
       include modal/modal
 
   script(src='lib/jquery-2.1.4.min.js')
@@ -22,4 +22,6 @@ body(ng-app='slate')
   script(src='app.js')
   script(src='deck/deck.js')
   script(src='cards/card-service.js')
+  script(src='modal/modal-service.js')
+  script(src='modal/modal-controller.js')
   script(src='router.js')
