@@ -197,7 +197,18 @@ ul.deck {
   height: 60px;
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%; }
+  width: 100%;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease; }
+
+#slate.show-modal #nav #top-bar {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
 
 #footer {
   text-align: center; }
