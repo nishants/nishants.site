@@ -22,7 +22,7 @@ $iconSize: 16px;
 $iconsWidth: 140px;
 
 $barTransition: ease;
-$logoWidth: 120px;
+$logoWidth: 90px;
 $linkHoverHighlight: rgba(0, 128, 0, 0.8);
 $linkSelectedHighlight: rgba(0, 128, 0, 0.3);
 $navigationLinkWidth: 100px;
@@ -73,9 +73,11 @@ $iconsTransitionTime: 200ms;
     .logo {
       padding: 0px 20px;
       width: $logoWidth;
+      overflow: hidden;
       a{
         width: 100%;
-        img{
+        svg{
+          opacity: 0;
           vertical-align: middle;
           width: 100%;
         }

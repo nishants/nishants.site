@@ -392,15 +392,17 @@ ul.grid {
     transition-delay: 100ms; }
     #top-fixed-bar .app.bar .logo {
       padding: 0px 20px;
-      width: 120px; }
+      width: 90px;
+      overflow: hidden; }
       #top-fixed-bar .app.bar .logo a {
         width: 100%; }
-        #top-fixed-bar .app.bar .logo a img {
+        #top-fixed-bar .app.bar .logo a svg {
+          opacity: 0;
           vertical-align: middle;
           width: 100%; }
     #top-fixed-bar .app.bar .search {
       height: 45px -10px;
-      width: calc(100% - 280px);
+      width: calc(100% - 250px);
       border: 1px solid rgba(0, 0, 0, 0.09);
       border-radius: 1px;
       overflow: hidden;
@@ -523,7 +525,7 @@ ul.grid {
     transition: all 500ms ease;
     height: 40px;
     line-height: 30px;
-    padding: 5px 5px 5px 125px;
+    padding: 5px 5px 5px 95px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.01);
     background-color: rgba(0, 0, 0, 0.8);
     color: rgba(255, 255, 255, 0.9); }
