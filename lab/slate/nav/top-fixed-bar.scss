@@ -211,7 +211,7 @@ $iconsTransitionTime: 200ms;
 }
 
 
-#treniq.reading > #top-fixed-bar{
+.scroll-listener.reading  #top-fixed-bar{
   .app.bar{
     box-shadow: $barShadow;
     background-color: $appBarColor;

@@ -10,7 +10,7 @@ html
     script window.iframeLoaded = function(){};
 body.state(ng-app='slate')
   #slate(class='theme-font', ng-class="{'show-modal' : deck._current != -1}")
-    #nav
+    #nav.scroll-listener
       include nav/nav
     ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
       include deck/deck
@@ -27,3 +27,4 @@ body.state(ng-app='slate')
   script(src='router.js')
   script(src='grid/grid-directive.js')
   script(src='grid/grid-service.js')
+  script(src='components/scroll.js')
