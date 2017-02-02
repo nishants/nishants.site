@@ -200,8 +200,7 @@ ul.inline-list {
     margin: auto; }
 
 #slate.show-modal .card-space {
-  opacity: 1;
-  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
+  opacity: 1; }
 
 #slate:not(.show-modal) .modal {
   -webkit-transform: scale(0);
@@ -228,13 +227,12 @@ ul.inline-list {
     transform: translateX(100vw); }
 
 .card {
-  height: 250px;
   width: 300px;
   display: block;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #646464;
-  background: #F4F4F4;
+  background: white;
   padding: 0px 10px; }
   .card img {
     width: 100%; }
@@ -268,7 +266,6 @@ ul.deck {
   overflow: auto; }
   ul.deck > li {
     padding: 10px;
-    display: inline-block;
     float: left;
     -webkit-transition: opacity 250ms ease, transform 250ms ease;
     -moz-transition: opacity 250ms ease, transform 250ms ease;
@@ -331,5 +328,13 @@ ul.deck {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
+
+ul.grid {
+  position: relative; }
+  ul.grid > li.grid-box {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
 
 /*# sourceMappingURL=index.css.map */

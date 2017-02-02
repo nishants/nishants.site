@@ -6,6 +6,7 @@ app.service("DeckService",["$sce", function($sce){
 				card.mobileFirst = card["mobile-first"];
 				card.desktopFirst = card["desktop-first"];
 				card.noMobile = card["no-mobile"];
+				card.tagList = card.tags.map(function(tag){return tag.name;}).join(" ");
 				return card;
 			},
 			deck = {

@@ -72,7 +72,6 @@ $heavy-border: 1px solid rgba(0, 0, 0, 0.2);
 #slate.show-modal{
   .card-space{
     opacity: 1;
-    box-shadow: $box_shadow;
   }
 }
 #slate:not(.show-modal){
@@ -95,3 +94,4 @@ $heavy-border: 1px solid rgba(0, 0, 0, 0.2);
 @import 'deck/deck';
 
 @import 'nav/nav';
+@import 'grid/grid';

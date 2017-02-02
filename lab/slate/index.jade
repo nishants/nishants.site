@@ -8,11 +8,11 @@ html
     link(rel='stylesheet', href='lib/font-awesome-4.7.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='index.css')
     script window.iframeLoaded = function(){};
-body(ng-app='slate')
+body.state(ng-app='slate')
   #slate(class='theme-font', ng-class="{'show-modal' : deck._current != -1}")
     #nav
       include nav/nav
-    ul.deck(ng-class="{'focus' : deck._current != -1}")
+    ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
       include deck/deck
     .modal(ng-controller='modalController')
       include modal/modal
@@ -25,3 +25,5 @@ body(ng-app='slate')
   script(src='modal/modal-service.js')
   script(src='modal/modal-controller.js')
   script(src='router.js')
+  script(src='grid/grid-directive.js')
+  script(src='grid/grid-service.js')

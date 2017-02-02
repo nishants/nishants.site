@@ -9,7 +9,6 @@ ul.deck {
   overflow: auto;
   > li{
     padding: $containerPadding;
-    display: inline-block;
     float: left;
     @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
 

@@ -14,7 +14,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 			};
 	return {
 		restrict: "C",
-		scope: true,
+		scope: false,
 		transclude: false,
 		link: function (scope, element, attrs) {
 			scope.$watch("deck._current", function (now, previous) {
