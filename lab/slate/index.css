@@ -269,7 +269,7 @@ ul.inline-list {
 ul.deck {
   margin: 0;
   padding: 10px;
-  padding-top: 60px;
+  padding-top: 40px;
   display: block;
   list-style: none;
   text-align: left;
@@ -316,14 +316,14 @@ ul.deck {
 
 #nav {
   overflow: visible;
-  height: 60px;
+  height: 40px;
   text-align: center;
   position: fixed;
   width: 100%;
   z-index: 1; }
   #nav #top-bar {
-    height: 60px;
-    line-height: 60px;
+    height: 40px;
+    line-height: 40px;
     background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
