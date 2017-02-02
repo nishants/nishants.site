@@ -1,0 +1,224 @@
+$logoColor: #2F2F2F;
+$secondLogoColor: #FBD683;
+
+$toTopIconSize : 40px;
+
+$fixedBarHeight: 85px;
+$appBarHeight  : 45px;
+$navigationBarHeight: $fixedBarHeight - $appBarHeight;
+$topBarLayer: 1000;
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100,700);
+$defaultTransitionFunction : "cubic-bezier(0.45, 0.515, 0.36, 0.88)";
+
+$borderColor: rgba(0, 0, 0, 0.01);
+$barColor: #EEE;
+
+$searchHeight: 30px;
+$searchBorderRadius: 1px;
+
+$fontSize: 13px;
+$iconSize: 16px;
+$iconsWidth: 140px;
+
+$barTransition: ease;
+$logoWidth: 120px;
+$linkHoverHighlight: rgba(0, 128, 0, 0.8);
+$linkSelectedHighlight: rgba(0, 128, 0, 0.3);
+$navigationLinkWidth: 100px;
+$navigationPadding: 10px;
+$barShadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+$barTransitionTime: 500ms;
+
+$appBarColor: rgba(255,255,255,0.95);
+$navigationBarColor: rgba(0,0,0,0.8);
+$navigationBarFontColor :rgba(255,255,255,0.9);
+$iconsTransitionTime: 200ms;
+
+#top-fixed-bar{
+  position: fixed;
+  top: 0px;
+  z-index: $topBarLayer;
+
+  width: 100%;
+  overflow: hidden;
+
+  text-align: center;
+  font-size: $fontSize;
+  color: $logoColor;
+  pointer-events: none;
+
+  .bar{
+    pointer-events: all;
+    > ul > li {
+      float: left;
+      a{
+        display: block;
+        width: $navigationLinkWidth;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .app.bar{
+    position: relative;
+    z-index: 1;
+    height: $appBarHeight;
+    padding: 5px;
+    line-height: $searchHeight;
+    background-color: white;
+
+    @include transition(all 100ms ease);
+    @include transitionDelay(100ms);
+
+    .logo {
+      padding: 0px 20px;
+      width: $logoWidth;
+      a{
+        width: 100%;
+        img{
+          vertical-align: middle;
+          width: 100%;
+        }
+      }
+    }
+    .search{
+      height: $appBarHeight -10px;
+      width: calc(100% - #{$iconsWidth + $logoWidth + 20px});
+      border: 1px solid rgba(0, 0, 0, 0.09);
+      border-radius: $searchBorderRadius;
+      overflow: hidden;
+      @include transition(all 500ms ease);
+      @include transitionDelay(500ms);
+      input, span{
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        height: $searchHeight;
+        line-height: $searchHeight - 2px;
+
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        background-color: transparent;
+        @include transition(border 500ms ease);
+      }
+      span{
+        width: 50px;
+        border-right: 1px solid $borderColor;
+        font-size: $iconSize;
+        color: rgba(0,0,0,0.1);
+
+        @include transition(all 500ms ease);
+        @include transform(translateX(-10px));
+      }
+      input{
+        outline: none;
+        @include transition(all 500ms ease);
+        @include transform(translateX(-20px));
+        width: calc(100% - 50px);
+        border-top-right-radius: $searchBorderRadius;
+        border-bottom-right-radius: $searchBorderRadius;
+        border: 1px solid transparent
+      }
+    }
+    .search.active{
+      input{
+        padding-left: 10px;
+        background-color: white;
+        @include transform(translateX(0px));
+      }
+      span{
+        color: inherit;
+        background: $secondLogoColor;
+        @include transform(translateX(0px));
+      }
+    }
+    .search:hover{@extend .active;}
+
+    .icons{
+      float: right;
+      width: $iconsWidth;
+      > ul > li {
+        float: left;
+        width: $iconsWidth/2;
+        text-transform: capitalize;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        @include transition(border-color $iconsTransitionTime ease);
+
+        .fa{
+          @include transition(transform $iconsTransitionTime ease);
+          @include transformOrigin(0 0);
+          font-size: $iconSize;
+          text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.17);
+        }
+        label{
+          display: inline-block;
+          font-weight: 300;
+          font-size: 9px;
+          @include transition(transform $iconsTransitionTime ease);
+        }
+      }
+
+      > ul > li:hover{
+        border-color: rgba(0,0,0,0.05);
+        label{
+          @include transform(translateX(10px) scale(1.2));
+        }
+        .fa{
+          @include transform(scale(1.2));
+        }
+      }
+    }
+  }
+
+  .navigation.bar{
+    @include transition(all $barTransitionTime $barTransition);
+    height: $navigationBarHeight;
+    line-height: $navigationBarHeight - $navigationPadding;
+    padding: 5px 5px 5px $logoWidth + 5px;
+    border-bottom: 1px solid $borderColor;
+    background-color: $navigationBarColor;
+    color: $navigationBarFontColor;
+    > ul {
+      height: $navigationBarHeight;
+      > li:last-child {
+        float: right;
+      }
+    }
+    .link{
+      @include transition(all 500ms ease);
+      padding-left: 10px;
+      text-align: left;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      a{@include transition(all 500ms $barTransition);}
+    }
+    .link:hover{
+      border-color: $linkSelectedHighlight;
+      a{@include transform(translateX(15px));}
+    }
+    .indicator{
+      position: relative;
+      top: -$navigationPadding;
+      height: 2px;
+      pointer-events: none;
+      width: 10px + $navigationLinkWidth;
+      background-color: $linkHoverHighlight;
+
+      @include transition(transform 250ms #{$defaultTransitionFunction});
+    }
+  }
+}
+
+
+#treniq.reading > #top-fixed-bar{
+  .app.bar{
+    box-shadow: $barShadow;
+    background-color: $appBarColor;
+  }
+  .navigation.bar{
+    @include transform(translateY(-$navigationBarHeight));
+    opacity: 0;
+  }
+}
