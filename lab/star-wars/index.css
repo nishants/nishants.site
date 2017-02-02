@@ -118,7 +118,7 @@ ul.deck {
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    background: url(../images/twinkle.gif) repeat fixed center center; }
+    background: url(images/twinkle.gif) repeat fixed center center; }
   #background .space-station {
     position: absolute;
     bottom: 0;

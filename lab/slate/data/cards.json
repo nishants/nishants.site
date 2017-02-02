@@ -14,7 +14,7 @@
     {
       "type": "ui",
       "name": "Gaming Experience with Alien Theme",
-      "src": "http://nishants.site/lab/galaxy/",
+      "src": "http://nishants.site/lab/star-wars/",
       "tags": [{"name": "angular"}, {"name": "scss"}],
       "desktop-first": true,
       "description": {
