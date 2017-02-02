@@ -48,7 +48,7 @@
       "src": "https://github.com/nishants/jeyson",
       "tags": [{"name": "angular"}, {"name": "scss"}],
       "description": {
-        "lead": "JSON Template Engine that",
+        "lead": "A JSON Template Language",
         "follow" : " allows executing expressions in json, include another json, render a list element ,render values conditionally, inbuilt and custom directives. Any json is a syntatically valid template, and any template is syntatically valida json."
       }
     },

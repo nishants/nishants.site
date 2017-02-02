@@ -11,9 +11,10 @@ $card_bg: #F4F4F4;
   img{width: 100%;}
   padding: 0px $padding;
 
-  h1{
+  .name{
     margin: 2*$padding 0px;
     text-shadow: $text_shadow;
+    font-size: large;
     @extend .theme-font-bold;
   }
   p{
@@ -32,11 +33,12 @@ $card_bg: #F4F4F4;
       .lead{
         opacity: 0.7;
         padding-right: 5px;
-        font-size: large;
+        font-size: medium;
         @extend .theme-font-bold;
       }
       .follow{
         opacity: 0.5;
+        font-size: small;
       }
     }
   }
