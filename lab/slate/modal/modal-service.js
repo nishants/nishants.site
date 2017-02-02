@@ -18,7 +18,6 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 			modal.props = card;
 			modal._show = true;
 			modal.mobile(card.mobileOnly || card.mobileFirst);
-			modal._frame.fullscren(card.noMobile);
 			modal._timer = $timeout( function(){
 				modal._frame._src = card.src;
 			}, IFRAMETIMEOUT);
