@@ -395,7 +395,9 @@ ul.grid {
       width: 90px;
       overflow: hidden; }
       #top-fixed-bar .app.bar .logo a {
-        width: 100%; }
+        width: auto;
+        float: right;
+        opacity: 0.5; }
         #top-fixed-bar .app.bar .logo a svg {
           opacity: 0;
           vertical-align: middle;

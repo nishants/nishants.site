@@ -75,7 +75,9 @@ $iconsTransitionTime: 200ms;
       width: $logoWidth;
       overflow: hidden;
       a{
-        width: 100%;
+        width: auto;
+        float: right;
+        opacity: 0.5;
         svg{
           opacity: 0;
           vertical-align: middle;
