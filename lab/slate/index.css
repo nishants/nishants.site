@@ -269,7 +269,7 @@ ul.inline-list {
 ul.deck {
   margin: 0;
   padding: 10px;
-  padding-top: 40px;
+  padding-top: 130px;
   display: block;
   list-style: none;
   text-align: left;
@@ -316,29 +316,30 @@ ul.deck {
 
 #nav {
   overflow: visible;
-  height: 40px;
+  height: 130px;
   text-align: center;
   position: fixed;
   width: 100%;
-  z-index: 1; }
-  #nav #top-bar {
-    height: 40px;
-    line-height: 40px;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); }
+  z-index: 1;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease; }
 
-#slate.show-modal #nav #top-bar {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
+#slate.show-modal #nav {
+  -webkit-transform: translateY(-130px);
+  -moz-transform: translateY(-130px);
+  -ms-transform: translateY(-130px);
+  -o-transform: translateY(-130px);
+  transform: translateY(-130px); }
+
+ul.grid {
+  position: relative; }
+  ul.grid > li.grid-box {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
 
 #top-fixed-bar {
   position: fixed;
@@ -559,13 +560,5 @@ ul.deck {
   -o-transform: translateY(-40px);
   transform: translateY(-40px);
   opacity: 0; }
-
-ul.grid {
-  position: relative; }
-  ul.grid > li.grid-box {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0; }
 
 /*# sourceMappingURL=index.css.map */

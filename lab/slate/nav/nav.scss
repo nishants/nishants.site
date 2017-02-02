@@ -8,21 +8,12 @@ $nav_height: $navigationBarHeight;
   position: fixed;
   width: 100%;
   z-index: 1;
-  #top-bar {
-    height: $nav_height;
-    line-height: $nav_height;
-    background-color: $nav_color;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    @include transition(all $transition_duration $transition_function) ;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-  }
+  @include transition(all $transition_duration $transition_function) ;
 }
 
 #slate.show-modal{
   #nav{
-    #top-bar{
-      @include transform(translateY(-100%));
-    }
+    @include transform(translateY(-$navigationBarHeight));
+
   }
 }

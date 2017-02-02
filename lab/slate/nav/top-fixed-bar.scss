@@ -4,7 +4,9 @@ $secondLogoColor: #FBD683;
 $toTopIconSize : 40px;
 
 $topBarLayer: 1000;
-
+$fixedBarHeight: 85px;
+$appBarHeight  : 45px;
+$navigationBarHeight: $fixedBarHeight - $appBarHeight;
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,100,700);
 $defaultTransitionFunction : "cubic-bezier(0.45, 0.515, 0.36, 0.88)";
