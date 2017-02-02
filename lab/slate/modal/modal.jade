@@ -1,8 +1,5 @@
 .overview
-  .card-space
-  .card-actions
-    //a(target="_blank",href="{{modal._frame._src}}") Open
-    //button(ng-click="modal.close()") Close
+  include overview
 .content(ng-class='{"ready" : modal._frame._ready, "full-screen": modal._frame._fullscreen, "mobile-screen": modal._mobile}')
   .frame-bar
       .title(ng-bind="deck.selected().name")
