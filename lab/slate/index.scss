@@ -64,10 +64,13 @@ $card_font : 'Open Sans', sans-serif;
   .deck{
     height: 100%;
   }
-  .card-space{
-    opacity: 0;
-    @include transitionDelay($transitionDuration);
-    @include transition(#{opacity $transitionDuration ease});
+  .overview{
+    .card-space{
+      .speaks{
+        @include transition(opacity $transition_duration $transition_function);
+        @include transitionDelay($transition_duration);
+      }
+    }
   }
   @import 'modal/modal';
 }
@@ -83,6 +86,11 @@ $card_font : 'Open Sans', sans-serif;
     @include transitionDelay($transitionDuration);
 
     .overview{
+      .card-space{
+        .speaks{
+          opacity: 0;
+        }
+      }
       .card-actions{
         @include transform(translateY(100vh));
       }
