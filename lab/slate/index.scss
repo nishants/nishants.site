@@ -35,8 +35,10 @@ $loader_size: 50px;
 $box_shadow : -1px -1px 5px rgba(0, 0, 0, 0.21);
 
 $heavy-border: 1px solid rgba(0, 0, 0, 0.2);
+$card_font : 'Open Sans', sans-serif;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$weight_normal}i,#{$weight_bold}');
 
 .theme-font{
   font-family: 'Roboto', sans-serif;

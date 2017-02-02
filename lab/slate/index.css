@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400i,700");
 p {
   margin-bottom: 1em; }
 
@@ -60,10 +61,10 @@ ul.inline-list {
   font-family: 'Roboto', sans-serif;
   font-weight: 400; }
 
-.theme-font-bold, .card .name, .card .ui-tutorial > .description .lead {
+.theme-font-bold {
   font-weight: 700; }
 
-.theme-font-ligth, .card p {
+.theme-font-ligth {
   font-weight: 300; }
 
 [ng-click] {
@@ -226,6 +227,15 @@ ul.inline-list {
     -o-transform: translateX(100vw);
     transform: translateX(100vw); }
 
+.card-title-text, .card .name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; }
+
+.card-body-text, .card p, .card .ui-tutorial > .description .lead {
+  font-style: italic;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400; }
+
 .card {
   width: 300px;
   display: block;
@@ -248,9 +258,9 @@ ul.inline-list {
     overflow: hidden;
     text-overflow: ellipsis; }
     .card .ui-tutorial > .description .lead {
-      opacity: 0.7;
+      opacity: 0.9;
       padding-right: 5px;
-      font-size: medium; }
+      font-size: small; }
     .card .ui-tutorial > .description .follow {
       opacity: 0.5;
       font-size: small; }
