@@ -1,3 +1,5 @@
+require("../../lib/google/analytics.js");
+
 require("./app/app.js");
 require("./app/variables.js");
 require("./app/config.js");

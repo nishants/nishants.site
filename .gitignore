@@ -12,3 +12,5 @@
 /src/portfolio/src/index.css
 /src/portfolio/src/index.html
 /src/portfolio/src/index.css.map
+*.log
+*.sass-cache
