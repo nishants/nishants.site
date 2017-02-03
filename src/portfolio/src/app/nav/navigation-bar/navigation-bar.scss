@@ -1,0 +1,41 @@
+#top-fixed-bar {
+  .navigation.bar{
+    @include transition(all $barTransitionTime $barTransition);
+    height: $navigationBarHeight;
+    line-height: $navigationBarHeight - $navigationPadding;
+    padding: 5px 5px 5px $logoWidth + 5px;
+    border-bottom: 1px solid $borderColor;
+    background-color: $navigationBarColor;
+    color: $navigationBarFontColor;
+    box-shadow: $barShadow;
+
+    > ul {
+      height: $navigationBarHeight;
+      > li:last-child {
+        float: right;
+      }
+    }
+    .link{
+      @include transition(all 500ms ease);
+      padding-left: 10px;
+      text-align: left;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      a{@include transition(all 500ms $barTransition);}
+    }
+    .link:hover{
+      border-color: $linkSelectedHighlight;
+      a{@include transform(translateX(15px));}
+    }
+    .indicator{
+      position: relative;
+      top: -$navigationPadding;
+      height: 2px;
+      pointer-events: none;
+      width: 10px + $navigationLinkWidth;
+      background-color: $linkHoverHighlight;
+
+      @include transition(transform 250ms #{$defaultTransitionFunction});
+    }
+  }
+}

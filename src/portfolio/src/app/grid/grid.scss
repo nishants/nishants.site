@@ -1,0 +1,10 @@
+ul.grid{
+  position: relative;
+  >li.grid-box{
+    display: block;
+    //float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

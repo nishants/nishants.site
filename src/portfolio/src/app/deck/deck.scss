@@ -1,0 +1,41 @@
+ul.deck {
+  margin: 0;
+  padding: $containerPadding;
+  padding-top: $navigationBarHeight;
+  display: block;
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  overflow: auto;
+  > li{
+    padding: $containerPadding;
+    float: left;
+    @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
+
+  }
+}
+
+.deck.focus{
+  pointer-events: none;
+  li.selected{
+    pointer-events: none; //TODO : enables scroll on firefox
+  }
+
+  li.selected-head{
+    @include transform(translateY(50px) rotate($rotate));
+  }
+
+  li.selected-tail{
+    @include transform(translateY(-50px) rotate(-$rotate));
+  }
+  li.selected-pre{
+    @include transform(translateX(50px) rotate($rotate));
+  }
+
+  li.selected-post{
+    @include transform(translateX(-50px) rotate(-$rotate));
+  }
+  li:not(.selected){
+    opacity: 0;
+  }
+}

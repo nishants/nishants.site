@@ -1,0 +1,11 @@
+#slate(class='theme-font', ng-class="{'show-modal' : deck._current != -1}")
+  #nav.scroll-listener
+    #top-fixed-bar
+      .app.bar
+        include nav/search-bar/search-bar
+      .navigation.bar
+        include nav/navigation-bar/navigation-bar
+  ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
+    include deck/deck
+  .modal(ng-controller='modalController')
+    include modal/modal
