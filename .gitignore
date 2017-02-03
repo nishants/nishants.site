@@ -1,9 +1,9 @@
 .idea
 *-compiled.js
 *-compiled.js.map
-/lab/star-wars/style/index.css.map
-/lab/star-wars/app/app-compiled.js
-/lab/star-wars/app/app-compiled.js.map
-/lab/star-wars/node_modules/
-/lab/star-wars/reports/
-/lab/star-wars/app/app.html
+/public/lab/star-wars/style/index.css.map
+/public/lab/star-wars/app/app-compiled.js
+/public/lab/star-wars/app/app-compiled.js.map
+/public/lab/star-wars/node_modules/
+/public/lab/star-wars/reports/
+/public/lab/star-wars/app/app.html
