@@ -77,6 +77,19 @@ input{
   background: linear-gradient($value); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+@mixin placeholder($contents...) {
+  $prefixes: ':-webkit' '-moz' ':-moz' '-ms';
+  @each $prefix in $prefixes {
+    &:#{$prefix}-input-placeholder {
+      @each $content in $contents{
+        $property: nth($content, 1);
+        $value: nth($content, 2);
+        #{$property}: unquote($value);
+      }
+    }
+  }
+}
+
 ul.undo-list{
   list-style: none;
   margin: 0px;

@@ -1,0 +1,37 @@
+$icon_width: 50px;
+$search_width: 100%;
+$max_search_width: 500px;
+$border_width: 1px;
+
+$search_vertical_padding: $padding/2;
+$widget_height: $search_height - $search_vertical_padding - 2 * $border_width;
+
+.search.bar{
+  height: $search_height;
+  overflow: hidden;
+  padding: $search_vertical_padding;
+  .search-widget{
+    max-width: $max_search_width;
+    border: $border;
+    margin: auto;
+    @extend .resize-container;
+    .icon, input.query{
+      float: left;
+      height: $widget_height;
+    }
+    .icon{
+      width: $icon_width;
+      height: $widget_height;
+      line-height: $widget_height;
+      color: $black_border;
+      text-align: center;
+      border-right: $border;
+    }
+    input.query{
+      width: calc(100% - #{$icon_width});
+      padding-left: $padding;
+      outline: none;
+      @include placeholder(color $black_border)
+    }
+  }
+}
