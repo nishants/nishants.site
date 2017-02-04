@@ -1,6 +1,6 @@
 describe('TimelineSearch', function () {
 	var service,
-			timeline  = {
+			sample_timeline  = {
 				positions: [
 					{
 						title: 'One',
@@ -40,25 +40,7 @@ describe('TimelineSearch', function () {
 						]
 					}
 				]
-			},
-			expectations = [
-				{
-					name: "search with now keyword",
-					query: "",
-					expected : timeline.positions
-				},
-				{
-					name: "search by position level tag",
-					query: "only-one",
-					expected : timeline.positions[0]
-				},
-				{
-					name: "search by position level tag",
-					query: "only-two",
-					expected : timeline.positions[1]
-				}
-
-			];
+			};
 
 	beforeEach(module('timeline'));
 	module(function($provide) {
@@ -70,9 +52,48 @@ describe('TimelineSearch', function () {
 
 	describe('ShouldFilterByKeyword', function () {
 		it("search with empty query", function () {
-			service.index(Object.assign({}, timeline));
+			service.index(sample_timeline);
 			service.search("")
-			expect(timeline).toBe(timeline)
+			expect(service.timeline).toEqual(sample_timeline)
+		});
+
+		it("should include all projects if position matches tag", function () {
+			var expected = Object.assign({}, sample_timeline);
+
+			service.index(sample_timeline);
+			service.search("only-one");
+
+			expected.positions[0]._hidden = undefined;
+			expected.positions[0]._hidden = true;
+
+			expect(service.timeline).toEqual(expected);
+		});
+
+		it("should search for multiple profile", function () {
+			var expected = Object.assign({}, sample_timeline);
+			service.index(sample_timeline);
+			service.search("one-and-two");
+
+			expect(service.timeline).toEqual(expected);
+		});
+
+		it("should hide all if no match found", function () {
+			var expected = Object.assign({}, sample_timeline);
+
+			service.index(sample_timeline);
+			service.search("no-match");
+
+			expect(service.timeline.positions[0]._hidden).toEqual(true);
+			expect(service.timeline.positions[1]._hidden).toEqual(true);
+		});
+
+		it("should include profile is one of tags in query matches", function () {
+			var expected = Object.assign({}, sample_timeline);
+			service.index(sample_timeline);
+			service.search("one-and-two");
+
+			expect(service.timeline.positions[0]._hidden).toBeFalsy();
+			expect(service.timeline.positions[1]._hidden).toBeFalsy();
 		});
 	});
 

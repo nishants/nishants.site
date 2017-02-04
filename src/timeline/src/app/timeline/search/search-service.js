@@ -1,20 +1,19 @@
 angular.module("timeline").service("SearchService", [function () {
-	var parse       = function(query){
-				return query;
-			},
-			matches     = function(matcher){
-				return function(){
-					return true
-				};
+	var matchPosition = function(query, position){
+				return position.tags.indexOf(query) > -1;
 			},
 			service = {
 				query: "",
 				timeline : null,
 				index : function(timeline){
-					service.timeline = timeline;
+					service.timeline = Object.assign({}, timeline) ;
 				},
 				search: function (query) {
-
+					if(query && query.length){
+						service.timeline.positions.forEach(function(position){
+							position._hidden = !matchPosition(query, position);
+						});
+					}
 				}
 			};
 
