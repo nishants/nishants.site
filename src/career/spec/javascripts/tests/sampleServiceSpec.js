@@ -3,7 +3,6 @@ describe('Service', function () {
       $httpBackend;
 
   beforeEach(function() {
-    module('profile');
 
   });
 

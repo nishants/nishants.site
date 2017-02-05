@@ -4,8 +4,6 @@
 *.css.map
 */**/node_modules/
 */**/bower_components/
-/public/lab/star-wars/reports/
-/public/lab/star-wars/app/app.html
 /src/portfolio/bower_components/
 /src/portfolio/node_modules/
 /src/portfolio/dist/

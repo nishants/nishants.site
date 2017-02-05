@@ -24,7 +24,7 @@ var
 			return element.getBoundingClientRect().top < $(".top-bar").height() - (offset || rowHeight());
 		};
 
-$(document).on("scroll", function(e){
+$(document).on("scroll", function(){
 	showTopBar(isGone($(".introduction")[0]));
 	showNameInTopBar(isUnderTitleBar($(".introduction > .name")[0]));
 	showTitleInTopBar(isUnderTitleBar($(".introduction > .title > .designation")[0]));

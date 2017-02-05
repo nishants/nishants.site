@@ -1,12 +1,12 @@
 {
-  "name": "star-wars",
+  "name": "nishants.site",
   "description": "A gaming app with HTML5 and CSS3",
   "main": "",
   "authors": [
     "nishant <nishant.singh87@gmail.com>"
   ],
   "license": "WTFPL",
-  "homepage": "https://github.com/nishants/star-wars",
+  "homepage": "https://github.com/nishants/nishants.site",
   "private": true,
   "ignore": [
     "**/.*",
