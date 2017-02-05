@@ -1,7 +1,10 @@
-$black_bg : black;
 
 #nishants{
-  min-height: 100vh;
-  min-width: 100vw;
-  background: $black_bg;
+  overflow: hidden;
+  height: 100vh;
+  .main-content{
+    background: white;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
 }

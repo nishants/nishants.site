@@ -15,7 +15,9 @@ html
     include ../../lib/google/header
 
   body(ng-app="nishants")
-    #nishants
+    #nishants(ng-class='{"no-splash" : splash.close}')
       .splash
         include app/loader/loader
-
+      .main-content
+        h1 Here begins the main content
+        P Some long paragraph about something..how do you like it ?

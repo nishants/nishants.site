@@ -33,6 +33,8 @@
     "js": "browserify src/index.js | uglifyjs > ../../public/homepage/index.js",
 
     "compile-loader": "scss src/app/loader/loader.scss:src/app/loader/loader.css",
+
+    "compile": " npm run compile-loader && npm run js-dev && npm run scss && npm run jade",
     "package": " npm run compile-loader && npm run test-once && npm run js && npm run lint && npm run scss && npm run jade",
     "test": "karma start karma.conf.js",
     "test-once": "karma start karma.conf.js --single-run",

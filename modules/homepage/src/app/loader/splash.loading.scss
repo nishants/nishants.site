@@ -1,0 +1,44 @@
+$loading_time : 5s;
+
+#nishants:not(.no-splash){
+  .splash{
+    @include transform(translateY(0));
+    .image{
+      @include transform(translateY(calc(50vh - #{$image_height})));
+      animation-name: loading;
+      animation-duration: $loading_time;
+      img{
+        @include transform(scale(2));
+      }
+    }
+    .caption{
+      opacity: 0;
+    }
+  }
+  .main-content{
+    @include transform(translateY(100%));
+  }
+}
+
+$grayscale_initial: 100%;
+$grayscale_one: 80%;
+$grayscale_two: 0%;
+
+$blur_initial: 5px;
+$blur_one: 0px;
+$blur_two: 0px;
+
+@keyframes loading {
+  0% {
+    -webkit-filter: grayscale($grayscale_initial) blur($blur_initial);
+    filter: grayscale($grayscale_initial) blur($blur_initial);
+  }
+  50% {
+    -webkit-filter: grayscale($grayscale_one) blur($blur_one);
+    filter: grayscale($grayscale_one) blur($blur_one);
+  }
+  100% {
+    -webkit-filter: grayscale($grayscale_two) blur($blur_two);
+    filter: grayscale($grayscale_two) blur($blur_two);
+  }
+}

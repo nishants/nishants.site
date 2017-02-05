@@ -3,27 +3,44 @@ $image_width : 100px;
 $caption_height: 34px;
 $caption_width: 325px;
 
-.splash{
-  position: relative;
-  width: 100%;
-  min-height  : $image_height;
+$transition_time: 500ms;
+$transition     : ease;
+@import '../../../../lib/style/base';
 
+.main-content{
+  @include transition(transform $transition_time $transition);
+}
+.splash{
+  position: fixed;
+  background: black;
+  width: 100%;
+  height  : 100vh;
+  @include transform(translateY(-100%));
+
+  @include transition(transform $transition_time $transition);
+  .image.golden{
+    filter:sepia(100%);
+  }
   .image{
     position: absolute;
     left    : calc(50% - #{$image_width}/2);
     height  : $image_height;
     width   : $image_width;
     margin  : auto;
+    @include transition(all $transition_time $transition);
     img{
       display: block;
       height: 100%;
       width: 100%;
+      @include transition(transform $transition_time $transition);
     }
   }
   .caption{
     position: absolute;
     height  : $image_height;
     padding-top: calc(#{($image_height - $caption_height)/2});
+    @include transition(opacity $transition_time $transition);
+    @include transitionDelay($transition_time);
   }
   .caption.one{
     left    : calc(50% - #{$caption_width + $image_width/2});
@@ -34,3 +51,4 @@ $caption_width: 325px;
 
 }
 
+@import 'splash.loading';

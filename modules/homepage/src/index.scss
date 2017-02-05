@@ -3,10 +3,6 @@
 @import "app/app";
 $mobile_at : 700px;
 
-body{
-  // for loader
-  background: black;
-}
 @media screen and (max-width: $mobile_at) {
   @import "app/app.mobile";
   .no-mobile{
