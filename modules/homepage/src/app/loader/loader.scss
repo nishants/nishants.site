@@ -1,0 +1,36 @@
+$image_height: 100px;
+$image_width : 100px;
+$caption_height: 34px;
+$caption_width: 325px;
+
+.splash{
+  position: relative;
+  width: 100%;
+  min-height  : $image_height;
+
+  .image{
+    position: absolute;
+    left    : calc(50% - #{$image_width}/2);
+    height  : $image_height;
+    width   : $image_width;
+    margin  : auto;
+    img{
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .caption{
+    position: absolute;
+    height  : $image_height;
+    padding-top: calc(#{($image_height - $caption_height)/2});
+  }
+  .caption.one{
+    left    : calc(50% - #{$caption_width + $image_width/2});
+  }
+  .caption.two{
+    left    : calc(50% + #{$image_width/2});
+  }
+
+}
+
