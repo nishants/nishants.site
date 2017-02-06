@@ -29,3 +29,50 @@
     }
   }
 }
+
+
+#nishants:not(.show-design){
+  .top-bar{
+    ul.navigation{
+      > li.design{
+        @include transform(translateY($topBarHeight));
+      }
+    }
+  }
+}
+#nishants:not(.show-connect){
+  .top-bar{
+    ul.navigation{
+      > li.connect{
+        @include transform(translateY($topBarHeight));
+      }
+    }
+  }
+}
+#nishants:not(.show-experience){
+  .top-bar{
+    ul.navigation{
+      > li.experience{
+        @include transform(translateY($topBarHeight));
+      }
+    }
+  }
+}
+#nishants:not(.show-coaching){
+  .top-bar{
+    ul.navigation{
+      > li.coaching{
+        @include transform(translateY($topBarHeight));
+      }
+    }
+  }
+}
+#nishants:not(.show-development){
+  .top-bar{
+    ul.navigation{
+      > li.development{
+        @include transform(translateY($topBarHeight));
+      }
+    }
+  }
+}

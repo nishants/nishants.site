@@ -142,14 +142,6 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-#nishants.show-navigation .intro ul.navigation > li {
-  opacity: 0;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
 .top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
@@ -277,6 +269,41 @@ ul.inline-list {
   -o-transform: translateY(-25px);
   transform: translateY(-25px); }
 #nishants:not(.show-navigation) .top-bar ul.navigation > li {
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants:not(.show-design) .top-bar ul.navigation > li.design {
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants:not(.show-connect) .top-bar ul.navigation > li.connect {
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants:not(.show-experience) .top-bar ul.navigation > li.experience {
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching {
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(108px);
   -moz-transform: translateY(108px);
   -ms-transform: translateY(108px);
