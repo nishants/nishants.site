@@ -23,7 +23,7 @@ $(document).ready(function(){
 				return element.getBoundingClientRect().top < $(".top-bar").height() - (offset);
 			};
 
-	$('.scroll-container').on("scroll", function(){
+	$(window).on("scroll", function(){
 		showOnTopBar("top-bar", 		isGone($(".intro  .profile-image")[0]));
 		showOnTopBar("name", 				isUnderTitleBar($(".intro  .name")[0]));
 		showOnTopBar("design", 			isUnderTitleBar($(".intro  .navigation .design")[0]));

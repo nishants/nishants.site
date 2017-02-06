@@ -9,15 +9,12 @@ $transition     : ease;
 
 #nishants{
   overflow: hidden;
-  height: 100vh;
   color: $black_text;
   font-family: $font_family;
   .main-content{
     background: white;
-    height: 100vh;
     width: calc(100vw + #{$scroll_pad});
     padding-right: $scroll_pad;
-    overflow: auto;
     padding-bottom: 100vh;
     .page{
       max-width: $max_page_width;

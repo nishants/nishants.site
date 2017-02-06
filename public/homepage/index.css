@@ -58,15 +58,12 @@ ul.inline-list {
 
 #nishants {
   overflow: hidden;
-  height: 100vh;
   color: #373a3c;
   font-family: "Raleway", sans-serif; }
   #nishants .main-content {
     background: white;
-    height: 100vh;
     width: calc(100vw + 20px);
     padding-right: 20px;
-    overflow: auto;
     padding-bottom: 100vh; }
     #nishants .main-content .page {
       max-width: 1200px;
