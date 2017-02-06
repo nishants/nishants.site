@@ -37,7 +37,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, .top-bar .title .navigation:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .options ul.navigation:after, .top-bar .title .navigation:after {
   content: "";
   display: table;
   clear: both; }
@@ -71,7 +71,7 @@ ul.inline-list {
       padding: 10px; }
 
 #nishants .page.intro {
-  padding-top: 200px; }
+  padding-top: 50px; }
   #nishants .page.intro .heading {
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
@@ -100,15 +100,24 @@ ul.inline-list {
     margin: auto; }
     #nishants .page.intro .about-me ul > li {
       padding-bottom: 10px; }
-  #nishants .page.intro .options ul.navigation > li {
-    padding: 10px 0px; }
-    #nishants .page.intro .options ul.navigation > li .link {
-      height: 50px;
-      max-width: 800px;
-      line-height: 50px;
-      margin: auto;
-      text-align: center;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+  #nishants .page.intro .options ul.navigation {
+    width: 800px;
+    margin: auto !important; }
+    #nishants .page.intro .options ul.navigation > li {
+      padding: 10px;
+      display: inline-block;
+      width: 390px; }
+      #nishants .page.intro .options ul.navigation > li .link {
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.1); }
+    #nishants .page.intro .options ul.navigation > li.coaching {
+      width: 800px; }
+      #nishants .page.intro .options ul.navigation > li.coaching .link {
+        width: 390px; }
 
 #nishants.show-name .intro .name {
   -webkit-transform: translateY(-100%);
@@ -124,7 +133,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .title .navigation > li, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
+.top-bar-transition, .top-bar, .top-bar .background, .top-bar .name, .top-bar .title, .top-bar .title .navigation > li, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -140,9 +149,15 @@ ul.inline-list {
   top: 0;
   width: 100vw;
   height: 108px;
-  background: white;
-  overflow: hidden;
-  box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3); }
+  overflow: hidden; }
+  .top-bar .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 5px);
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3); }
   .top-bar .heading {
     position: relative; }
   .top-bar .name {
@@ -227,6 +242,13 @@ ul.inline-list {
   -ms-transform: translateY(108px);
   -o-transform: translateY(108px);
   transform: translateY(108px); }
+
+#nishants.show-top-bar:not(.show-navigation) .top-bar .background {
+  -webkit-transform: translateY(-35px);
+  -moz-transform: translateY(-35px);
+  -ms-transform: translateY(-35px);
+  -o-transform: translateY(-35px);
+  transform: translateY(-35px); }
 
 #nishants:not(.show-design) .top-bar ul.navigation > li.design {
   -webkit-transform: translateY(108px);

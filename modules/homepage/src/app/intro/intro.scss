@@ -7,11 +7,12 @@ $border_radius       : 3px;
 $description_width  : 800px;
 
 $option_button_height: 50px;
-$option_button_widtht: $description_width;
+$option_menu_width: $description_width;
+$option_button_widtht: $option_menu_width/2 - $padding;
 
 #nishants{
   .page.intro{
-    padding-top: 200px;
+    padding-top: $padding*5;
     .heading{
       padding-bottom: $padding;
       border-bottom: 1px solid $black_border;
@@ -51,16 +52,29 @@ $option_button_widtht: $description_width;
 
     .options{
       ul.navigation{
+        width: $description_width;
         @extend .undo-list;
+        @extend .resize-container;
+        margin: auto !important;
         > li {
-          padding: $padding 0px ;
+          padding : $padding;
+          display: inline-block;
+          width: $option_button_widtht;
+
           .link{
             height: $option_button_height;
-            max-width: $option_button_widtht;
+            width: 100%;
+
             line-height: $option_button_height;
             margin: auto;
             text-align: center;
             border: 1px solid $black_border;
+          }
+        }
+        > li.coaching{
+          width: $option_menu_width;
+          .link{
+            width: $option_button_widtht;
           }
         }
       }

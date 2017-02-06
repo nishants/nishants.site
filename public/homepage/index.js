@@ -27,6 +27,7 @@ $(document).ready(function(){
 	$(window).on("scroll", function(){
 		showOnTopBar("top-bar", 		isGone($(".intro  .profile-image")[0]));
 		showOnTopBar("name", 				isUnderTitleBar($(".intro  .name")[0]));
+		showOnTopBar("navigation", 	isUnderTitleBar($(".intro  .navigation")[0]));
 		showOnTopBar("design", 			isUnderTitleBar($(".intro  .navigation .design")[0]));
 		showOnTopBar("development", isUnderTitleBar($(".intro  .navigation .development")[0]));
 		showOnTopBar("coaching",		isUnderTitleBar($(".intro  .navigation .coaching")[0]));

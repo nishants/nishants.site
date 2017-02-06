@@ -6,6 +6,7 @@ $topBarHeight: 108px;
 $top_bar_index : 1;
 $medium_bold_text : 500;
 $title_width: 405px;
+$shadow_offset: 5px;
 
 .top-bar-transition{
   @include transition(all $transition_time $transition);
@@ -20,12 +21,20 @@ $title_width: 405px;
   top: 0;
   width: 100vw;
   height: $topBarHeight;
-
-  background: white;
   overflow: hidden;
-  box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
-
   @extend .top-bar-transition;
+
+  .background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - #{$shadow_offset});
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+    @extend .top-bar-transition;
+  }
+
   .heading{
     position: relative;
   }
