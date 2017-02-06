@@ -8,7 +8,6 @@ $transition_time: 300ms;
 $transition     : ease;
 
 #nishants{
-  overflow: hidden;
   color: $black_text;
   font-family: $font_family;
   .main-content{
@@ -26,3 +25,4 @@ $transition     : ease;
 
 @import 'intro/intro';
 @import 'top-bar/top_bar';
+@import 'slate/slate';

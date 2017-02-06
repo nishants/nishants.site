@@ -76,3 +76,9 @@
     }
   }
 }
+
+#nishants.show-slate.show-modal{
+  .top-bar{
+    @include transform(translateY(-100%));
+  }
+}

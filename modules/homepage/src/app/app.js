@@ -1,4 +1,4 @@
-var app = angular.module("nishants", []);
+var app = angular.module("nishants", ["slate"]);
 app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 	$timeout(function(){
 		$rootScope.splash  = {close: true};
@@ -19,6 +19,7 @@ $(document).ready(function(){
 			isGone = function (element) {
 				return element.getBoundingClientRect().top < 0;
 			},
+
 			isUnderTitleBar = function (element) {
 				return element.getBoundingClientRect().top < ($(".top-bar > .background").height() - offset);
 			};
@@ -33,7 +34,7 @@ $(document).ready(function(){
 		showOnTopBar("experience" , 	isUnderTitleBar($(".intro  .navigation > .experience")[0]));
 		showOnTopBar("development", 	isUnderTitleBar($(".intro  .navigation > .development")[0]));
 		showOnTopBar("coaching"   , 	isUnderTitleBar($(".intro  .navigation > .coaching")[0]));
-
+		showOnTopBar("slate"      , 	isUnderTitleBar($("#slate")[0]));
 	});
 
 	setTimeout(function(){

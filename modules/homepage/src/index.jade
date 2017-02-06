@@ -15,6 +15,5 @@ html
     script(src='index.js')
     include ../../lib/google/header
 
-  body(ng-app="nishants")
-    #nishants(ng-class='{"no-splash" : splash.close}')
-      include app/homepage
+  body#nishants(ng-class='{"no-splash" : splash.close, "show-modal" : deck._current != -1, "show-slate": ui._show_slate}',ng-app="nishants")
+    include app/homepage

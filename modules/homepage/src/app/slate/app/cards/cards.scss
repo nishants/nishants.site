@@ -1,0 +1,56 @@
+$card_bg: white;
+
+.card-title-text{
+  font-family: $card_font;
+  font-weight: $weight_bold;
+}
+
+.card-body-text{
+  font-style: italic;
+  font-family: $card_font;
+  font-weight: $weight_normal;
+}
+
+.card{
+  width: $cardWidth;
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: $black_text;
+  background: $card_bg;
+  img{width: 100%;}
+  padding: 0px $padding;
+
+  .name{
+    margin: 2*$padding 0px;
+    text-shadow: $text_shadow;
+    font-size: large;
+    @extend .card-title-text;
+  }
+
+  p{
+    line-height: $line_height;
+    @extend .card-body-text;
+  }
+
+
+  .ui-tutorial {
+    max-height: calc(100% - 2 * #{$padding});
+    padding: $padding;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .title{}
+    > .description {
+      .lead{
+        opacity: 0.9;
+        padding-right: 5px;
+        font-size: small;
+        @extend .card-body-text;
+      }
+      .follow{
+        opacity: 0.5;
+        font-size: small;
+      }
+    }
+  }
+}

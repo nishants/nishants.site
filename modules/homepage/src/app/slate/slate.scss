@@ -1,0 +1,8 @@
+@import 'app/app';
+
+#nishants:not(.show-slate){
+  ul.deck{
+    overflow: hidden;
+  }
+}
+
