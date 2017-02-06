@@ -133,7 +133,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.top-bar-transition, .top-bar, .top-bar .background, .top-bar .name, .top-bar .title, .top-bar .title .navigation > li, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
+.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .title .navigation > li, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -157,7 +157,11 @@ ul.inline-list {
     height: calc(100% - 5px);
     width: 100%;
     background: white;
-    box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3); }
+    box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease; }
   .top-bar .heading {
     position: relative; }
   .top-bar .name {
@@ -235,6 +239,8 @@ ul.inline-list {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
+  #nishants:not(.show-top-bar) .top-bar .background {
+    opacity: 0; }
 
 #nishants:not(.show-name) .top-bar .heading .name {
   -webkit-transform: translateY(108px);
@@ -244,11 +250,11 @@ ul.inline-list {
   transform: translateY(108px); }
 
 #nishants.show-top-bar:not(.show-navigation) .top-bar .background {
-  -webkit-transform: translateY(-35px);
-  -moz-transform: translateY(-35px);
-  -ms-transform: translateY(-35px);
-  -o-transform: translateY(-35px);
-  transform: translateY(-35px); }
+  -webkit-transform: translateY(-25px);
+  -moz-transform: translateY(-25px);
+  -ms-transform: translateY(-25px);
+  -o-transform: translateY(-25px);
+  transform: translateY(-25px); }
 
 #nishants:not(.show-design) .top-bar ul.navigation > li.design {
   -webkit-transform: translateY(108px);

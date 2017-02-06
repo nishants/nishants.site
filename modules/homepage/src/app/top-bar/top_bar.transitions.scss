@@ -1,6 +1,9 @@
 #nishants:not(.show-top-bar){
   .top-bar{
     @include transform(translateY(-100%));
+    .background{
+      opacity: 0;
+    }
   }
 }
 
@@ -17,7 +20,7 @@
 #nishants.show-top-bar:not(.show-navigation){
   .top-bar{
     .background{
-      @include transform(translateY(-$row_height));
+      @include transform(translateY(-$row_height + $padding));
     }
   }
 }
