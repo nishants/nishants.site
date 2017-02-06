@@ -40,6 +40,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 					columnCount   = Math.floor(grid.$e.width()/(grid.colWidth + 2 * GRID_CONFIG.gridBoxMarginX)),
 					gridHeight    = 0,
 					nextColumn    = 0,
+					centerAlignOffset= (grid.$e.width()%(grid.colWidth + 2 * GRID_CONFIG.gridBoxMarginX))/2,
 					viewableBoxes = grid.$e.find(".grid-box.visible");
 
 			for(var i = 0; i < columnCount; i++){
@@ -53,7 +54,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 						x = nextColumn * (grid.colWidth +  marginX),
 						y = column.nexPosition + marginY;
 
-				setPosition($box, x, y);
+				setPosition($box, x + centerAlignOffset, y);
 
 				column.nexPosition += $box.height() + marginY;
 				gridHeight          = Math.max(gridHeight, column.nexPosition);
