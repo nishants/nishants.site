@@ -2,31 +2,30 @@ $loading_time : 5s;
 
 #nishants:not(.no-splash){
   .splash{
-    @include transform(translateY(0));
-    .image{
-      @include transform(translateY(calc(50vh - #{$image_height})));
+    @include transform(translateY(100vh));
+    .image,{
       animation-name: loading;
       animation-duration: $loading_time;
-      img{
-        @include transform(scale(2));
-      }
     }
     .caption{
+      //animation-name: fade-in;
+      //animation-duration: $loading_time;
       opacity: 0;
     }
-  }
-  .main-content{
-    @include transform(translateY(100%));
   }
 }
 
 $grayscale_initial: 100%;
-$grayscale_one: 80%;
+$grayscale_one: 50%;
 $grayscale_two: 0%;
 
 $blur_initial: 5px;
-$blur_one: 0px;
+$blur_one: 2px;
 $blur_two: 0px;
+
+$opacity_initial: 0;
+$opacity_one: 0.1;
+$opacity_two: 0.5;
 
 @keyframes loading {
   0% {
@@ -40,5 +39,17 @@ $blur_two: 0px;
   100% {
     -webkit-filter: grayscale($grayscale_two) blur($blur_two);
     filter: grayscale($grayscale_two) blur($blur_two);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: $opacity_initial;
+  }
+  50% {
+    opacity: $opacity_one;
+  }
+  100% {
+    opacity: $opacity_two;
   }
 }

@@ -96,33 +96,30 @@ ul.inline-list {
   -o-transition: transform 500ms ease;
   transition: transform 500ms ease; }
 
-.splash {
+#nishants .splash {
   position: fixed;
   background: black;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
+  top: -100vh;
   -webkit-transition: transform 500ms ease;
   -moz-transition: transform 500ms ease;
   -o-transition: transform 500ms ease;
   transition: transform 500ms ease; }
-  .splash .image.golden {
+  #nishants .splash .image.golden {
     filter: sepia(100%); }
-  .splash .image {
+  #nishants .splash .image {
     position: absolute;
-    left: calc(50% - 100px/2);
-    height: 100px;
-    width: 100px;
+    left: calc(50% - 200px/2);
+    top: calc(50vh - 200px);
+    height: 200px;
+    width: 200px;
     margin: auto;
     -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -o-transition: all 500ms ease;
     transition: all 500ms ease; }
-    .splash .image img {
+    #nishants .splash .image img {
       display: block;
       height: 100%;
       width: 100%;
@@ -130,63 +127,55 @@ ul.inline-list {
       -moz-transition: transform 500ms ease;
       -o-transition: transform 500ms ease;
       transition: transform 500ms ease; }
-  .splash .caption {
+  #nishants .splash .caption {
     position: absolute;
-    height: 100px;
-    padding-top: calc(33px);
-    -webkit-transition: opacity 500ms ease;
-    -moz-transition: opacity 500ms ease;
-    -o-transition: opacity 500ms ease;
-    transition: opacity 500ms ease;
+    top: calc(50vh - 200px);
+    height: 200px;
+    padding-top: calc(83px);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
     -webkit-transition-delay: 500ms;
     -moz-transition-delay: 500ms;
     -ms-transition-delay: 500ms;
     -o-transition-delay: 500ms;
-    transition-delay: 500ms; }
-  .splash .caption.one {
-    left: calc(50% - 375px); }
-  .splash .caption.two {
-    left: calc(50% + 50px); }
+    transition-delay: 500ms;
+    opacity: 0.5; }
+  #nishants .splash .caption.one {
+    left: calc(50% - 425px); }
+  #nishants .splash .caption.two {
+    left: calc(50% + 100px); }
 
 #nishants:not(.no-splash) .splash {
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0); }
+  -webkit-transform: translateY(100vh);
+  -moz-transform: translateY(100vh);
+  -ms-transform: translateY(100vh);
+  -o-transform: translateY(100vh);
+  transform: translateY(100vh); }
   #nishants:not(.no-splash) .splash .image {
-    -webkit-transform: translateY(calc(50vh - 100px));
-    -moz-transform: translateY(calc(50vh - 100px));
-    -ms-transform: translateY(calc(50vh - 100px));
-    -o-transform: translateY(calc(50vh - 100px));
-    transform: translateY(calc(50vh - 100px));
     animation-name: loading;
     animation-duration: 5s; }
-    #nishants:not(.no-splash) .splash .image img {
-      -webkit-transform: scale(2);
-      -moz-transform: scale(2);
-      -ms-transform: scale(2);
-      -o-transform: scale(2);
-      transform: scale(2); }
   #nishants:not(.no-splash) .splash .caption {
     opacity: 0; }
-#nishants:not(.no-splash) .main-content {
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%); }
 
 @keyframes loading {
   0% {
     -webkit-filter: grayscale(100%) blur(5px);
     filter: grayscale(100%) blur(5px); }
   50% {
-    -webkit-filter: grayscale(80%) blur(0px);
-    filter: grayscale(80%) blur(0px); }
+    -webkit-filter: grayscale(50%) blur(2px);
+    filter: grayscale(50%) blur(2px); }
   100% {
     -webkit-filter: grayscale(0%) blur(0px);
     filter: grayscale(0%) blur(0px); } }
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.1; }
+  100% {
+    opacity: 0.5; } }
 
 /*# sourceMappingURL=loader.css.map */
 

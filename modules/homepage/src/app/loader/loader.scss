@@ -1,5 +1,5 @@
-$image_height: 100px;
-$image_width : 100px;
+$image_height: 200px;
+$image_width : 200px;
 $caption_height: 34px;
 $caption_width: 325px;
 
@@ -10,45 +10,50 @@ $transition     : ease;
 .main-content{
   @include transition(transform $transition_time $transition);
 }
-.splash{
-  position: fixed;
-  background: black;
-  width: 100%;
-  height  : 100vh;
-  @include transform(translateY(-100%));
-
-  @include transition(transform $transition_time $transition);
-  .image.golden{
-    filter:sepia(100%);
-  }
-  .image{
-    position: absolute;
-    left    : calc(50% - #{$image_width}/2);
-    height  : $image_height;
-    width   : $image_width;
-    margin  : auto;
-    @include transition(all $transition_time $transition);
-    img{
-      display: block;
-      height: 100%;
-      width: 100%;
-      @include transition(transform $transition_time $transition);
+#nishants{
+  .splash{
+    position: fixed;
+    background: black;
+    width: 100vw;
+    height  : 100vh;
+    top: -100vh;
+    @include transition(transform $transition_time $transition);
+    .image.golden{
+      filter:sepia(100%);
     }
-  }
-  .caption{
-    position: absolute;
-    height  : $image_height;
-    padding-top: calc(#{($image_height - $caption_height)/2});
-    @include transition(opacity $transition_time $transition);
-    @include transitionDelay($transition_time);
-  }
-  .caption.one{
-    left    : calc(50% - #{$caption_width + $image_width/2});
-  }
-  .caption.two{
-    left    : calc(50% + #{$image_width/2});
-  }
+    .image{
+      position: absolute;
+      left    : calc(50% - #{$image_width}/2);
+      top     : calc(50vh - #{$image_height});
+      height  : $image_height;
+      width   : $image_width;
+      margin  : auto;
+      @include transition(all $transition_time $transition);
+      img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        @include transition(transform $transition_time $transition);
+      }
+    }
+    .caption{
+      position: absolute;
+      top     : calc(50vh - #{$image_height});
+      height  : $image_height;
+      padding-top: calc(#{($image_height - $caption_height)/2});
+      @include transition(all $transition_time $transition);
+      @include transitionDelay($transition_time);
+      opacity: 0.5;
+    }
+    .caption.one{
+      left    : calc(50% - #{$caption_width + $image_width/2});
+    }
+    .caption.two{
+      left    : calc(50% + #{$image_width/2});
+    }
 
+  }
 }
+
 
 @import 'splash.loading';

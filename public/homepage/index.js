@@ -3,7 +3,7 @@ var app = angular.module("nishants", []);
 app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 	$timeout(function(){
 		$rootScope.splash  = {close: true};
-	}, 300);
+	}, 3000);
 }]);
 
 $(document).ready(function(){
@@ -20,8 +20,6 @@ $(document).ready(function(){
 						offset 				   = scrollProgress * (viewPortHeight - pointerHeight);
 
 				$(".scroll-bar > .progress").css("transform", "translateY("+offset+"px)");
-				console.log("Progerss :  " + scrollProgress)
-				console.log("offset :  " + offset)
 			};
 
 	$(".scroll-container").on("scroll", setScroll);
