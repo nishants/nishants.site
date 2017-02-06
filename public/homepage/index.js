@@ -121,7 +121,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 						offsetPaddingY = 0,
 						containerScrollOffset = $(".deck")[0].getBoundingClientRect().top,
 						offsetY = $(".deck").offset().top - container.offset().top - containerScrollOffset,
-						offsetX = $(".deck").offset().left - container.offset().left;
+						offsetX = -container.offset().left;
 
 				container.css("transform", "translateY(" + (offsetY + offsetPaddingY) + "px)" + "translateX(" + (offsetX + offsetPaddingX) + "px)");
 			},
@@ -133,8 +133,9 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 		scope: false,
 		transclude: false,
 		link: function (scope, element, attrs) {
-			scope.$watch("deck._current", function (now, previous) {
-				var card = DeckService.selected();
+			scope.$watch("deck._current", function () {
+				var card = DeckService.selected(),
+						now  = scope.deck._current;
 				if(card){
 					select(now);
 					modalService.show(card);
@@ -142,7 +143,11 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 					unSelect();
 				}
 			});
+			$(window).on('resize', function(){
+
+			});
 		}
+
 	};
 }]);
 
