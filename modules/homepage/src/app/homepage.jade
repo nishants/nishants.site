@@ -5,5 +5,5 @@ nav
 .main-content.scroll-container
   .page.intro
     include intro/intro
-  .page.slate
+  #slate.page.slate.theme-font(ng-class="{'show-modal' : deck._current != -1}")
     include slate/slate

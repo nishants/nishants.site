@@ -225,6 +225,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 				gridHeight          = Math.max(gridHeight, column.nexPosition);
 				nextColumn          = (nextColumn + 1) % columnCount;
 			}
+			grid.$e.height(gridHeight);
 		}
 	};
 	return grid;

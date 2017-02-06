@@ -1,5 +1,5 @@
-#slate.theme-font(ng-class="{'show-modal' : deck._current != -1}")
-  ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
-    include deck/deck
-  .modal(ng-controller='modalController')
-    include modal/modal
+
+ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
+  include deck/deck
+.modal(ng-controller='modalController')
+  include modal/modal

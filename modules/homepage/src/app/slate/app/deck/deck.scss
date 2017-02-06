@@ -6,7 +6,7 @@ ul.deck {
   list-style: none;
   text-align: left;
   width: 100%;
-  overflow: auto;
+  overflow: visible;
   > li{
     padding: $containerPadding;
     float: left;
