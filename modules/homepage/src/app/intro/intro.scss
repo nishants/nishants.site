@@ -60,7 +60,7 @@ $option_button_widtht: $option_menu_width/2 - $padding;
           padding : $padding;
           display: inline-block;
           width: $option_button_widtht;
-
+          @include transition(all $transition_time $transition);
           .link{
             height: $option_button_height;
             width: 100%;

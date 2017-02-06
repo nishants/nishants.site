@@ -13,3 +13,14 @@
   }
 
 }
+
+#nishants.show-navigation{
+  .intro{
+    ul.navigation{
+      > li {
+        opacity: 0;
+        @include transform(translateY(-100%));
+      }
+    }
+  }
+}

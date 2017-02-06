@@ -106,7 +106,11 @@ ul.inline-list {
     #nishants .page.intro .options ul.navigation > li {
       padding: 10px;
       display: inline-block;
-      width: 390px; }
+      width: 390px;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease; }
       #nishants .page.intro .options ul.navigation > li .link {
         height: 50px;
         width: 100%;
@@ -133,7 +137,15 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .title .navigation > li, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
+#nishants.show-navigation .intro ul.navigation > li {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -172,9 +184,14 @@ ul.inline-list {
     font-weight: 500;
     line-height: 25px;
     width: 405px;
-    margin: auto !important; }
+    margin: auto !important;
+    overflow: hidden; }
     .top-bar .title .navigation > li {
-      float: left; }
+      float: left;
+      -webkit-transition: transform 300ms ease;
+      -moz-transition: transform 300ms ease;
+      -o-transition: transform 300ms ease;
+      transition: transform 300ms ease; }
     .top-bar .title .navigation > li:not(:last-child):after {
       content: " | ";
       display: inline-block;
@@ -239,8 +256,6 @@ ul.inline-list {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
-  #nishants:not(.show-top-bar) .top-bar .background {
-    opacity: 0; }
 
 #nishants:not(.show-name) .top-bar .heading .name {
   -webkit-transform: translateY(108px);
@@ -249,42 +264,13 @@ ul.inline-list {
   -o-transform: translateY(108px);
   transform: translateY(108px); }
 
-#nishants.show-top-bar:not(.show-navigation) .top-bar .background {
+#nishants:not(.show-navigation) .top-bar .background {
   -webkit-transform: translateY(-25px);
   -moz-transform: translateY(-25px);
   -ms-transform: translateY(-25px);
   -o-transform: translateY(-25px);
   transform: translateY(-25px); }
-
-#nishants:not(.show-design) .top-bar ul.navigation > li.design {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-connect) .top-bar ul.navigation > li.connect {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-experience) .top-bar ul.navigation > li.experience {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-development) .top-bar ul.navigation > li.development {
+#nishants:not(.show-navigation) .top-bar ul.navigation > li {
   -webkit-transform: translateY(108px);
   -moz-transform: translateY(108px);
   -ms-transform: translateY(108px);
