@@ -1,10 +1,18 @@
+$scroll_pad : 20px;
 
 #nishants{
   overflow: hidden;
   height: 100vh;
   .main-content{
     background: white;
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: calc(100vw + #{$scroll_pad});
+    padding-right: $scroll_pad;
+    overflow: auto;
+    .page{
+      height: 110vh;
+      margin: $padding;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
   }
 }
