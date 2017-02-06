@@ -1,0 +1,17 @@
+$scroll_pointer_height: 100px;
+$scroll_pointer_width: $padding;
+$scroll_pointer_bg: blue;
+
+#nishants{
+  position: relative;
+  .scroll-bar{
+    .progress {
+      position: absolute;
+      top: 0;
+      right : 0;
+      height: $scroll_pointer_height;
+      width : $scroll_pointer_width;
+      background : $scroll_pointer_bg;
+    }
+  }
+}

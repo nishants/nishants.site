@@ -9,6 +9,7 @@ html
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
 
     link(rel='stylesheet', href='index.css')
     script(src='index.js')
@@ -18,6 +19,8 @@ html
     #nishants(ng-class='{"no-splash" : splash.close}')
       .splash
         include app/loader/loader
+      .scroll-bar
+        .progress
       .main-content.scroll-container
         .page.home
           h1 Here begins the main content

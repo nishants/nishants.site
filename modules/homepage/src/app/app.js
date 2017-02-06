@@ -4,3 +4,25 @@ app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 		$rootScope.splash  = {close: true};
 	}, 300);
 }]);
+
+$(document).ready(function(){
+	var	setScroll = function(){
+				var
+						$scrollable 		 = $(".scroll-container").first(),
+						viewPortHeight   = $scrollable.height(),
+						height 					 = $scrollable[0].scrollHeight,
+						scrollTop        = $scrollable.scrollTop(),
+						maxScrollTop     = height - viewPortHeight,
+						scrollProgress   = scrollTop/maxScrollTop,
+						$pointer         = $(".scroll-bar > .progress").first(),
+						pointerHeight    = $pointer.height(),
+						offset 				   = scrollProgress * (viewPortHeight - pointerHeight);
+
+				$(".scroll-bar > .progress").css("transform", "translateY("+offset+"px)");
+				console.log("Progerss :  " + scrollProgress)
+				console.log("offset :  " + offset)
+			};
+
+	$(".scroll-container").on("scroll", setScroll);
+	$(window).on("resize", setScroll);
+});
