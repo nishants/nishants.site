@@ -1,8 +1,17 @@
 $scroll_pad : 20px;
 
+$max_page_width: 1200px;
+$black_text    : #373a3c;
+$black_border  : rgba(0, 0, 0, 0.1);
+$black_text_light    : rgba(0, 0, 0, 0.5);
+$transition_time: 500ms;
+$transition     : ease;
+
 #nishants{
   overflow: hidden;
   height: 100vh;
+  color: $black_text;
+  font-family: $font_family;
   .main-content{
     background: white;
     height: 100vh;
@@ -10,9 +19,12 @@ $scroll_pad : 20px;
     padding-right: $scroll_pad;
     overflow: auto;
     .page{
-      height: 110vh;
-      margin: $padding;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      max-width: $max_page_width;
+      margin: $padding auto;
+      padding: $padding;
     }
   }
 }
+
+@import 'intro/intro';
+@import 'top-bar/top_bar';

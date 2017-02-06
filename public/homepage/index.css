@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,600,500,700");
 p {
   margin-bottom: 1em; }
 
@@ -36,12 +37,12 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after {
+.resize-container:after, ul.inline-list:after, .top-bar .title .designation:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list {
+ul.undo-list, ul.inline-list, .page.intro .options ul.navigation, .top-bar .title ul.designation {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -57,7 +58,9 @@ ul.inline-list {
 
 #nishants {
   overflow: hidden;
-  height: 100vh; }
+  height: 100vh;
+  color: #373a3c;
+  font-family: "Raleway", sans-serif; }
   #nishants .main-content {
     background: white;
     height: 100vh;
@@ -65,9 +68,132 @@ ul.inline-list {
     padding-right: 20px;
     overflow: auto; }
     #nishants .main-content .page {
-      height: 110vh;
-      margin: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      max-width: 1200px;
+      margin: 10px auto;
+      padding: 10px; }
+
+.page.intro .heading {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .page.intro .heading .profile-image {
+    padding: 5px; }
+    .page.intro .heading .profile-image img {
+      height: 80px;
+      width: 80px;
+      display: block;
+      margin: auto;
+      border-radius: 3px; }
+  .page.intro .heading .name, .page.intro .heading .title {
+    text-align: center;
+    line-height: 30px;
+    font-size: medium;
+    font-weight: 300; }
+  .page.intro .heading .title {
+    color: rgba(0, 0, 0, 0.5); }
+.page.intro .about-me {
+  max-width: 800px;
+  margin: auto; }
+  .page.intro .about-me ul > li {
+    padding-bottom: 10px; }
+.page.intro .options ul.navigation > li {
+  padding: 10px 0px; }
+  .page.intro .options ul.navigation > li .link {
+    height: 50px;
+    max-width: 800px;
+    line-height: 50px;
+    margin: auto;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
+
+.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; }
+
+.small-bold-text, .top-bar .name {
+  font-size: small;
+  font-weight: 500; }
+
+.top-bar {
+  position: fixed;
+  z-index: 1;
+  top: -108px;
+  width: 100vw;
+  height: 108px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3); }
+  .top-bar .heading {
+    position: relative; }
+  .top-bar .name {
+    text-align: center;
+    line-height: 25px; }
+  .top-bar .title .designation {
+    font-size: small;
+    font-weight: 500;
+    line-height: 25px;
+    width: 405px;
+    margin: auto !important; }
+    .top-bar .title .designation > li {
+      float: left; }
+    .top-bar .title .designation > li:not(:last-child):after {
+      content: " | ";
+      display: inline-block;
+      width: 20px;
+      text-align: center; }
+  .top-bar .image {
+    padding: 5px; }
+    .top-bar .image > img {
+      display: block;
+      margin: auto;
+      height: 35px;
+      border-radius: 2px; }
+
+#nishants-site:not(.show-top-bar) .top-bar {
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+  #nishants-site:not(.show-top-bar) .top-bar .image > img {
+    opacity: 0; }
+
+#nishants-site:not(.show-top-bar-name) .top-bar .name {
+  opacity: 0;
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants-site:not(.show-top-bar-title) .top-bar .title {
+  opacity: 0;
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants-site:not(.show-top-bar-contact) .top-bar .contact {
+  opacity: 0;
+  -webkit-transform: translateY(108px);
+  -moz-transform: translateY(108px);
+  -ms-transform: translateY(108px);
+  -o-transform: translateY(108px);
+  transform: translateY(108px); }
+
+#nishants-site.show-top-bar .cover .bg-wrapper img.bg {
+  opacity: 0; }
+#nishants-site.show-top-bar .overview .profile-image > img {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

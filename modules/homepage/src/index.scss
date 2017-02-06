@@ -1,5 +1,7 @@
 @import '../../lib/style/base';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,600,500,700');
 
+$font_family: 'Raleway', sans-serif;
 @import "app/app";
 $mobile_at : 700px;
 

@@ -1,0 +1,65 @@
+$profile_image_height: 80px;
+$profile_image_width : 80px;
+$line_height         : 30px;
+$font_size           : medium;
+$font_weight         : 300;
+$border_radius       : 3px;
+$description_width  : 800px;
+
+$option_button_height: 50px;
+$option_button_widtht: $description_width;
+
+.page.intro{
+  .heading{
+    padding-bottom: $padding;
+    border-bottom: 1px solid $black_border;
+    .profile-image{
+      padding: $padding/2;
+      img {
+        height  : $profile_image_height;
+        width   : $profile_image_width;
+        display : block;
+        margin  : auto;
+        border-radius: $border_radius;
+      }
+    }
+
+    .name, .title{
+      text-align: center;
+      line-height: $line_height;
+      font-size: $font_size;
+      font-weight: $font_weight;
+    }
+    .title{
+      color: $black_text_light;
+    }
+
+  }
+  .about-me{
+    max-width: $description_width;
+    margin: auto;
+    ul {
+      > li {
+        padding-bottom: $padding;
+      }
+    }
+  }
+
+  .options{
+    ul.navigation{
+      @extend .undo-list;
+      > li {
+        padding: $padding 0px ;
+        .link{
+          height: $option_button_height;
+          max-width: $option_button_widtht;
+          line-height: $option_button_height;
+          margin: auto;
+          text-align: center;
+          border: 1px solid $black_border;
+        }
+      }
+    }
+  }
+
+}

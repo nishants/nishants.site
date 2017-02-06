@@ -1,0 +1,141 @@
+$border_radius : 2px;
+
+$row_height: 35px;
+$small_image_size: $row_height;
+$topBarHeight: 108px;
+$top_bar_index : 1;
+$medium_bold_text : 500;
+$title_width: 405px;
+
+.top-bar-transition{
+  @include transition(all $transition_time $transition);
+}
+.small-bold-text{
+  font-size: small;
+  font-weight: $medium_bold_text;
+}
+.top-bar{
+  position: fixed;
+  z-index: $top_bar_index;
+  top: -$topBarHeight;
+  width: 100vw;
+  height: $topBarHeight;
+
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+
+  @extend .top-bar-transition;
+  .heading{
+    position: relative;
+  }
+  .name{
+    text-align: center;
+    line-height: $row_height - $padding;
+    @extend .small-bold-text;
+    @extend .top-bar-transition;
+  }
+  .title{
+    @extend .top-bar-transition;
+    .designation{
+      @extend .undo-list;
+      @extend .resize-container;
+
+      font-size: small;
+      font-weight: $medium_bold_text;
+      line-height: $row_height - $padding;
+      width: $title_width;
+      margin: auto !important;
+
+      > li {
+        float: left;
+      }
+      > li:not(:last-child):after{
+        content   : " | ";
+        display   : inline-block;
+        width     : 2*$padding;
+        text-align: center;
+      }
+    }
+  }
+  .image{
+    padding: $padding/2;
+    > img{
+      display: block;
+      margin: auto;
+      height: $small_image_size;
+      border-radius: $border_radius;
+      @extend .top-bar-transition;
+    }
+  }
+
+}
+
+
+#nishants-site:not(.show-top-bar) {
+  .top-bar {
+    pointer-events: none;
+    opacity: 0;
+    @include transform(translateY(-100%));
+    .image{
+      > img{
+        opacity: 0;
+      }
+    }
+  }
+}
+
+#nishants-site:not(.show-top-bar-name) {
+  .top-bar {
+    .name{
+      opacity: 0;
+      @include transform(translateY($topBarHeight));
+    }
+  }
+}
+
+#nishants-site:not(.show-top-bar-title) {
+  .top-bar {
+    .title{
+      opacity: 0;
+      @include transform(translateY($topBarHeight));
+    }
+  }
+}
+
+#nishants-site:not(.show-top-bar-contact) {
+  .top-bar {
+    .contact{
+      opacity: 0;
+      @include transform(translateY($topBarHeight));
+    }
+  }
+}
+
+
+#nishants-site {
+  .overview {
+    @extend .top-bar-transition;
+    .profile-image {
+      img{
+        @extend .top-bar-transition;
+      }
+    }
+  }
+}
+
+#nishants-site.show-top-bar {
+  .cover{
+    .bg-wrapper{
+      img.bg{
+        opacity: 0;
+      }
+    }
+  }
+  .overview {
+    .profile-image > img{
+      opacity: 0;
+      @include transform(translateY(-100%));
+    }
+  }
+}

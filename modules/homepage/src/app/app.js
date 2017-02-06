@@ -2,25 +2,43 @@ var app = angular.module("nishants", []);
 app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 	$timeout(function(){
 		$rootScope.splash  = {close: true};
-	}, 3000);
+	}, 100);
 }]);
 
 $(document).ready(function(){
-	var	setScroll = function(){
-				var
-						$scrollable 		 = $(".scroll-container").first(),
-						viewPortHeight   = $scrollable.height(),
-						height 					 = $scrollable[0].scrollHeight,
-						scrollTop        = $scrollable.scrollTop(),
-						maxScrollTop     = height - viewPortHeight,
-						scrollProgress   = scrollTop/maxScrollTop,
-						$pointer         = $(".scroll-bar > .progress").first(),
-						pointerHeight    = $pointer.height(),
-						offset 				   = scrollProgress * (viewPortHeight - pointerHeight);
 
-				$(".scroll-bar > .progress").css("transform", "translateY("+offset+"px)");
+	var
+			rowHeight = function(){
+				return 20;
+			},
+			app = function(){
+				return $("#nishants");
+			},
+			showTopBar = function (show) {
+				show ? app().addClass("show-top-bar") : app().removeClass("show-top-bar");
+			},
+			showNameInTopBar = function (show) {
+				show ? app().addClass("show-top-bar-name") : app().removeClass("show-top-bar-name");
+			},
+			showContactInTopBar = function (show) {
+				show ? app().addClass("show-top-bar-contact") : app().removeClass("show-top-bar-contact");
+			},
+			showTitleInTopBar = function (show) {
+				show ? app().addClass("show-top-bar-title") : app().removeClass("show-top-bar-title");
+			},
+			isGone = function (element) {
+				return element.getBoundingClientRect().top < 0;
+			},
+			isUnderTitleBar = function (element, offset) {
+				return element.getBoundingClientRect().top < $(".top-bar").height() - (offset || rowHeight());
 			};
 
-	$(".scroll-container").on("scroll", setScroll);
-	$(window).on("resize", setScroll);
+	$(document).on("scroll", function(){
+		showTopBar(isGone($(".introduction")[0]));
+		showNameInTopBar(isUnderTitleBar($(".introduction > .name")[0]));
+		showTitleInTopBar(isUnderTitleBar($(".introduction > .title > .designation")[0]));
+		showContactInTopBar(isUnderTitleBar($(".introduction > .contact")[0]), 50);
+	});
+
+
 });
