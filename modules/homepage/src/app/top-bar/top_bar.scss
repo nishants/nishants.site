@@ -17,7 +17,7 @@ $title_width: 405px;
 .top-bar{
   position: fixed;
   z-index: $top_bar_index;
-  top: -$topBarHeight;
+  top: 0;
   width: 100vw;
   height: $topBarHeight;
 
@@ -37,7 +37,7 @@ $title_width: 405px;
   }
   .title{
     @extend .top-bar-transition;
-    .designation{
+    .navigation{
       @extend .undo-list;
       @extend .resize-container;
 
@@ -49,6 +49,7 @@ $title_width: 405px;
 
       > li {
         float: left;
+        @extend .top-bar-transition;
       }
       > li:not(:last-child):after{
         content   : " | ";
@@ -139,3 +140,5 @@ $title_width: 405px;
     }
   }
 }
+
+@import 'top_bar.transitions';

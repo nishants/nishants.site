@@ -1,0 +1,15 @@
+
+#nishants.show-name{
+  .intro .name {
+    @include transform(translateY(-100%));
+  }
+
+}
+#nishants.show-top-bar{
+  .intro .profile-image {
+    img{
+      @include transform(translateY(-100%));
+    }
+  }
+
+}

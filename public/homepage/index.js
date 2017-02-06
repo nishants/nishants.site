@@ -9,36 +9,30 @@ app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 $(document).ready(function(){
 
 	var
-			rowHeight = function(){
-				return 20;
-			},
+			offset =60,
 			app = function(){
 				return $("#nishants");
 			},
-			showTopBar = function (show) {
-				show ? app().addClass("show-top-bar") : app().removeClass("show-top-bar");
-			},
-			showNameInTopBar = function (show) {
-				show ? app().addClass("show-top-bar-name") : app().removeClass("show-top-bar-name");
-			},
-			showContactInTopBar = function (show) {
-				show ? app().addClass("show-top-bar-contact") : app().removeClass("show-top-bar-contact");
-			},
-			showTitleInTopBar = function (show) {
-				show ? app().addClass("show-top-bar-title") : app().removeClass("show-top-bar-title");
+			showOnTopBar = function (name, show) {
+				var state = "show-" + name;
+				show ? app().addClass(state) : app().removeClass(state);
 			},
 			isGone = function (element) {
 				return element.getBoundingClientRect().top < 0;
 			},
-			isUnderTitleBar = function (element, offset) {
-				return element.getBoundingClientRect().top < $(".top-bar").height() - (offset || rowHeight());
+			isUnderTitleBar = function (element) {
+				return element.getBoundingClientRect().top < $(".top-bar").height() - (offset);
 			};
 
-	$(document).on("scroll", function(){
-		showTopBar(isGone($(".introduction")[0]));
-		showNameInTopBar(isUnderTitleBar($(".introduction > .name")[0]));
-		showTitleInTopBar(isUnderTitleBar($(".introduction > .title > .designation")[0]));
-		showContactInTopBar(isUnderTitleBar($(".introduction > .contact")[0]), 50);
+	$('.scroll-container').on("scroll", function(){
+		showOnTopBar("top-bar", 		isGone($(".intro  .profile-image")[0]));
+		showOnTopBar("name", 				isUnderTitleBar($(".intro  .name")[0]));
+		showOnTopBar("design", 			isUnderTitleBar($(".intro  .navigation .design")[0]));
+		showOnTopBar("development", isUnderTitleBar($(".intro  .navigation .development")[0]));
+		showOnTopBar("coaching",		isUnderTitleBar($(".intro  .navigation .coaching")[0]));
+		showOnTopBar("experience", 	isUnderTitleBar($(".intro  .navigation .experience")[0]));
+		showOnTopBar("connect", 		isUnderTitleBar($(".intro  .navigation .connect")[0]));
+
 	});
 
 
