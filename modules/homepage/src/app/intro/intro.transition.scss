@@ -1,6 +1,6 @@
 
 #nishants.show-name{
-  .intro .name {
+  .intro .name label{
     opacity: 0;
     @include transform(translateY(-100%));
   }

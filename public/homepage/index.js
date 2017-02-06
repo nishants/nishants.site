@@ -21,7 +21,7 @@ $(document).ready(function(){
 				return element.getBoundingClientRect().top < 0;
 			},
 			isUnderTitleBar = function (element) {
-				return element.getBoundingClientRect().top < ($(".top-bar").height() - offset);
+				return element.getBoundingClientRect().top < ($(".top-bar > .background").height() - offset);
 			};
 
 	$(window).on("scroll", function(){
