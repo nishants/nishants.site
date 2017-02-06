@@ -176,10 +176,64 @@ ul.inline-list {
     opacity: 0.1; }
   100% {
     opacity: 0.5; } }
+#nishants .load-progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 500ms ease;
+  -moz-transition: opacity 500ms ease;
+  -o-transition: opacity 500ms ease;
+  transition: opacity 500ms ease; }
+  #nishants .load-progress .progress {
+    width: 100vw;
+    height: 3px;
+    background: #F5D328;
+    -webkit-transition: transform 500ms ease;
+    -moz-transition: transform 500ms ease;
+    -o-transition: transform 500ms ease;
+    transition: transform 500ms ease;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); }
+
+#nishants:not(.no-splash) .load-progress {
+  opacity: 1; }
+  #nishants:not(.no-splash) .load-progress .progress {
+    animation-name: loader-progress;
+    animation-duration: 5s;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0; }
+
+@keyframes loader-progress {
+  0% {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  50% {
+    -webkit-transform: scaleX(0.7);
+    -moz-transform: scaleX(0.7);
+    -ms-transform: scaleX(0.7);
+    -o-transform: scaleX(0.7);
+    transform: scaleX(0.7); }
+  100% {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
 
 /*# sourceMappingURL=loader.css.map */
 
         </style>
+        <div class="load-progress">
+          <div class="progress"></div>
+        </div>
         <div class="caption one">
 <svg width="325px" height="34px" viewBox="180 238 325 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
