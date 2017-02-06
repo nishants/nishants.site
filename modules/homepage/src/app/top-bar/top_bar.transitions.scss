@@ -10,7 +10,8 @@
   .top-bar{
     .heading{
       .name{
-        @include transform(translateY($topBarHeight));
+        opacity: 0;
+        @include transform(translateY(100%));
       }
     }
   }

@@ -9,7 +9,7 @@ app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 $(document).ready(function(){
 
 	var
-			offset = 60,
+			offset = 50,
 			app = function(){
 				return $("#nishants");
 			},
@@ -21,16 +21,18 @@ $(document).ready(function(){
 				return element.getBoundingClientRect().top < 0;
 			},
 			isUnderTitleBar = function (element) {
-				return element.getBoundingClientRect().top < $(".top-bar").height() - (offset);
+				return element.getBoundingClientRect().top < ($(".top-bar").height() - offset);
 			};
 
 	$(window).on("scroll", function(){
 		showOnTopBar("top-bar", 		isGone($(".intro  .profile-image")[0]));
-		showOnTopBar("name", 				isGone($(".intro  .name")[0]));
+		showOnTopBar("name", 				isUnderTitleBar($(".intro  .name")[0]));
 		showOnTopBar("navigation", 	isGone($(".intro  .navigation")[0]));
 	});
 
-	$(window).trigger("scroll");
+	setTimeout(function(){
+		$(window).trigger("scroll");
+	}, 500);
 });
 },{}],2:[function(require,module,exports){
 require("./app/app.js");

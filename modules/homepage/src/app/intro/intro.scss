@@ -35,6 +35,9 @@ $option_button_widtht: $option_menu_width/2 - $padding;
         font-size: $font_size;
         font-weight: $font_weight;
       }
+      .name{
+        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+      }
       .title{
         color: $black_text_light;
       }

@@ -93,6 +93,11 @@ ul.inline-list {
       line-height: 30px;
       font-size: medium;
       font-weight: 300; }
+    #nishants .page.intro .heading .name {
+      -webkit-transition: transform 300ms ease, opacity 300ms ease;
+      -moz-transition: transform 300ms ease, opacity 300ms ease;
+      -o-transition: transform 300ms ease, opacity 300ms ease;
+      transition: transform 300ms ease, opacity 300ms ease; }
     #nishants .page.intro .heading .title {
       color: rgba(0, 0, 0, 0.5); }
   #nishants .page.intro .about-me {
@@ -124,6 +129,7 @@ ul.inline-list {
         width: 390px; }
 
 #nishants.show-name .intro .name {
+  opacity: 0;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -258,11 +264,12 @@ ul.inline-list {
   transform: translateY(-100%); }
 
 #nishants:not(.show-name) .top-bar .heading .name {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
 
 #nishants:not(.show-navigation) .top-bar .background {
   -webkit-transform: translateY(-25px);
