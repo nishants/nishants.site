@@ -1,8 +1,14 @@
 @import 'app/app';
 
 #nishants.show-modal{
+  overflow: hidden;
+
   .page:not(.slate){
     opacity: 0;
+  }
+
+  .modal{
+    pointer-events: all;
   }
 }
 

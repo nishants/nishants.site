@@ -602,8 +602,12 @@ ul.grid {
     top: 0;
     left: 0; }
 
-#nishants.show-modal .page:not(.slate) {
-  opacity: 0; }
+#nishants.show-modal {
+  overflow: hidden; }
+  #nishants.show-modal .page:not(.slate) {
+    opacity: 0; }
+  #nishants.show-modal .modal {
+    pointer-events: all; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {
