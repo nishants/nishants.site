@@ -1,6 +1,9 @@
 @import 'app/app';
 
-#nishants:not(.show-slate){
-
+#nishants.show-modal{
+  .page:not(.slate){
+    opacity: 0;
+  }
 }
+
 

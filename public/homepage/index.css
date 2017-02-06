@@ -67,6 +67,10 @@ ul.inline-list {
     padding-right: 20px;
     padding-bottom: 100vh; }
     #nishants .main-content .page {
+      -webkit-transition: opacity 300ms ease;
+      -moz-transition: opacity 300ms ease;
+      -o-transition: opacity 300ms ease;
+      transition: opacity 300ms ease;
       max-width: 1200px;
       margin: 10px auto;
       padding: 10px; }
@@ -596,6 +600,9 @@ ul.grid {
     position: absolute;
     top: 0;
     left: 0; }
+
+#nishants.show-modal .page:not(.slate) {
+  opacity: 0; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

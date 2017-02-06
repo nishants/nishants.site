@@ -16,6 +16,7 @@ $transition     : ease;
     padding-right: $scroll_pad;
     padding-bottom: 100vh;
     .page{
+      @include transition(opacity $transition_time $transition);
       max-width: $max_page_width;
       margin: $padding auto;
       padding: $padding;
