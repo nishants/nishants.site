@@ -69,16 +69,6 @@ ul.inline-list {
       margin: 10px;
       border: 1px solid rgba(0, 0, 0, 0.1); }
 
-#nishants {
-  position: relative; }
-  #nishants .scroll-bar .progress {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100px;
-    width: 10px;
-    background: blue; }
-
 @media screen and (max-width: 700px) {
   .no-mobile {
     display: none !important; } }

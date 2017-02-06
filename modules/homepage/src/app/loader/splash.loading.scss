@@ -13,6 +13,9 @@ $loading_time : 5s;
       opacity: 0;
     }
   }
+  .main-content{
+    @include transform(translateY(100vh));
+  }
 }
 
 $grayscale_initial: 100%;
