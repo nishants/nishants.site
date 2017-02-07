@@ -60,6 +60,10 @@ $shadow_offset: 5px;
       > li {
         float: left;
         @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        > a{
+          text-decoration: none;
+          color: inherit;
+        }
       }
       > li:not(:last-child):after{
         content   : " | ";

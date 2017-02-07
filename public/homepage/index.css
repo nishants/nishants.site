@@ -273,6 +273,9 @@ ul.social.contact .github {
       -moz-transition: transform 300ms ease, opacity 300ms ease;
       -o-transition: transform 300ms ease, opacity 300ms ease;
       transition: transform 300ms ease, opacity 300ms ease; }
+      .top-bar .title .navigation > li > a {
+        text-decoration: none;
+        color: inherit; }
     .top-bar .title .navigation > li:not(:last-child):after {
       content: " | ";
       display: inline-block;
