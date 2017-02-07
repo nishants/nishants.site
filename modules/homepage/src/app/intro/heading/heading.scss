@@ -1,3 +1,5 @@
+$padding_bottom: $padding*2;
+
 #nishants{
   .page{
     .heading{
@@ -31,7 +33,7 @@
       }
       .border{
         border-bottom: 1px solid $black_border;
-        height: $padding;
+        height: $padding_bottom;
         @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
       }
     }

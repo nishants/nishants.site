@@ -91,7 +91,7 @@ ul.inline-list {
       padding: 10px; }
 
 #nishants .page.intro {
-  padding-top: 50px; }
+  padding: 50px; }
   #nishants .page.intro .overview {
     margin: auto; }
     #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
@@ -103,7 +103,8 @@ ul.inline-list {
       width: 300px;
       border-right: 1px solid rgba(0, 0, 0, 0.1); }
     #nishants .page.intro .overview .description {
-      line-height: 25px; }
+      line-height: 25px;
+      width: calc(100% - 300px); }
 
 #nishants .page .heading .profile-image {
   padding: 5px;
@@ -136,7 +137,7 @@ ul.inline-list {
   transition: transform 300ms ease, opacity 300ms ease; }
 #nishants .page .heading .border {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  height: 10px;
+  height: 20px;
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;

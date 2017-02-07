@@ -12,7 +12,7 @@ $weight_light : 300;
 
 #nishants{
   .page.intro{
-    padding-top: $padding*5;
+    padding: $padding*5;
     .overview{
       margin: auto;
       @extend .resize-container;
@@ -29,6 +29,7 @@ $weight_light : 300;
       }
       .description{
         line-height: $line_height;
+        width: calc(100% - #{$actions_width});
         @extend .description-font;
       }
     }
