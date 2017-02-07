@@ -13,9 +13,6 @@ $top_bar_height: 108px;
   font-family: $font_family;
   .main-content{
     background: white;
-    width: calc(100vw + #{$scroll_pad});
-    padding-right: $scroll_pad;
-    padding-bottom: 100vh;
     .page{
       @include transition(opacity $transition_time $transition);
       max-width: $max_page_width;
