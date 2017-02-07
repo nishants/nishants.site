@@ -23,6 +23,7 @@ $shadow_offset: 5px;
   height: $topBarHeight;
   overflow: hidden;
   @extend .top-bar-transition;
+  @extend .top-bar-font;
 
   .background{
     position: absolute;

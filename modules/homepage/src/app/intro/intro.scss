@@ -29,6 +29,7 @@ $weight_light : 300;
       }
       .description{
         line-height: $line_height;
+        @extend .description-font;
       }
     }
   }

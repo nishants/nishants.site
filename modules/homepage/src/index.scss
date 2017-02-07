@@ -4,16 +4,29 @@ $weight_normal: 400;
 $weight_bold: 700;
 $weight_light: 300;
 
-$card_font : 'Open Sans', sans-serif;
-$style_font : 'Raleway', sans-serif;
+$spaced_font   : 'Open Sans', sans-serif;
+$card_font     : $spaced_font;
 $readable_font : 'Roboto', sans-serif;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$weight_normal}i,#{$weight_normal},#{$weight_bold}');
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,600,500,700');
 
 $font_family: $readable_font;
 
+.description-font{
+  font-family: $readable_font;
+  font-weight: $weight_light;
+  font-style: italic;
+}
+
+.heading-font{
+  font-family: $readable_font;
+  font-weight: $weight_light;
+}
+
+.top-bar-font{
+  font-family: $spaced_font;
+}
 .theme-font{
   font-family: 'Roboto', sans-serif;
   font-weight: $weight_normal;
