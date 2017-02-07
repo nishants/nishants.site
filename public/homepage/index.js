@@ -291,9 +291,9 @@ app.constant("IFRAMETIMEOUT", 250);
 
 app.constant("GRID_CONFIG", {
 	topOffset: 85,
-	colWidth : 300,
-	gridBoxMarginX: 10,
-	gridBoxMarginY: 10,
+	colWidth : 325,
+	gridBoxMarginX: -1, // To overlap borders
+	gridBoxMarginY: -1, // To overlap borders
 	domUpdateDelay: 500
 });
 },{}],12:[function(require,module,exports){

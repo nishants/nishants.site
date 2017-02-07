@@ -19,7 +19,7 @@ $card_bg: white;
   color: $black_text;
   background: $card_bg;
   img{width: 100%;}
-  padding: 0px $padding;
+  padding: 2*$padding 2*$padding;
 
   .name{
     margin: 2*$padding 0px;
