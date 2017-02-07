@@ -23,6 +23,12 @@ $top_bar_height: 108px;
       padding: $padding;
     }
   }
+  .description-font{
+    font-family: $readable_font;
+    font-weight: $weight_light;
+    font-style: italic;
+    color: $black_text_light;
+  }
 }
 
 @import 'intro/intro';

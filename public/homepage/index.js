@@ -39,6 +39,7 @@ $(document).ready(function(){
 		setState("development", 	ifIssUnderTitleBar(20,$(".intro  .navigation > .development")[0]));
 		setState("coaching"   , 	ifIssUnderTitleBar(20,$(".intro  .navigation > .coaching")[0]));
 		setState("slate"      , 	ifIssUnderTitleBar(20,$("#slate")[0]));
+		setState("social"     , 	ifIssUnderTitleBar(-10,$(".intro  ul.contact.social")[0]));
 	});
 
 	setTimeout(function(){

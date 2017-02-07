@@ -1,8 +1,4 @@
 .about-me{
   margin: auto;
-  ul {
-    > li {
-      padding-bottom: $padding;
-    }
-  }
+  @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
 }

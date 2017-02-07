@@ -38,12 +38,12 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions {
+ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -56,11 +56,6 @@ ul.inline-list {
   display: inline-block; }
   ul.inline-list > li {
     float: left; }
-
-.description-font, #nishants .page.intro .overview .description {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: italic; }
 
 .heading-font {
   font-family: "Roboto", sans-serif;
@@ -89,9 +84,15 @@ ul.inline-list {
       max-width: 1200px;
       margin: 10px auto;
       padding: 10px; }
+  #nishants .description-font, #nishants .page.intro .overview .description {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5); }
 
 #nishants .page.intro {
-  padding: 50px; }
+  padding: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   #nishants .page.intro .overview {
     margin: auto; }
     #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
@@ -100,9 +101,9 @@ ul.inline-list {
       padding: 20px 30px;
       font-weight: 300; }
     #nishants .page.intro .overview .actions {
-      width: 300px;
-      border-right: 1px solid rgba(0, 0, 0, 0.1); }
+      width: 300px; }
     #nishants .page.intro .overview .description {
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
       line-height: 25px;
       width: calc(100% - 300px); }
 
@@ -131,6 +132,7 @@ ul.inline-list {
   transition: transform 300ms ease, opacity 300ms ease; }
 #nishants .page .heading .title {
   color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -151,19 +153,70 @@ ul.inline-list {
     line-height: 70px;
     width: 100%;
     margin: auto;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: right;
+    font-weight: 400;
+    opacity: 0.8;
     -webkit-transition: transform 300ms ease, opacity 300ms ease;
     -moz-transition: transform 300ms ease, opacity 300ms ease;
     -o-transition: transform 300ms ease, opacity 300ms ease;
     transition: transform 300ms ease, opacity 300ms ease; }
 
 .about-me {
-  margin: auto; }
+  margin: auto;
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
   .about-me ul > li {
     padding-bottom: 10px; }
 
-.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img {
+ul.social.contact > li {
+  padding: 10px;
+  float: left;
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
+  ul.social.contact > li > a {
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    font-size: small;
+    border-radius: 50%;
+    border: 1px solid; }
+ul.social.contact .mailto:hover {
+  color: white;
+  background-color: #1a84bc;
+  border: 1px solid #1a84bc; }
+ul.social.contact .mailto {
+  color: #1a84bc; }
+ul.social.contact .twitter:hover {
+  color: white;
+  background-color: #1da1f2;
+  border: 1px solid #1da1f2; }
+ul.social.contact .twitter {
+  color: #1da1f2; }
+ul.social.contact .stack-overflow:hover {
+  color: white;
+  background-color: #f48024;
+  border: 1px solid #f48024; }
+ul.social.contact .stack-overflow {
+  color: #f48024; }
+ul.social.contact .linkedin:hover {
+  color: white;
+  background-color: #1a84bc;
+  border: 1px solid #1a84bc; }
+ul.social.contact .linkedin {
+  color: #1a84bc; }
+ul.social.contact .github:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.65); }
+ul.social.contact .github {
+  color: rgba(0, 0, 0, 0.65); }
+
+.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me {
   opacity: 0;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);

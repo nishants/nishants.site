@@ -29,6 +29,7 @@ $padding_bottom: $padding*2;
       }
       .title{
         color: $black_text_light;
+        font-size: 14px;
         @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
       }
       .border{

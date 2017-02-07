@@ -13,6 +13,7 @@ $weight_light : 300;
 #nishants{
   .page.intro{
     padding: $padding*5;
+    border-bottom: 1px solid $black_border;
     .overview{
       margin: auto;
       @extend .resize-container;
@@ -25,9 +26,9 @@ $weight_light : 300;
       }
       .actions{
         width: $actions_width;
-        border-right: 1px solid $black_border;
       }
       .description{
+        border-left: 1px solid $black_border;
         line-height: $line_height;
         width: calc(100% - #{$actions_width});
         @extend .description-font;
@@ -39,4 +40,5 @@ $weight_light : 300;
 @import "heading/heading";
 @import "navigation/navigation";
 @import "aboutme/aboutme";
+@import "social-contacts/social-contacts";
 @import "intro.transition";
