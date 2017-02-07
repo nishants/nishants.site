@@ -7,6 +7,8 @@
         display: block;
         overflow: hidden;
         .link{
+          @extend .undo-link;
+          display: block;
           height     : $option_button_height + $padding*2;
           line-height: $option_button_height + $padding*2;
           width: 100%;

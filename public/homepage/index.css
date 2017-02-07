@@ -43,6 +43,10 @@ input {
   display: table;
   clear: both; }
 
+a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a {
+  text-decoration: none;
+  color: inherit; }
+
 ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions {
   list-style: none;
   margin: 0px;
@@ -146,6 +150,7 @@ ul.inline-list {
   display: block;
   overflow: hidden; }
   #nishants .intro ul.navigation > li .link {
+    display: block;
     height: 70px;
     line-height: 70px;
     width: 100%;

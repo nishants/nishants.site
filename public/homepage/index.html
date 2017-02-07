@@ -34,9 +34,9 @@ ga('send', 'pageview');
     <nav>
       <div class="top-bar">
         <div class="background"></div>
-        <div class="heading">
-          <div class="image"><img src="public/images/profile.jpg"></div>
-          <div class="name"><span>Nishant Singh</span></div>
+        <div class="heading"><a href="#home" class="link">
+            <div class="image"><img src="public/images/profile.jpg"></div>
+            <div class="name"><span>Nishant Singh</span></div></a>
           <div class="title">
             <ul class="navigation">
               <li class="design"><a href="#design">Design</a></li>
@@ -92,6 +92,10 @@ input {
   content: "";
   display: table;
   clear: both; }
+
+a.undo-link {
+  text-decoration: none;
+  color: inherit; }
 
 ul.undo-list, ul.inline-list {
   list-style: none;
@@ -289,7 +293,7 @@ ul.inline-list {
       </div>
     </div>
     <div class="main-content scroll-container">
-      <div class="page intro">
+      <div id="home" class="page intro">
         <div class="heading">
           <div class="profile-image"><img src="public/images/profile.jpg"></div>
           <div class="name">
@@ -301,21 +305,11 @@ ul.inline-list {
         <div class="overview">
           <div class="actions">
             <ul class="navigation">
-              <li class="design">
-                <div class="link">Interaction Design</div>
-              </li>
-              <li class="development">
-                <div class="link">Development</div>
-              </li>
-              <li class="coaching">
-                <div class="link">Technical Coaching</div>
-              </li>
-              <li class="experience">
-                <div class="link">Experience</div>
-              </li>
-              <li class="connect">
-                <div class="link">Connect</div>
-              </li>
+              <li class="design"><a href="#design" class="link">Interaction Design</a></li>
+              <li class="development"><a href="#development" class="link">Development</a></li>
+              <li class="coaching"><a href="#coaching" class="link">Technical Coaching</a></li>
+              <li class="experience"><a href="#experience" class="link">Experience</a></li>
+              <li class="connect"><a href="#connect" class="link">Connect</a></li>
             </ul>
           </div>
           <div class="description">

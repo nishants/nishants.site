@@ -90,6 +90,11 @@ input{
   }
 }
 
+a.undo-link{
+  text-decoration: none;
+  color: inherit;
+}
+
 ul.undo-list{
   list-style: none;
   margin: 0px;

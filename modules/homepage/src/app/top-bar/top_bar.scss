@@ -38,6 +38,9 @@ $shadow_offset: 5px;
 
   .heading{
     position: relative;
+    a.link{
+      @extend .undo-link;
+    }
   }
   .name{
     text-align: center;
@@ -61,8 +64,8 @@ $shadow_offset: 5px;
         float: left;
         @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
         > a{
-          text-decoration: none;
-          color: inherit;
+          @extend .undo-link;
+
         }
       }
       > li:not(:last-child):after{
