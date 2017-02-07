@@ -14,3 +14,72 @@
   }
 
 }
+
+#nishants.show-design{
+  .intro {
+    .options{
+      ul.navigation{
+        > li.design{
+          .link{
+            @include transform(translateY(-100%));
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-development{
+  .intro {
+    .options{
+      ul.navigation{
+        > li.development{
+          .link{
+            @include transform(translateY(-100%));
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-coaching{
+  .intro {
+    .options{
+      ul.navigation{
+        > li.coaching{
+          .link{
+            @include transform(translateY(-100%));
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-experience{
+   .intro {
+     .options{
+       ul.navigation{
+         > li.experience{
+           .link{
+             @include transform(translateY(-100%));
+           }
+         }
+       }
+     }
+   }
+ }
+#nishants.show-connect{
+   .intro {
+     .options{
+       ul.navigation{
+         > li.connect{
+           .link{
+             @include transform(translateY(-100%));
+           }
+         }
+       }
+     }
+   }
+ }

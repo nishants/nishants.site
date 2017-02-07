@@ -72,7 +72,7 @@ $card_width: 400px;
           display: block;
           margin: auto;
           width: $navigation_button_width;
-          @include transition(all $transition_time $transition);
+          overflow: hidden;
           .link{
             height: $option_button_height;
             width: 100%;
@@ -81,6 +81,7 @@ $card_width: 400px;
             margin: auto;
             text-align: center;
             border: 1px solid $black_border;
+            @include transition(transform $transition_time $transition);
           }
         }
       }

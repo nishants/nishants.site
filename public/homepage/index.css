@@ -120,17 +120,18 @@ ul.inline-list {
     display: block;
     margin: auto;
     width: 300px;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease; }
+    overflow: hidden; }
     #nishants .page.intro .options ul.navigation > li .link {
       height: 50px;
       width: 100%;
       line-height: 50px;
       margin: auto;
       text-align: center;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      -webkit-transition: transform 300ms ease;
+      -moz-transition: transform 300ms ease;
+      -o-transition: transform 300ms ease;
+      transition: transform 300ms ease; }
 
 #nishants.show-name .intro .name label {
   opacity: 0;
@@ -141,6 +142,41 @@ ul.inline-list {
   transform: translateY(-100%); }
 
 #nishants.show-top-bar .intro .profile-image img {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-design .intro .options ul.navigation > li.design .link {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-development .intro .options ul.navigation > li.development .link {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-coaching .intro .options ul.navigation > li.coaching .link {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-experience .intro .options ul.navigation > li.experience .link {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-connect .intro .options ul.navigation > li.connect .link {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
