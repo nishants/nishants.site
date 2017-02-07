@@ -231,6 +231,9 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 			grid.reload();
 		},
 		reload: function () {
+			if(!grid.$e){
+				return setTimeout(grid.reload,GRID_CONFIG.domUpdateDelay);
+			}
 			grid.$e.find(".grid-box").each(function(index, e){
 				var $box 					= $(e),
 						boxTags      	=  ($box.attr("data-tags") || "").split(" "),
