@@ -12,7 +12,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
 	var grid = {
 		$e: null,
-		tags: ["studio","lab"],
+		tags: ["design","development", "coaching"],
 		colWidth: 0,
 		load: function ($grid) {
 			grid.$e 			= $grid;
