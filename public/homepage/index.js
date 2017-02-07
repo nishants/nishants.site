@@ -13,7 +13,7 @@ $(document).ready(function(){
 			app = function(){
 				return $("#nishants");
 			},
-			showOnTopBar = function (name, show) {
+			setState = function (name, show) {
 				var state = "show-" + name;
 				show ? app().addClass(state) : app().removeClass(state);
 			},
@@ -21,21 +21,24 @@ $(document).ready(function(){
 				return element.getBoundingClientRect().top < 0;
 			},
 
+			ifIssUnderTitleBar = function (offset, element) {
+				return element.getBoundingClientRect().top < ($(".top-bar > .background").height() - offset);
+			}
 			isUnderTitleBar = function (element) {
 				return element.getBoundingClientRect().top < ($(".top-bar > .background").height() - offset);
 			};
 
 	$(window).on("scroll", function(){
-		showOnTopBar("top-bar", 		isGone($(".intro  .profile-image")[0]));
-		showOnTopBar("name", 				isUnderTitleBar($(".intro  .name")[0]));
+		setState("top-bar", 		isGone($(".intro  .profile-image")[0]));
+		setState("name", 				isUnderTitleBar($(".intro  .name")[0]));
 
-		showOnTopBar("navigation"	,   isUnderTitleBar($(".intro  .navigation")[0]));
-		showOnTopBar("design"	    , 	isUnderTitleBar($(".intro  .navigation > .design")[0]));
-		showOnTopBar("connect"	  , 	isUnderTitleBar($(".intro  .navigation > .connect")[0]));
-		showOnTopBar("experience" , 	isUnderTitleBar($(".intro  .navigation > .experience")[0]));
-		showOnTopBar("development", 	isUnderTitleBar($(".intro  .navigation > .development")[0]));
-		showOnTopBar("coaching"   , 	isUnderTitleBar($(".intro  .navigation > .coaching")[0]));
-		showOnTopBar("slate"      , 	isUnderTitleBar($("#slate")[0]));
+		setState("navigation"	,   ifIssUnderTitleBar(50,$(".intro  .navigation > .design")[0]));
+		setState("design"	    , 	ifIssUnderTitleBar(50,$(".intro  .navigation > .design")[0]));
+		setState("connect"	  , 	ifIssUnderTitleBar(50,$(".intro  .navigation > .connect")[0]));
+		setState("experience" , 	ifIssUnderTitleBar(50,$(".intro  .navigation > .experience")[0]));
+		setState("development", 	ifIssUnderTitleBar(50,$(".intro  .navigation > .development")[0]));
+		setState("coaching"   , 	ifIssUnderTitleBar(50,$(".intro  .navigation > .coaching")[0]));
+		setState("slate"      , 	ifIssUnderTitleBar(50,$("#slate")[0]));
 	});
 
 	setTimeout(function(){

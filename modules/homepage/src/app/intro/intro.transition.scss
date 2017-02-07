@@ -1,15 +1,19 @@
+.pulled-to-top{
+  opacity: 0;
+  @include transform(translateY(-100%));
+}
 
 #nishants.show-name{
   .intro .name label{
-    opacity: 0;
-    @include transform(translateY(-100%));
+    @extend .pulled-to-top;
   }
 
 }
+
 #nishants.show-top-bar{
   .intro .profile-image {
     img{
-      @include transform(translateY(-100%));
+      @extend .pulled-to-top;
     }
   }
 
@@ -21,7 +25,7 @@
       ul.navigation{
         > li.design{
           .link{
-            @include transform(translateY(-100%));
+            @extend .pulled-to-top;
           }
         }
       }
@@ -35,7 +39,7 @@
       ul.navigation{
         > li.development{
           .link{
-            @include transform(translateY(-100%));
+            @extend .pulled-to-top;
           }
         }
       }
@@ -49,7 +53,7 @@
       ul.navigation{
         > li.coaching{
           .link{
-            @include transform(translateY(-100%));
+            @extend .pulled-to-top;
           }
         }
       }
@@ -63,7 +67,7 @@
        ul.navigation{
          > li.experience{
            .link{
-             @include transform(translateY(-100%));
+             @extend .pulled-to-top;
            }
          }
        }
@@ -76,7 +80,7 @@
        ul.navigation{
          > li.connect{
            .link{
-             @include transform(translateY(-100%));
+             @extend .pulled-to-top;
            }
          }
        }

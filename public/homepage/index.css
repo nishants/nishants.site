@@ -128,55 +128,13 @@ ul.inline-list {
       margin: auto;
       text-align: center;
       border: 1px solid rgba(0, 0, 0, 0.1);
-      -webkit-transition: transform 300ms ease;
-      -moz-transition: transform 300ms ease;
-      -o-transition: transform 300ms ease;
-      transition: transform 300ms ease; }
+      -webkit-transition: transform 300ms ease, opacity 300ms ease;
+      -moz-transition: transform 300ms ease, opacity 300ms ease;
+      -o-transition: transform 300ms ease, opacity 300ms ease;
+      transition: transform 300ms ease, opacity 300ms ease; }
 
-#nishants.show-name .intro .name label {
+.pulled-to-top, #nishants.show-name .intro .name label, #nishants.show-top-bar .intro .profile-image img, #nishants.show-design .intro .options ul.navigation > li.design .link, #nishants.show-development .intro .options ul.navigation > li.development .link, #nishants.show-coaching .intro .options ul.navigation > li.coaching .link, #nishants.show-experience .intro .options ul.navigation > li.experience .link, #nishants.show-connect .intro .options ul.navigation > li.connect .link {
   opacity: 0;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-top-bar .intro .profile-image img {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-design .intro .options ul.navigation > li.design .link {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-development .intro .options ul.navigation > li.development .link {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-coaching .intro .options ul.navigation > li.coaching .link {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-experience .intro .options ul.navigation > li.experience .link {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants.show-connect .intro .options ul.navigation > li.connect .link {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);

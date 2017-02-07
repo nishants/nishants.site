@@ -81,7 +81,7 @@ $card_width: 400px;
             margin: auto;
             text-align: center;
             border: 1px solid $black_border;
-            @include transition(transform $transition_time $transition);
+            @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
           }
         }
       }
