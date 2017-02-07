@@ -1,3 +1,5 @@
+$center_origin_offset: 50;
+$box_width : $cardWidth;
 ul.grid{
   position: relative;
   >li.grid-box{
@@ -6,5 +8,8 @@ ul.grid{
     position: absolute;
     top: 0;
     left: 0;
+  }
+  .grid-box:not(visible){
+    @include transform(scale(0) translateY(-100vh) translateX(calc(50vw - #{$center_origin_offset + $box_width/2})));
   }
 }

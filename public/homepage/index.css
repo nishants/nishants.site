@@ -653,6 +653,12 @@ ul.grid {
     position: absolute;
     top: 0;
     left: 0; }
+  ul.grid .grid-box:not(visible) {
+    -webkit-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
+    -moz-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
+    -ms-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
+    -o-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
+    transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px)); }
 
 #nishants.show-modal {
   overflow: hidden; }
