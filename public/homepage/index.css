@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,600,500,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400i,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,600,500,700");
 p {
   margin-bottom: 1em; }
 
@@ -58,9 +58,13 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
+.theme-font {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
+
 #nishants {
   color: #373a3c;
-  font-family: "Raleway", sans-serif; }
+  font-family: "Roboto", sans-serif; }
   #nishants .main-content {
     background: white;
     width: calc(100vw + 20px);
@@ -303,10 +307,6 @@ ul.inline-list {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
-
-.theme-font {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400; }
 
 .navigation-bar-text {
   font-family: "Open Sans", sans-serif;

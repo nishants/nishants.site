@@ -1,9 +1,27 @@
 @import '../../lib/style/base';
+
+$weight_normal: 400;
+$weight_bold: 700;
+$weight_light: 300;
+
+$card_font : 'Open Sans', sans-serif;
+$style_font : 'Raleway', sans-serif;
+$readable_font : 'Roboto', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$weight_normal}i,#{$weight_normal},#{$weight_bold}');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,600,500,700');
 
-$font_family: 'Raleway', sans-serif;
-@import "app/app";
+$font_family: $readable_font;
+
+.theme-font{
+  font-family: 'Roboto', sans-serif;
+  font-weight: $weight_normal;
+}
+
+
 $mobile_at : 700px;
+@import "app/app";
 
 @media screen and (max-width: $mobile_at) {
   @import "app/app.mobile";
