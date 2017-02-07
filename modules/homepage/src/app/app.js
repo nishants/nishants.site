@@ -1,9 +1,4 @@
 var app = angular.module("nishants", ["slate"]);
-app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
-	$timeout(function(){
-		$rootScope.splash  = {close: true};
-	}, 100);
-}]);
 
 $(document).ready(function(){
 

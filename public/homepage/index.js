@@ -1,10 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var app = angular.module("nishants", ["slate"]);
-app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
-	$timeout(function(){
-		$rootScope.splash  = {close: true};
-	}, 100);
-}]);
 
 $(document).ready(function(){
 
@@ -47,8 +42,40 @@ $(document).ready(function(){
 	}, 500);
 });
 },{}],2:[function(require,module,exports){
-window.app = angular.module("slate", []);
+angular.module("nishants").run(["$timeout", "$rootScope", function($timeout, $rootScope){
+	$timeout(function(){
+		$rootScope.splash  = {close: true};
+	}, 100);
+}]);
+
+angular.module("nishants").run(["GridService", "$timeout", function(GridService, $timeout){
+	var allTags = ["design","development", "coaching"];
+
+	var parse = function (query) {
+				var args  	 = query.split("="),
+						argIndex = args.indexOf("slate") + 1,
+						tags  	 = argIndex > 0 ? args[argIndex].split("_") : allTags;
+
+				console.log("State : " + tags);
+				$timeout(function(){
+					GridService.showTags(tags);
+				});
+
+			},
+			init = function () {};
+	$(window).on("hashchange", function () {
+		var hash     = window.location.hash,
+				hasQuery = hash.length && (hash.indexOf("?") > -1);
+		hasQuery ?  parse(hash.split("?")[1]) : init();
+		console.log("URL : " + window.location);
+	});
+
+	$(window).trigger("hashchange");
+}]);
+
 },{}],3:[function(require,module,exports){
+window.app = angular.module("slate", []);
+},{}],4:[function(require,module,exports){
 app.directive("scrollTarget", [function () {
 
 	return {
@@ -81,12 +108,12 @@ app.directive("scrollTarget", [function () {
 	};
 }]);
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 app.run(["$http", "DeckService", "$rootScope", function($http, DeckService, $rootScope){
 	$http.get("public/data/cards.json").then(DeckService.load)
 	$rootScope.deck = DeckService;
 }]);
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 app.service("DeckService",["$sce", function($sce){
 	var
 			createCard = function(card){
@@ -116,7 +143,7 @@ app.service("DeckService",["$sce", function($sce){
 	};
 	return deck;
 }]);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 app.directive("deck", ["DeckService", "modalService",function (DeckService, modalService) {
 	var $deckItems = function(){return $(".deck > li");},
 			select = function (index) {
@@ -155,7 +182,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 	};
 }]);
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridService, GRID_CONFIG, $timeout) {
 	return {
 		restrict   : "C",
@@ -172,7 +199,7 @@ app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridSer
 	};
 }]);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
 	var setPosition = function($e, x, y){
@@ -236,15 +263,16 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 				nextColumn          = (nextColumn + 1) % columnCount;
 			}
 			grid.$e.height(gridHeight);
+			grid.$e.find(".grid-box:not(.visible)").css("transform", "");
 		}
 	};
 	return grid;
 }]);
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 app.controller("modalController",["$scope", "modalService", function($scope, modalService){
 	$scope.modal = modalService;
 }]);
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(DeckService, $timeout, IFRAMETIMEOUT){
 	var modal = {
 		_show 	: false,
@@ -286,7 +314,7 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 	};
 	return modal;
 }]);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 app.constant("IFRAMETIMEOUT", 250);
 
 app.constant("GRID_CONFIG", {
@@ -296,52 +324,29 @@ app.constant("GRID_CONFIG", {
 	gridBoxMarginY: -1, // To overlap borders
 	domUpdateDelay: 500
 });
-},{}],12:[function(require,module,exports){
-angular.module("nishants").service("SlateService",["GridService", function(GridService){
-	var allTags = ["design","development", "coaching"];
-
-	var slate = {
-		tags     : allTags,
-		refresh  : function(){
-			GridService.showTags(slate.tags);
-		},
-		show     : function(tag){
-			if(!slate.tags.includes(tag)){
-				slate.tags.push(tag);
-				slate.refresh();
-			}
-		},
-		hide     : function(tag){
-			slate.tags.splice(slate.tags.indexOf(tag), 1);
-			slate.refresh();
-		}
-	};
-
-	var loadUrl = function(){
-		console.log("State : " + url.split("/")[1]);
-	}
-	$(window).on("hashchange", function () {
-		window.location.hash.length ?  loadUrl(window.location.hash) : init();
-	});
-
-	$(window).trigger("hashchange");
-
-	return slate;
-}]);
 },{}],13:[function(require,module,exports){
+angular.module("nishants").service("SlateService",["GridService", "$timeout", function(GridService, $timeout){
+
+
+
+
+	return {};
+}]);
+},{}],14:[function(require,module,exports){
 require("./app/slate/app/app.js");
 require("./app/slate/app/variables.js");
 require("./app/slate/app/config.js");
-require('./app/slate/app/app.js')
-require('./app/slate/app/deck/deck.js')
-require('./app/slate/app/deck/deck-service.js')
-require('./app/slate/app/modal/modal-service.js')
-require('./app/slate/app/modal/modal-controller.js')
-require('./app/slate/app/grid/grid-directive.js')
-require('./app/slate/app/grid/grid-service.js')
-require('./app/slate/app/components/scroll.js')
+require('./app/slate/app/app.js');
+require('./app/slate/app/deck/deck.js');
+require('./app/slate/app/deck/deck-service.js');
+require('./app/slate/app/modal/modal-service.js');
+require('./app/slate/app/modal/modal-controller.js');
+require('./app/slate/app/grid/grid-directive.js');
+require('./app/slate/app/grid/grid-service.js');
+require('./app/slate/app/components/scroll.js');
 
 require("./app/app.js");
+require("./app/config.js");
 require("./app/slate/slate-service");
 
-},{"./app/app.js":1,"./app/slate/app/app.js":2,"./app/slate/app/components/scroll.js":3,"./app/slate/app/config.js":4,"./app/slate/app/deck/deck-service.js":5,"./app/slate/app/deck/deck.js":6,"./app/slate/app/grid/grid-directive.js":7,"./app/slate/app/grid/grid-service.js":8,"./app/slate/app/modal/modal-controller.js":9,"./app/slate/app/modal/modal-service.js":10,"./app/slate/app/variables.js":11,"./app/slate/slate-service":12}]},{},[13]);
+},{"./app/app.js":1,"./app/config.js":2,"./app/slate/app/app.js":3,"./app/slate/app/components/scroll.js":4,"./app/slate/app/config.js":5,"./app/slate/app/deck/deck-service.js":6,"./app/slate/app/deck/deck.js":7,"./app/slate/app/grid/grid-directive.js":8,"./app/slate/app/grid/grid-service.js":9,"./app/slate/app/modal/modal-controller.js":10,"./app/slate/app/modal/modal-service.js":11,"./app/slate/app/variables.js":12,"./app/slate/slate-service":13}]},{},[14]);

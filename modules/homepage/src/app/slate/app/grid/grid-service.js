@@ -61,6 +61,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 				nextColumn          = (nextColumn + 1) % columnCount;
 			}
 			grid.$e.height(gridHeight);
+			grid.$e.find(".grid-box:not(.visible)").css("transform", "");
 		}
 	};
 	return grid;
