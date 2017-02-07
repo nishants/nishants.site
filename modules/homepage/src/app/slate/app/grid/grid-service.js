@@ -1,8 +1,8 @@
 app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
 	var setPosition = function($e, x, y){
-				$e.css("left", x+"px");
-				$e.css("top", y+"px");
+				var transformation = "translateX(<x>px) translateY(<y>px)".replace("<x>", x).replace("<y>", y);
+				$e.css("transform", transformation);
 			},
 			presentIn = function(tags){
 		return function(tag){
