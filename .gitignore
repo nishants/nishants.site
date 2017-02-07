@@ -12,3 +12,4 @@
 /src/portfolio/src/index.css.map
 *.log
 *.sass-cache
+modules/**/*.css
