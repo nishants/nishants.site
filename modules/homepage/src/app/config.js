@@ -19,11 +19,14 @@ angular.module("nishants").run(["GridService", "$timeout", function(GridService,
 				});
 
 			},
+			showAll = function(){
+				GridService.showTags(allTags);
+			},
 			init = function () {};
 	$(window).on("hashchange", function () {
 		var hash     = window.location.hash,
 				hasQuery = hash.length && (hash.indexOf("?") > -1);
-		hasQuery ?  parse(hash.split("?")[1]) : init();
+		hasQuery ?  parse(hash.split("?")[1]) : showAll();
 		console.log("URL : " + window.location);
 	});
 
