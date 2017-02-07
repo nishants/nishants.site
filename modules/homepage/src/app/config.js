@@ -14,6 +14,7 @@ angular.module("nishants").run(["GridService", "$timeout", function(GridService,
 
 				console.log("State : " + tags);
 				$timeout(function(){
+					document.getElementById("slate").scrollIntoView();
 					GridService.showTags(tags);
 				});
 
