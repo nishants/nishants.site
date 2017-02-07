@@ -297,21 +297,51 @@ app.constant("GRID_CONFIG", {
 	domUpdateDelay: 500
 });
 },{}],12:[function(require,module,exports){
+angular.module("nishants").service("SlateService",["GridService", function(GridService){
+	var allTags = ["design","development", "coaching"];
+
+	var slate = {
+		tags     : allTags,
+		refresh  : function(){
+			GridService.showTags(slate.tags);
+		},
+		show     : function(tag){
+			if(!slate.tags.includes(tag)){
+				slate.tags.push(tag);
+				slate.refresh();
+			}
+		},
+		hide     : function(tag){
+			slate.tags.splice(slate.tags.indexOf(tag), 1);
+			slate.refresh();
+		}
+	};
+
+	var loadUrl = function(){
+		console.log("State : " + url.split("/")[1]);
+	}
+	$(window).on("hashchange", function () {
+		window.location.hash.length ?  loadUrl(window.location.hash) : init();
+	});
+
+	$(window).trigger("hashchange");
+
+	return slate;
+}]);
+},{}],13:[function(require,module,exports){
+require("./app/slate/app/app.js");
+require("./app/slate/app/variables.js");
+require("./app/slate/app/config.js");
+require('./app/slate/app/app.js')
+require('./app/slate/app/deck/deck.js')
+require('./app/slate/app/deck/deck-service.js')
+require('./app/slate/app/modal/modal-service.js')
+require('./app/slate/app/modal/modal-controller.js')
+require('./app/slate/app/grid/grid-directive.js')
+require('./app/slate/app/grid/grid-service.js')
+require('./app/slate/app/components/scroll.js')
+
 require("./app/app.js");
-require("./app/variables.js");
-require("./app/config.js");
+require("./app/slate/slate-service");
 
-require('./app/app.js')
-require('./app/deck/deck.js')
-require('./app/deck/deck-service.js')
-require('./app/modal/modal-service.js')
-require('./app/modal/modal-controller.js')
-require('./app/grid/grid-directive.js')
-require('./app/grid/grid-service.js')
-require('./app/components/scroll.js')
-
-},{"./app/app.js":2,"./app/components/scroll.js":3,"./app/config.js":4,"./app/deck/deck-service.js":5,"./app/deck/deck.js":6,"./app/grid/grid-directive.js":7,"./app/grid/grid-service.js":8,"./app/modal/modal-controller.js":9,"./app/modal/modal-service.js":10,"./app/variables.js":11}],13:[function(require,module,exports){
-require("./app/slate/slate.js");
-require("./app/app.js");
-
-},{"./app/app.js":1,"./app/slate/slate.js":12}]},{},[13]);
+},{"./app/app.js":1,"./app/slate/app/app.js":2,"./app/slate/app/components/scroll.js":3,"./app/slate/app/config.js":4,"./app/slate/app/deck/deck-service.js":5,"./app/slate/app/deck/deck.js":6,"./app/slate/app/grid/grid-directive.js":7,"./app/slate/app/grid/grid-service.js":8,"./app/slate/app/modal/modal-controller.js":9,"./app/slate/app/modal/modal-service.js":10,"./app/slate/app/variables.js":11,"./app/slate/slate-service":12}]},{},[13]);

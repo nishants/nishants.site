@@ -17,5 +17,15 @@ angular.module("nishants").service("SlateService",["GridService", function(GridS
 			slate.refresh();
 		}
 	};
+
+	var loadUrl = function(){
+		console.log("State : " + url.split("/")[1]);
+	}
+	$(window).on("hashchange", function () {
+		window.location.hash.length ?  loadUrl(window.location.hash) : init();
+	});
+
+	$(window).trigger("hashchange");
+
 	return slate;
 }]);
