@@ -617,6 +617,9 @@ ul.deck {
       -o-transition: opacity 250ms ease, transform 250ms ease;
       transition: opacity 250ms ease, transform 250ms ease; }
 
+.deck:not(.focus) {
+  overflow: hidden; }
+
 .deck.focus {
   pointer-events: none; }
   .deck.focus li.selected {
@@ -654,17 +657,15 @@ ul.grid {
     display: block;
     position: absolute;
     top: 0;
-    left: 0; }
-  ul.grid .grid-box:not(visible) {
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    transition: none;
-    -webkit-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
-    -moz-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
-    -ms-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
-    -o-transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px));
-    transform: scale(0) translateY(-100vh) translateX(calc(50vw - 212.5px)); }
+    left: 0;
+    -webkit-transform: translateX(50vw) translateY(100vh);
+    -moz-transform: translateX(50vw) translateY(100vh);
+    -ms-transform: translateX(50vw) translateY(100vh);
+    -o-transform: translateX(50vw) translateY(100vh);
+    transform: translateX(50vw) translateY(100vh); }
+  ul.grid > li.grid-box:not(.visible) {
+    pointer-events: none !important;
+    opacity: 0 !important; }
 
 #nishants.show-modal {
   overflow: hidden; }

@@ -4,12 +4,13 @@ ul.grid{
   position: relative;
   >li.grid-box{
     display: block;
-    //float: left;
     position: absolute;
     top: 0;
     left: 0;
+    @include transform(translateX(50vw) translateY(100vh))
   }
-  .grid-box:not(visible){
-    @include transform(scale(0) translateY(-100vh) translateX(calc(50vw - #{$center_origin_offset + $box_width/2})));
+  >li.grid-box:not(.visible){
+    pointer-events: none !important;
+    opacity: 0 !important;
   }
 }

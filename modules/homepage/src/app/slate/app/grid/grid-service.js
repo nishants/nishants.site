@@ -1,8 +1,10 @@
 app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
-	var setPosition = function($e, x, y){
-				var transformation = "translateX(<x>px) translateY(<y>px)".replace("<x>", x).replace("<y>", y);
-				$e.css("transform", transformation);
+	var transform = function(x,y){
+				return "translateX(<x>) translateY(<y>)".replace("<x>", x).replace("<y>", y);
+			},
+			setPosition = function($e, x, y){
+				$e.css("transform", transform(x+"px",y+"px"));
 			},
 			presentIn = function(tags){
 		return function(tag){
@@ -60,8 +62,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 				gridHeight          = Math.max(gridHeight, column.nexPosition);
 				nextColumn          = (nextColumn + 1) % columnCount;
 			}
-			grid.$e.height(gridHeight);
-			grid.$e.find(".grid-box:not(.visible)").css("transform", "");
+			grid.$e.height() < gridHeight ? grid.$e.height(gridHeight) : "";
 		}
 	};
 	return grid;

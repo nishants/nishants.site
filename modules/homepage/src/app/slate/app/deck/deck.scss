@@ -17,6 +17,10 @@ ul.deck {
   }
 }
 
+.deck:not(.focus){
+  overflow: hidden;
+}
+
 .deck.focus{
   pointer-events: none;
   li.selected{
