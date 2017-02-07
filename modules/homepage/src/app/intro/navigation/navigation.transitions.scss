@@ -1,0 +1,70 @@
+
+
+#nishants.show-design{
+  .intro {
+    .actions{
+      ul.navigation{
+        > li.design{
+          .link{
+            @extend .pulled-to-top;
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-development{
+  .intro {
+    .actions{
+      ul.navigation{
+        > li.development{
+          .link{
+            @extend .pulled-to-top;
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-coaching{
+  .intro {
+    .actions{
+      ul.navigation{
+        > li.coaching{
+          .link{
+            @extend .pulled-to-top;
+          }
+        }
+      }
+    }
+  }
+}
+
+#nishants.show-experience{
+  .intro {
+    .actions{
+      ul.navigation{
+        > li.experience{
+          .link{
+            @extend .pulled-to-top;
+          }
+        }
+      }
+    }
+  }
+}
+#nishants.show-connect{
+  .intro {
+    .actions{
+      ul.navigation{
+        > li.connect{
+          .link{
+            @extend .pulled-to-top;
+          }
+        }
+      }
+    }
+  }
+}

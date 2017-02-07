@@ -1,0 +1,8 @@
+.about-me{
+  margin: auto;
+  ul {
+    > li {
+      padding-bottom: $padding;
+    }
+  }
+}

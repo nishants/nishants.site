@@ -39,12 +39,12 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro:after, #nishants .page.intro .options ul.navigation:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, ul.inline-list, #nishants .page.intro .options ul.navigation, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions {
+ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -78,68 +78,89 @@ ul.inline-list {
 #nishants .page.intro {
   padding-top: 50px; }
   #nishants .page.intro .overview {
-    margin: auto;
-    width: 800px; }
-    #nishants .page.intro .overview .card {
-      float: left;
-      width: 400px; }
-  #nishants .page.intro .heading {
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    #nishants .page.intro .heading .profile-image {
-      padding: 5px;
-      overflow: hidden; }
-      #nishants .page.intro .heading .profile-image img {
-        height: 80px;
-        width: 80px;
-        display: block;
-        margin: auto;
-        border-radius: 3px;
-        -webkit-transition: all 300ms ease;
-        -moz-transition: all 300ms ease;
-        -o-transition: all 300ms ease;
-        transition: all 300ms ease; }
-    #nishants .page.intro .heading .name, #nishants .page.intro .heading .title {
-      text-align: center;
-      line-height: 30px;
-      font-size: medium;
-      font-weight: 300; }
-    #nishants .page.intro .heading .name label {
-      -webkit-transition: transform 300ms ease, opacity 300ms ease;
-      -moz-transition: transform 300ms ease, opacity 300ms ease;
-      -o-transition: transform 300ms ease, opacity 300ms ease;
-      transition: transform 300ms ease, opacity 300ms ease; }
-    #nishants .page.intro .heading .title {
-      color: rgba(0, 0, 0, 0.5); }
-  #nishants .page.intro .about-me {
     margin: auto; }
-    #nishants .page.intro .about-me ul > li {
-      padding-bottom: 10px; }
-  #nishants .page.intro .options ul.navigation > li {
-    padding: 10px;
+    #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
+      float: left;
+      width: 50%;
+      padding: 20px 30px;
+      font-weight: 300; }
+    #nishants .page.intro .overview .actions {
+      width: 300px;
+      border-right: 1px solid rgba(0, 0, 0, 0.1); }
+    #nishants .page.intro .overview .description {
+      line-height: 25px; }
+
+#nishants .page .heading .profile-image {
+  padding: 5px;
+  overflow: hidden; }
+  #nishants .page .heading .profile-image img {
+    height: 80px;
+    width: 80px;
     display: block;
     margin: auto;
-    width: 300px;
-    overflow: hidden; }
-    #nishants .page.intro .options ul.navigation > li .link {
-      height: 50px;
-      width: 100%;
-      line-height: 50px;
-      margin: auto;
-      text-align: center;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      -webkit-transition: transform 300ms ease, opacity 300ms ease;
-      -moz-transition: transform 300ms ease, opacity 300ms ease;
-      -o-transition: transform 300ms ease, opacity 300ms ease;
-      transition: transform 300ms ease, opacity 300ms ease; }
+    border-radius: 3px;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease; }
+#nishants .page .heading .name, #nishants .page .heading .title {
+  text-align: center;
+  line-height: 25px;
+  font-size: medium;
+  font-weight: 300; }
+#nishants .page .heading .name label {
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
+#nishants .page .heading .title {
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
+#nishants .page .heading .border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 10px;
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
 
-.pulled-to-top, #nishants.show-name .intro .name label, #nishants.show-top-bar .intro .profile-image img, #nishants.show-design .intro .options ul.navigation > li.design .link, #nishants.show-development .intro .options ul.navigation > li.development .link, #nishants.show-coaching .intro .options ul.navigation > li.coaching .link, #nishants.show-experience .intro .options ul.navigation > li.experience .link, #nishants.show-connect .intro .options ul.navigation > li.connect .link {
+#nishants .intro ul.navigation > li {
+  display: block;
+  overflow: hidden; }
+  #nishants .intro ul.navigation > li .link {
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-transition: transform 300ms ease, opacity 300ms ease;
+    -moz-transition: transform 300ms ease, opacity 300ms ease;
+    -o-transition: transform 300ms ease, opacity 300ms ease;
+    transition: transform 300ms ease, opacity 300ms ease; }
+
+.about-me {
+  margin: auto; }
+  .about-me ul > li {
+    padding-bottom: 10px; }
+
+.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img {
   opacity: 0;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
+
+#nishants.show-name .page .heading .border {
+  -webkit-transform: translateY(-108px);
+  -moz-transform: translateY(-108px);
+  -ms-transform: translateY(-108px);
+  -o-transform: translateY(-108px);
+  transform: translateY(-108px); }
 
 .top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
   -webkit-transition: all 300ms ease;
@@ -184,10 +205,10 @@ ul.inline-list {
     overflow: hidden; }
     .top-bar .title .navigation > li {
       float: left;
-      -webkit-transition: transform 300ms ease;
-      -moz-transition: transform 300ms ease;
-      -o-transition: transform 300ms ease;
-      transition: transform 300ms ease; }
+      -webkit-transition: transform 300ms ease, opacity 300ms ease;
+      -moz-transition: transform 300ms ease, opacity 300ms ease;
+      -o-transition: transform 300ms ease, opacity 300ms ease;
+      transition: transform 300ms ease, opacity 300ms ease; }
     .top-bar .title .navigation > li:not(:last-child):after {
       content: " | ";
       display: inline-block;
@@ -246,6 +267,14 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
+.pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0; }
+
 #nishants:not(.show-top-bar) .top-bar {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
@@ -267,47 +296,6 @@ ul.inline-list {
   -ms-transform: translateY(-25px);
   -o-transform: translateY(-25px);
   transform: translateY(-25px); }
-#nishants:not(.show-navigation) .top-bar ul.navigation > li {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-design) .top-bar ul.navigation > li.design {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-connect) .top-bar ul.navigation > li.connect {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-experience) .top-bar ul.navigation > li.experience {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants:not(.show-development) .top-bar ul.navigation > li.development {
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
 
 #nishants.show-modal .top-bar {
   -webkit-transform: translateY(-100%);

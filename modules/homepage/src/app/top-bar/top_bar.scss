@@ -2,7 +2,7 @@ $border_radius : 2px;
 
 $row_height: 35px;
 $small_image_size: $row_height;
-$topBarHeight: 108px;
+$topBarHeight: $top_bar_height;
 $top_bar_index : 1;
 $medium_bold_text : 500;
 $title_width: 405px;
@@ -58,7 +58,7 @@ $shadow_offset: 5px;
       overflow: hidden;
       > li {
         float: left;
-        @include transition(transform $transition_time $transition);
+        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
       }
       > li:not(:last-child):after{
         content   : " | ";

@@ -6,88 +6,35 @@ $font_weight         : 300;
 $border_radius       : 3px;
 
 $option_button_height: 50px;
-$navigation_button_width : 300px;
-$card_width: 400px;
+$actions_width : 300px;
+$line_height: 25px;
+$weight_light : 300;
 
 #nishants{
   .page.intro{
     padding-top: $padding*5;
-    @extend .resize-container;
     .overview{
       margin: auto;
-      width: 2*$card_width;
-      .card{
+      @extend .resize-container;
+
+      .description, .actions{
         float: left;
-        width: $card_width;
+        width: 50%;
+        padding: $padding*2 $padding*3;
+        font-weight: $weight_light;
       }
-    }
-
-    .heading{
-      padding-bottom: $padding;
-      border-bottom: 1px solid $black_border;
-      .profile-image{
-        padding: $padding/2;
-        overflow: hidden;
-        img {
-          height  : $profile_image_height;
-          width   : $profile_image_width;
-          display : block;
-          margin  : auto;
-          border-radius: $border_radius;
-          @include transition(all $transition_time $transition);
-        }
+      .actions{
+        width: $actions_width;
+        border-right: 1px solid $black_border;
       }
-
-      .name, .title{
-        text-align: center;
+      .description{
         line-height: $line_height;
-        font-size: $font_size;
-        font-weight: $font_weight;
-      }
-      .name{
-        label{
-          @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
-        }
-      }
-      .title{
-        color: $black_text_light;
-      }
-
-    }
-    .about-me{
-      margin: auto;
-      ul {
-        > li {
-          padding-bottom: $padding;
-        }
       }
     }
-
-    .options{
-      ul.navigation{
-        @extend .undo-list;
-        @extend .resize-container;
-        > li {
-          padding : $padding;
-          display: block;
-          margin: auto;
-          width: $navigation_button_width;
-          overflow: hidden;
-          .link{
-            height: $option_button_height;
-            width: 100%;
-
-            line-height: $option_button_height;
-            margin: auto;
-            text-align: center;
-            border: 1px solid $black_border;
-            @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
-          }
-        }
-      }
-    }
-
   }
 }
 
+@import "heading/heading";
+@import "navigation/navigation";
+@import "aboutme/aboutme";
 @import "intro.transition";

@@ -1,3 +1,8 @@
+.pull-from-bottom {
+  @include transform(translateY(-100%));
+  opacity: 0;
+}
+
 #nishants:not(.show-top-bar){
   .top-bar{
     @include transform(translateY(-100%));
@@ -24,7 +29,7 @@
     }
     ul.navigation{
       > li{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }
@@ -35,7 +40,7 @@
   .top-bar{
     ul.navigation{
       > li.design{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }
@@ -44,7 +49,7 @@
   .top-bar{
     ul.navigation{
       > li.connect{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }
@@ -53,7 +58,7 @@
   .top-bar{
     ul.navigation{
       > li.experience{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }
@@ -62,7 +67,7 @@
   .top-bar{
     ul.navigation{
       > li.coaching{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }
@@ -71,7 +76,7 @@
   .top-bar{
     ul.navigation{
       > li.development{
-        @include transform(translateY($topBarHeight));
+        @extend .pull-from-bottom;
       }
     }
   }

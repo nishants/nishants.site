@@ -1,0 +1,21 @@
+#nishants{
+  .intro{
+    ul.navigation{
+      @extend .undo-list;
+      @extend .resize-container;
+      > li {
+        display: block;
+        overflow: hidden;
+        .link{
+          height     : $option_button_height + $padding*2;
+          line-height: $option_button_height + $padding*2;
+          width: 100%;
+          margin: auto;
+          text-align: center;
+          border-bottom: 1px solid $black_border;
+          @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
+        }
+      }
+    }
+  }
+}

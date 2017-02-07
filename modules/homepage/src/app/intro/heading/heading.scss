@@ -1,0 +1,39 @@
+#nishants{
+  .page{
+    .heading{
+      .profile-image{
+        padding: $padding/2;
+        overflow: hidden;
+        img {
+          height  : $profile_image_height;
+          width   : $profile_image_width;
+          display : block;
+          margin  : auto;
+          border-radius: $border_radius;
+          @include transition(all $transition_time $transition);
+        }
+      }
+
+      .name, .title{
+        text-align: center;
+        line-height: $line_height;
+        font-size: $font_size;
+        font-weight: $font_weight;
+      }
+      .name{
+        label{
+          @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        }
+      }
+      .title{
+        color: $black_text_light;
+        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+      }
+      .border{
+        border-bottom: 1px solid $black_border;
+        height: $padding;
+        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+      }
+    }
+  }
+}
