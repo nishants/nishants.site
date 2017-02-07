@@ -661,6 +661,9 @@ ul.grid {
   #nishants.show-modal .modal {
     pointer-events: all; }
 
+#footer {
+  text-align: center; }
+
 @media screen and (max-width: 700px) {
   .no-mobile {
     display: none !important; } }
