@@ -9,7 +9,7 @@ app.run(["$timeout", "$rootScope", function($timeout, $rootScope){
 $(document).ready(function(){
 
 	var
-			offset = 0,
+			offset = 50,
 			app = function(){
 				return $("#nishants");
 			},
