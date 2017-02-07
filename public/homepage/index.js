@@ -127,10 +127,10 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 						offsetY = $(".deck").offset().top - container.offset().top - containerScrollOffset,
 						offsetX = -container.offset().left;
 
-				container.css("transform", "translateY(" + (offsetY + offsetPaddingY) + "px)" + "translateX(" + (offsetX + offsetPaddingX) + "px)");
+				container.find("> .wrapper").first().css("transform", "translateY(" + (offsetY + offsetPaddingY) + "px)" + "translateX(" + (offsetX + offsetPaddingX) + "px)");
 			},
 			unSelect = function () {
-				$deckItems().css("transform", "");
+				$(".deck > li > .wrapper").css("transform", "");
 			};
 	return {
 		restrict: "C",

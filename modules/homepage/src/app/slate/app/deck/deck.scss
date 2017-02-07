@@ -11,7 +11,9 @@ ul.deck {
     padding: $containerPadding;
     float: left;
     @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
-
+    .wrapper{
+      @include transition(#{opacity $cleanupDuration $cleanupFunction, transform $cleanupDuration $cleanupFunction});
+    }
   }
 }
 

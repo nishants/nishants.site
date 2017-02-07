@@ -334,12 +334,14 @@ ul.inline-list {
         <div id="design"></div>
         <div id="coaching"></div>
         <ul ng-class="{'focus' : deck._current != -1}" class="deck grid">
-          <li ng-repeat="card in deck._list" data-tags="{{card.tagList}}" ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current &lt; $index - 1, 'selected-tail' : deck._current &gt; $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}" class="grid-box scroll-target"><a ng-click="deck.select($index)" class="card">
-              <div ng-if="card.type == &quot;image&quot;" class="image-card"><img ng-src="{{card.image}}"></div>
-              <div ng-if="card.type == &quot;ui&quot;" class="ui-tutorial">
-                <h2 ng-bind="card.name" class="name"></h2>
-                <p class="description"><span ng-bind="card.description.lead" class="lead"></span><span ng-bind="card.description.follow" class="follow"></span></p>
-              </div></a></li>
+          <li ng-repeat="card in deck._list" data-tags="{{card.tagList}}" ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current &lt; $index - 1, 'selected-tail' : deck._current &gt; $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}" class="grid-box scroll-target">
+            <div class="wrapper"><a ng-click="deck.select($index)" class="card">
+                <div ng-if="card.type == &quot;image&quot;" class="image-card"><img ng-src="{{card.image}}"></div>
+                <div ng-if="card.type == &quot;ui&quot;" class="ui-tutorial">
+                  <h2 ng-bind="card.name" class="name"></h2>
+                  <p class="description"><span ng-bind="card.description.lead" class="lead"></span><span ng-bind="card.description.follow" class="follow"></span></p>
+                </div></a></div>
+          </li>
         </ul>
         <div ng-controller="modalController" class="modal">
           <div class="overview">
