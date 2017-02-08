@@ -47,21 +47,7 @@ $box_shadow : 10px 1px 5px $black_border;
         left    : calc(50% - #{$line_width});
         width   : $line_width;
         height  : calc(100% - #{$top_offset});
-      }
-    }
-    > li:nth-child(3n) {
-      .period{
-        background: $position_color_one;
-      }
-    }
-    > li:nth-child(3n+2) {
-      .period{
-        background: $position_color_two;
-      }
-    }
-    > li:nth-child(3n+1) {
-      .period{
-        background: $position_color_three;
+        background: $black_border;
       }
     }
   }
