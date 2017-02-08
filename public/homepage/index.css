@@ -84,10 +84,9 @@ ul.inline-list {
       transition: opacity 300ms ease;
       max-width: 1200px;
       margin: 10px auto;
-      padding: 50px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 108px 50px 50px 50px;
       text-align: center; }
-      #nishants .main-content .page .title {
+      #nishants .main-content .page > .title {
         padding: 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         font-family: "Open Sans", sans-serif; }
@@ -97,19 +96,35 @@ ul.inline-list {
     font-style: italic;
     color: rgba(0, 0, 0, 0.5); }
 
-#nishants .page.intro .overview {
-  margin: auto; }
-  #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
-    float: left;
-    width: 50%;
-    padding: 20px 30px;
-    font-weight: 300; }
-  #nishants .page.intro .overview .actions {
-    width: 300px; }
-  #nishants .page.intro .overview .description {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    line-height: 25px;
-    width: calc(100% - 300px); }
+.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me, #slate.page.show-modal .title {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+.fades-and-moves, #slate.page .title {
+  -webkit-transition: transform 300ms ease, opacity 300ms ease;
+  -moz-transition: transform 300ms ease, opacity 300ms ease;
+  -o-transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease; }
+
+#nishants .page.intro {
+  padding-top: 50px; }
+  #nishants .page.intro .overview {
+    margin: auto; }
+    #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
+      float: left;
+      width: 50%;
+      padding: 20px 30px;
+      font-weight: 300; }
+    #nishants .page.intro .overview .actions {
+      width: 300px; }
+    #nishants .page.intro .overview .description {
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      line-height: 25px;
+      width: calc(100% - 300px); }
 
 #nishants .page .heading .profile-image {
   padding: 5px;
@@ -218,14 +233,6 @@ ul.social.contact .github:hover {
   border: 1px solid rgba(0, 0, 0, 0.65); }
 ul.social.contact .github {
   color: rgba(0, 0, 0, 0.65); }
-
-.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me {
-  opacity: 0;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
 
 #nishants.show-name .page .heading .border {
   -webkit-transform: translateY(-108px);
@@ -670,8 +677,17 @@ ul.grid {
     pointer-events: none !important;
     opacity: 0 !important; }
 
+#slate.page.show-modal .title {
+  -webkit-transform: translateY(-400%);
+  -moz-transform: translateY(-400%);
+  -ms-transform: translateY(-400%);
+  -o-transform: translateY(-400%);
+  transform: translateY(-400%); }
+
 #nishants.show-modal {
   overflow: hidden; }
+  #nishants.show-modal .page .title {
+    opacity: 0; }
   #nishants.show-modal .page:not(.slate) {
     opacity: 0; }
   #nishants.show-modal .modal {

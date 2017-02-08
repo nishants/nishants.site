@@ -1,7 +1,4 @@
-.pulled-to-top{
-  opacity: 0;
-  @include transform(translateY(-100%));
-}
+
 
 @import "navigation/navigation.transitions";
 @import "heading/heading.transitions";

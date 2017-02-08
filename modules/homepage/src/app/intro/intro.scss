@@ -12,6 +12,7 @@ $weight_light : 300;
 
 #nishants{
   .page.intro{
+    padding-top: 5*$padding;
     .overview{
       margin: auto;
       @extend .resize-container;

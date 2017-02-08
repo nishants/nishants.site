@@ -17,11 +17,10 @@ $top_bar_height: 108px;
       @include transition(opacity $transition_time $transition);
       max-width: $max_page_width;
       margin: $padding auto;
-      padding: $padding*5;
-      border-bottom: 1px solid $black_border;
+      padding: $top_bar_height $padding*5 $padding*5 $padding*5;
       text-align: center;
 
-      .title{
+      > .title{
         padding: $padding;
         border-bottom: 1px solid $black_border;
         font-family: $open_sans;
@@ -34,6 +33,15 @@ $top_bar_height: 108px;
     font-style: italic;
     color: $black_text_light;
   }
+}
+
+.pulled-to-top{
+  opacity: 0;
+  @include transform(translateY(-100%));
+}
+
+.fades-and-moves{
+  @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
 }
 
 @import 'intro/intro';
