@@ -53,7 +53,7 @@ angular.module("nishants").run(["GridService", "$timeout", function(GridService,
 
 	var parse = function (query) {
 				var args  	 = query.split("="),
-						argIndex = args.indexOf("slate") + 1,
+						argIndex = args.indexOf("tags") + 1,
 						tags  	 = argIndex > 0 ? args[argIndex].split("_") : allTags;
 
 				console.log("State : " + tags);
