@@ -77,27 +77,30 @@ ul.inline-list {
   font-family: "Roboto", sans-serif; }
   #nishants .main-content {
     background: white; }
+    #nishants .main-content .page, #nishants .main-content .sticky {
+      max-width: 1200px;
+      text-align: center;
+      padding: 50px; }
     #nishants .main-content .page {
+      padding-top: 108px;
+      margin: 10px auto;
+      min-height: 100vh;
       -webkit-transition: opacity 300ms ease;
       -moz-transition: opacity 300ms ease;
       -o-transition: opacity 300ms ease;
-      transition: opacity 300ms ease;
-      max-width: 1200px;
-      min-height: 100vh;
-      margin: 10px auto;
-      padding: 108px 50px 50px 50px;
-      text-align: center; }
+      transition: opacity 300ms ease; }
       #nishants .main-content .page > .title {
         padding: 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         font-family: "Open Sans", sans-serif; }
       #nishants .main-content .page .sticky {
+        padding-top: 0px;
+        margin: 0px auto; }
+      #nishants .main-content .page .sticky-container {
         position: fixed;
         top: 103px;
-        left: 1px;
+        left: 0;
         z-index: 1;
-        padding: 0px 65px;
-        height: 0;
         width: 100%;
         -webkit-transform: scale(0);
         -moz-transform: scale(0);
@@ -734,11 +737,7 @@ ul.grid {
         height: calc(100% - 10px);
         background: rgba(0, 0, 0, 0.1); }
 
-#nishants.show-stick-experience .timeline .sticky .timeline-header .position {
-  position: relative;
-  right: 2px; }
-
-#nishants.show-stick-experience .timeline .sticky {
+#nishants.show-stick-experience .timeline .sticky-container {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);

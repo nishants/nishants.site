@@ -18,26 +18,31 @@ $padding_big: $padding*5;
   font-family: $font_family;
   .main-content{
     background: white;
-    .page{
-      @include transition(opacity $transition_time $transition);
+    .page, .sticky{
       max-width: $max_page_width;
-      min-height: 100vh;
-      margin: $padding auto;
-      padding: $top_bar_height $padding_big $padding_big $padding_big;
       text-align: center;
+      padding:  $padding_big;
+    }
+    .page{
+      padding-top: $top_bar_height;
+      margin: $padding auto;
+      min-height: 100vh;
 
+      @include transition(opacity $transition_time $transition);
       > .title{
         padding: $padding;
         border-bottom: 1px solid $black_border;
         font-family: $open_sans;
       }
       .sticky{
+        padding-top: 0px;
+        margin: 0px auto;
+      }
+      .sticky-container{
         position: fixed;
         top: $top_bar_height - $top_bar_shadow_offset;
-        left: 1px;
-        z-index: 1;
-        padding: 0px ($padding_big + $padding*1.5);
-        height: 0;
+        left: 0;
+        z-index: $top_bar_layer - 1;
         width: 100%;
         @include transform(scale(0));
       }

@@ -1,17 +1,6 @@
 
 #nishants.show-stick-experience{
-  .timeline .sticky{
-    .timeline-header{
-      .position{
-        position: relative;
-        right: 2px;
-      }
-    }
-  }
-}
-
-#nishants.show-stick-experience{
-  .timeline .sticky{
+  .timeline .sticky-container{
     @include transform(scale(1));
   }
 }
