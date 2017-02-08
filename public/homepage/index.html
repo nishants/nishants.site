@@ -150,6 +150,22 @@ ga('send', 'pageview');
       <div id="experience" class="page experience">
         <h1 class="title">Experience</h1>
         <div ng-controller="TimelineController" class="timeline">
+          <div class="sticky">
+            <div class="timeline">
+              <div class="timeline-header">
+                <div ng-controller="SearchController" class="search bar">
+                  <div class="search-widget"><span class="icon">
+                      <div class="fa fa-search"></div></span>
+                    <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
+                  </div>
+                </div>
+                <div class="labels bar">
+                  <div class="position"><span>Positions</span></div>
+                  <div class="project"><span>Projects</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="timeline-header">
             <div ng-controller="SearchController" class="search bar">
               <div class="search-widget"><span class="icon">

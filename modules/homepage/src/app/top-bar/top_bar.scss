@@ -3,10 +3,10 @@ $border_radius : 2px;
 $row_height: 35px;
 $small_image_size: $row_height;
 $topBarHeight: $top_bar_height;
-$top_bar_index : 1;
+$top_bar_index : $top_bar_layer;
 $medium_bold_text : 500;
 $title_width: 405px;
-$shadow_offset: 5px;
+$shadow_offset: $top_bar_shadow_offset;
 
 .top-bar-transition{
   @include transition(all $transition_time $transition);

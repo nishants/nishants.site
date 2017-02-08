@@ -1,5 +1,7 @@
 $scroll_pad : 20px;
 
+$top_bar_layer: 2;
+
 $max_page_width: 1200px;
 $black_text    : #373a3c;
 $black_border  : rgba(0, 0, 0, 0.1);
@@ -7,6 +9,9 @@ $black_text_light    : rgba(0, 0, 0, 0.5);
 $transition_time: 300ms;
 $transition     : ease;
 $top_bar_height: 108px;
+$top_bar_shadow_offset: 5px;
+
+$padding_big: $padding*5;
 
 #nishants{
   color: $black_text;
@@ -18,7 +23,7 @@ $top_bar_height: 108px;
       max-width: $max_page_width;
       min-height: 100vh;
       margin: $padding auto;
-      padding: $top_bar_height $padding*5 $padding*5 $padding*5;
+      padding: $top_bar_height $padding_big $padding_big $padding_big;
       text-align: center;
 
       > .title{
@@ -26,6 +31,17 @@ $top_bar_height: 108px;
         border-bottom: 1px solid $black_border;
         font-family: $open_sans;
       }
+      .sticky{
+        position: fixed;
+        top: $top_bar_height - $top_bar_shadow_offset;
+        left: 1px;
+        z-index: 1;
+        padding: 0px ($padding_big + $padding*1.5);
+        height: 0;
+        width: 100%;
+        @include transform(scale(0));
+      }
+
     }
   }
   .description-font{

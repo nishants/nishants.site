@@ -27,7 +27,8 @@ $linkHoverHighlight: rgba(0, 128, 0, 0.8);
 $linkSelectedHighlight: rgba(0, 128, 0, 0.3);
 $navigationLinkWidth: 100px;
 $navigationPadding: 10px;
-$barShadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+$top_bar_shadow_offset : 5px;
+$barShadow: 0 0 #{$top_bar_shadow_offset} 1px rgba(1, 1, 1, 0.3);
 $barTransitionTime: 500ms;
 
 $appBarColor: rgba(255,255,255,0.95);
