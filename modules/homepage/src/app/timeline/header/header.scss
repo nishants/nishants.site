@@ -3,14 +3,17 @@
   .timeline-header{
     .labels.bar{
       width: 100%;
+      border-bottom  : $border;
+      @extend .resize-container;
       .position,  .project{
         float       : left;
         height      : $labels_height;
         line-height : $labels_height;
-        width       : calc(50% - 2px);
-        border      : 1px solid transparent;
+        width       : 50%;
         text-align  : center;
-        border-bottom: $border;
+      }
+      .project{
+        border-left: $border;
       }
     }
   }

@@ -22,6 +22,7 @@ $padding_big: $padding*5;
       max-width: $max_page_width;
       text-align: center;
       padding:  $padding_big;
+      background: white;
     }
     .page{
       padding-top: $top_bar_height;
@@ -36,6 +37,7 @@ $padding_big: $padding*5;
       }
       .sticky{
         padding-top: 0px;
+        padding-bottom: 0px;
         margin: 0px auto;
       }
       .sticky-container{

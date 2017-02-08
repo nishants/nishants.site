@@ -1,3 +1,7 @@
 $timeline_width: 900px;
-
+#experience{
+  > .title{
+    margin-bottom: 2 * $padding_big;
+  }
+}
 @import '../timeline/timeline';

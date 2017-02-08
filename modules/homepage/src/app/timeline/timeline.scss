@@ -18,12 +18,19 @@ $header_height : $labels_height +  $search_height;
 $box_shadow : 10px 1px 5px $black_border;
 
 .timeline{
-  margin: auto;
+  margin: 0px $padding_big;
   height: 100%;
   position: relative;
+  border  : $border;
+
+  .sticky-container{
+    .timeline{
+      border-bottom: none;
+    };
+  }
 
   .timeline-header{
-    height: $header_height;
+    //height: $header_height;
     background: white;
 
   }

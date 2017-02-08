@@ -38,7 +38,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .search.bar .search-widget:after, .compact-card:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .timeline .timeline-header .labels.bar:after, .search.bar .search-widget:after, .compact-card:after {
   content: "";
   display: table;
   clear: both; }
@@ -80,7 +80,8 @@ ul.inline-list {
     #nishants .main-content .page, #nishants .main-content .sticky {
       max-width: 1200px;
       text-align: center;
-      padding: 50px; }
+      padding: 50px;
+      background: white; }
     #nishants .main-content .page {
       padding-top: 108px;
       margin: 10px auto;
@@ -95,6 +96,7 @@ ul.inline-list {
         font-family: "Open Sans", sans-serif; }
       #nishants .main-content .page .sticky {
         padding-top: 0px;
+        padding-bottom: 0px;
         margin: 0px auto; }
       #nishants .main-content .page .sticky-container {
         position: fixed;
@@ -711,12 +713,17 @@ ul.grid {
   #nishants.show-modal .modal {
     pointer-events: all; }
 
+#experience > .title {
+  margin-bottom: 100px; }
+
 .timeline {
-  margin: auto;
+  margin: 0px 50px;
   height: 100%;
-  position: relative; }
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+  .timeline .sticky-container .timeline {
+    border-bottom: none; }
   .timeline .timeline-header {
-    height: 80px;
     background: white; }
   .timeline .timeline-body {
     height: calc(100% - 80px);
@@ -764,15 +771,16 @@ ul.period-list > li ul.projects > li {
     margin: auto; }
 
 .timeline .timeline-header .labels.bar {
-  width: 100%; }
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
     float: left;
     height: 40px;
     line-height: 40px;
-    width: calc(50% - 2px);
-    border: 1px solid transparent;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    width: 50%;
+    text-align: center; }
+  .timeline .timeline-header .labels.bar .project {
+    border-left: 1px solid rgba(0, 0, 0, 0.1); }
 
 .search.bar {
   height: 40px;
