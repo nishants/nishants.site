@@ -165,6 +165,36 @@ ga('send', 'pageview');
                     <div class="project"><span>Projects</span></div>
                   </div>
                 </div>
+                <div class="timeline-body">
+                  <ul class="period-list">
+                    <li ng-repeat="position in timeline.positions"><span class="period"></span>
+                      <div class="position">
+                        <div class="card compact-card">
+                          <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
+                          <div class="detail">
+                            <label ng-bind="position.title" class="title"></label>
+                            <label ng-bind="position.organisation" class="headline"></label>
+                            <p ng-bind="position.description" class="description"></p>
+                            <label class="caption"><span ng-if="!position.period.to" class="since">Since</span><span>{{position.period.from.month}}/{{position.period.from.year}}</span><span ng-if="position.period.to">- {{position.period.to.month}}/{{position.period.to.year}}</span></label>
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="projects">
+                        <li ng-repeat="project in position.projects">
+                          <div class="card compact-card">
+                            <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                            <div class="detail">
+                              <label ng-bind="project.title" class="title"></label>
+                              <label ng-bind="project.organisation" class="headline"></label>
+                              <p ng-bind="project.description" class="description"></p>
+                              <label class="caption"><span ng-if="!project.period.to" class="since">Since</span><span>{{project.period.from.month}}/{{project.period.from.year}}</span><span ng-if="project.period.to">- {{project.period.to.month}}/{{project.period.to.year}}</span></label>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

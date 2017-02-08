@@ -723,6 +723,17 @@ ul.grid {
   border: 1px solid rgba(0, 0, 0, 0.1); }
   .timeline .sticky-container .timeline {
     border-bottom: none; }
+    .timeline .sticky-container .timeline .period-list {
+      display: none;
+      position: relative;
+      min-height: 100vh;
+      pointer-events: none; }
+      .timeline .sticky-container .timeline .period-list > li {
+        position: absolute;
+        width: 100%;
+        top: 10px; }
+        .timeline .sticky-container .timeline .period-list > li .projects {
+          display: none; }
   .timeline .timeline-header {
     background: white; }
   .timeline .timeline-body {

@@ -26,6 +26,20 @@ $box_shadow : 10px 1px 5px $black_border;
   .sticky-container{
     .timeline{
       border-bottom: none;
+      .period-list{
+        display : none;
+        position: relative;
+        min-height: 100vh;
+        pointer-events: none;
+        > li {
+          position: absolute;
+          width: 100%;
+          top: 10px;
+          .projects{
+            display: none;
+          }
+        }
+      }
     };
   }
 
