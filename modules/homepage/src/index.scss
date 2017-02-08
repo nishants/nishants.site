@@ -5,8 +5,10 @@ $weight_bold: 500;
 $weight_light: 300;
 
 $spaced_font   : 'Open Sans', sans-serif;
+$open_sans     : 'Open Sans', sans-serif;
 $card_font     : $spaced_font;
 $readable_font : 'Roboto', sans-serif;
+$roboto        : 'Roboto', sans-serif;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$weight_normal}i,#{$weight_normal},#{$weight_bold}');

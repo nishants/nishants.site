@@ -1,0 +1,13 @@
+
+
+ul.period-list > li {
+  position: relative;
+  .position {
+    padding-left: $padding;
+    padding-bottom: $padding;
+    > .card {
+      width: calc(50% - #{$padding * 2});
+      background: red;
+    }
+  }
+}

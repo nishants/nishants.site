@@ -10,5 +10,7 @@ nav
     #design
     #coaching
     include slate/slate
-  .page.experience
-    #experience
+  #experience.page.experience
+    h1.title Experience
+    .timeline(ng-controller='TimelineController')
+      include timeline/timeline

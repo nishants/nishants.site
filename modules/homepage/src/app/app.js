@@ -1,4 +1,4 @@
-var app = angular.module("nishants", ["slate"]);
+var app = angular.module("nishants", ["slate", "timeline"]);
 
 $(document).ready(function(){
 

@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var app = angular.module("nishants", ["slate"]);
+var app = angular.module("nishants", ["slate", "timeline"]);
 
 $(document).ready(function(){
 
@@ -232,6 +232,7 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 		},
 		reload: function () {
 			if(!grid.$e){
+				// loading url before grid directive is initialized.
 				return setTimeout(grid.reload,GRID_CONFIG.domUpdateDelay);
 			}
 			grid.$e.find(".grid-box").each(function(index, e){
@@ -341,6 +342,117 @@ angular.module("nishants").service("SlateService",["GridService", "$timeout", fu
 	return {};
 }]);
 },{}],14:[function(require,module,exports){
+angular.module("timeline").service("ProfileService", [function () {
+
+	return {
+		timeline: {
+			positions: [
+				{
+					title: 'Technical Consultant',
+					organisation: 'Freelance',
+					description: 'Worked in different roles independently.',
+					period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+					tags    : ["team leadership", "leadership", "freelance","coaching", "open source"],
+					projects : [
+						{
+							title: 'Mphasis',
+							description: 'Technical Coach',
+							tech : ["ruby", "selenium", "jenkins"],
+							tags : ["automation", "acceptance test", "atdd", "tdd", "bdd", "agile", "agile coach", "consulting", "scrum"],
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+						},
+						{
+							title: 'Agility Roots',
+							description: 'Consultint Partner',
+							tags : ["sales", "recruitment", "interview", "consulting", "automation", "acceptance test", "atdd", "tdd", "bdd", "agile", "agile coach", "consulting", "scrum"],
+							tech : ["java", "angular", "ruby"],
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+						},
+						{
+							title: 'UI/UX Consultant',
+							description: 'TookiTaki',
+							tech : ["angularjs", "ruby", "angular", "facebook ads api", "scss"],
+							tags : ["ux", "ui", "ui development", "frontend", "freelance","consulting", "design","ads" ,"online marketing"],
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+						}
+
+					]
+				},
+
+				{
+					title: 'Technical Consultant',
+					description: 'Worked with some great cross functional teams.',
+					organisation: 'ThoughtWorks',
+					tags : ["consulting", "mentoring", "evolutionary design", "test driven development", "tdd"],
+					period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+					projects : [
+						{
+							title: 'Caterpillar',
+							description: 'Position',
+							tags : [],
+							tech : ["java", "angular", "scss", "micro services"],
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+						},
+						{
+							title: 'Health Care At Home',
+							description: 'Position',
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+							tags : []
+						},
+						{
+							title: 'UNICEF Uganda',
+							description: 'Position',
+							period  : {from: {year: 2015, month: 6}, to: {year: 2017, month: 2}},
+							tags : []
+						}
+
+					]
+				}
+
+			]
+		},
+	};
+}]);
+
+
+
+},{}],15:[function(require,module,exports){
+angular.module("timeline").controller("SearchController", ["$scope", "SearchService", function ($scope, SearchService) {
+
+	$scope.search = SearchService;
+}])
+},{}],16:[function(require,module,exports){
+angular.module("timeline").service("SearchService", [function () {
+	var matchPosition = function(query, position){
+				return position.tags.indexOf(query) > -1;
+			},
+			service = {
+				query: "",
+				timeline : null,
+				index : function(timeline){
+					service.timeline = Object.assign({}, timeline) ;
+				},
+				search: function (query) {
+					if(query && query.length){
+						service.timeline.positions.forEach(function(position){
+							position._hidden = !matchPosition(query, position);
+						});
+					}
+				}
+			};
+
+	return service;
+}]);
+
+
+
+},{}],17:[function(require,module,exports){
+angular.module("timeline").controller("TimelineController", ["$scope","ProfileService", function ($scope, ProfileService) {
+	$scope.timeline = ProfileService.timeline;
+}])
+},{}],18:[function(require,module,exports){
+var app = angular.module("timeline", []);
+},{}],19:[function(require,module,exports){
 require("./app/slate/app/app.js");
 require("./app/slate/app/variables.js");
 require("./app/slate/app/config.js");
@@ -353,8 +465,14 @@ require('./app/slate/app/grid/grid-directive.js');
 require('./app/slate/app/grid/grid-service.js');
 require('./app/slate/app/components/scroll.js');
 
+require("./app/timeline/timeline.js");
+require("./app/timeline/timeline-controller");
+require("./app/timeline/search/search-service");
+require("./app/timeline/search/search-controller");
+require("./app/timeline/profile-service");
+
 require("./app/app.js");
 require("./app/config.js");
 require("./app/slate/slate-service");
 
-},{"./app/app.js":1,"./app/config.js":2,"./app/slate/app/app.js":3,"./app/slate/app/components/scroll.js":4,"./app/slate/app/config.js":5,"./app/slate/app/deck/deck-service.js":6,"./app/slate/app/deck/deck.js":7,"./app/slate/app/grid/grid-directive.js":8,"./app/slate/app/grid/grid-service.js":9,"./app/slate/app/modal/modal-controller.js":10,"./app/slate/app/modal/modal-service.js":11,"./app/slate/app/variables.js":12,"./app/slate/slate-service":13}]},{},[14]);
+},{"./app/app.js":1,"./app/config.js":2,"./app/slate/app/app.js":3,"./app/slate/app/components/scroll.js":4,"./app/slate/app/config.js":5,"./app/slate/app/deck/deck-service.js":6,"./app/slate/app/deck/deck.js":7,"./app/slate/app/grid/grid-directive.js":8,"./app/slate/app/grid/grid-service.js":9,"./app/slate/app/modal/modal-controller.js":10,"./app/slate/app/modal/modal-service.js":11,"./app/slate/app/variables.js":12,"./app/slate/slate-service":13,"./app/timeline/profile-service":14,"./app/timeline/search/search-controller":15,"./app/timeline/search/search-service":16,"./app/timeline/timeline-controller":17,"./app/timeline/timeline.js":18}]},{},[19]);

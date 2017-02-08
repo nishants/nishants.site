@@ -17,7 +17,15 @@ $top_bar_height: 108px;
       @include transition(opacity $transition_time $transition);
       max-width: $max_page_width;
       margin: $padding auto;
-      padding: $padding;
+      padding: $padding*5;
+      border-bottom: 1px solid $black_border;
+      text-align: center;
+
+      .title{
+        padding: $padding;
+        border-bottom: 1px solid $black_border;
+        font-family: $open_sans;
+      }
     }
   }
   .description-font{
@@ -31,4 +39,5 @@ $top_bar_height: 108px;
 @import 'intro/intro';
 @import 'top-bar/top_bar';
 @import 'slate/slate';
+@import 'timeline/timeline';
 @import 'footer/footer';

@@ -390,8 +390,45 @@ ul.inline-list {
           </div>
         </div>
       </div>
-      <div class="page experience">
-        <div id="experience"></div>
+      <div id="experience" class="page experience">
+        <h1 class="title">Experience</h1>
+        <div ng-controller="TimelineController" class="timeline">
+          <div class="timeline-header">
+            <div ng-controller="SearchController" class="search bar">
+              <div class="search-widget"><span class="icon">
+                  <div class="fa fa-search"></div></span>
+                <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
+              </div>
+            </div>
+            <div class="labels bar">
+              <div class="position"><span>Positions</span></div>
+              <div class="project"><span>Projects</span></div>
+            </div>
+          </div>
+          <div class="timeline-body">
+            <ul class="period-list">
+              <li ng-repeat="position in timeline.positions"><span class="period"></span>
+                <div class="position">
+                  <div class="card">
+                    <label ng-bind="position.title" class="title"></label>
+                    <label ng-bind="position.organisation" class="organisation"></label>
+                    <p ng-bind="position.description" class="description"></p>
+                    <label>{{position.period.from.month}}/{{position.period.from.year}} - {{position.period.to.month}}/{{position.period.to.year}}</label>
+                  </div>
+                </div>
+                <ul class="projects">
+                  <li ng-repeat="project in position.projects">
+                    <div class="card">
+                      <label ng-bind="project.title" class="title"></label>
+                      <p ng-bind="project.description" class="description"></p>
+                      <label>{{project.period.from.month}}/{{project.period.from.year}} - {{project.period.to.month}}/{{project.period.to.year}}</label>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </body>

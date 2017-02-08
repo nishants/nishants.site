@@ -1,0 +1,74 @@
+$black_border : rgba(0, 0, 0, 0.1);
+
+$padding : 10px;
+$card_width: calc(50% - #{$padding * 2});
+$border  : 1px solid $black_border;
+$line_width: 1px;
+$top_offset: $padding*5;
+$line_color : $black_border;
+
+$position_color_one : green;
+$position_color_two : blue;
+$position_color_three : red;
+
+$labels_height : 40px;
+$search_height : 40px;
+$header_height : $labels_height +  $search_height;
+
+$box_shadow : 10px 1px 5px $black_border;
+
+.timeline{
+  margin: auto;
+  height: 100%;
+  position: relative;
+
+  .timeline-header{
+    height: $header_height;
+
+  }
+  .timeline-body{
+    height: calc(100% - #{$header_height});
+    overflow: auto;
+  }
+  .card{
+    padding: $padding;
+  }
+  ul.period-list{
+    padding-top: $padding;
+
+    @extend .undo-list;
+    > li {
+      .position, .projects{
+        display: block;
+      }
+      .period{
+        position: absolute;
+        top     : $top_offset;
+        left    : calc(50% - #{$line_width});
+        width   : $line_width;
+        height  : calc(100% - #{$top_offset});
+      }
+    }
+    > li:nth-child(3n) {
+      .period{
+        background: $position_color_one;
+      }
+    }
+    > li:nth-child(3n+2) {
+      .period{
+        background: $position_color_two;
+      }
+    }
+    > li:nth-child(3n+1) {
+      .period{
+        background: $position_color_three;
+      }
+    }
+  }
+}
+
+
+@import 'scrollable/position';
+@import 'scrollable/project';
+@import 'header/header';
+@import 'search/search';
