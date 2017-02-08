@@ -22,12 +22,12 @@ $padding_big: $padding*5;
       max-width: $max_page_width;
       text-align: center;
       padding:  $padding_big;
-      background: white;
     }
     .page{
       padding-top: $top_bar_height;
       margin: $padding auto;
       min-height: 100vh;
+      background: white;
 
       @include transition(opacity $transition_time $transition);
       > .title{
@@ -46,6 +46,7 @@ $padding_big: $padding*5;
         left: 0;
         z-index: $top_bar_layer - 1;
         width: 100%;
+        pointer-events: none;
         @include transform(scale(0));
       }
 

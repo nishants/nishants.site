@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	var
 			offset = 50,
+			titleBarHeight = function(){return 108;},
 			app = function(){
 				return $("#nishants");
 			},
@@ -27,27 +28,11 @@ $(document).ready(function(){
 						hasPassedOver = ifIssUnderTitleBar(-100, $("#timeline-ends")[0]);
 				return underTitleBar && !hasPassedOver;
 			},
-			currentExperienceIndex = function() {
-				var topBarHeight    = 108,
-						sectionOffset   = 50,
-						selectionOffset = topBarHeight + sectionOffset,
-						unSelectionOffset = 122,
-						list = $(".timeline-body").last().find(".period-list > li").toArray().reverse(),
-						index ;
-
-				for(var i =0; i < list.length; i++ ){
-					var e = list[i],
-							isUnderTitleBar = e.getBoundingClientRect().top < selectionOffset,
-							isPassingBy = $(e).find(".card:last-child");
-					if(isUnderTitleBar){
-						index = i;
-						break;
-					}
-				}
-				return list.length - index -1;
-			},
 			stickExperienceAt = function(index){
-				console.log("Reading Exp at" + index)
+				var allSelector =  ".timeline-body > .period-list > li",
+				indexSelector = ".timeline-body > .period-list > li:nth-child(<index>)".replace("<index>", index +1);
+				$(allSelector).removeClass("reading");
+				index > -1 ? $(indexSelector).addClass("reading") : "";
 			};
 
 	$(window).on("scroll", function(){
@@ -68,8 +53,21 @@ $(document).ready(function(){
 		var show = viewingExperience();
 		setState("stick-experience"  , 	show);
 		if(show){
-			stickExperienceAt(currentExperienceIndex());
-
+			var stickyHeaderBottom = 156,
+					getPeriod = function(index){
+						return $(".timeline-body").last().find(".period-list > li")[index]
+					},
+					reading = function(e){
+						var topOverSticky       = e.getBoundingClientRect().top < stickyHeaderBottom ,
+								bottomBelowSticky   = e.getBoundingClientRect().bottom > stickyHeaderBottom ;
+						console.log("top: " + e.getBoundingClientRect().top +", bottom" + e.getBoundingClientRect().bottom)
+						return topOverSticky && bottomBelowSticky
+					};
+			var readingIndex = -1;
+			$(".timeline-body").last().find(".period-list > li").toArray().forEach(function(period, index){
+				reading(period) ? readingIndex = index : "";
+			});
+			stickExperienceAt(readingIndex);
 		}
 	});
 
@@ -77,6 +75,8 @@ $(document).ready(function(){
 		$(window).trigger("scroll");
 	}, 500);
 });
+
+
 },{}],2:[function(require,module,exports){
 angular.module("nishants").run(["$timeout", "$rootScope", function($timeout, $rootScope){
 	$timeout(function(){

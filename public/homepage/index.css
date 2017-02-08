@@ -80,12 +80,12 @@ ul.inline-list {
     #nishants .main-content .page, #nishants .main-content .sticky {
       max-width: 1200px;
       text-align: center;
-      padding: 50px;
-      background: white; }
+      padding: 50px; }
     #nishants .main-content .page {
       padding-top: 108px;
       margin: 10px auto;
       min-height: 100vh;
+      background: white;
       -webkit-transition: opacity 300ms ease;
       -moz-transition: opacity 300ms ease;
       -o-transition: opacity 300ms ease;
@@ -104,6 +104,7 @@ ul.inline-list {
         left: 0;
         z-index: 1;
         width: 100%;
+        pointer-events: none;
         -webkit-transform: scale(0);
         -moz-transform: scale(0);
         -ms-transform: scale(0);
@@ -724,10 +725,15 @@ ul.grid {
   .timeline .sticky-container .timeline {
     border-bottom: none; }
     .timeline .sticky-container .timeline .period-list {
-      display: none;
       position: relative;
       min-height: 100vh;
       pointer-events: none; }
+      .timeline .sticky-container .timeline .period-list > li:not(.reading) {
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0); }
       .timeline .sticky-container .timeline .period-list > li {
         position: absolute;
         width: 100%;

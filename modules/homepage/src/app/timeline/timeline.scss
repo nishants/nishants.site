@@ -27,10 +27,13 @@ $box_shadow : 10px 1px 5px $black_border;
     .timeline{
       border-bottom: none;
       .period-list{
-        display : none;
         position: relative;
         min-height: 100vh;
         pointer-events: none;
+
+        > li:not(.reading) {
+          @include transform(scale(0));
+        }
         > li {
           position: absolute;
           width: 100%;
