@@ -41,7 +41,7 @@
     "start": "http-server -a localhost -p 8000 -c-1 ./dist",
     "watch": "watch-run -p 'src/**' npm run package",
 
-    "copy-public": "cpy 'public/*/*' ../../public/homepage --parents ",
+    "copy-public": "cp -r public ../../public",
     "dev": "npm run js-dev && npm run scss && npm run jade"
   }
 }

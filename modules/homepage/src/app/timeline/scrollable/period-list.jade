@@ -2,14 +2,22 @@ ul.period-list
   li(ng-repeat='position in timeline.positions')
     span.period
     .position
-      .card
-        label.title(ng-bind="position.title")
-        label.organisation(ng-bind="position.organisation")
-        p.description(ng-bind="position.description")
-        label {{position.period.from.month}}/{{position.period.from.year}} - {{position.period.to.month}}/{{position.period.to.year}}
+      .card.compact-card
+        .logo(ng-if="position.logo")
+          img(ng-src="{{position.logo}}")
+        .detail
+          label.title(ng-bind="position.title")
+          label.headline(ng-bind="position.organisation")
+          p.description(ng-bind="position.description")
+          label.caption {{position.period.from.month}}/{{position.period.from.year}} - {{position.period.to.month}}/{{position.period.to.year}}
+
     ul.projects
       li(ng-repeat='project in position.projects')
-        .card
-          label.title(ng-bind="project.title")
-          p.description(ng-bind="project.description")
-          label {{project.period.from.month}}/{{project.period.from.year}} - {{project.period.to.month}}/{{project.period.to.year}}
+        .card.compact-card
+          .logo(ng-if="project.logo")
+            img(ng-src="{{project.logo}}")
+          .detail
+            label.title(ng-bind="project.title")
+            label.headline(ng-bind="project.organisation")
+            p.description(ng-bind="project.description")
+            label.caption {{project.period.from.month}}/{{project.period.from.year}} - {{project.period.to.month}}/{{project.period.to.year}}

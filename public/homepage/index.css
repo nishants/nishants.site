@@ -38,7 +38,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .search.bar .search-widget:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .search.bar .search-widget:after, .compact-card:after {
   content: "";
   display: table;
   clear: both; }
@@ -727,8 +727,9 @@ ul.period-list > li {
     padding-left: 10px;
     padding-bottom: 10px; }
     ul.period-list > li .position > .card {
-      width: calc(50% - 20px);
-      background: red; }
+      width: calc(50% - 20px); }
+      ul.period-list > li .position > .card .description {
+        display: none; }
 
 ul.period-list > li ul.projects > li {
   width: 50%;
@@ -737,8 +738,7 @@ ul.period-list > li ul.projects > li {
   padding-bottom: 10px; }
   ul.period-list > li ul.projects > li > .card {
     width: calc(100% - 20px);
-    margin: auto;
-    background: green; }
+    margin: auto; }
 
 .timeline .timeline-header .labels.bar {
   width: 100%; }
@@ -780,6 +780,33 @@ ul.period-list > li ul.projects > li {
         color: rgba(0, 0, 0, 0.1); }
       .search.bar .search-widget input.query:-ms-input-placeholder {
         color: rgba(0, 0, 0, 0.1); }
+
+.compact-card .logo {
+  float: left;
+  width: 60px;
+  height: 60px; }
+  .compact-card .logo img {
+    display: block;
+    height: 100%;
+    width: 100%; }
+.compact-card .detail {
+  float: left;
+  width: calc(100% - 60px);
+  text-align: left;
+  padding-left: 10px; }
+  .compact-card .detail .title, .compact-card .detail .headline, .compact-card .detail .description, .compact-card .detail .caption {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-size: small;
+    line-height: 20px; }
+  .compact-card .detail .description, .compact-card .detail .headline, .compact-card .detail .caption {
+    font-size: small;
+    color: rgba(0, 0, 0, 0.5); }
+  .compact-card .detail .caption {
+    font-style: italic;
+    font-size: 10px; }
 
 #footer {
   text-align: center; }

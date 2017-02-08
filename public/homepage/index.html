@@ -166,19 +166,26 @@ ga('send', 'pageview');
             <ul class="period-list">
               <li ng-repeat="position in timeline.positions"><span class="period"></span>
                 <div class="position">
-                  <div class="card">
-                    <label ng-bind="position.title" class="title"></label>
-                    <label ng-bind="position.organisation" class="organisation"></label>
-                    <p ng-bind="position.description" class="description"></p>
-                    <label>{{position.period.from.month}}/{{position.period.from.year}} - {{position.period.to.month}}/{{position.period.to.year}}</label>
+                  <div class="card compact-card">
+                    <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
+                    <div class="detail">
+                      <label ng-bind="position.title" class="title"></label>
+                      <label ng-bind="position.organisation" class="headline"></label>
+                      <p ng-bind="position.description" class="description"></p>
+                      <label class="caption">{{position.period.from.month}}/{{position.period.from.year}} - {{position.period.to.month}}/{{position.period.to.year}}</label>
+                    </div>
                   </div>
                 </div>
                 <ul class="projects">
                   <li ng-repeat="project in position.projects">
-                    <div class="card">
-                      <label ng-bind="project.title" class="title"></label>
-                      <p ng-bind="project.description" class="description"></p>
-                      <label>{{project.period.from.month}}/{{project.period.from.year}} - {{project.period.to.month}}/{{project.period.to.year}}</label>
+                    <div class="card compact-card">
+                      <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                      <div class="detail">
+                        <label ng-bind="project.title" class="title"></label>
+                        <label ng-bind="project.organisation" class="headline"></label>
+                        <p ng-bind="project.description" class="description"></p>
+                        <label class="caption">{{project.period.from.month}}/{{project.period.from.year}} - {{project.period.to.month}}/{{project.period.to.year}}</label>
+                      </div>
                     </div>
                   </li>
                 </ul>
