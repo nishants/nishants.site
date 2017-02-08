@@ -695,6 +695,10 @@ ul.grid {
   #nishants.show-modal .modal {
     pointer-events: all; }
 
+#experience .timeline {
+  margin-top: 50px;
+  max-width: 900px; }
+
 .timeline {
   margin: auto;
   height: 100%;
@@ -708,15 +712,17 @@ ul.grid {
     padding: 10px; }
   .timeline ul.period-list {
     padding-top: 10px; }
-    .timeline ul.period-list > li .position, .timeline ul.period-list > li .projects {
-      display: block; }
-    .timeline ul.period-list > li .period {
-      position: absolute;
-      top: 50px;
-      left: calc(50% - 1px);
-      width: 1px;
-      height: calc(100% - 50px);
-      background: rgba(0, 0, 0, 0.1); }
+    .timeline ul.period-list > li {
+      margin-bottom: 50px; }
+      .timeline ul.period-list > li .position, .timeline ul.period-list > li .projects {
+        display: block; }
+      .timeline ul.period-list > li .period {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 1px);
+        width: 1px;
+        height: calc(100% - 10px);
+        background: rgba(0, 0, 0, 0.1); }
 
 ul.period-list > li {
   position: relative; }
@@ -740,11 +746,13 @@ ul.period-list > li ul.projects > li {
 .timeline .timeline-header .labels.bar {
   width: 100%; }
   .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
-    width: 50%;
     float: left;
     height: 40px;
     line-height: 40px;
-    text-align: center; }
+    width: calc(50% - 2px);
+    border: 1px solid transparent;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .search.bar {
   height: 40px;
@@ -779,9 +787,14 @@ ul.period-list > li ul.projects > li {
         color: rgba(0, 0, 0, 0.1); }
 
 .compact-card {
-  cursor: initial; }
+  cursor: initial;
+  position: relative;
+  padding: 20px;
+  min-height: 100px; }
   .compact-card .logo {
-    float: left;
+    position: absolute;
+    top: calc(50% - 30px);
+    left: 20px;
     width: 60px;
     height: 60px; }
     .compact-card .logo img {
@@ -791,9 +804,10 @@ ul.period-list > li ul.projects > li {
       margin: auto; }
   .compact-card .detail {
     float: left;
-    width: calc(100% - 60px);
+    width: calc(100% - 90px);
     text-align: left;
-    padding-left: 10px; }
+    margin-left: 90px;
+    padding: 10px; }
     .compact-card .detail .title, .compact-card .detail .headline, .compact-card .detail .description, .compact-card .detail .caption {
       display: block;
       text-align: left;

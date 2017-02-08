@@ -1,13 +1,16 @@
+
 .timeline{
   .timeline-header{
     .labels.bar{
       width: 100%;
       .position,  .project{
-        width: 50%;
-        float: left;
-        height: $labels_height;
-        line-height: $labels_height;
-        text-align: center;
+        float       : left;
+        height      : $labels_height;
+        line-height : $labels_height;
+        width       : calc(50% - 2px);
+        border      : 1px solid transparent;
+        text-align  : center;
+        border-bottom: $border;
       }
     }
   }

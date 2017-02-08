@@ -355,6 +355,7 @@ angular.module("timeline").service("ProfileService", [function () {
 					title: 'Technical Consultant',
 					organisation: 'Freelancer',
 					description: 'Worked in different roles independently.',
+					logo : "public/images/profile.jpg",
 					period  : {from: {year: 2015, month: 6}},
 					tags    : ["team leadership", "leadership", "freelance","coaching", "open source"],
 					projects : [

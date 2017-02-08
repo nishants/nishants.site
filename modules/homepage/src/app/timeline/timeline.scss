@@ -38,15 +38,16 @@ $box_shadow : 10px 1px 5px $black_border;
 
     @extend .undo-list;
     > li {
+      margin-bottom: $padding*5;
       .position, .projects{
         display: block;
       }
       .period{
         position: absolute;
-        top     : $top_offset;
+        top     : 0;
         left    : calc(50% - #{$line_width});
         width   : $line_width;
-        height  : calc(100% - #{$top_offset});
+        height  : calc(100% - #{$padding});
         background: $black_border;
       }
     }

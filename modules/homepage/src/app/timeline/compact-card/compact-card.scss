@@ -1,10 +1,18 @@
+$logo_effective_width : $logo_width + 3 *$padding;
+$logo_effective_height: $logo_width + 4 *$padding;
 .compact-card{
   @extend .resize-container;
   cursor: initial;
+  position: relative;
+  padding : 2*$padding;
+  min-height: $logo_effective_height;
+
   .logo{
-    float: left;
-    width : $logo_width;
-    height: $logo_height;
+    position: absolute;
+    top     : calc(50% - #{$logo_height/2});
+    left    : 2*$padding;
+    width   : $logo_width;
+    height  : $logo_height;
     img{
       display: block;
       max-height: 100%;
@@ -15,9 +23,10 @@
   }
   .detail{
     float: left;
-    width: calc(100% - #{$logo_width});
+    width: calc(100% - #{$logo_effective_width});
     text-align: left;
-    padding-left: $padding;
+    margin-left: $logo_effective_width;
+    padding: $padding;
     .title, .headline, .description, .caption{
       display: block;
       text-align: left;
