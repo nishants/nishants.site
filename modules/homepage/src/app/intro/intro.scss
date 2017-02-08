@@ -30,6 +30,7 @@ $weight_light : 300;
         border-left: 1px solid $black_border;
         line-height: $line_height;
         width: calc(100% - #{$actions_width});
+        text-align: left;
         @extend .description-font;
       }
     }

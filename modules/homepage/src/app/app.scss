@@ -16,6 +16,7 @@ $top_bar_height: 108px;
     .page{
       @include transition(opacity $transition_time $transition);
       max-width: $max_page_width;
+      min-height: 100vh;
       margin: $padding auto;
       padding: $top_bar_height $padding*5 $padding*5 $padding*5;
       text-align: center;
@@ -48,4 +49,5 @@ $top_bar_height: 108px;
 @import 'top-bar/top_bar';
 @import 'slate/slate';
 @import 'timeline/timeline';
+@import 'contact/contact';
 @import 'footer/footer';

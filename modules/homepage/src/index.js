@@ -18,4 +18,6 @@ require("./app/timeline/profile-service");
 
 require("./app/app.js");
 require("./app/config.js");
+require("./app/variables");
 require("./app/slate/slate-service");
+require("./app/contact/contact-controller");

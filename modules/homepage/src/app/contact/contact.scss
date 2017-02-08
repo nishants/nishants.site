@@ -1,0 +1,31 @@
+$contact_height: 200px;
+$contact_width : 500px;
+
+#nishants #connect.page{
+  .contact{
+    max-width : $contact_width;
+    margin: auto;
+    border: 1px solid $black_border;
+
+    .message{
+      width: 100%;
+      textarea{
+        display: block;
+        border: 1px solid transparent;
+        outline: none;
+        padding: $padding;
+        height: $contact_height;
+        width: 100%;
+        resize: none;
+      }
+    }
+    .send{
+      a {
+        @extend .undo-link;
+        display: block;
+        padding: $padding*2;
+        background: $black_border;
+      }
+    }
+  }
+}

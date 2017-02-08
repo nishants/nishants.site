@@ -43,7 +43,7 @@ input {
   display: table;
   clear: both; }
 
-a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a {
+a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a, #nishants #connect.page .contact .send a {
   text-decoration: none;
   color: inherit; }
 
@@ -83,6 +83,7 @@ ul.inline-list {
       -o-transition: opacity 300ms ease;
       transition: opacity 300ms ease;
       max-width: 1200px;
+      min-height: 100vh;
       margin: 10px auto;
       padding: 108px 50px 50px 50px;
       text-align: center; }
@@ -124,7 +125,8 @@ ul.inline-list {
     #nishants .page.intro .overview .description {
       border-left: 1px solid rgba(0, 0, 0, 0.1);
       line-height: 25px;
-      width: calc(100% - 300px); }
+      width: calc(100% - 300px);
+      text-align: left; }
 
 #nishants .page .heading .profile-image {
   padding: 5px;
@@ -808,6 +810,25 @@ ul.period-list > li ul.projects > li {
       .compact-card .detail .caption .since {
         padding-right: 5px;
         color: #646464; }
+
+#nishants #connect.page .contact {
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+  #nishants #connect.page .contact .message {
+    width: 100%; }
+    #nishants #connect.page .contact .message textarea {
+      display: block;
+      border: 1px solid transparent;
+      outline: none;
+      padding: 10px;
+      height: 200px;
+      width: 100%;
+      resize: none; }
+  #nishants #connect.page .contact .send a {
+    display: block;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1); }
 
 #footer {
   text-align: center; }

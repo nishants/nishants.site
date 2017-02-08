@@ -78,8 +78,12 @@ angular.module("nishants").run(["GridService", "$timeout", function(GridService,
 }]);
 
 },{}],3:[function(require,module,exports){
-window.app = angular.module("slate", []);
+angular.module("nishants").controller("ContactController", ["$scope","CONTACT_CONFIG", function ($scope, CONTACT_CONFIG) {
+	$scope.message = CONTACT_CONFIG;
+}])
 },{}],4:[function(require,module,exports){
+window.app = angular.module("slate", []);
+},{}],5:[function(require,module,exports){
 app.directive("scrollTarget", [function () {
 
 	return {
@@ -112,12 +116,12 @@ app.directive("scrollTarget", [function () {
 	};
 }]);
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 app.run(["$http", "DeckService", "$rootScope", function($http, DeckService, $rootScope){
 	$http.get("public/data/cards.json").then(DeckService.load)
 	$rootScope.deck = DeckService;
 }]);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 app.service("DeckService",["$sce", function($sce){
 	var
 			createCard = function(card){
@@ -147,7 +151,7 @@ app.service("DeckService",["$sce", function($sce){
 	};
 	return deck;
 }]);
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 app.directive("deck", ["DeckService", "modalService",function (DeckService, modalService) {
 	var $deckItems = function(){return $(".deck > li");},
 			select = function (index) {
@@ -186,7 +190,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 	};
 }]);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridService, GRID_CONFIG, $timeout) {
 	return {
 		restrict   : "C",
@@ -203,7 +207,7 @@ app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridSer
 	};
 }]);
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
 	var transform = function(x,y){
@@ -277,11 +281,11 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 	};
 	return grid;
 }]);
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 app.controller("modalController",["$scope", "modalService", function($scope, modalService){
 	$scope.modal = modalService;
 }]);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(DeckService, $timeout, IFRAMETIMEOUT){
 	var modal = {
 		_show 	: false,
@@ -323,7 +327,7 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 	};
 	return modal;
 }]);
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 app.constant("IFRAMETIMEOUT", 250);
 
 app.constant("GRID_CONFIG", {
@@ -333,7 +337,7 @@ app.constant("GRID_CONFIG", {
 	gridBoxMarginY: -1, // To overlap borders
 	domUpdateDelay: 500
 });
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 angular.module("nishants").service("SlateService",["GridService", "$timeout", function(GridService, $timeout){
 
 
@@ -341,7 +345,7 @@ angular.module("nishants").service("SlateService",["GridService", "$timeout", fu
 
 	return {};
 }]);
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 angular.module("timeline").service("ProfileService", [function () {
 
 	return {
@@ -488,12 +492,12 @@ angular.module("timeline").service("ProfileService", [function () {
 
 
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 angular.module("timeline").controller("SearchController", ["$scope", "SearchService", function ($scope, SearchService) {
 
 	$scope.search = SearchService;
 }])
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 angular.module("timeline").service("SearchService", [function () {
 	var matchPosition = function(query, position){
 				return position.tags.indexOf(query) > -1;
@@ -518,13 +522,20 @@ angular.module("timeline").service("SearchService", [function () {
 
 
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 angular.module("timeline").controller("TimelineController", ["$scope","ProfileService", function ($scope, ProfileService) {
 	$scope.timeline = ProfileService.timeline;
 }])
-},{}],18:[function(require,module,exports){
-var app = angular.module("timeline", []);
 },{}],19:[function(require,module,exports){
+var app = angular.module("timeline", []);
+},{}],20:[function(require,module,exports){
+angular.module("nishants").constant("CONTACT_CONFIG", {
+	email  : "nishant.singh87@gmail.com",
+	subject: "Hi !",
+	body   : ""
+});
+
+},{}],21:[function(require,module,exports){
 require("./app/slate/app/app.js");
 require("./app/slate/app/variables.js");
 require("./app/slate/app/config.js");
@@ -545,6 +556,8 @@ require("./app/timeline/profile-service");
 
 require("./app/app.js");
 require("./app/config.js");
+require("./app/variables");
 require("./app/slate/slate-service");
+require("./app/contact/contact-controller");
 
-},{"./app/app.js":1,"./app/config.js":2,"./app/slate/app/app.js":3,"./app/slate/app/components/scroll.js":4,"./app/slate/app/config.js":5,"./app/slate/app/deck/deck-service.js":6,"./app/slate/app/deck/deck.js":7,"./app/slate/app/grid/grid-directive.js":8,"./app/slate/app/grid/grid-service.js":9,"./app/slate/app/modal/modal-controller.js":10,"./app/slate/app/modal/modal-service.js":11,"./app/slate/app/variables.js":12,"./app/slate/slate-service":13,"./app/timeline/profile-service":14,"./app/timeline/search/search-controller":15,"./app/timeline/search/search-service":16,"./app/timeline/timeline-controller":17,"./app/timeline/timeline.js":18}]},{},[19]);
+},{"./app/app.js":1,"./app/config.js":2,"./app/contact/contact-controller":3,"./app/slate/app/app.js":4,"./app/slate/app/components/scroll.js":5,"./app/slate/app/config.js":6,"./app/slate/app/deck/deck-service.js":7,"./app/slate/app/deck/deck.js":8,"./app/slate/app/grid/grid-directive.js":9,"./app/slate/app/grid/grid-service.js":10,"./app/slate/app/modal/modal-controller.js":11,"./app/slate/app/modal/modal-service.js":12,"./app/slate/app/variables.js":13,"./app/slate/slate-service":14,"./app/timeline/profile-service":15,"./app/timeline/search/search-controller":16,"./app/timeline/search/search-service":17,"./app/timeline/timeline-controller":18,"./app/timeline/timeline.js":19,"./app/variables":20}]},{},[21]);
