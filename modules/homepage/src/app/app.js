@@ -34,7 +34,12 @@ $(document).ready(function(){
 		setState("coaching"   , 	ifIssUnderTitleBar(20,$(".intro  .navigation > .coaching")[0]));
 		setState("slate"      , 	ifIssUnderTitleBar(20,$("#slate")[0]));
 		setState("social"     , 	ifIssUnderTitleBar(-10,$(".intro  ul.contact.social")[0]));
-		setState("stick-experience"  , 	ifIssUnderTitleBar(0,$(".timeline .timeline-header")[1]));
+
+		var underTitleBar = ifIssUnderTitleBar(0, $(".timeline .timeline-header")[1]),
+				hasPassedOver = ifIssUnderTitleBar(-100, $("#timeline-ends")[0]),
+				showExperience = underTitleBar && !hasPassedOver;
+
+		setState("stick-experience"  , 	showExperience);
 	});
 
 	setTimeout(function(){

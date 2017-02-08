@@ -754,6 +754,8 @@ ul.grid {
         width: 1px;
         height: calc(100% - 10px);
         background: rgba(0, 0, 0, 0.1); }
+  .timeline #timeline-ends {
+    height: 50px; }
 
 #nishants.show-stick-experience .timeline .sticky-container {
   -webkit-transform: scale(1);
