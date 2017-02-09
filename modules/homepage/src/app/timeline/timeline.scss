@@ -35,7 +35,7 @@ $box_shadow : 10px 1px 5px $black_border;
           display: none;
         }
         > li:not(.reading) {
-          @include transform(scale(0));
+          @include transform(translateY(-100%));
         }
         > li {
           position: absolute;

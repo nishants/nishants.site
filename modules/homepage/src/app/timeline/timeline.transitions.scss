@@ -1,17 +1,17 @@
-#nishants.show-experience{
+#nishants.show-stick-experience{
   .timeline-body.scrollable {
     .period.reading {
       .position {
-        @include transform(scale(0));
+        @include transform(translateY(-100%));
       }
     }
   }
 }
 
-#nishants.show-experience:not(.scrolling-down){
+#nishants.show-stick-experience:not(.scrolling-down){
   .timeline-body:not(.scrollable) {
     .period:not(.reading) {
-      @include transition(transform $transition_time $transition);
+      @include transition(transform $transition_time_quick $transition);
       @include transform(translateY(-100%));
     }
   }

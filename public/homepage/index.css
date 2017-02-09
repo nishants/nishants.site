@@ -731,11 +731,11 @@ ul.grid {
       .timeline .sticky-container .timeline .period-list > li:not(.period) {
         display: none; }
       .timeline .sticky-container .timeline .period-list > li:not(.reading) {
-        -webkit-transform: scale(0);
-        -moz-transform: scale(0);
-        -ms-transform: scale(0);
-        -o-transform: scale(0);
-        transform: scale(0); }
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+        transform: translateY(-100%); }
       .timeline .sticky-container .timeline .period-list > li {
         position: absolute;
         width: 100%;
@@ -874,14 +874,14 @@ ul.period-list > li ul.projects > li {
         padding-right: 5px;
         color: #646464; }
 
-#nishants.show-experience .timeline-body.scrollable .period.reading .position {
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0); }
+#nishants.show-stick-experience .timeline-body.scrollable .period.reading .position {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
 
-#nishants.show-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
+#nishants.show-stick-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
   -webkit-transition: transform 300ms ease;
   -moz-transition: transform 300ms ease;
   -o-transition: transform 300ms ease;
