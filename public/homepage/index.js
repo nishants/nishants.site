@@ -5,7 +5,10 @@ $(document).ready(function(){
 
 	var
 			offset = 50,
-			titleBarHeight = function(){return 108;},
+			footerOffset = function(){
+				return $("#footer")[0].getBoundingClientRect().top;
+			},
+			lastScrollOffset = footerOffset(),
 			app = function(){
 				return $("#nishants");
 			},
@@ -40,6 +43,12 @@ $(document).ready(function(){
 			};
 
 	$(window).on("scroll", function(){
+		var offset      = footerOffset(),
+				goingDown   =  lastScrollOffset < offset;
+		lastScrollOffset = offset;
+
+		goingDown ? $("#nishants").addClass("scrolling-down") : $("#nishants").removeClass("scrolling-down")
+
 		setState("top-bar", 		isGone($(".intro  .profile-image")[0]));
 		setState("name", 				isUnderTitleBar($(".intro  .name")[0]));
 

@@ -7,11 +7,13 @@
     }
   }
 }
-  //.timeline-body:not(.scrollable) {
-  //  .period:not(.reading){
-  //    @include transform(translateY(-100%));
-  //    @include transition(transform $transition_time $transition);
-  //  }
-  //}
 
+#nishants.show-experience:not(.scrolling-down){
+  .timeline-body:not(.scrollable) {
+    .period:not(.reading) {
+      @include transition(transform $transition_time $transition);
+      @include transform(translateY(-100%));
+    }
+  }
+}
 

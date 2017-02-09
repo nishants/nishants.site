@@ -881,6 +881,17 @@ ul.period-list > li ul.projects > li {
   -o-transform: scale(0);
   transform: scale(0); }
 
+#nishants.show-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
+  -webkit-transition: transform 300ms ease;
+  -moz-transition: transform 300ms ease;
+  -o-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
 #nishants #connect.page .contact {
   max-width: 500px;
   margin: auto;
