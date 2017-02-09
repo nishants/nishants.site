@@ -38,16 +38,16 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .title .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .timeline .timeline-header .labels.bar:after, .search.bar .search-widget:after, .compact-card:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .navigation-bar .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .timeline .timeline-header .labels.bar:after, .search.bar .search-widget:after, .compact-card:after {
   content: "";
   display: table;
   clear: both; }
 
-a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a, #nishants #connect.page .contact button.send a {
+a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar a.profile-bar, .top-bar .navigation-bar .navigation > li > a, #nishants #connect.page .contact button.send a {
   text-decoration: none;
   color: inherit; }
 
-ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .title ul.navigation, #slate .modal .content .frame-bar ul.actions, .timeline ul.period-list, ul.period-list > li ul.projects {
+ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .navigation-bar ul.navigation, #slate .modal .content .frame-bar ul.actions, .timeline ul.period-list, ul.period-list > li ul.projects {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -130,6 +130,16 @@ ul.inline-list {
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
   transition: transform 300ms ease, opacity 300ms ease; }
+
+.top-bar-transition, .top-bar, .top-bar .profile-bar .name, .top-bar .profile-bar .image > img, .top-bar .navigation-bar, #nishants-site .overview, #nishants-site .overview .profile-image img {
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease; }
+
+.small-bold-text, .top-bar .profile-bar .name {
+  font-size: small;
+  font-weight: 500; }
 
 #nishants .page.intro {
   padding-top: 50px; }
@@ -263,16 +273,6 @@ ul.social.contact .github {
   -o-transform: translateY(-108px);
   transform: translateY(-108px); }
 
-.top-bar-transition, .top-bar, #nishants-site .overview, #nishants-site .overview .profile-image img, .top-bar .name, .top-bar .image > img, .top-bar .title {
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  transition: all 300ms ease; }
-
-.small-bold-text, .top-bar .name {
-  font-size: small;
-  font-weight: 500; }
-
 .top-bar {
   position: fixed;
   z-index: 2;
@@ -292,8 +292,59 @@ ul.social.contact .github {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease; }
-  .top-bar .heading {
-    position: relative; }
+
+.top-bar .profile-bar {
+  position: relative; }
+  .top-bar .profile-bar .name {
+    text-align: center;
+    line-height: 25px; }
+  .top-bar .profile-bar .image {
+    padding: 5px; }
+    .top-bar .profile-bar .image > img {
+      display: block;
+      margin: auto;
+      height: 35px;
+      border-radius: 2px; }
+
+.top-bar .navigation-bar {
+  position: relative; }
+  .top-bar .navigation-bar .navigation {
+    margin: auto !important;
+    width: 510px;
+    overflow: hidden; }
+    .top-bar .navigation-bar .navigation > li {
+      float: left;
+      font-size: small;
+      width: 100px;
+      margin-left: 0px;
+      -webkit-transition: transform 300ms ease, opacity 300ms ease;
+      -moz-transition: transform 300ms ease, opacity 300ms ease;
+      -o-transition: transform 300ms ease, opacity 300ms ease;
+      transition: transform 300ms ease, opacity 300ms ease; }
+      .top-bar .navigation-bar .navigation > li > a {
+        display: block; }
+
+.pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0; }
+
+#nishants:not(.show-top-bar) .top-bar {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+#nishants.show-modal .top-bar {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
 
 #nishants-site:not(.show-top-bar) .top-bar {
   pointer-events: none;
@@ -324,49 +375,7 @@ ul.social.contact .github {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.top-bar .name {
-  text-align: center;
-  line-height: 25px; }
-.top-bar .image {
-  padding: 5px; }
-  .top-bar .image > img {
-    display: block;
-    margin: auto;
-    height: 35px;
-    border-radius: 2px; }
-
-.top-bar .title .navigation {
-  margin: auto !important;
-  width: 510px;
-  overflow: hidden; }
-  .top-bar .title .navigation > li {
-    float: left;
-    font-size: small;
-    width: 100px;
-    margin-left: 0px;
-    -webkit-transition: transform 300ms ease, opacity 300ms ease;
-    -moz-transition: transform 300ms ease, opacity 300ms ease;
-    -o-transition: transform 300ms ease, opacity 300ms ease;
-    transition: transform 300ms ease, opacity 300ms ease; }
-    .top-bar .title .navigation > li > a {
-      display: block; }
-
-.pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
-  opacity: 0; }
-
-#nishants:not(.show-top-bar) .top-bar {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-#nishants:not(.show-name) .top-bar .heading .name {
+#nishants:not(.show-name) .top-bar .profile-bar .name {
   opacity: 0;
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
@@ -380,13 +389,6 @@ ul.social.contact .github {
   -ms-transform: translateY(-25px);
   -o-transform: translateY(-25px);
   transform: translateY(-25px); }
-
-#nishants.show-modal .top-bar {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
 
 .navigation-bar-text {
   font-family: "Open Sans", sans-serif;

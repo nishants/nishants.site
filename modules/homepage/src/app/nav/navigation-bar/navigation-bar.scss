@@ -4,7 +4,8 @@ $link_count : 5;
 $link_margin:  0px;
 $link_font_size : small;
 .top-bar{
-  .title{
+  .navigation-bar{
+    position: relative;
     @extend .top-bar-transition;
     .navigation{
       @extend .undo-list;

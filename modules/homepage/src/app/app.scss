@@ -72,8 +72,16 @@ $padding_big: $padding*5;
   @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
 }
 
+.top-bar-transition{
+  @include transition(all $transition_time $transition);
+}
+.small-bold-text{
+  font-size: small;
+  font-weight: $medium_bold_text;
+}
+
 @import 'intro/intro';
-@import 'top-bar/top_bar';
+@import 'nav/nav';
 @import 'slate/slate';
 @import 'experience/experience';
 @import 'contact/contact';

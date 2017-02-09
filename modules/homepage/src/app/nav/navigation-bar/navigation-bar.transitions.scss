@@ -1,27 +1,3 @@
-.pull-from-bottom {
-  @include transform(translateY(-100%));
-  opacity: 0;
-}
-
-#nishants:not(.show-top-bar){
-  .top-bar{
-    @include transform(translateY(-100%));
-    .background{
-    }
-  }
-}
-
-#nishants:not(.show-name){
-  .top-bar{
-    .heading{
-      .name{
-        opacity: 0;
-        @include transform(translateY(100%));
-      }
-    }
-  }
-}
-
 #nishants:not(.show-navigation){
   .top-bar{
     .background{
@@ -34,7 +10,6 @@
     }
   }
 }
-
 
 #nishants:not(.show-design){
   .top-bar{
@@ -79,11 +54,5 @@
         @extend .pull-from-bottom;
       }
     }
-  }
-}
-
-#nishants.show-modal{
-  .top-bar{
-    @include transform(translateY(-100%));
   }
 }

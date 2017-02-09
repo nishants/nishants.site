@@ -1,0 +1,10 @@
+#nishants:not(.show-name){
+  .top-bar{
+    .profile-bar{
+      .name{
+        opacity: 0;
+        @include transform(translateY(100%));
+      }
+    }
+  }
+}
