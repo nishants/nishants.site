@@ -882,10 +882,10 @@ ul.period-list > li ul.projects > li {
   transform: translateY(-100%); }
 
 #nishants.show-stick-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
-  -webkit-transition: transform 300ms ease;
-  -moz-transition: transform 300ms ease;
-  -o-transition: transform 300ms ease;
-  transition: transform 300ms ease;
+  -webkit-transition: transform 100ms ease;
+  -moz-transition: transform 100ms ease;
+  -o-transition: transform 100ms ease;
+  transition: transform 100ms ease;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
