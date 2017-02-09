@@ -263,7 +263,7 @@ ul.social.contact .github {
   -o-transform: translateY(-108px);
   transform: translateY(-108px); }
 
-.top-bar-transition, .top-bar, .top-bar .name, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img, .top-bar .title {
+.top-bar-transition, .top-bar, #nishants-site .overview, #nishants-site .overview .profile-image img, .top-bar .name, .top-bar .image > img, .top-bar .title {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -294,16 +294,6 @@ ul.social.contact .github {
     transition: all 300ms ease; }
   .top-bar .heading {
     position: relative; }
-  .top-bar .name {
-    text-align: center;
-    line-height: 25px; }
-  .top-bar .image {
-    padding: 5px; }
-    .top-bar .image > img {
-      display: block;
-      margin: auto;
-      height: 35px;
-      border-radius: 2px; }
 
 #nishants-site:not(.show-top-bar) .top-bar {
   pointer-events: none;
@@ -333,6 +323,17 @@ ul.social.contact .github {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
+
+.top-bar .name {
+  text-align: center;
+  line-height: 25px; }
+.top-bar .image {
+  padding: 5px; }
+  .top-bar .image > img {
+    display: block;
+    margin: auto;
+    height: 35px;
+    border-radius: 2px; }
 
 .top-bar .title .navigation {
   margin: auto !important;

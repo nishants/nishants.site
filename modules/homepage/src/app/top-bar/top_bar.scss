@@ -41,23 +41,6 @@ $shadow_offset: $top_bar_shadow_offset;
       @extend .undo-link;
     }
   }
-  .name{
-    text-align: center;
-    line-height: $row_height - $padding;
-    @extend .small-bold-text;
-    @extend .top-bar-transition;
-  }
-  .image{
-    padding: $padding/2;
-    > img{
-      display: block;
-      margin: auto;
-      height: $small_image_size;
-      border-radius: $border_radius;
-      @extend .top-bar-transition;
-    }
-  }
-
 }
 
 
@@ -112,5 +95,6 @@ $shadow_offset: $top_bar_shadow_offset;
   }
 }
 
+@import 'profile-bar/profile-bar';
 @import 'navigation/navigation';
 @import 'top_bar.transitions';
