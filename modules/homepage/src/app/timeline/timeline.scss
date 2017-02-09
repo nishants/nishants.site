@@ -29,8 +29,6 @@ $box_shadow : 10px 1px 5px $black_border;
       .period-list{
         position: relative;
         min-height: 100vh;
-        pointer-events: none;
-
         > li:not(.period) {
           display: none;
         }
