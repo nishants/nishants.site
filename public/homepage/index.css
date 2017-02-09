@@ -546,44 +546,6 @@ ul.social.contact .github {
     -o-transform: translateX(100vw);
     transform: translateX(100vw); }
 
-.card-title-text, .card .name {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500; }
-
-.card-body-text, .card p, .card .ui-tutorial > .description .lead {
-  font-style: italic;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400; }
-
-.card {
-  width: 325px;
-  display: block;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #646464;
-  background: white;
-  padding: 20px 20px; }
-  .card img {
-    width: 100%; }
-  .card .name {
-    margin: 20px 0px;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    font-size: large; }
-  .card p {
-    line-height: 20px; }
-  .card .ui-tutorial {
-    max-height: calc(100% - 2 * 10px);
-    padding: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-    .card .ui-tutorial > .description .lead {
-      opacity: 0.9;
-      padding-right: 5px;
-      font-size: small; }
-    .card .ui-tutorial > .description .follow {
-      opacity: 0.5;
-      font-size: small; }
-
 ul.deck {
   margin: 0;
   padding: 10px;
@@ -671,6 +633,44 @@ ul.grid {
     opacity: 0; }
   #nishants.show-modal .modal {
     pointer-events: all; }
+
+.card-title-text, .card .name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500; }
+
+.card-body-text, .card p, .card .ui-tutorial > .description .lead {
+  font-style: italic;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400; }
+
+.card {
+  width: 325px;
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #646464;
+  background: white;
+  padding: 20px 20px; }
+  .card img {
+    width: 100%; }
+  .card .name {
+    margin: 20px 0px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    font-size: large; }
+  .card p {
+    line-height: 20px; }
+  .card .ui-tutorial {
+    max-height: calc(100% - 2 * 10px);
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .card .ui-tutorial > .description .lead {
+      opacity: 0.9;
+      padding-right: 5px;
+      font-size: small; }
+    .card .ui-tutorial > .description .follow {
+      opacity: 0.5;
+      font-size: small; }
 
 #experience > .title {
   margin-bottom: 100px; }
