@@ -18,24 +18,19 @@ $padding_bottom: $padding*2;
 
       .name, .title{
         text-align: center;
-        line-height: $line_height;
-        font-size: $font_size;
-        font-weight: $font_weight;
       }
       .name{
         label{
-          @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+          @extend .fades-and-moves;
         }
       }
       .title{
-        color: $black_text_light;
-        font-size: 14px;
-        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        @extend .fades-and-moves;
       }
       .border{
         border-bottom: 1px solid $black_border;
         height: $padding_bottom;
-        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        @extend .fades-and-moves;
       }
     }
   }

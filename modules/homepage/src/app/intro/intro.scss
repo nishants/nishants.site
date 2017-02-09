@@ -1,37 +1,25 @@
 $profile_image_height: 80px;
 $profile_image_width : 80px;
-$line_height         : 30px;
-$font_size           : medium;
-$font_weight         : 300;
-$border_radius       : 3px;
-
 $option_button_height: 50px;
-$actions_width : 300px;
-$line_height: 25px;
-$weight_light : 300;
+$actions_width       : 300px;
 
 #nishants{
   .page.intro{
-    padding-top: 5*$padding;
     .overview{
       margin: auto;
       @extend .resize-container;
 
       .description, .actions{
         float: left;
-        width: 50%;
         padding: $padding*2 $padding*3;
-        font-weight: $weight_light;
       }
       .actions{
         width: $actions_width;
       }
       .description{
         border-left: 1px solid $black_border;
-        line-height: $line_height;
         width: calc(100% - #{$actions_width});
         text-align: left;
-        @extend .description-font;
       }
     }
   }

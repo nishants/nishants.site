@@ -23,7 +23,7 @@ ul.social.contact{
   > li {
     padding: $padding;
     float: left;
-    @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
+    @extend .fades-and-moves;
 
     > a {
       height: $icon_height;
@@ -33,6 +33,7 @@ ul.social.contact{
       font-size: small;
       border-radius: 50%;
       border: 1px solid ;
+      @include transition(all $transition_time $transition);
     }
   }
 

@@ -111,7 +111,7 @@ ul.inline-list {
         -ms-transform: scale(0);
         -o-transform: scale(0);
         transform: scale(0); }
-  #nishants .description-font, #nishants .page.intro .overview .description {
+  #nishants .description-font {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -125,7 +125,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.fades-and-moves, #slate.page .title {
+.fades-and-moves, #nishants .page .heading .name label, #nishants .page .heading .title, #nishants .page .heading .border, .about-me, ul.social.contact > li, #slate.page .title {
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -141,22 +141,17 @@ ul.inline-list {
   font-size: small;
   font-weight: 500; }
 
-#nishants .page.intro {
-  padding-top: 50px; }
-  #nishants .page.intro .overview {
-    margin: auto; }
-    #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
-      float: left;
-      width: 50%;
-      padding: 20px 30px;
-      font-weight: 300; }
-    #nishants .page.intro .overview .actions {
-      width: 300px; }
-    #nishants .page.intro .overview .description {
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
-      line-height: 25px;
-      width: calc(100% - 300px);
-      text-align: left; }
+#nishants .page.intro .overview {
+  margin: auto; }
+  #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
+    float: left;
+    padding: 20px 30px; }
+  #nishants .page.intro .overview .actions {
+    width: 300px; }
+  #nishants .page.intro .overview .description {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    width: calc(100% - 300px);
+    text-align: left; }
 
 #nishants .page .heading .profile-image {
   padding: 5px;
@@ -172,29 +167,10 @@ ul.inline-list {
     -o-transition: all 300ms ease;
     transition: all 300ms ease; }
 #nishants .page .heading .name, #nishants .page .heading .title {
-  text-align: center;
-  line-height: 25px;
-  font-size: medium;
-  font-weight: 300; }
-#nishants .page .heading .name label {
-  -webkit-transition: transform 300ms ease, opacity 300ms ease;
-  -moz-transition: transform 300ms ease, opacity 300ms ease;
-  -o-transition: transform 300ms ease, opacity 300ms ease;
-  transition: transform 300ms ease, opacity 300ms ease; }
-#nishants .page .heading .title {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 14px;
-  -webkit-transition: transform 300ms ease, opacity 300ms ease;
-  -moz-transition: transform 300ms ease, opacity 300ms ease;
-  -o-transition: transform 300ms ease, opacity 300ms ease;
-  transition: transform 300ms ease, opacity 300ms ease; }
+  text-align: center; }
 #nishants .page .heading .border {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  height: 20px;
-  -webkit-transition: transform 300ms ease, opacity 300ms ease;
-  -moz-transition: transform 300ms ease, opacity 300ms ease;
-  -o-transition: transform 300ms ease, opacity 300ms ease;
-  transition: transform 300ms ease, opacity 300ms ease; }
+  height: 20px; }
 
 #nishants .intro ul.navigation > li {
   display: block;
@@ -214,19 +190,11 @@ ul.inline-list {
     transition: transform 300ms ease, opacity 300ms ease; }
 
 .about-me {
-  margin: auto;
-  -webkit-transition: transform 300ms ease, opacity 300ms ease;
-  -moz-transition: transform 300ms ease, opacity 300ms ease;
-  -o-transition: transform 300ms ease, opacity 300ms ease;
-  transition: transform 300ms ease, opacity 300ms ease; }
+  margin: auto; }
 
 ul.social.contact > li {
   padding: 10px;
-  float: left;
-  -webkit-transition: transform 300ms ease, opacity 300ms ease;
-  -moz-transition: transform 300ms ease, opacity 300ms ease;
-  -o-transition: transform 300ms ease, opacity 300ms ease;
-  transition: transform 300ms ease, opacity 300ms ease; }
+  float: left; }
   ul.social.contact > li > a {
     height: 40px;
     line-height: 40px;
@@ -234,7 +202,11 @@ ul.social.contact > li {
     text-align: center;
     font-size: small;
     border-radius: 50%;
-    border: 1px solid; }
+    border: 1px solid;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease; }
 ul.social.contact .mailto:hover {
   color: white;
   background-color: #1a84bc;

@@ -1,4 +1,4 @@
 .about-me{
   margin: auto;
-  @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+  @extend .fades-and-moves;
 }
