@@ -1,0 +1,9 @@
+
+#nishants-site:not(.show-top-bar-title) {
+  .top-bar {
+    .title{
+      opacity: 0;
+      @include transform(translateY($topBarHeight));
+    }
+  }
+}

@@ -1,0 +1,28 @@
+$title_width: 405px;
+$link_width : 100px;
+$link_count : 5;
+$link_margin:  0px;
+$link_font_size : small;
+.top-bar{
+  .title{
+    @extend .top-bar-transition;
+    .navigation{
+      @extend .undo-list;
+      @extend .resize-container;
+      margin     : auto !important;
+      width      : $link_count * ($link_width + $link_margin + 2px);
+      overflow   : hidden;
+      > li {
+        float      : left;
+        font-size  : $link_font_size;
+        width      : $link_width;
+        margin-left: $link_margin;
+        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        > a{
+          @extend .undo-link;
+          display: block;
+        }
+      }
+    }
+  }
+}

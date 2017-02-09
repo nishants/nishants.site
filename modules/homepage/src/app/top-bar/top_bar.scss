@@ -5,7 +5,6 @@ $small_image_size: $row_height;
 $topBarHeight: $top_bar_height;
 $top_bar_index : $top_bar_layer;
 $medium_bold_text : 500;
-$title_width: 405px;
 $shadow_offset: $top_bar_shadow_offset;
 
 .top-bar-transition{
@@ -48,34 +47,6 @@ $shadow_offset: $top_bar_shadow_offset;
     @extend .small-bold-text;
     @extend .top-bar-transition;
   }
-  .title{
-    @extend .top-bar-transition;
-    .navigation{
-      @extend .undo-list;
-      @extend .resize-container;
-
-      font-size: small;
-      font-weight: $medium_bold_text;
-      line-height: $row_height - $padding;
-      width: $title_width;
-      margin: auto !important;
-      overflow: hidden;
-      > li {
-        float: left;
-        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
-        > a{
-          @extend .undo-link;
-
-        }
-      }
-      > li:not(:last-child):after{
-        content   : " | ";
-        display   : inline-block;
-        width     : 2*$padding;
-        text-align: center;
-      }
-    }
-  }
   .image{
     padding: $padding/2;
     > img{
@@ -112,23 +83,6 @@ $shadow_offset: $top_bar_shadow_offset;
   }
 }
 
-#nishants-site:not(.show-top-bar-title) {
-  .top-bar {
-    .title{
-      opacity: 0;
-      @include transform(translateY($topBarHeight));
-    }
-  }
-}
-
-#nishants-site:not(.show-top-bar-contact) {
-  .top-bar {
-    .contact{
-      opacity: 0;
-      @include transform(translateY($topBarHeight));
-    }
-  }
-}
 
 
 #nishants-site {
@@ -158,4 +112,5 @@ $shadow_offset: $top_bar_shadow_offset;
   }
 }
 
+@import 'navigation/navigation';
 @import 'top_bar.transitions';

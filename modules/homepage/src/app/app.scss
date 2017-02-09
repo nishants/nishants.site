@@ -17,11 +17,13 @@ $padding_big: $padding*5;
 #nishants{
   color: $black_text;
   font-family: $font_family;
+  text-align : center;
+  line-height: $row_height;
+
   .main-content{
     background: white;
     .page, .sticky{
       max-width: $max_page_width;
-      text-align: center;
       padding:  $padding_big;
     }
     .page{

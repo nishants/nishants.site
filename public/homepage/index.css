@@ -74,12 +74,13 @@ ul.inline-list {
 
 #nishants {
   color: #373a3c;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  line-height: 35px; }
   #nishants .main-content {
     background: white; }
     #nishants .main-content .page, #nishants .main-content .sticky {
       max-width: 1200px;
-      text-align: center;
       padding: 50px; }
     #nishants .main-content .page {
       padding-top: 108px;
@@ -262,7 +263,7 @@ ul.social.contact .github {
   -o-transform: translateY(-108px);
   transform: translateY(-108px); }
 
-.top-bar-transition, .top-bar, .top-bar .name, .top-bar .title, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img {
+.top-bar-transition, .top-bar, .top-bar .name, .top-bar .image > img, #nishants-site .overview, #nishants-site .overview .profile-image img, .top-bar .title {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -296,24 +297,6 @@ ul.social.contact .github {
   .top-bar .name {
     text-align: center;
     line-height: 25px; }
-  .top-bar .title .navigation {
-    font-size: small;
-    font-weight: 500;
-    line-height: 25px;
-    width: 405px;
-    margin: auto !important;
-    overflow: hidden; }
-    .top-bar .title .navigation > li {
-      float: left;
-      -webkit-transition: transform 300ms ease, opacity 300ms ease;
-      -moz-transition: transform 300ms ease, opacity 300ms ease;
-      -o-transition: transform 300ms ease, opacity 300ms ease;
-      transition: transform 300ms ease, opacity 300ms ease; }
-    .top-bar .title .navigation > li:not(:last-child):after {
-      content: " | ";
-      display: inline-block;
-      width: 20px;
-      text-align: center; }
   .top-bar .image {
     padding: 5px; }
     .top-bar .image > img {
@@ -341,22 +324,6 @@ ul.social.contact .github {
   -o-transform: translateY(108px);
   transform: translateY(108px); }
 
-#nishants-site:not(.show-top-bar-title) .top-bar .title {
-  opacity: 0;
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
-#nishants-site:not(.show-top-bar-contact) .top-bar .contact {
-  opacity: 0;
-  -webkit-transform: translateY(108px);
-  -moz-transform: translateY(108px);
-  -ms-transform: translateY(108px);
-  -o-transform: translateY(108px);
-  transform: translateY(108px); }
-
 #nishants-site.show-top-bar .cover .bg-wrapper img.bg {
   opacity: 0; }
 #nishants-site.show-top-bar .overview .profile-image > img {
@@ -366,6 +333,22 @@ ul.social.contact .github {
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
+
+.top-bar .title .navigation {
+  margin: auto !important;
+  width: 510px;
+  overflow: hidden; }
+  .top-bar .title .navigation > li {
+    float: left;
+    font-size: small;
+    width: 100px;
+    margin-left: 0px;
+    -webkit-transition: transform 300ms ease, opacity 300ms ease;
+    -moz-transition: transform 300ms ease, opacity 300ms ease;
+    -o-transition: transform 300ms ease, opacity 300ms ease;
+    transition: transform 300ms ease, opacity 300ms ease; }
+    .top-bar .title .navigation > li > a {
+      display: block; }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
