@@ -14,7 +14,9 @@ $top_bar_shadow_offset: 5px;
 $border_radius       : 3px;
 
 $padding_big: $padding*5;
+$elevated_shadow : 1px 1px 3px 1px rgba(1, 1, 1, 0.1);
 
+@import 'components/typography';
 #nishants{
   color: $black_text;
   font-family: $font_family;
@@ -35,9 +37,11 @@ $padding_big: $padding*5;
 
       @include transition(opacity $transition_time $transition);
       > .title{
-        padding: $padding;
+        padding: $padding $padding_big;
+        margin-bottom: 2 * $padding_big;
         border-bottom: 1px solid $black_border;
-        font-family: $open_sans;
+        display: inline-block;
+        @extend .heading-font;
       }
       .sticky{
         padding-top: 0px;

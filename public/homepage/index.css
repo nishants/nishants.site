@@ -61,9 +61,12 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
-.heading-font {
+.light-text, #nishants .page .heading .title, .top-bar .profile-bar .name, .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project, .compact-card .detail .caption {
+  opacity: 0.5; }
+
+.heading-font, #nishants .main-content .page > .title, .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
   font-family: "Roboto", sans-serif;
-  font-weight: 300; }
+  font-weight: 500; }
 
 .top-bar-font, .top-bar {
   font-family: "Open Sans", sans-serif; }
@@ -74,7 +77,7 @@ ul.inline-list {
 
 #nishants {
   color: #373a3c;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
   #nishants .main-content {
@@ -92,9 +95,10 @@ ul.inline-list {
       -o-transition: opacity 300ms ease;
       transition: opacity 300ms ease; }
       #nishants .main-content .page > .title {
-        padding: 10px;
+        padding: 10px 50px;
+        margin-bottom: 100px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        font-family: "Open Sans", sans-serif; }
+        display: inline-block; }
       #nishants .main-content .page .sticky {
         padding-top: 0px;
         padding-bottom: 0px;
@@ -137,21 +141,23 @@ ul.inline-list {
   -o-transition: all 300ms ease;
   transition: all 300ms ease; }
 
-.small-bold-text, .top-bar .profile-bar .name {
+.small-bold-text {
   font-size: small;
   font-weight: 500; }
 
-#nishants .page.intro .overview {
-  margin: auto; }
-  #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
-    float: left;
-    padding: 20px 30px; }
-  #nishants .page.intro .overview .actions {
-    width: 300px; }
-  #nishants .page.intro .overview .description {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    width: calc(100% - 300px);
-    text-align: left; }
+#nishants .page.intro {
+  padding-top: 20px; }
+  #nishants .page.intro .overview {
+    margin: auto; }
+    #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
+      float: left;
+      padding: 20px 30px; }
+    #nishants .page.intro .overview .actions {
+      width: 300px; }
+    #nishants .page.intro .overview .description {
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      width: calc(100% - 300px);
+      text-align: left; }
 
 #nishants .page .heading .profile-image {
   padding: 5px;
@@ -166,8 +172,11 @@ ul.inline-list {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease; }
-#nishants .page .heading .name, #nishants .page .heading .title {
-  text-align: center; }
+#nishants .page .heading .name {
+  line-height: 25px; }
+#nishants .page .heading .title {
+  line-height: 20px;
+  font-size: small; }
 #nishants .page .heading .border {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   height: 20px; }
@@ -185,16 +194,19 @@ ul.inline-list {
     text-align: right;
     font-weight: 400;
     opacity: 0.8;
-    -webkit-transition: transform 300ms ease, opacity 300ms ease;
-    -moz-transition: transform 300ms ease, opacity 300ms ease;
-    -o-transition: transform 300ms ease, opacity 300ms ease;
-    transition: transform 300ms ease, opacity 300ms ease; }
-#nishants .intro ul.navigation > li:hover .link {
-  -webkit-transform: translateX(10px);
-  -moz-transform: translateX(10px);
-  -ms-transform: translateX(10px);
-  -o-transform: translateX(10px);
-  transform: translateX(10px); }
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease; }
+#nishants .intro ul.navigation > li:hover {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.1); }
+  #nishants .intro ul.navigation > li:hover > .link {
+    -webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
+    transform: translateX(-10px); }
 
 .about-me {
   margin: auto; }
@@ -276,7 +288,8 @@ ul.social.contact .github {
   position: relative; }
   .top-bar .profile-bar .name {
     text-align: center;
-    line-height: 25px; }
+    line-height: 25px;
+    font-size: small; }
   .top-bar .profile-bar .image {
     padding: 5px; }
     .top-bar .profile-bar .image > img {
@@ -284,6 +297,14 @@ ul.social.contact .github {
       margin: auto;
       height: 35px;
       border-radius: 2px; }
+
+#nishants:not(.show-name) .top-bar .profile-bar .name {
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
 
 .top-bar .navigation-bar {
   position: relative; }
@@ -296,12 +317,25 @@ ul.social.contact .github {
       font-size: small;
       width: 100px;
       margin-left: 0px;
-      -webkit-transition: transform 300ms ease, opacity 300ms ease;
-      -moz-transition: transform 300ms ease, opacity 300ms ease;
-      -o-transition: transform 300ms ease, opacity 300ms ease;
-      transition: transform 300ms ease, opacity 300ms ease; }
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease; }
       .top-bar .navigation-bar .navigation > li > a {
+        -webkit-transition: transform 300ms ease;
+        -moz-transition: transform 300ms ease;
+        -o-transition: transform 300ms ease;
+        transition: transform 300ms ease;
         display: block; }
+    .top-bar .navigation-bar .navigation > li:hover {
+      opacity: 0.8;
+      background-color: rgba(0, 0, 0, 0.1); }
+      .top-bar .navigation-bar .navigation > li:hover > a {
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        transform: scale(0.9); }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
@@ -556,7 +590,6 @@ ul.social.contact .github {
 ul.deck {
   margin: 0;
   padding: 10px;
-  padding-top: 130px;
   display: block;
   list-style: none;
   text-align: left;
@@ -679,16 +712,17 @@ ul.grid {
       opacity: 0.5;
       font-size: small; }
 
-#experience > .title {
-  margin-bottom: 100px; }
-
 .timeline {
   margin: 0px 50px;
   height: 100%;
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.1); }
   .timeline .sticky-container .timeline {
-    border-bottom: none; }
+    border: none;
+    overflow: hidden; }
+    .timeline .sticky-container .timeline .timeline-header {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
     .timeline .sticky-container .timeline .period-list {
       position: relative;
       min-height: 100vh; }
@@ -706,6 +740,8 @@ ul.grid {
         top: 10px; }
         .timeline .sticky-container .timeline .period-list > li .projects {
           display: none; }
+      .timeline .sticky-container .timeline .period-list > li.reading .position .compact-card {
+        box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
   .timeline .timeline-header {
     background: white; }
   .timeline .timeline-body {
@@ -716,7 +752,7 @@ ul.grid {
   .timeline ul.period-list {
     padding-top: 10px; }
     .timeline ul.period-list > li.period-change {
-      height: 200px; }
+      height: 110px; }
     .timeline ul.period-list > li.period .position, .timeline ul.period-list > li.period .projects {
       display: block; }
     .timeline ul.period-list > li.period .central-line {
@@ -800,14 +836,13 @@ ul.period-list > li ul.projects > li {
         color: rgba(0, 0, 0, 0.1); }
 
 .compact-card {
-  cursor: initial;
   position: relative;
-  padding: 20px;
-  min-height: 100px; }
+  padding: 10px;
+  min-height: 80px; }
   .compact-card .logo {
     position: absolute;
     top: calc(50% - 30px);
-    left: 20px;
+    left: 10px;
     width: 60px;
     height: 60px; }
     .compact-card .logo img {
@@ -817,10 +852,10 @@ ul.period-list > li ul.projects > li {
       margin: auto; }
   .compact-card .detail {
     float: left;
-    width: calc(100% - 90px);
+    width: calc(100% - 80px);
     text-align: left;
-    margin-left: 90px;
-    padding: 10px; }
+    margin-left: 80px;
+    padding-left: 10px; }
     .compact-card .detail .title, .compact-card .detail .headline, .compact-card .detail .description, .compact-card .detail .caption {
       display: block;
       text-align: left;
@@ -829,14 +864,13 @@ ul.period-list > li ul.projects > li {
       font-size: small;
       line-height: 20px; }
     .compact-card .detail .description, .compact-card .detail .headline, .compact-card .detail .caption {
-      font-size: small;
-      color: rgba(0, 0, 0, 0.5); }
+      font-size: small; }
     .compact-card .detail .caption {
-      font-style: italic;
-      font-size: 10px; }
+      font-size: small; }
       .compact-card .detail .caption .since {
-        padding-right: 5px;
-        color: #646464; }
+        padding-right: 5px; }
+      .compact-card .detail .caption .to {
+        padding: 0px 5px; }
 
 #nishants.show-stick-experience .timeline-body.scrollable .period.reading .position {
   -webkit-transform: translateY(-100%);
@@ -871,16 +905,34 @@ ul.period-list > li ul.projects > li {
     width: 100%;
     resize: none;
     margin: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1); }
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center; }
   #nishants #connect.page .contact button.send {
     display: block;
     width: 100%;
     margin: 10px;
     background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1); }
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease; }
     #nishants #connect.page .contact button.send a {
       display: block;
-      padding: 20px; }
+      padding: 20px;
+      -webkit-transition: transform 300ms ease;
+      -moz-transition: transform 300ms ease;
+      -o-transition: transform 300ms ease;
+      transition: transform 300ms ease; }
+  #nishants #connect.page .contact button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.5; }
+    #nishants #connect.page .contact button:hover > a {
+      -webkit-transform: scale(0.9);
+      -moz-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      -o-transform: scale(0.9);
+      transform: scale(0.9); }
 
 #footer {
   font-size: small;

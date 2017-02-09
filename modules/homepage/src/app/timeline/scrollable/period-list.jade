@@ -11,8 +11,10 @@ ul.period-list
           p.description(ng-bind="position.description")
           label.caption
             span.since(ng-if="!position.period.to") Since
-            span {{position.period.from.month}}/{{position.period.from.year}}
-            span(ng-if="position.period.to") - {{position.period.to.month}}/{{position.period.to.year}}
+            span {{position.period.from.month}} {{position.period.from.year}}
+            span(ng-if="position.period.to")
+              span.to to
+              span {{position.period.to.month}} {{position.period.to.year}}
 
     ul.projects
       li(ng-repeat='project in position.projects')
@@ -25,6 +27,8 @@ ul.period-list
             p.description(ng-bind="project.description")
             label.caption
               span.since(ng-if="!project.period.to") Since
-              span {{project.period.from.month}}/{{project.period.from.year}}
-              span(ng-if="project.period.to") - {{project.period.to.month}}/{{project.period.to.year}}
+              span {{project.period.from.month}} {{project.period.from.year}}
+              span(ng-if="project.period.to")
+                span.to to
+                span {{project.period.to.month}} {{project.period.to.year}}
     li.period-change(ng-repeat-end)

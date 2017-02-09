@@ -17,12 +17,14 @@
           text-align: right;
           font-weight: $weight_normal;
           opacity: 0.8;
-          @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
+          @include transition(all $transition_time $transition);
         }
       }
       >li:hover{
-        .link{
-          @include transform(translateX($padding));
+        opacity: 0.8;
+        background-color: $black_border;
+        > .link{
+          @include transform(translateX(-$padding));
         }
       }
     }

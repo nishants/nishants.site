@@ -18,10 +18,18 @@ $link_font_size : small;
         font-size  : $link_font_size;
         width      : $link_width;
         margin-left: $link_margin;
-        @include transition(#{transform $transition_time $transition, opacity $transition_time $transition});
+        @include transition(all $transition_time $transition);
         > a{
           @extend .undo-link;
+          @include transition(transform $transition_time $transition);
           display: block;
+        }
+      }
+      >li:hover{
+        opacity: 0.8;
+        background-color: $black_border;
+        > a{
+          @include transform(scale(0.9));
         }
       }
     }

@@ -16,16 +16,17 @@ $padding_bottom: $padding*2;
         }
       }
 
-      .name, .title{
-        text-align: center;
-      }
       .name{
+        line-height: 25px;
         label{
           @extend .fades-and-moves;
         }
       }
       .title{
+        line-height: 20px;
+        font-size: small;
         @extend .fades-and-moves;
+        @extend .light-text;
       }
       .border{
         border-bottom: 1px solid $black_border;

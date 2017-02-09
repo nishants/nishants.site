@@ -1,0 +1,34 @@
+$weight_normal: 400;
+$weight_bold: 500;
+$weight_light: 300;
+
+$spaced_font   : 'Open Sans', sans-serif;
+$open_sans     : 'Open Sans', sans-serif;
+$card_font     : $spaced_font;
+$readable_font : 'Roboto', sans-serif;
+$roboto        : 'Roboto', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:#{$weight_light},#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$weight_normal}i,#{$weight_normal},#{$weight_bold}');
+
+
+$font_family: 'Open Sans', sans-serif;
+
+
+.light-text{
+  opacity: 0.5;
+}
+
+.heading-font{
+  font-family: $roboto;
+  font-weight: $weight_bold;
+}
+
+.top-bar-font{
+  font-family: $spaced_font;
+}
+.theme-font{
+  font-family: 'Roboto', sans-serif;
+  font-weight: $weight_normal;
+}
+

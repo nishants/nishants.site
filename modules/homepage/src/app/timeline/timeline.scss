@@ -16,6 +16,7 @@ $search_height : 40px;
 $header_height : $labels_height +  $search_height;
 
 $box_shadow : 10px 1px 5px $black_border;
+$approx_position_card_height: $padding_big * 2 + $padding;
 
 .timeline{
   margin: 0px $padding_big;
@@ -25,7 +26,12 @@ $box_shadow : 10px 1px 5px $black_border;
 
   .sticky-container{
     .timeline{
-      border-bottom: none;
+      border: none;
+      overflow: hidden;
+      .timeline-header{
+        border  : $border;
+        box-shadow: $elevated_shadow;
+      }
       .period-list{
         position: relative;
         min-height: 100vh;
@@ -41,6 +47,13 @@ $box_shadow : 10px 1px 5px $black_border;
           top: 10px;
           .projects{
             display: none;
+          }
+        }
+        > li.reading{
+          .position{
+            .compact-card{
+              box-shadow: $elevated_shadow;
+            }
           }
         }
       }
@@ -65,7 +78,7 @@ $box_shadow : 10px 1px 5px $black_border;
 
     @extend .undo-list;
     > li.period-change{
-      height: 200px;
+      height: $approx_position_card_height;
     }
     > li.period {
       .position, .projects{

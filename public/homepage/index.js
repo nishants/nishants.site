@@ -378,7 +378,7 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 app.constant("IFRAMETIMEOUT", 250);
 
 app.constant("GRID_CONFIG", {
-	topOffset: 85,
+	topOffset: 0,
 	colWidth : 325,
 	gridBoxMarginX: -1, // To overlap borders
 	gridBoxMarginY: -1, // To overlap borders
@@ -403,7 +403,7 @@ angular.module("timeline").service("ProfileService", [function () {
 					organisation: 'Freelancer',
 					description: 'Worked in different roles independently.',
 					logo : "public/images/profile.jpg",
-					period  : {from: {year: 2015, month: 6}},
+					period  : {from: {year: 2015, month: "June"}},
 					tags    : ["team leadership", "leadership", "freelance","coaching", "open source"],
 					projects : [
 						{
@@ -502,7 +502,7 @@ angular.module("timeline").service("ProfileService", [function () {
 							description: "Worked in the core development team of Oracle's banking platform",
 							tags : [],
 							tech : ["java", "angular", "scss", "micro services"],
-							period  : {from: {year: 2014, month: "Nov"}, to: {year: 2015, month: "June"}},
+							period  : {from: {year: 2012, month: "June"}, to: {year: 2012, month: "Nov"}},
 						}
 					]
 				},
@@ -513,7 +513,7 @@ angular.module("timeline").service("ProfileService", [function () {
 					color: "#017cc3",
 					logo : "public/images/logos/infosys.png",
 					tags : [],
-					period  : {from: {year: 2012, month: "June"}, to: {year: 2012, month: "Nov"}},
+					period  : {from: {year: 2010, month: "Aug"}, to: {year: 2012, month: "May"}},
 					projects : [
 						{
 							title: 'Archive and Purge Automation',
@@ -529,7 +529,7 @@ angular.module("timeline").service("ProfileService", [function () {
 							description: 'Support for oracle apps backend for Arrow.',
 							tags : [],
 							tech : ["java", "angular", "scss", "micro services"],
-							period  : {from: {year: 2014, month: "Nov"}, to: {year: 2015, month: "June"}},
+							period  : {from: {year: 2010, month: "Aug"}, to: {year: 2012, month: "June"}},
 						}
 					]
 				}

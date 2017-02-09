@@ -5,6 +5,7 @@ $actions_width       : 300px;
 
 #nishants{
   .page.intro{
+    padding-top: $padding*2;
     .overview{
       margin: auto;
       @extend .resize-container;

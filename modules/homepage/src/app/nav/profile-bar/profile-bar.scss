@@ -5,7 +5,8 @@
     .name{
       text-align: center;
       line-height: $row_height - $padding;
-      @extend .small-bold-text;
+      font-size: small;
+      @extend .light-text;
       @extend .top-bar-transition;
     }
     .image{
@@ -20,3 +21,5 @@
     }
   }
 }
+
+@import 'profile-bar.transitions';
