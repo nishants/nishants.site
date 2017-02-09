@@ -248,8 +248,8 @@ ga('send', 'pageview');
       <div id="connect" ng-controller="ContactController" class="page">
         <h1 class="title">Connect</h1>
         <div class="contact">
+          <textarea ng-model="message.body" placeholder="Message" class="message"></textarea>
           <button class="send"><a href="mailto:{{message.email}}?subject={{message.subject}}&amp;body={{message.body}}">Send</a></button>
-          <textarea ng-model="message.body" class="message"></textarea>
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@
       display: block;
       width: 100%;
       margin: $padding;
+      background: white;
       border: 1px solid $black_border;
       a {
         @extend .undo-link;

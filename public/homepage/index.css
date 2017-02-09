@@ -906,6 +906,7 @@ ul.period-list > li ul.projects > li {
     display: block;
     width: 100%;
     margin: 10px;
+    background: white;
     border: 1px solid rgba(0, 0, 0, 0.1); }
     #nishants #connect.page .contact button.send a {
       display: block;
