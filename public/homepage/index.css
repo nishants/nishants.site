@@ -874,6 +874,13 @@ ul.period-list > li ul.projects > li {
         padding-right: 5px;
         color: #646464; }
 
+#nishants.show-experience .timeline-body.scrollable .period.reading .position {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0); }
+
 #nishants #connect.page .contact {
   max-width: 500px;
   margin: auto;

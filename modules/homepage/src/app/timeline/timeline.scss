@@ -49,6 +49,7 @@ $box_shadow : 10px 1px 5px $black_border;
     };
   }
 
+
   .timeline-header{
     //height: $header_height;
     background: white;
@@ -94,3 +95,4 @@ $box_shadow : 10px 1px 5px $black_border;
 @import 'header/header';
 @import 'search/search';
 @import 'compact-card/compact-card';
+@import 'timeline.transitions';

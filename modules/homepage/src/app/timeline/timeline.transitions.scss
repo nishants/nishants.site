@@ -1,0 +1,17 @@
+#nishants.show-experience{
+  .timeline-body.scrollable {
+    .period.reading {
+      .position {
+        @include transform(scale(0));
+      }
+    }
+  }
+}
+  //.timeline-body:not(.scrollable) {
+  //  .period:not(.reading){
+  //    @include transform(translateY(-100%));
+  //    @include transition(transform $transition_time $transition);
+  //  }
+  //}
+
+

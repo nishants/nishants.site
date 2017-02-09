@@ -27,11 +27,15 @@ $(document).ready(function(){
 						hasPassedOver = ifIssUnderTitleBar(-100, $("#timeline-ends")[0]);
 				return underTitleBar && !hasPassedOver;
 			},
+			unreadAllExperience = function(){
+				$(".timeline-body > .period-list > li.period").removeClass("reading");
+			},
 			stickExperienceAt = function(index){
-				var all =  $(".timeline-body > .period-list > li.period");
-
-				all.removeClass("reading");
-				$(all[index]).addClass("reading");
+				var stickyList =  $(".timeline-body > .period-list").first().find(" > li.period"),
+						scrollList =  $(".timeline-body > .period-list").last().find(" > li.period");
+				unreadAllExperience();
+				$(stickyList[index]).addClass("reading");
+				$(scrollList[index]).addClass("reading");
 			};
 
 	$(window).on("scroll", function(){
@@ -63,6 +67,8 @@ $(document).ready(function(){
 				reading(period) ? readingIndex = index : "";
 			});
 			stickExperienceAt(readingIndex);
+		}else{
+			unreadAllExperience()
 		}
 	});
 
