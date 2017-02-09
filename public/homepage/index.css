@@ -174,7 +174,8 @@ ul.inline-list {
 
 #nishants .intro ul.navigation > li {
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-right: 10px; }
   #nishants .intro ul.navigation > li .link {
     display: block;
     height: 70px;
@@ -188,6 +189,12 @@ ul.inline-list {
     -moz-transition: transform 300ms ease, opacity 300ms ease;
     -o-transition: transform 300ms ease, opacity 300ms ease;
     transition: transform 300ms ease, opacity 300ms ease; }
+#nishants .intro ul.navigation > li:hover .link {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  transform: translateX(10px); }
 
 .about-me {
   margin: auto; }

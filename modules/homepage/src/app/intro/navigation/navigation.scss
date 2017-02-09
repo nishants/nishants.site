@@ -6,6 +6,7 @@
       > li {
         display: block;
         overflow: hidden;
+        padding-right: $padding;
         .link{
           @extend .undo-link;
           display: block;
@@ -17,6 +18,11 @@
           font-weight: $weight_normal;
           opacity: 0.8;
           @include transition(#{transform $transition_time $transition,opacity $transition_time $transition});
+        }
+      }
+      >li:hover{
+        .link{
+          @include transform(translateX($padding));
         }
       }
     }
