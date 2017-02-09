@@ -43,7 +43,7 @@ input {
   display: table;
   clear: both; }
 
-a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a, #nishants #connect.page .contact .send a {
+a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar .heading a.link, .top-bar .title .navigation > li > a, #nishants #connect.page .contact button.send a {
   text-decoration: none;
   color: inherit; }
 
@@ -893,23 +893,23 @@ ul.period-list > li ul.projects > li {
   transform: translateY(-100%); }
 
 #nishants #connect.page .contact {
-  max-width: 500px;
-  margin: auto;
-  border: 1px solid rgba(0, 0, 0, 0.1); }
-  #nishants #connect.page .contact .message {
-    width: 100%; }
-    #nishants #connect.page .contact .message textarea {
-      display: block;
-      border: 1px solid transparent;
-      outline: none;
-      padding: 10px;
-      height: 200px;
-      width: 100%;
-      resize: none; }
-  #nishants #connect.page .contact .send a {
+  margin: auto; }
+  #nishants #connect.page .contact textarea.message {
     display: block;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.1); }
+    outline: none;
+    padding: 50px;
+    width: 100%;
+    resize: none;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
+  #nishants #connect.page .contact button.send {
+    display: block;
+    width: 100%;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
+    #nishants #connect.page .contact button.send a {
+      display: block;
+      padding: 20px; }
 
 #footer {
   font-size: small;
