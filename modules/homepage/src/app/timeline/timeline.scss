@@ -31,6 +31,9 @@ $box_shadow : 10px 1px 5px $black_border;
         min-height: 100vh;
         pointer-events: none;
 
+        > li:not(.period) {
+          display: none;
+        }
         > li:not(.reading) {
           @include transform(scale(0));
         }
@@ -62,12 +65,14 @@ $box_shadow : 10px 1px 5px $black_border;
     padding-top: $padding;
 
     @extend .undo-list;
-    > li {
-      margin-bottom: $padding*5;
+    > li.period-change{
+      height: 200px;
+    }
+    > li.period {
       .position, .projects{
         display: block;
       }
-      .period{
+      .central-line{
         position: absolute;
         top     : 0;
         left    : calc(50% - #{$line_width});

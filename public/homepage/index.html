@@ -150,7 +150,7 @@
                 </div>
                 <div class="timeline-body">
                   <ul class="period-list">
-                    <li ng-repeat="position in timeline.positions"><span class="period"></span>
+                    <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
                       <div class="position">
                         <div class="card compact-card">
                           <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
@@ -175,6 +175,7 @@
                           </div>
                         </li>
                       </ul>
+                      <li ng-repeat-end class="period-change"></li>
                     </li>
                   </ul>
                 </div>
@@ -195,7 +196,7 @@
           </div>
           <div class="timeline-body">
             <ul class="period-list">
-              <li ng-repeat="position in timeline.positions"><span class="period"></span>
+              <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
                 <div class="position">
                   <div class="card compact-card">
                     <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
@@ -220,6 +221,7 @@
                     </div>
                   </li>
                 </ul>
+                <li ng-repeat-end class="period-change"></li>
               </li>
             </ul>
             <div id="timeline-ends"></div>

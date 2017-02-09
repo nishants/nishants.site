@@ -728,6 +728,8 @@ ul.grid {
       position: relative;
       min-height: 100vh;
       pointer-events: none; }
+      .timeline .sticky-container .timeline .period-list > li:not(.period) {
+        display: none; }
       .timeline .sticky-container .timeline .period-list > li:not(.reading) {
         -webkit-transform: scale(0);
         -moz-transform: scale(0);
@@ -749,17 +751,17 @@ ul.grid {
     padding: 10px; }
   .timeline ul.period-list {
     padding-top: 10px; }
-    .timeline ul.period-list > li {
-      margin-bottom: 50px; }
-      .timeline ul.period-list > li .position, .timeline ul.period-list > li .projects {
-        display: block; }
-      .timeline ul.period-list > li .period {
-        position: absolute;
-        top: 0;
-        left: calc(50% - 1px);
-        width: 1px;
-        height: calc(100% - 10px);
-        background: rgba(0, 0, 0, 0.1); }
+    .timeline ul.period-list > li.period-change {
+      height: 200px; }
+    .timeline ul.period-list > li.period .position, .timeline ul.period-list > li.period .projects {
+      display: block; }
+    .timeline ul.period-list > li.period .central-line {
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      width: 1px;
+      height: calc(100% - 10px);
+      background: rgba(0, 0, 0, 0.1); }
   .timeline #timeline-ends {
     height: 50px; }
 

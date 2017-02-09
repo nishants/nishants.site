@@ -28,10 +28,10 @@ $(document).ready(function(){
 				return underTitleBar && !hasPassedOver;
 			},
 			stickExperienceAt = function(index){
-				var allSelector =  ".timeline-body > .period-list > li",
-				indexSelector = ".timeline-body > .period-list > li:nth-child(<index>)".replace("<index>", index +1);
-				$(allSelector).removeClass("reading");
-				index > -1 ? $(indexSelector).addClass("reading") : "";
+				var all =  $(".timeline-body > .period-list > li.period");
+
+				all.removeClass("reading");
+				$(all[index]).addClass("reading");
 			};
 
 	$(window).on("scroll", function(){
@@ -56,11 +56,10 @@ $(document).ready(function(){
 					reading = function(e){
 						var topOverSticky       = e.getBoundingClientRect().top < stickyHeaderBottom ,
 								bottomBelowSticky   = e.getBoundingClientRect().bottom > stickyHeaderBottom ;
-						console.log("top: " + e.getBoundingClientRect().top +", bottom" + e.getBoundingClientRect().bottom)
 						return topOverSticky && bottomBelowSticky
 					};
 			var readingIndex = -1;
-			$(".timeline-body").last().find(".period-list > li").toArray().forEach(function(period, index){
+			$(".timeline-body").last().find(".period-list > li.period").toArray().forEach(function(period, index){
 				reading(period) ? readingIndex = index : "";
 			});
 			stickExperienceAt(readingIndex);

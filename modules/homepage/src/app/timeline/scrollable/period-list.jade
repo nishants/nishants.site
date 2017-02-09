@@ -1,6 +1,6 @@
 ul.period-list
-  li(ng-repeat='position in timeline.positions')
-    span.period
+  li.period(ng-repeat-start='position in timeline.positions')
+    span.central-line
     .position
       .card.compact-card
         .logo(ng-if="position.logo")
@@ -27,3 +27,4 @@ ul.period-list
               span.since(ng-if="!project.period.to") Since
               span {{project.period.from.month}}/{{project.period.from.year}}
               span(ng-if="project.period.to") - {{project.period.to.month}}/{{project.period.to.year}}
+    li.period-change(ng-repeat-end)
