@@ -25,6 +25,9 @@ body {
   margin: 0px;
   padding: 0px; }
 
+[ng-click] {
+  cursor: pointer; }
+
 body * {
   box-sizing: border-box;
   font-family: inherit; }
@@ -896,21 +899,17 @@ ul.tags > li {
   display: inline-block;
   padding: 0px 10px; }
   ul.tags > li > .tag, ul.tags > li > .status {
-    float: left;
+    float: right;
     padding: 0px; }
   ul.tags > li .tag {
-    padding-left: 50px;
     padding-right: 50px;
     margin-right: 1px;
     text-transform: capitalize; }
   ul.tags > li > .status {
-    width: 50px; }
-ul.tags > li:not(.selected) > .status.selected {
-  display: none; }
-ul.tags > li.selected {
+    width: 50px;
+    color: rgba(255, 255, 255, 0.1); }
+ul.tags > li.selected .status {
   color: #51A7F9; }
-  ul.tags > li.selected > .status:not(.selected) {
-    display: none; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

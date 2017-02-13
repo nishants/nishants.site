@@ -87,12 +87,11 @@ ga('send', 'pageview');
       <div id="slate" ng-controller="PortfolioController" ng-class="{'show-modal' : deck._current != -1}" class="page slate theme-font">
         <h1 class="title">Portfolio</h1>
         <ul class="tags">
-          <li ng-repeat="tag in tags.list" ng-class="{'selected': tag.selected}">
+          <li ng-repeat="tag in tags.list" ng-class="{'selected': tag.selected}" ng-click="tags.remove($index)">
             <div class="tag">
               <label ng-bind="tag.name"></label>
-            </div><span ng-click="tags.remove($index)" class="status selected">
-              <div class="fa fa-check"></div></span><span ng-click="tags.remove($index)" class="status">
-              <div class="fa fa-remove"></div></span>
+            </div><span class="status selected">
+              <div class="fa fa-check"></div></span>
           </li>
         </ul>
         <ul ng-class="{'focus' : deck._current != -1}" class="deck grid">

@@ -8,31 +8,24 @@ ul.tags{
     @extend .resize-container;
 
     > .tag, > .status{
-      float: left;
+      float: right;
       padding: 0px;
       @extend .button-surface;
     }
     .tag{
-      padding-left: $padding_big;
       padding-right: $padding_big;
       margin-right: 1px ;
       text-transform: capitalize;
     }
     > .status{
       width: $status_width;
-    }
-  }
-
-  > li:not(.selected){
-    > .status.selected{
-      display: none;
+      color: rgba(255, 255, 255, 0.1);
     }
   }
 
   > li.selected{
-    color: $highlight_color;
-    > .status:not(.selected){
-      display: none;
+    .status{
+      color: $highlight_color;
     }
   }
 }

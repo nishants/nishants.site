@@ -1,11 +1,9 @@
 ul.tags
-  li(ng-repeat='tag in tags.list', ng-class="{'selected': tag.selected}")
+  li(ng-repeat='tag in tags.list', ng-class="{'selected': tag.selected}",ng-click="tags.remove($index)")
     .tag
       label(ng-bind='tag.name')
-    span.status.selected(ng-click="tags.remove($index)")
+    span.status.selected
       .fa.fa-check
-    span.status(ng-click="tags.remove($index)")
-      .fa.fa-remove
 
 ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
   include ../components/deck/deck
