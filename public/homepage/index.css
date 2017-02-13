@@ -80,13 +80,6 @@ ul.inline-list {
   font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
-  #nishants img#background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 100vh;
-    width: 100vw; }
   #nishants .main-content .page, #nishants .main-content .sticky {
     max-width: 1200px;
     padding: 50px; }
