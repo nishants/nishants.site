@@ -89,51 +89,6 @@ $(document).ready(function(){
 
 
 },{}],2:[function(require,module,exports){
-angular.module("nishants").run(["$timeout", "$rootScope", function($timeout, $rootScope){
-	$timeout(function(){
-		$rootScope.splash  = {close: true};
-	}, 100);
-}]);
-
-angular.module("nishants").run(["GridService", "$timeout", function(GridService, $timeout){
-	var allTags = ["design","development", "coaching"];
-
-	var parse = function (query) {
-				var args  	 = query.split("="),
-						argIndex = args.indexOf("tags") + 1,
-						tags  	 = argIndex > 0 ? args[argIndex].split("_") : allTags;
-
-				console.log("State : " + tags);
-				$timeout(function(){
-					document.getElementById("slate").scrollIntoView();
-					GridService.showTags(tags);
-				});
-
-			},
-			showAll = function(){
-				GridService.showTags(allTags);
-			},
-			init = function () {};
-	$(window).on("hashchange", function () {
-		var hash     = window.location.hash,
-				hasQuery = hash.length && (hash.indexOf("?") > -1);
-		hasQuery ?  parse(hash.split("?")[1]) : showAll();
-		console.log("URL : " + window.location);
-	});
-
-	$(window).trigger("hashchange");
-}]);
-
-},{}],3:[function(require,module,exports){
-angular.module("nishants").controller("ContactController", ["$scope","CONTACT_CONFIG", function ($scope, CONTACT_CONFIG) {
-	$scope.message = CONTACT_CONFIG;
-}])
-},{}],4:[function(require,module,exports){
-app.run(["$http", "DeckService", "$rootScope", function($http, DeckService, $rootScope){
-	$http.get("public/data/cards.json").then(DeckService.load)
-	$rootScope.deck = DeckService;
-}]);
-},{}],5:[function(require,module,exports){
 app.service("DeckService",["$sce", function($sce){
 	var
 			createCard = function(card){
@@ -163,7 +118,7 @@ app.service("DeckService",["$sce", function($sce){
 	};
 	return deck;
 }]);
-},{}],6:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 app.directive("deck", ["DeckService", "modalService",function (DeckService, modalService) {
 	var $deckItems = function(){return $(".deck > li");},
 			select = function (index) {
@@ -202,7 +157,7 @@ app.directive("deck", ["DeckService", "modalService",function (DeckService, moda
 	};
 }]);
 
-},{}],7:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridService, GRID_CONFIG, $timeout) {
 	return {
 		restrict   : "C",
@@ -219,7 +174,7 @@ app.directive("grid", ["GridService","GRID_CONFIG","$timeout", function (GridSer
 	};
 }]);
 
-},{}],8:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 
 	var transform = function(x,y){
@@ -293,73 +248,47 @@ app.service("GridService",["GRID_CONFIG", function(GRID_CONFIG){
 	};
 	return grid;
 }]);
-},{}],9:[function(require,module,exports){
-app.controller("modalController",["$scope", "modalService", function($scope, modalService){
-	$scope.modal = modalService;
+},{}],6:[function(require,module,exports){
+angular.module("nishants").run(["$timeout", "$rootScope", function($timeout, $rootScope){
+	$timeout(function(){
+		$rootScope.splash  = {close: true};
+	}, 100);
 }]);
-},{}],10:[function(require,module,exports){
-app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(DeckService, $timeout, IFRAMETIMEOUT){
-	var modal = {
-		_show 	: false,
-		_timer  : null,
-		_card   : null,
-		mobile : function(mobile){
-			modal._mobile = mobile;
-		},
-		_frame   : {
-			_ready 	: false,
-			_src  	: null,
-			_fullscreen: false,
-			fullscren: function(fullscreen){
-				modal._frame._fullscreen = fullscreen;
-			}
-		},
-		show: function(card){
-			modal.props = card;
-			modal._show = true;
-			modal.mobile(card.mobileOnly || card.mobileFirst);
-			modal._timer = $timeout( function(){
-				modal._frame._src = card.src;
-			}, IFRAMETIMEOUT);
-		},
-		close: function(){
-			modal._frame._ready = false;
-			modal._frame._src  	= null;
-			if(modal._timer){
-				$timeout.cancel(modal._timer);
-			}
-			DeckService.unselect();
-		},
-		ready: function(){
-			modal._frame._ready = !!modal._frame._src;
-		}
-	};
-	window.iframeLoaded = function(){
-		$timeout(modal.ready);
-	};
-	return modal;
+
+angular.module("nishants").run(["GridService", "$timeout", function(GridService, $timeout){
+	var allTags = ["design","development", "coaching"];
+
+	var parse = function (query) {
+				var args  	 = query.split("="),
+						argIndex = args.indexOf("tags") + 1,
+						tags  	 = argIndex > 0 ? args[argIndex].split("_") : allTags;
+
+				console.log("State : " + tags);
+				$timeout(function(){
+					document.getElementById("slate").scrollIntoView();
+					GridService.showTags(tags);
+				});
+
+			},
+			showAll = function(){
+				GridService.showTags(allTags);
+			},
+			init = function () {};
+	$(window).on("hashchange", function () {
+		var hash     = window.location.hash,
+				hasQuery = hash.length && (hash.indexOf("?") > -1);
+		hasQuery ?  parse(hash.split("?")[1]) : showAll();
+		console.log("URL : " + window.location);
+	});
+
+	$(window).trigger("hashchange");
 }]);
-},{}],11:[function(require,module,exports){
-angular.module("nishants").service("SlateService",["GridService", "$timeout", function(GridService, $timeout){
 
-
-
-
-	return {};
-}]);
-},{}],12:[function(require,module,exports){
-window.app = angular.module("slate", []);
-},{}],13:[function(require,module,exports){
-app.constant("IFRAMETIMEOUT", 250);
-
-app.constant("GRID_CONFIG", {
-	topOffset: 0,
-	colWidth : 325,
-	gridBoxMarginX: -1, // To overlap borders
-	gridBoxMarginY: -1, // To overlap borders
-	domUpdateDelay: 500
-});
-},{}],14:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+angular.module("nishants").controller("ContactController", ["$scope","CONTACT_CONFIG", function ($scope, CONTACT_CONFIG) {
+	$scope.message = CONTACT_CONFIG;
+}])
+},{}],8:[function(require,module,exports){
 angular.module("timeline").service("ProfileService", [function () {
 
 	return {
@@ -507,12 +436,12 @@ angular.module("timeline").service("ProfileService", [function () {
 
 
 
-},{}],15:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 angular.module("timeline").controller("SearchController", ["$scope", "SearchService", function ($scope, SearchService) {
 
 	$scope.search = SearchService;
 }])
-},{}],16:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 angular.module("timeline").service("SearchService", [function () {
 	var matchPosition = function(query, position){
 				return position.tags.indexOf(query) > -1;
@@ -537,40 +466,102 @@ angular.module("timeline").service("SearchService", [function () {
 
 
 
-},{}],17:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 angular.module("timeline").controller("TimelineController", ["$scope","ProfileService", function ($scope, ProfileService) {
 	$scope.timeline = ProfileService.timeline;
 }])
-},{}],18:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var app = angular.module("timeline", []);
-},{}],19:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+app.run(["$http", "DeckService", "$rootScope", function($http, DeckService, $rootScope){
+	$http.get("public/data/cards.json").then(DeckService.load)
+	$rootScope.deck = DeckService;
+}]);
+},{}],14:[function(require,module,exports){
+app.controller("modalController",["$scope", "modalService", function($scope, modalService){
+	$scope.modal = modalService;
+}]);
+},{}],15:[function(require,module,exports){
+app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(DeckService, $timeout, IFRAMETIMEOUT){
+	var modal = {
+		_show 	: false,
+		_timer  : null,
+		_card   : null,
+		mobile : function(mobile){
+			modal._mobile = mobile;
+		},
+		_frame   : {
+			_ready 	: false,
+			_src  	: null,
+			_fullscreen: false,
+			fullscren: function(fullscreen){
+				modal._frame._fullscreen = fullscreen;
+			}
+		},
+		show: function(card){
+			modal.props = card;
+			modal._show = true;
+			modal.mobile(card.mobileOnly || card.mobileFirst);
+			modal._timer = $timeout( function(){
+				modal._frame._src = card.src;
+			}, IFRAMETIMEOUT);
+		},
+		close: function(){
+			modal._frame._ready = false;
+			modal._frame._src  	= null;
+			if(modal._timer){
+				$timeout.cancel(modal._timer);
+			}
+			DeckService.unselect();
+		},
+		ready: function(){
+			modal._frame._ready = !!modal._frame._src;
+		}
+	};
+	window.iframeLoaded = function(){
+		$timeout(modal.ready);
+	};
+	return modal;
+}]);
+},{}],16:[function(require,module,exports){
+window.app = angular.module("slate", []);
+},{}],17:[function(require,module,exports){
+app.constant("IFRAMETIMEOUT", 250);
+
+app.constant("GRID_CONFIG", {
+	topOffset: 0,
+	colWidth : 325,
+	gridBoxMarginX: -1, // To overlap borders
+	gridBoxMarginY: -1, // To overlap borders
+	domUpdateDelay: 500
+});
+},{}],18:[function(require,module,exports){
 angular.module("nishants").constant("CONTACT_CONFIG", {
 	email  : "nishant.singh87@gmail.com",
 	subject: "Hi !",
 	body   : ""
 });
 
-},{}],20:[function(require,module,exports){
-require("./app/slate/slate.js");
-require("./app/slate/variables.js");
-require("./app/slate/config.js");
-require('./app/slate/deck/deck.js');
-require('./app/slate/deck/deck-service.js');
-require('./app/slate/modal/modal-service.js');
-require('./app/slate/modal/modal-controller.js');
-require('./app/slate/grid/grid-directive.js');
-require('./app/slate/grid/grid-service.js');
+},{}],19:[function(require,module,exports){
+require("./app/portfolio/slate.js");
+require("./app/portfolio/variables.js");
+require("./app/portfolio/config.js");
+require('./app/components/deck/deck.js');
+require('./app/components/deck/deck-service.js');
+require('./app/portfolio/modal/modal-service.js');
+require('./app/portfolio/modal/modal-controller.js');
+require('./app/components/grid/grid-directive.js');
+require('./app/components/grid/grid-service.js');
 
-require("./app/timeline/timeline.js");
-require("./app/timeline/timeline-controller");
-require("./app/timeline/search/search-service");
-require("./app/timeline/search/search-controller");
-require("./app/timeline/profile-service");
+require("./app/experience/timeline.js");
+require("./app/experience/timeline-controller");
+require("./app/experience/search/search-service");
+require("./app/experience/search/search-controller");
+require("./app/experience/profile-service");
 
 require("./app/app.js");
 require("./app/config.js");
 require("./app/variables");
-require("./app/slate/slate-service");
 require("./app/contact/contact-controller");
 
-},{"./app/app.js":1,"./app/config.js":2,"./app/contact/contact-controller":3,"./app/slate/config.js":4,"./app/slate/deck/deck-service.js":5,"./app/slate/deck/deck.js":6,"./app/slate/grid/grid-directive.js":7,"./app/slate/grid/grid-service.js":8,"./app/slate/modal/modal-controller.js":9,"./app/slate/modal/modal-service.js":10,"./app/slate/slate-service":11,"./app/slate/slate.js":12,"./app/slate/variables.js":13,"./app/timeline/profile-service":14,"./app/timeline/search/search-controller":15,"./app/timeline/search/search-service":16,"./app/timeline/timeline-controller":17,"./app/timeline/timeline.js":18,"./app/variables":19}]},{},[20]);
+},{"./app/app.js":1,"./app/components/deck/deck-service.js":2,"./app/components/deck/deck.js":3,"./app/components/grid/grid-directive.js":4,"./app/components/grid/grid-service.js":5,"./app/config.js":6,"./app/contact/contact-controller":7,"./app/experience/profile-service":8,"./app/experience/search/search-controller":9,"./app/experience/search/search-service":10,"./app/experience/timeline-controller":11,"./app/experience/timeline.js":12,"./app/portfolio/config.js":13,"./app/portfolio/modal/modal-controller.js":14,"./app/portfolio/modal/modal-service.js":15,"./app/portfolio/slate.js":16,"./app/portfolio/variables.js":17,"./app/variables":18}]},{},[19]);

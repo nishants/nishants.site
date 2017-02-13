@@ -1,0 +1,22 @@
+$modalBackdrop: rgba(0,0,0,0);
+
+#slate{
+  .modal{
+    position: fixed;
+    z-index : 1;
+    top     : 0;
+    left    : 0;
+    height: 100vh;
+    width: 100%;
+    background-color: $modalBackdrop;
+    pointer-events: none;
+    .content, .overview{
+      padding: $padding;
+      height: 100%;
+      float: left;
+    }
+  }
+
+  @import 'overview/overview';
+  @import 'content/content';
+}

@@ -1,0 +1,56 @@
+
+#slate.show-modal{
+  .card-space{
+    opacity: 1;
+  }
+}
+
+#slate:not(.show-modal){
+  .modal{
+    @include transform(scale(0));
+    @include transitionDelay($transition_time);
+
+    .overview{
+      .card-space{
+        .speaks{
+          opacity: 0;
+        }
+      }
+      .card-actions{
+        @include transform(translateY(100vh));
+      }
+    }
+    .content{
+      @include transform(translateX(100vw));
+    }
+  }
+}
+
+
+#slate.page{
+  .title{
+    @extend .fades-and-moves;
+  }
+}
+
+#slate.page.show-modal{
+  .title{
+    @extend .pulled-to-top;
+    @include transform(translateY(-400%));
+  }
+}
+#nishants.show-modal{
+  overflow: hidden;
+
+  .page .title{
+    opacity: 0;
+  }
+
+  .page:not(.slate){
+    opacity: 0;
+  }
+
+  .modal{
+    pointer-events: all;
+  }
+}

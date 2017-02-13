@@ -14,7 +14,16 @@ $top_bar_shadow_offset: 5px;
 $border_radius       : 3px;
 
 $padding_big: $padding*5;
+$box_shadow : -1px -1px 5px rgba(0, 0, 0, 0.21);
 $elevated_shadow : 1px 1px 3px 1px rgba(1, 1, 1, 0.1);
+
+$heavy-border: 1px solid rgba(0, 0, 0, 0.2);
+$line_height: 20px;
+$text_shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+$white : rgba(255, 255, 255, 0.9);
+
+$cardWidth: 325px;
+$cardHeight: 250px;
 
 @import 'components/typography';
 #nishants{
@@ -85,10 +94,13 @@ $elevated_shadow : 1px 1px 3px 1px rgba(1, 1, 1, 0.1);
   font-weight: $medium_bold_text;
 }
 
-@import 'intro/intro';
+@import 'home/intro';
 @import 'nav/nav';
-@import 'slate/slate';
+@import 'portfolio/slate';
 @import 'components/cards/cards';
 @import 'experience/experience';
 @import 'contact/contact';
 @import 'footer/footer';
+
+@import 'components/deck/deck';
+@import 'components/grid/grid';

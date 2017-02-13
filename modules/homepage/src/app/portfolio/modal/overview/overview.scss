@@ -16,6 +16,8 @@ $pixel_adjustment : 2px;
         height: $speaks_height - $pixel_adjustment;
         width: $speaks_width;
         border-left: 1px solid white;
+        @include transition(opacity $transition_duration $transition_function);
+        @include transitionDelay($transition_duration);
 
         .triangle{
           position: relative;

@@ -1,3 +1,8 @@
+$containerPadding : $padding;
+$cleanupDuration  : $transition_time;
+$cleanupFunction  : $transition;
+$rotate           : 0deg;
+
 ul.deck {
   margin: 0;
   padding: $containerPadding;

@@ -403,160 +403,147 @@ ul.social.contact .github {
   -o-transform: translateY(-25px);
   transform: translateY(-25px); }
 
-.navigation-bar-text {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400; }
-
-.theme-font-bold {
-  font-weight: 500; }
-
-.theme-font-ligth {
-  font-weight: 300; }
-
-[ng-click] {
-  cursor: pointer; }
-
 #slate {
   min-height: 100vh; }
-  #slate .overview .card-space .speaks {
-    -webkit-transition: opacity 250ms ease;
-    -moz-transition: opacity 250ms ease;
-    -o-transition: opacity 250ms ease;
-    transition: opacity 250ms ease;
-    -webkit-transition-delay: 250ms;
-    -moz-transition-delay: 250ms;
-    -ms-transition-delay: 250ms;
-    -o-transition-delay: 250ms;
-    transition-delay: 250ms; }
-  #slate .modal {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: transparent;
-    pointer-events: none; }
-    #slate .modal .content, #slate .modal .overview {
-      padding: 10px;
-      height: 100%;
-      float: left; }
-  #slate .modal .overview {
-    overflow: visible; }
-    #slate .modal .overview .card-space {
-      position: relative;
-      width: 325px;
-      overflow: visible; }
-      #slate .modal .overview .card-space .speaks {
-        position: absolute;
-        top: 10px;
-        right: -16px;
-        height: 25px;
-        width: 17px;
-        border-left: 1px solid white; }
-        #slate .modal .overview .card-space .speaks .triangle {
-          position: relative;
-          left: -1px;
-          top: -1px; }
-    #slate .modal .overview .card-actions {
-      -webkit-transition: transform 250ms ease;
-      -moz-transition: transform 250ms ease;
-      -o-transition: transform 250ms ease;
-      transition: transform 250ms ease;
-      width: 325px;
-      height: 300px;
-      pointer-events: all;
-      padding: 10px; }
-      #slate .modal .overview .card-actions button {
-        width: 100%;
-        height: 50px;
-        background-color: rgba(0, 0, 0, 0.075);
-        border: 1px solid rgba(0, 0, 0, 0.05); }
-  #slate .modal .content {
+
+#slate .modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+  pointer-events: none; }
+  #slate .modal .content, #slate .modal .overview {
+    padding: 10px;
+    height: 100%;
+    float: left; }
+#slate .modal .overview {
+  overflow: visible; }
+  #slate .modal .overview .card-space {
     position: relative;
-    margin: 10px;
-    padding: 0px;
-    -webkit-transition: transform 350ms ease, opacity 350ms ease;
-    -moz-transition: transform 350ms ease, opacity 350ms ease;
-    -o-transition: transform 350ms ease, opacity 350ms ease;
-    transition: transform 350ms ease, opacity 350ms ease;
-    width: calc(100% - 365px);
-    border: 5px solid #EEE;
-    box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
-    #slate .modal .content .frame-bar {
-      position: relative;
-      z-index: 1;
-      background: #EEE;
-      pointer-events: all;
-      color: #646464;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      line-height: 40px; }
-      #slate .modal .content .frame-bar .title {
-        float: left;
-        overflow: hidden;
-        padding-left: 10px;
-        width: calc(100% - 360px);
-        opacity: 0.3;
-        font-size: small; }
-      #slate .modal .content .frame-bar ul.actions {
-        float: right; }
-        #slate .modal .content .frame-bar ul.actions > li {
-          float: right; }
-          #slate .modal .content .frame-bar ul.actions > li > a {
-            display: block;
-            line-height: inherit;
-            padding: 0px 20px;
-            opacity: 0.3;
-            text-decoration: none;
-            color: inherit;
-            width: 60px; }
-          #slate .modal .content .frame-bar ul.actions > li > a:hover {
-            opacity: 1; }
-    #slate .modal .content .loader, #slate .modal .content .frame {
-      height: calc(100% - 40px);
-      width: 100%;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      -webkit-transition: opacity 350ms ease;
-      -moz-transition: opacity 350ms ease;
-      -o-transition: opacity 350ms ease;
-      transition: opacity 350ms ease; }
-    #slate .modal .content .frame {
-      overflow: auto;
-      background-color: white;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      pointer-events: all;
-      opacity: 0; }
-    #slate .modal .content .loader {
+    width: 325px;
+    overflow: visible; }
+    #slate .modal .overview .card-space .speaks {
       position: absolute;
-      top: 40px;
-      left: 0;
-      z-index: 1;
-      color: #646464;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-      background: #EEE;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      line-height: 50px;
-      font-size: 50px;
-      text-align: center;
-      padding-top: 25px; }
-  #slate .modal .content.ready .frame {
-    opacity: 1; }
-  #slate .modal .content.ready .loader {
-    opacity: 0;
-    pointer-events: none; }
-  #slate .modal .content.full-screen {
-    position: fixed;
-    top: 0;
+      top: 10px;
+      right: -16px;
+      height: 25px;
+      width: 17px;
+      border-left: 1px solid white;
+      -webkit-transition: opacity 300ms ease;
+      -moz-transition: opacity 300ms ease;
+      -o-transition: opacity 300ms ease;
+      transition: opacity 300ms ease;
+      -webkit-transition-delay: 300ms;
+      -moz-transition-delay: 300ms;
+      -ms-transition-delay: 300ms;
+      -o-transition-delay: 300ms;
+      transition-delay: 300ms; }
+      #slate .modal .overview .card-space .speaks .triangle {
+        position: relative;
+        left: -1px;
+        top: -1px; }
+  #slate .modal .overview .card-actions {
+    -webkit-transition: transform 300ms ease;
+    -moz-transition: transform 300ms ease;
+    -o-transition: transform 300ms ease;
+    transition: transform 300ms ease;
+    width: 325px;
+    height: 300px;
+    pointer-events: all;
+    padding: 10px; }
+    #slate .modal .overview .card-actions button {
+      width: 100%;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.075);
+      border: 1px solid rgba(0, 0, 0, 0.05); }
+#slate .modal .content {
+  position: relative;
+  margin: 10px;
+  padding: 0px;
+  -webkit-transition: transform 400ms ease, opacity 400ms ease;
+  -moz-transition: transform 400ms ease, opacity 400ms ease;
+  -o-transition: transform 400ms ease, opacity 400ms ease;
+  transition: transform 400ms ease, opacity 400ms ease;
+  width: calc(100% - 365px);
+  border: 5px solid #EEE;
+  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
+  #slate .modal .content .frame-bar {
+    position: relative;
+    z-index: 1;
+    background: #EEE;
+    pointer-events: all;
+    color: #373a3c;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    line-height: 40px; }
+    #slate .modal .content .frame-bar .title {
+      float: left;
+      overflow: hidden;
+      padding-left: 10px;
+      width: calc(100% - 360px);
+      opacity: 0.3;
+      font-size: small; }
+    #slate .modal .content .frame-bar ul.actions {
+      float: right; }
+      #slate .modal .content .frame-bar ul.actions > li {
+        float: right; }
+        #slate .modal .content .frame-bar ul.actions > li > a {
+          display: block;
+          line-height: inherit;
+          padding: 0px 20px;
+          opacity: 0.3;
+          text-decoration: none;
+          color: inherit;
+          width: 60px; }
+        #slate .modal .content .frame-bar ul.actions > li > a:hover {
+          opacity: 1; }
+  #slate .modal .content .loader, #slate .modal .content .frame {
+    height: calc(100% - 40px);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-transition: opacity 400ms ease;
+    -moz-transition: opacity 400ms ease;
+    -o-transition: opacity 400ms ease;
+    transition: opacity 400ms ease; }
+  #slate .modal .content .frame {
+    overflow: auto;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    pointer-events: all;
+    opacity: 0; }
+  #slate .modal .content .loader {
+    position: absolute;
+    top: 40px;
     left: 0;
     z-index: 1;
-    height: calc(100vh - 20px);
-    width: calc(100vw - 20px);
-    margin: 10px; }
-  #slate .modal .content.mobile-screen .frame {
-    display: block;
-    width: 412px;
-    height: 732px;
-    margin: auto; }
+    color: #373a3c;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    background: #EEE;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 50px;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 25px; }
+#slate .modal .content.ready .frame {
+  opacity: 1; }
+#slate .modal .content.ready .loader {
+  opacity: 0;
+  pointer-events: none; }
+#slate .modal .content.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: calc(100vh - 20px);
+  width: calc(100vw - 20px);
+  margin: 10px; }
+#slate .modal .content.mobile-screen .frame {
+  display: block;
+  width: 412px;
+  height: 732px;
+  margin: auto; }
 
 #slate.show-modal .card-space {
   opacity: 1; }
@@ -567,11 +554,11 @@ ul.social.contact .github {
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
-  -webkit-transition-delay: 250ms;
-  -moz-transition-delay: 250ms;
-  -ms-transition-delay: 250ms;
-  -o-transition-delay: 250ms;
-  transition-delay: 250ms; }
+  -webkit-transition-delay: 300ms;
+  -moz-transition-delay: 300ms;
+  -ms-transition-delay: 300ms;
+  -o-transition-delay: 300ms;
+  transition-delay: 300ms; }
   #slate:not(.show-modal) .modal .overview .card-space .speaks {
     opacity: 0; }
   #slate:not(.show-modal) .modal .overview .card-actions {
@@ -586,77 +573,6 @@ ul.social.contact .github {
     -ms-transform: translateX(100vw);
     -o-transform: translateX(100vw);
     transform: translateX(100vw); }
-
-ul.deck {
-  margin: 0;
-  padding: 10px;
-  display: block;
-  list-style: none;
-  text-align: left;
-  width: 100%;
-  overflow: visible; }
-  ul.deck > li {
-    padding: 10px;
-    float: left;
-    -webkit-transition: opacity 250ms ease, transform 250ms ease;
-    -moz-transition: opacity 250ms ease, transform 250ms ease;
-    -o-transition: opacity 250ms ease, transform 250ms ease;
-    transition: opacity 250ms ease, transform 250ms ease; }
-    ul.deck > li .wrapper {
-      -webkit-transition: opacity 250ms ease, transform 250ms ease;
-      -moz-transition: opacity 250ms ease, transform 250ms ease;
-      -o-transition: opacity 250ms ease, transform 250ms ease;
-      transition: opacity 250ms ease, transform 250ms ease; }
-
-.deck:not(.focus) {
-  overflow: hidden; }
-
-.deck.focus {
-  pointer-events: none; }
-  .deck.focus li.selected {
-    pointer-events: none; }
-  .deck.focus li.selected-head {
-    -webkit-transform: translateY(50px) rotate(0deg);
-    -moz-transform: translateY(50px) rotate(0deg);
-    -ms-transform: translateY(50px) rotate(0deg);
-    -o-transform: translateY(50px) rotate(0deg);
-    transform: translateY(50px) rotate(0deg); }
-  .deck.focus li.selected-tail {
-    -webkit-transform: translateY(-50px) rotate(0deg);
-    -moz-transform: translateY(-50px) rotate(0deg);
-    -ms-transform: translateY(-50px) rotate(0deg);
-    -o-transform: translateY(-50px) rotate(0deg);
-    transform: translateY(-50px) rotate(0deg); }
-  .deck.focus li.selected-pre {
-    -webkit-transform: translateX(50px) rotate(0deg);
-    -moz-transform: translateX(50px) rotate(0deg);
-    -ms-transform: translateX(50px) rotate(0deg);
-    -o-transform: translateX(50px) rotate(0deg);
-    transform: translateX(50px) rotate(0deg); }
-  .deck.focus li.selected-post {
-    -webkit-transform: translateX(-50px) rotate(0deg);
-    -moz-transform: translateX(-50px) rotate(0deg);
-    -ms-transform: translateX(-50px) rotate(0deg);
-    -o-transform: translateX(-50px) rotate(0deg);
-    transform: translateX(-50px) rotate(0deg); }
-  .deck.focus li:not(.selected) {
-    opacity: 0; }
-
-ul.grid {
-  position: relative; }
-  ul.grid > li.grid-box {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-transform: translateX(50vw) translateY(100vh);
-    -moz-transform: translateX(50vw) translateY(100vh);
-    -ms-transform: translateX(50vw) translateY(100vh);
-    -o-transform: translateX(50vw) translateY(100vh);
-    transform: translateX(50vw) translateY(100vh); }
-  ul.grid > li.grid-box:not(.visible) {
-    pointer-events: none !important;
-    opacity: 0 !important; }
 
 #slate.page.show-modal .title {
   -webkit-transform: translateY(-400%);
@@ -688,7 +604,7 @@ ul.grid {
   display: block;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #646464;
+  color: #373a3c;
   background: white;
   padding: 20px 20px; }
   .card img {
@@ -938,6 +854,77 @@ ul.period-list > li ul.projects > li {
   font-size: small;
   opacity: 0.5;
   text-align: center; }
+
+ul.deck {
+  margin: 0;
+  padding: 10px;
+  display: block;
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  overflow: visible; }
+  ul.deck > li {
+    padding: 10px;
+    float: left;
+    -webkit-transition: opacity 300ms ease, transform 300ms ease;
+    -moz-transition: opacity 300ms ease, transform 300ms ease;
+    -o-transition: opacity 300ms ease, transform 300ms ease;
+    transition: opacity 300ms ease, transform 300ms ease; }
+    ul.deck > li .wrapper {
+      -webkit-transition: opacity 300ms ease, transform 300ms ease;
+      -moz-transition: opacity 300ms ease, transform 300ms ease;
+      -o-transition: opacity 300ms ease, transform 300ms ease;
+      transition: opacity 300ms ease, transform 300ms ease; }
+
+.deck:not(.focus) {
+  overflow: hidden; }
+
+.deck.focus {
+  pointer-events: none; }
+  .deck.focus li.selected {
+    pointer-events: none; }
+  .deck.focus li.selected-head {
+    -webkit-transform: translateY(50px) rotate(0deg);
+    -moz-transform: translateY(50px) rotate(0deg);
+    -ms-transform: translateY(50px) rotate(0deg);
+    -o-transform: translateY(50px) rotate(0deg);
+    transform: translateY(50px) rotate(0deg); }
+  .deck.focus li.selected-tail {
+    -webkit-transform: translateY(-50px) rotate(0deg);
+    -moz-transform: translateY(-50px) rotate(0deg);
+    -ms-transform: translateY(-50px) rotate(0deg);
+    -o-transform: translateY(-50px) rotate(0deg);
+    transform: translateY(-50px) rotate(0deg); }
+  .deck.focus li.selected-pre {
+    -webkit-transform: translateX(50px) rotate(0deg);
+    -moz-transform: translateX(50px) rotate(0deg);
+    -ms-transform: translateX(50px) rotate(0deg);
+    -o-transform: translateX(50px) rotate(0deg);
+    transform: translateX(50px) rotate(0deg); }
+  .deck.focus li.selected-post {
+    -webkit-transform: translateX(-50px) rotate(0deg);
+    -moz-transform: translateX(-50px) rotate(0deg);
+    -ms-transform: translateX(-50px) rotate(0deg);
+    -o-transform: translateX(-50px) rotate(0deg);
+    transform: translateX(-50px) rotate(0deg); }
+  .deck.focus li:not(.selected) {
+    opacity: 0; }
+
+ul.grid {
+  position: relative; }
+  ul.grid > li.grid-box {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateX(50vw) translateY(100vh);
+    -moz-transform: translateX(50vw) translateY(100vh);
+    -ms-transform: translateX(50vw) translateY(100vh);
+    -o-transform: translateX(50vw) translateY(100vh);
+    transform: translateX(50vw) translateY(100vh); }
+  ul.grid > li.grid-box:not(.visible) {
+    pointer-events: none !important;
+    opacity: 0 !important; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {
