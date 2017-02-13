@@ -16,6 +16,9 @@ $frame_bar_height: 40px;
 
 #slate{
   min-height: 100vh;
+  .tags{
+    @extend .fades-and-moves;
+  }
 }
 @import 'modal/modal';
 

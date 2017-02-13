@@ -9,22 +9,6 @@ $pixel_adjustment : 2px;
       width: $cardWidth;
       overflow: visible;
 
-      .speaks{
-        position: absolute;
-        top: $padding;
-        right: -$speaks_width + $pixel_adjustment/2;
-        height: $speaks_height - $pixel_adjustment;
-        width: $speaks_width;
-        border-left: 1px solid white;
-        @include transition(opacity $transition_duration $transition_function);
-        @include transitionDelay($transition_duration);
-
-        .triangle{
-          position: relative;
-          left: -$pixel_adjustment/2;
-          top: -$pixel_adjustment/2;
-        }
-      }
     }
 
     .card-actions{

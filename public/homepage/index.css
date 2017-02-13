@@ -145,7 +145,7 @@ ul.inline-list {
     font-style: italic;
     color: rgba(0, 0, 0, 0.5); }
 
-.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name h1, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me, #slate.page.show-modal .title {
+.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name h1, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me, #slate.page.show-modal .tags, #slate.page.show-modal .title {
   opacity: 0;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
@@ -153,7 +153,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.fades-and-moves, #nishants .page .heading .name h1, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate.page .title {
+.fades-and-moves, #nishants .page .heading .name h1, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate .tags, #slate.page .title {
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -231,7 +231,8 @@ ul.inline-list {
   transform: translateX(-20px); }
 
 .about-me {
-  margin: auto; }
+  margin: auto;
+  font-style: italic; }
 
 ul.social.contact > li {
   padding: 10px;
@@ -414,26 +415,6 @@ ul.social.contact > li:hover a {
     position: relative;
     width: 325px;
     overflow: visible; }
-    #slate .modal .overview .card-space .speaks {
-      position: absolute;
-      top: 10px;
-      right: -16px;
-      height: 25px;
-      width: 17px;
-      border-left: 1px solid white;
-      -webkit-transition: opacity 300ms ease;
-      -moz-transition: opacity 300ms ease;
-      -o-transition: opacity 300ms ease;
-      transition: opacity 300ms ease;
-      -webkit-transition-delay: 300ms;
-      -moz-transition-delay: 300ms;
-      -ms-transition-delay: 300ms;
-      -o-transition-delay: 300ms;
-      transition-delay: 300ms; }
-      #slate .modal .overview .card-space .speaks .triangle {
-        position: relative;
-        left: -1px;
-        top: -1px; }
   #slate .modal .overview .card-actions {
     -webkit-transition: transform 300ms ease;
     -moz-transition: transform 300ms ease;
@@ -457,14 +438,14 @@ ul.social.contact > li:hover a {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 5px solid #EEE;
-  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21); }
+  border: 2px solid #51A7F9;
+  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
+  background-color: rgba(0, 0, 0, 0.3); }
   #slate .modal .content .frame-bar {
     position: relative;
     z-index: 1;
-    background: #EEE;
     pointer-events: all;
-    color: #373a3c;
+    color: #51A7F9;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     line-height: 40px; }
     #slate .modal .content .frame-bar .title {
@@ -472,17 +453,16 @@ ul.social.contact > li:hover a {
       overflow: hidden;
       padding-left: 10px;
       width: calc(100% - 360px);
-      opacity: 0.3;
       font-size: small; }
     #slate .modal .content .frame-bar ul.actions {
       float: right; }
       #slate .modal .content .frame-bar ul.actions > li {
         float: right; }
         #slate .modal .content .frame-bar ul.actions > li > a {
+          opacity: 0.5;
           display: block;
           line-height: inherit;
           padding: 0px 20px;
-          opacity: 0.3;
           text-decoration: none;
           color: inherit;
           width: 60px; }
@@ -507,9 +487,8 @@ ul.social.contact > li:hover a {
     top: 40px;
     left: 0;
     z-index: 1;
-    color: #373a3c;
+    color: #51A7F9;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: #EEE;
     border: 1px solid rgba(0, 0, 0, 0.1);
     line-height: 50px;
     font-size: 50px;
@@ -563,7 +542,7 @@ ul.social.contact > li:hover a {
     -o-transform: translateX(100vw);
     transform: translateX(100vw); }
 
-#slate.page.show-modal .title {
+#slate.page.show-modal .tags, #slate.page.show-modal .title {
   -webkit-transform: translateY(-400%);
   -moz-transform: translateY(-400%);
   -ms-transform: translateY(-400%);

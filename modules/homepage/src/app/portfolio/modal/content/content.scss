@@ -8,15 +8,15 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
     padding: 0px;
     @include transition(#{transform $contentTransitionDuration ease, opacity $contentTransitionDuration ease});
     width: calc(100% - #{$cardWidth + 2 * $containerPadding + 2 * $padding});
-    border: $padding/2 solid $modal_color;
+    border: 2px solid $highlight_color;
     box-shadow: $box_shadow;
+    background-color: $solid_hard_bg;
 
     .frame-bar{
       position: relative;
       z-index: 1;
-      background: $modal_color;
       pointer-events: all;
-      color: $black_text;
+      color: $highlight_color;
       border-bottom: $heavy-border;
       line-height: $frame_bar_height;
       @extend .resize-container;
@@ -25,7 +25,6 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
         overflow: hidden;
         padding-left: $padding;
         width: calc(100% - #{$frame_actions_width});
-        opacity: 0.3;
         font-size: small;
       }
 
@@ -37,10 +36,10 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
         > li{
           float: right;
           > a{
+            opacity: 0.5;
             display: block;
             line-height: inherit;
             padding: 0px $padding*2;
-            opacity: 0.3;
             text-decoration: none;
             color: inherit;
             width: $frame_button_width;
@@ -71,9 +70,8 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
       top: $frame_bar_height;
       left: 0;
       z-index: 1;
-      color: $black_text;
+      color: $highlight_color;
       text-shadow: $text_shadow;
-      background: $modal_color;
       border: 1px solid rgba(0, 0, 0, 0.1);
       line-height : $loader_size;
       font-size   : $loader_size;

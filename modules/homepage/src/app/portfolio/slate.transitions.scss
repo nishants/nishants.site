@@ -34,7 +34,7 @@
 }
 
 #slate.page.show-modal{
-  .title{
+  .tags, .title{
     @extend .pulled-to-top;
     @include transform(translateY(-400%));
   }
