@@ -18,6 +18,7 @@ $link_font_size : small;
         font-size  : $link_font_size;
         width      : $link_width;
         margin-left: $link_margin;
+        border : 1px solid transparent;
         @include transition(all $transition_time $transition);
         > a{
           @extend .undo-link;
@@ -26,10 +27,9 @@ $link_font_size : small;
         }
       }
       >li:hover{
-        opacity: 0.8;
-        background-color: $black_border;
+        border: 1px solid $highlight_color;
         > a{
-          @include transform(scale(0.9));
+          color: $highlight_color;
         }
       }
     }

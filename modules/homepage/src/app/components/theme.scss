@@ -1,4 +1,5 @@
 $solid_bg : rgba(0, 0, 0, 0.2);
+$solid_hard_bg : rgba(0, 0, 0, 0.3);
 $button_bg : rgba(0, 0, 0, 0.5);
 $highlight_color: #51A7F9;
 $input_color: #51A7F9;
@@ -17,6 +18,10 @@ $theme_color: #8c8f8f;
 .theme-body-bg{
   @extend .carbon-fiber;
 
+}
+
+.solid-hard-surface{
+  background-color: $solid_hard_bg;
 }
 
 .solid-surface{

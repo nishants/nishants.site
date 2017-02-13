@@ -11,8 +11,13 @@ $card_bg: white;
   font-weight: $weight_normal;
 }
 
+
+.card:hover, .selected .card{
+  color: $highlight_color;
+}
+
 .card{
-  @extend .solid-surface;
+  @extend .solid-hard-surface;
   width: $cardWidth;
   display: block;
   cursor: pointer;

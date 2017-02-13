@@ -81,7 +81,10 @@ ul.inline-list {
   background-color: #282828;
   background-size: 16px 16px; }
 
-.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .card, .timeline .timeline-header {
+.solid-hard-surface, .card {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .timeline .timeline-header {
   background-color: rgba(0, 0, 0, 0.2); }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send {
@@ -309,6 +312,7 @@ ul.social.contact > li:hover a {
       font-size: small;
       width: 100px;
       margin-left: 0px;
+      border: 1px solid transparent;
       -webkit-transition: all 300ms ease;
       -moz-transition: all 300ms ease;
       -o-transition: all 300ms ease;
@@ -320,14 +324,9 @@ ul.social.contact > li:hover a {
         transition: transform 300ms ease;
         display: block; }
     .top-bar .navigation-bar .navigation > li:hover {
-      opacity: 0.8;
-      background-color: rgba(0, 0, 0, 0.1); }
+      border: 1px solid #51A7F9; }
       .top-bar .navigation-bar .navigation > li:hover > a {
-        -webkit-transform: scale(0.9);
-        -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -o-transform: scale(0.9);
-        transform: scale(0.9); }
+        color: #51A7F9; }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
@@ -590,6 +589,9 @@ ul.social.contact > li:hover a {
   font-style: italic;
   font-family: "Open Sans", sans-serif;
   font-weight: 400; }
+
+.card:hover, .selected .card {
+  color: #51A7F9; }
 
 .card {
   width: 325px;
