@@ -61,10 +61,10 @@ ul.inline-list {
   ul.inline-list > li {
     float: left; }
 
-.light-text, #nishants .page .heading .title, .top-bar .profile-bar .name, .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project, .compact-card .detail .caption {
+.light-text, #nishants .page .heading .title, .top-bar .profile-bar .name, .compact-card .detail .caption {
   opacity: 0.5; }
 
-.heading-font, #nishants .main-content .page > .title, .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
+.heading-font, #nishants .main-content .page > .title {
   font-family: "Roboto", sans-serif;
   font-weight: 500; }
 

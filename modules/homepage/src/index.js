@@ -1,14 +1,12 @@
-require("./app/slate/app/app.js");
-require("./app/slate/app/variables.js");
-require("./app/slate/app/config.js");
-require('./app/slate/app/app.js');
-require('./app/slate/app/deck/deck.js');
-require('./app/slate/app/deck/deck-service.js');
-require('./app/slate/app/modal/modal-service.js');
-require('./app/slate/app/modal/modal-controller.js');
-require('./app/slate/app/grid/grid-directive.js');
-require('./app/slate/app/grid/grid-service.js');
-require('./app/slate/app/components/scroll.js');
+require("./app/slate/slate.js");
+require("./app/slate/variables.js");
+require("./app/slate/config.js");
+require('./app/slate/deck/deck.js');
+require('./app/slate/deck/deck-service.js');
+require('./app/slate/modal/modal-service.js');
+require('./app/slate/modal/modal-controller.js');
+require('./app/slate/grid/grid-directive.js');
+require('./app/slate/grid/grid-service.js');
 
 require("./app/timeline/timeline.js");
 require("./app/timeline/timeline-controller");
