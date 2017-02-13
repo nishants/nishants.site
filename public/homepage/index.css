@@ -63,7 +63,7 @@ ul.inline-list {
     float: left; }
 
 .light-text, #nishants .page .heading .title, .top-bar .profile-bar .name, .compact-card .detail .caption {
-  opacity: 0.5; }
+  font-weight: 300; }
 
 .heading-font, #nishants .main-content .page > .title {
   font-family: "Roboto", sans-serif;
@@ -81,10 +81,10 @@ ul.inline-list {
   background-color: #282828;
   background-size: 16px 16px; }
 
-.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .timeline .timeline-header {
+.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .card, .timeline .timeline-header {
   background-color: rgba(0, 0, 0, 0.2); }
 
-.button-surface, #nishants .intro ul.navigation > li .link, .card, #nishants #connect.page .contact button.send {
+.button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send {
   color: inherit;
   border: 1px solid transparent;
   background-color: rgba(0, 0, 0, 0.5); }
@@ -93,7 +93,7 @@ ul.inline-list {
   background-color: rgba(0, 0, 0, 0.2);
   color: inherit; }
 
-.button-surface:hover, #nishants .intro ul.navigation > li .link:hover, .card:hover, #nishants #connect.page .contact button.send:hover {
+.button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover {
   color: #51A7F9; }
 
 #nishants {
@@ -177,28 +177,30 @@ ul.inline-list {
       width: calc(100% - 300px);
       text-align: left; }
 
-#nishants .page .heading .profile-image {
-  padding: 5px;
-  overflow: hidden; }
-  #nishants .page .heading .profile-image img {
-    height: 80px;
-    width: 80px;
-    display: block;
-    margin: auto;
-    border-radius: 3px;
-    opacity: 0.9;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease; }
-#nishants .page .heading .name {
-  line-height: 25px; }
-#nishants .page .heading .title {
-  line-height: 20px;
-  font-size: small; }
-#nishants .page .heading .border {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  height: 20px; }
+#nishants .page .heading {
+  padding-top: 20px; }
+  #nishants .page .heading .profile-image {
+    padding: 5px;
+    overflow: hidden; }
+    #nishants .page .heading .profile-image img {
+      height: 80px;
+      width: 80px;
+      display: block;
+      margin: auto;
+      border-radius: 3px;
+      opacity: 0.9;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease; }
+  #nishants .page .heading .name {
+    line-height: 25px; }
+  #nishants .page .heading .title {
+    line-height: 20px;
+    font-size: small; }
+  #nishants .page .heading .border {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 20px; }
 
 #nishants .intro ul.navigation > li {
   display: block;

@@ -4,7 +4,7 @@ $padding_bottom: $padding*2;
   .page{
     .heading{
       @extend .solid-surface;
-
+      padding-top: $padding*2;
       .profile-image{
         padding: $padding/2;
         overflow: hidden;

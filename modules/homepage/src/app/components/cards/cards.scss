@@ -12,7 +12,7 @@ $card_bg: white;
 }
 
 .card{
-  @extend .button-surface;
+  @extend .solid-surface;
   width: $cardWidth;
   display: block;
   cursor: pointer;
