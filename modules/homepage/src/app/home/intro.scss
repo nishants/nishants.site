@@ -12,7 +12,7 @@ $actions_width       : 300px;
 
       .description, .actions{
         float: left;
-        padding: $padding*2 $padding*3;
+        padding: 0px $padding*3 $padding*2 $padding*3;
       }
       .actions{
         width: $actions_width;
@@ -21,6 +21,7 @@ $actions_width       : 300px;
         border-left: 1px solid $black_border;
         width: calc(100% - #{$actions_width});
         text-align: left;
+        @extend .solid-surface;
       }
     }
   }

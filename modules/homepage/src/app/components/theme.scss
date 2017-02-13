@@ -1,0 +1,39 @@
+$solid_bg : rgba(0, 0, 0, 0.2);
+$button_bg : rgba(0, 0, 0, 0.5);
+$highlight_color: #51A7F9;
+$input_color: #51A7F9;
+$placeholder_color: rgba(81, 167, 249, 0.51);
+$theme_color: #8c8f8f;
+
+.carbon-fiber {
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+              radial-gradient(black 15%, transparent 16%) 8px 8px,
+              radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+              radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
+}
+
+.theme-body-bg{
+  @extend .carbon-fiber;
+
+}
+
+.solid-surface{
+  background-color: $solid_bg;
+}
+
+.button-surface{
+  color: inherit;
+  border: 1px solid transparent;
+  background-color: $button_bg;
+}
+
+.input-surface{
+  background-color: $solid_bg;
+  color: inherit;
+}
+
+.button-surface:hover{
+  color:$highlight_color;
+}

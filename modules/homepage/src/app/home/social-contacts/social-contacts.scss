@@ -26,6 +26,7 @@ ul.social.contact{
     @extend .fades-and-moves;
 
     > a {
+      @extend .undo-link;
       height: $icon_height;
       line-height: $icon_height;
       width : $icon_height;
@@ -36,45 +37,50 @@ ul.social.contact{
       @include transition(all $transition_time $transition);
     }
   }
-
-  .mailto:hover{
-    @include  hover_link($mail_color);
+  > li:hover {
+    a{
+      color: $highlight_color;
+    }
   }
-
-  .mailto{
-    @include social_link($mail_color);
-  }
-
-  .twitter:hover{
-    @include  hover_link($twitter);
-  }
-
-  .twitter{
-    @include social_link($twitter);
-
-  }
-
-  .stack-overflow:hover{
-    @include  hover_link($stack_overflow_color);
-  }
-
-  .stack-overflow{
-    @include social_link($stack_overflow_color);
-  }
-
-  .linkedin:hover{
-    @include  hover_link($linked_color);
-  }
-
-  .linkedin{
-    @include social_link($linked_color);
-  }
-
-  .github:hover{
-    @include  hover_link($github_color);
-  }
-
-  .github{
-    @include social_link($github_color);
-  }
+    //
+  //.mailto:hover{
+  //  @include  hover_link($mail_color);
+  //}
+  //
+  //.mailto{
+  //  @include social_link($mail_color);
+  //}
+  //
+  //.twitter:hover{
+  //  @include  hover_link($twitter);
+  //}
+  //
+  //.twitter{
+  //  @include social_link($twitter);
+  //
+  //}
+  //
+  //.stack-overflow:hover{
+  //  @include  hover_link($stack_overflow_color);
+  //}
+  //
+  //.stack-overflow{
+  //  @include social_link($stack_overflow_color);
+  //}
+  //
+  //.linkedin:hover{
+  //  @include  hover_link($linked_color);
+  //}
+  //
+  //.linkedin{
+  //  @include social_link($linked_color);
+  //}
+  //
+  //.github:hover{
+  //  @include  hover_link($github_color);
+  //}
+  //
+  //.github{
+  //  @include social_link($github_color);
+  //}
 }

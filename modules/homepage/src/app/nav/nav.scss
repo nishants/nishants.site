@@ -18,12 +18,12 @@ $shadow_offset: $top_bar_shadow_offset;
   @extend .top-bar-font;
 
   .background{
+    @extend .solid-surface;
     position: absolute;
     top: 0;
     left: 0;
     height: calc(100% - #{$shadow_offset});
     width: 100%;
-    background: white;
     box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
     @include transition(all $transition_time $transition);
   }

@@ -26,7 +26,8 @@ body {
   padding: 0px; }
 
 body * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: inherit; }
 
 label {
   cursor: inherit; }
@@ -43,7 +44,7 @@ input {
   display: table;
   clear: both; }
 
-a.undo-link, #nishants .intro ul.navigation > li a.link, .top-bar a.profile-bar, .top-bar .navigation-bar .navigation > li > a, #nishants #connect.page .contact button.send a {
+a.undo-link, #nishants .intro ul.navigation > li a.link, ul.social.contact > li > a, .top-bar a.profile-bar, .top-bar .navigation-bar .navigation > li > a, #nishants #connect.page .contact button.send a {
   text-decoration: none;
   color: inherit; }
 
@@ -75,8 +76,28 @@ ul.inline-list {
   font-family: 'Roboto', sans-serif;
   font-weight: 400; }
 
+.carbon-fiber, .theme-body-bg, #nishants {
+  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px; }
+
+.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .timeline .timeline-header {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.button-surface, #nishants .intro ul.navigation > li .link, .card, #nishants #connect.page .contact button.send {
+  color: inherit;
+  border: 1px solid transparent;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.input-surface, #nishants #connect.page .contact textarea.message {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: inherit; }
+
+.button-surface:hover, #nishants .intro ul.navigation > li .link:hover, .card:hover, #nishants #connect.page .contact button.send:hover {
+  color: #51A7F9; }
+
 #nishants {
-  color: #373a3c;
+  color: #8c8f8f;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
@@ -126,7 +147,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.fades-and-moves, #nishants .page .heading .name label, #nishants .page .heading .title, #nishants .page .heading .border, .about-me, ul.social.contact > li, #slate.page .title {
+.fades-and-moves, #nishants .page .heading .name label, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate.page .title {
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -148,7 +169,7 @@ ul.inline-list {
     margin: auto; }
     #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
       float: left;
-      padding: 20px 30px; }
+      padding: 0px 30px 20px 30px; }
     #nishants .page.intro .overview .actions {
       width: 300px; }
     #nishants .page.intro .overview .description {
@@ -165,6 +186,7 @@ ul.inline-list {
     display: block;
     margin: auto;
     border-radius: 3px;
+    opacity: 0.9;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -181,29 +203,29 @@ ul.inline-list {
 #nishants .intro ul.navigation > li {
   display: block;
   overflow: hidden;
-  padding-right: 10px; }
+  padding-bottom: 10px; }
   #nishants .intro ul.navigation > li .link {
     display: block;
     height: 70px;
     line-height: 70px;
+    padding: 0px 20px;
     width: 100%;
     margin: auto;
     text-align: right;
     font-weight: 400;
-    opacity: 0.8;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease; }
-#nishants .intro ul.navigation > li:hover {
-  opacity: 0.8;
-  background-color: rgba(0, 0, 0, 0.1); }
-  #nishants .intro ul.navigation > li:hover > .link {
-    -webkit-transform: translateX(-10px);
-    -moz-transform: translateX(-10px);
-    -ms-transform: translateX(-10px);
-    -o-transform: translateX(-10px);
-    transform: translateX(-10px); }
+    opacity: 0.8; }
+    #nishants .intro ul.navigation > li .link span {
+      display: inline-block;
+      -webkit-transition: transform 300ms ease;
+      -moz-transition: transform 300ms ease;
+      -o-transition: transform 300ms ease;
+      transition: transform 300ms ease; }
+#nishants .intro ul.navigation > li:hover > .link span {
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
+  -o-transform: translateX(-20px);
+  transform: translateX(-20px); }
 
 .about-me {
   margin: auto; }
@@ -223,36 +245,8 @@ ul.social.contact > li {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease; }
-ul.social.contact .mailto:hover {
-  color: white;
-  background-color: #1a84bc;
-  border: 1px solid #1a84bc; }
-ul.social.contact .mailto {
-  color: #1a84bc; }
-ul.social.contact .twitter:hover {
-  color: white;
-  background-color: #1da1f2;
-  border: 1px solid #1da1f2; }
-ul.social.contact .twitter {
-  color: #1da1f2; }
-ul.social.contact .stack-overflow:hover {
-  color: white;
-  background-color: #f48024;
-  border: 1px solid #f48024; }
-ul.social.contact .stack-overflow {
-  color: #f48024; }
-ul.social.contact .linkedin:hover {
-  color: white;
-  background-color: #1a84bc;
-  border: 1px solid #1a84bc; }
-ul.social.contact .linkedin {
-  color: #1a84bc; }
-ul.social.contact .github:hover {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.65); }
-ul.social.contact .github {
-  color: rgba(0, 0, 0, 0.65); }
+ul.social.contact > li:hover a {
+  color: #51A7F9; }
 
 #nishants.show-name .page .heading .border {
   -webkit-transform: translateY(-108px);
@@ -274,7 +268,6 @@ ul.social.contact .github {
     left: 0;
     height: calc(100% - 5px);
     width: 100%;
-    background: white;
     box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -601,8 +594,6 @@ ul.social.contact .github {
   display: block;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #373a3c;
-  background: white;
   padding: 20px 20px; }
   .card img {
     width: 100%; }
@@ -655,8 +646,6 @@ ul.social.contact .github {
           display: none; }
       .timeline .sticky-container .timeline .period-list > li.reading .position .compact-card {
         box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
-  .timeline .timeline-header {
-    background: white; }
   .timeline .timeline-body {
     height: calc(100% - 80px);
     overflow: auto; }
@@ -739,14 +728,6 @@ ul.period-list > li ul.projects > li {
       width: calc(100% - 50px);
       padding-left: 10px;
       outline: none; }
-      .search.bar .search-widget input.query::-webkit-input-placeholder {
-        color: rgba(0, 0, 0, 0.1); }
-      .search.bar .search-widget input.query:-moz-input-placeholder {
-        color: rgba(0, 0, 0, 0.1); }
-      .search.bar .search-widget input.query::-moz-input-placeholder {
-        color: rgba(0, 0, 0, 0.1); }
-      .search.bar .search-widget input.query:-ms-input-placeholder {
-        color: rgba(0, 0, 0, 0.1); }
 
 .compact-card {
   position: relative;
@@ -785,12 +766,12 @@ ul.period-list > li ul.projects > li {
       .compact-card .detail .caption .to {
         padding: 0px 5px; }
 
+#nishants.show-stick-experience .timeline-header {
+  opacity: 0; }
+#nishants.show-stick-experience .sticky .timeline-header {
+  opacity: 1; }
 #nishants.show-stick-experience .timeline-body.scrollable .period.reading .position {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
+  opacity: 0; }
 
 #nishants.show-stick-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
   -webkit-transition: transform 300ms ease;
@@ -824,8 +805,6 @@ ul.period-list > li ul.projects > li {
     display: block;
     width: 100%;
     margin: 10px;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -837,15 +816,6 @@ ul.period-list > li ul.projects > li {
       -moz-transition: transform 300ms ease;
       -o-transition: transform 300ms ease;
       transition: transform 300ms ease; }
-  #nishants #connect.page .contact button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    opacity: 0.5; }
-    #nishants #connect.page .contact button:hover > a {
-      -webkit-transform: scale(0.9);
-      -moz-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-      -o-transform: scale(0.9);
-      transform: scale(0.9); }
 
 #footer {
   font-size: small;

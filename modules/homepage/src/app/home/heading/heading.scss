@@ -3,6 +3,8 @@ $padding_bottom: $padding*2;
 #nishants{
   .page{
     .heading{
+      @extend .solid-surface;
+
       .profile-image{
         padding: $padding/2;
         overflow: hidden;
@@ -12,6 +14,7 @@ $padding_bottom: $padding*2;
           display : block;
           margin  : auto;
           border-radius: $border_radius;
+          opacity: 0.9;
           @include transition(all $transition_time $transition);
         }
       }

@@ -6,25 +6,32 @@
       > li {
         display: block;
         overflow: hidden;
-        padding-right: $padding;
+        padding-bottom: $padding;
+
         .link{
           @extend .undo-link;
           display: block;
           height     : $option_button_height + $padding*2;
           line-height: $option_button_height + $padding*2;
+          padding: 0px 2*$padding;
           width: 100%;
           margin: auto;
           text-align: right;
           font-weight: $weight_normal;
           opacity: 0.8;
-          @include transition(all $transition_time $transition);
+          @extend .button-surface;
+          @extend .fades-and-moves;
+          span {
+            display: inline-block;
+            @include transition(transform $transition_time $transition)
+          };
         }
       }
       >li:hover{
-        opacity: 0.8;
-        background-color: $black_border;
         > .link{
-          @include transform(translateX(-$padding));
+          span {
+            @include transform(translateX(-$padding*2));
+          }
         }
       }
     }

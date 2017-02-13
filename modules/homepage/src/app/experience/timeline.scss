@@ -62,9 +62,7 @@ $approx_position_card_height: $padding_big * 2 + $padding;
 
 
   .timeline-header{
-    //height: $header_height;
-    background: white;
-
+    @extend .solid-surface;
   }
   .timeline-body{
     height: calc(100% - #{$header_height});

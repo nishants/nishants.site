@@ -11,26 +11,19 @@
       margin: $padding;
       border: 1px solid $black_border;
       text-align: center;
+      @extend .input-surface;
     }
     button.send {
+      @extend .button-surface;
       display: block;
       width: 100%;
       margin: $padding;
-      background: white;
-      border: 1px solid $black_border;
       @include transition(all $transition_time $transition);
       a {
         @extend .undo-link;
         display: block;
         padding: $padding*2;
         @include transition(transform $transition_time $transition);
-      }
-    }
-    button:hover{
-      background-color: $black_border;
-      opacity: 0.5;
-      > a{
-        @include transform(scale(0.9));
       }
     }
   }

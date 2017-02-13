@@ -1,8 +1,17 @@
 #nishants.show-stick-experience{
+  .timeline-header{
+    opacity: 0;
+  }
+  .sticky{
+    .timeline-header{
+      opacity: 1;
+    }
+  }
+
   .timeline-body.scrollable {
     .period.reading {
       .position {
-        @include transform(translateY(-100%));
+        opacity: 0;
       }
     }
   }

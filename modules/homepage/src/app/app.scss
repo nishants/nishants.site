@@ -26,11 +26,15 @@ $cardWidth: 325px;
 $cardHeight: 250px;
 
 @import 'components/typography';
+@import 'components/theme';
+
 #nishants{
-  color: $black_text;
+  color: $theme_color;
   font-family: $font_family;
   text-align : center;
   line-height: $row_height;
+  @extend .theme-body-bg;
+
   .main-content{
     .page, .sticky{
       max-width: $max_page_width;

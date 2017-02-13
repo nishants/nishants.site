@@ -12,12 +12,11 @@ $card_bg: white;
 }
 
 .card{
+  @extend .button-surface;
   width: $cardWidth;
   display: block;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: $black_text;
-  background: $card_bg;
   img{width: 100%;}
   padding: 2*$padding 2*$padding;
 
