@@ -1,10 +1,13 @@
 require("./app/portfolio/slate.js");
 require("./app/portfolio/variables.js");
 require("./app/portfolio/config.js");
-require('./app/components/deck/deck.js');
-require('./app/components/deck/deck-service.js');
 require('./app/portfolio/modal/modal-service.js');
 require('./app/portfolio/modal/modal-controller.js');
+require('./app/portfolio/portfolio-controller');
+
+require('./app/components/deck/deck.js');
+require('./app/components/deck/deck-service.js');
+
 require('./app/components/grid/grid-directive.js');
 require('./app/components/grid/grid-service.js');
 

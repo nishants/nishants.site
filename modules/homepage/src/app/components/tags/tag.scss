@@ -1,0 +1,38 @@
+$status_width: 50px;
+
+ul.tags{
+  @extend .undo-list;
+  > li {
+    display: inline-block;
+    padding: 0px $padding;
+    @extend .resize-container;
+
+    > .tag, > .status{
+      float: left;
+      padding: 0px;
+      @extend .button-surface;
+    }
+    .tag{
+      padding-left: $padding_big;
+      padding-right: $padding_big;
+      margin-right: 1px ;
+      text-transform: capitalize;
+    }
+    > .status{
+      width: $status_width;
+    }
+  }
+
+  > li:not(.selected){
+    > .status.selected{
+      display: none;
+    }
+  }
+
+  > li.selected{
+    color: $highlight_color;
+    > .status:not(.selected){
+      display: none;
+    }
+  }
+}

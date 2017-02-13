@@ -39,7 +39,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .navigation-bar .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .timeline .timeline-header .labels.bar:after, .search.bar .search-widget:after, .compact-card:after {
+.resize-container:after, ul.inline-list:after, #nishants .page.intro .overview:after, #nishants .intro ul.navigation:after, ul.social.contact:after, .top-bar .navigation-bar .navigation:after, #slate .modal .content .frame-bar:after, #slate .modal .content .frame-bar ul.actions:after, ul.period-list > li ul.projects:after, .timeline .timeline-header .labels.bar:after, .search.bar .search-widget:after, .compact-card:after, ul.tags > li:after {
   content: "";
   display: table;
   clear: both; }
@@ -48,7 +48,7 @@ a.undo-link, #nishants .intro ul.navigation > li a.link, ul.social.contact > li 
   text-decoration: none;
   color: inherit; }
 
-ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .navigation-bar ul.navigation, #slate .modal .content .frame-bar ul.actions, .timeline ul.period-list, ul.period-list > li ul.projects {
+ul.undo-list, ul.inline-list, #nishants .intro ul.navigation, ul.social.contact, .top-bar .navigation-bar ul.navigation, #slate .modal .content .frame-bar ul.actions, .timeline ul.period-list, ul.period-list > li ul.projects, ul.tags {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -87,7 +87,7 @@ ul.inline-list {
 .solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .timeline .timeline-header {
   background-color: rgba(0, 0, 0, 0.2); }
 
-.button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send {
+.button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
   color: inherit;
   border: 1px solid transparent;
   background-color: rgba(0, 0, 0, 0.5); }
@@ -96,7 +96,7 @@ ul.inline-list {
   background-color: rgba(0, 0, 0, 0.2);
   color: inherit; }
 
-.button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover {
+.button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover, ul.tags > li > .tag:hover, ul.tags > li > .status:hover {
   color: #51A7F9; }
 
 #nishants {
@@ -896,6 +896,26 @@ ul.grid {
   ul.grid > li.grid-box:not(.visible) {
     pointer-events: none !important;
     opacity: 0 !important; }
+
+ul.tags > li {
+  display: inline-block;
+  padding: 0px 10px; }
+  ul.tags > li > .tag, ul.tags > li > .status {
+    float: left;
+    padding: 0px; }
+  ul.tags > li .tag {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-right: 1px;
+    text-transform: capitalize; }
+  ul.tags > li > .status {
+    width: 50px; }
+ul.tags > li:not(.selected) > .status.selected {
+  display: none; }
+ul.tags > li.selected {
+  color: #51A7F9; }
+  ul.tags > li.selected > .status:not(.selected) {
+    display: none; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

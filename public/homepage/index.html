@@ -82,8 +82,17 @@ ga('send', 'pageview');
           </div>
         </div>
       </div>
-      <div id="slate" ng-class="{'show-modal' : deck._current != -1}" class="page slate theme-font">
+      <div id="slate" ng-controller="PortfolioController" ng-class="{'show-modal' : deck._current != -1}" class="page slate theme-font">
         <h1 class="title">Portfolio</h1>
+        <ul class="tags">
+          <li ng-repeat="tag in tags.list" ng-class="{'selected': tag.selected}">
+            <div class="tag">
+              <label ng-bind="tag.name"></label>
+            </div><span ng-click="tags.remove($index)" class="status selected">
+              <div class="fa fa-check"></div></span><span ng-click="tags.remove($index)" class="status">
+              <div class="fa fa-remove"></div></span>
+          </li>
+        </ul>
         <ul ng-class="{'focus' : deck._current != -1}" class="deck grid">
           <li ng-repeat="card in deck._list" data-tags="{{card.tagList}}" ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current &lt; $index - 1, 'selected-tail' : deck._current &gt; $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}" class="grid-box scroll-target">
             <div class="wrapper"><a ng-click="deck.select($index)" class="card">

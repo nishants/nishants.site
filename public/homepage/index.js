@@ -524,8 +524,35 @@ app.service("modalService",["DeckService", "$timeout", "IFRAMETIMEOUT",function(
 	return modal;
 }]);
 },{}],16:[function(require,module,exports){
-window.app = angular.module("slate", []);
+app.controller("PortfolioController", ["$scope", "GridService", function($scope, GridService){
+	var toTag = function(name){
+		var tag = {
+			name: name,
+			selected: true,
+			unselect: function () {
+				tag.selected = false;
+			}
+		};
+		return tag
+	},
+			names= function(tag){
+				return tag.name;
+			},
+			unSelected = function(tag){
+				return !tag.selected;
+			};
+	var tags = {
+		list: GridService.tags.map(toTag),
+		remove: function (index) {
+			tags.list[index].unselect();
+			GridService.showTags(tags.list.filter(unSelected).map(names));
+		},
+	};
+	$scope.tags = tags;
+}]);
 },{}],17:[function(require,module,exports){
+window.app = angular.module("slate", []);
+},{}],18:[function(require,module,exports){
 app.constant("IFRAMETIMEOUT", 250);
 
 app.constant("GRID_CONFIG", {
@@ -535,21 +562,24 @@ app.constant("GRID_CONFIG", {
 	gridBoxMarginY: 10, // To overlap borders
 	domUpdateDelay: 500
 });
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 angular.module("nishants").constant("CONTACT_CONFIG", {
 	email  : "nishant.singh87@gmail.com",
 	subject: "Hi !",
 	body   : ""
 });
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 require("./app/portfolio/slate.js");
 require("./app/portfolio/variables.js");
 require("./app/portfolio/config.js");
-require('./app/components/deck/deck.js');
-require('./app/components/deck/deck-service.js');
 require('./app/portfolio/modal/modal-service.js');
 require('./app/portfolio/modal/modal-controller.js');
+require('./app/portfolio/portfolio-controller');
+
+require('./app/components/deck/deck.js');
+require('./app/components/deck/deck-service.js');
+
 require('./app/components/grid/grid-directive.js');
 require('./app/components/grid/grid-service.js');
 
@@ -564,4 +594,4 @@ require("./app/config.js");
 require("./app/variables");
 require("./app/contact/contact-controller");
 
-},{"./app/app.js":1,"./app/components/deck/deck-service.js":2,"./app/components/deck/deck.js":3,"./app/components/grid/grid-directive.js":4,"./app/components/grid/grid-service.js":5,"./app/config.js":6,"./app/contact/contact-controller":7,"./app/experience/profile-service":8,"./app/experience/search/search-controller":9,"./app/experience/search/search-service":10,"./app/experience/timeline-controller":11,"./app/experience/timeline.js":12,"./app/portfolio/config.js":13,"./app/portfolio/modal/modal-controller.js":14,"./app/portfolio/modal/modal-service.js":15,"./app/portfolio/slate.js":16,"./app/portfolio/variables.js":17,"./app/variables":18}]},{},[19]);
+},{"./app/app.js":1,"./app/components/deck/deck-service.js":2,"./app/components/deck/deck.js":3,"./app/components/grid/grid-directive.js":4,"./app/components/grid/grid-service.js":5,"./app/config.js":6,"./app/contact/contact-controller":7,"./app/experience/profile-service":8,"./app/experience/search/search-controller":9,"./app/experience/search/search-service":10,"./app/experience/timeline-controller":11,"./app/experience/timeline.js":12,"./app/portfolio/config.js":13,"./app/portfolio/modal/modal-controller.js":14,"./app/portfolio/modal/modal-service.js":15,"./app/portfolio/portfolio-controller":16,"./app/portfolio/slate.js":17,"./app/portfolio/variables.js":18,"./app/variables":19}]},{},[20]);
