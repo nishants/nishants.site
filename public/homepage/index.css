@@ -80,41 +80,45 @@ ul.inline-list {
   font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
-  #nishants .main-content {
-    background: white; }
-    #nishants .main-content .page, #nishants .main-content .sticky {
-      max-width: 1200px;
-      padding: 50px; }
-    #nishants .main-content .page {
-      padding-top: 108px;
-      margin: 10px auto;
-      min-height: 100vh;
-      background: white;
-      -webkit-transition: opacity 300ms ease;
-      -moz-transition: opacity 300ms ease;
-      -o-transition: opacity 300ms ease;
-      transition: opacity 300ms ease; }
-      #nishants .main-content .page > .title {
-        padding: 10px 50px;
-        margin-bottom: 100px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        display: inline-block; }
-      #nishants .main-content .page .sticky {
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin: 0px auto; }
-      #nishants .main-content .page .sticky-container {
-        position: fixed;
-        top: 103px;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        pointer-events: none;
-        -webkit-transform: scale(0);
-        -moz-transform: scale(0);
-        -ms-transform: scale(0);
-        -o-transform: scale(0);
-        transform: scale(0); }
+  #nishants img#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw; }
+  #nishants .main-content .page, #nishants .main-content .sticky {
+    max-width: 1200px;
+    padding: 50px; }
+  #nishants .main-content .page {
+    padding-top: 108px;
+    margin: 10px auto;
+    min-height: 100vh;
+    -webkit-transition: opacity 300ms ease;
+    -moz-transition: opacity 300ms ease;
+    -o-transition: opacity 300ms ease;
+    transition: opacity 300ms ease; }
+    #nishants .main-content .page > .title {
+      padding: 10px 50px;
+      margin-bottom: 100px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      display: inline-block; }
+    #nishants .main-content .page .sticky {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin: 0px auto; }
+    #nishants .main-content .page .sticky-container {
+      position: fixed;
+      top: 103px;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      pointer-events: none;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0); }
   #nishants .description-font {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
