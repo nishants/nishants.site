@@ -134,7 +134,7 @@ ul.inline-list {
       margin: 0px auto; }
     #nishants .main-content .page .sticky-container {
       position: fixed;
-      top: 103px;
+      top: 102px;
       left: 0;
       z-index: 1;
       width: 100%;
@@ -317,13 +317,13 @@ ul.social.contact .github:hover {
   height: 108px;
   overflow: hidden; }
   .top-bar .background {
+    background: #EEE;
     position: absolute;
     top: 0;
     left: 0;
     height: calc(100% - 5px);
     width: 100%;
-    box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
-    background: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -820,12 +820,6 @@ ul.period-list > li ul.projects > li {
       .compact-card .detail .caption .to {
         padding: 0px 5px; }
 
-#nishants.show-stick-experience .top-bar {
-  opacity: 0; }
-#nishants.show-stick-experience .top-bar:hover {
-  opacity: 1; }
-#nishants.show-stick-experience .timeline-header {
-  opacity: 0; }
 #nishants.show-stick-experience .sticky .timeline-header {
   opacity: 1; }
 

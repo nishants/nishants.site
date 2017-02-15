@@ -57,7 +57,7 @@ $cardHeight: 250px;
       }
       .sticky-container{
         position: fixed;
-        top: $top_bar_height - $top_bar_shadow_offset;
+        top: $top_bar_height - $top_bar_shadow_offset - 1px;
         left: 0;
         z-index: $top_bar_layer - 1;
         width: 100%;
