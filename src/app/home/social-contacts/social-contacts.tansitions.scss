@@ -1,0 +1,10 @@
+#nishants.show-social .page{
+  ul.contact.social {
+    > li {
+      @extend .pulled-to-top;
+    }
+  }
+  .about-me,{
+    @extend .pulled-to-top;
+  }
+}

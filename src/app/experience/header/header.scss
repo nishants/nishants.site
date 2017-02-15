@@ -1,0 +1,20 @@
+
+.timeline{
+  .timeline-header{
+    .labels.bar{
+      width: 100%;
+      border-bottom  : $border;
+      @extend .resize-container;
+      .position,  .project{
+        float       : left;
+        height      : $labels_height;
+        line-height : $labels_height;
+        width       : 50%;
+        text-align  : center;
+      }
+      .project{
+        border-left: $border;
+      }
+    }
+  }
+}

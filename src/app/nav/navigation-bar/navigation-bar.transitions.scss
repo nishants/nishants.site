@@ -1,0 +1,58 @@
+#nishants:not(.show-navigation){
+  .top-bar{
+    .background{
+      @include transform(translateY(-$row_height + $padding));
+    }
+    ul.navigation{
+      > li{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}
+
+#nishants:not(.show-design){
+  .top-bar{
+    ul.navigation{
+      > li.design{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}
+#nishants:not(.show-connect){
+  .top-bar{
+    ul.navigation{
+      > li.connect{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}
+#nishants:not(.show-experience){
+  .top-bar{
+    ul.navigation{
+      > li.experience{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}
+#nishants:not(.show-coaching){
+  .top-bar{
+    ul.navigation{
+      > li.coaching{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}
+#nishants:not(.show-development){
+  .top-bar{
+    ul.navigation{
+      > li.development{
+        @extend .pull-from-bottom;
+      }
+    }
+  }
+}

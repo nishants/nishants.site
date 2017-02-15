@@ -1,0 +1,19 @@
+ul.period-list > li {
+  position: relative;
+  .position {
+    padding-left: $padding;
+    padding-bottom: $padding;
+    > .compact-card {
+      width: calc(50% - #{$padding * 2});
+      @extend .solid-surface;
+      .description{
+        display: none;
+      }
+    }
+  }
+}
+
+$logo_height: 60px;
+$logo_width : 60px;
+
+

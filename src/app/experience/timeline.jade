@@ -1,0 +1,19 @@
+.sticky-container
+  .sticky
+    .timeline
+      .timeline-header
+        .search.bar(ng-controller='SearchController')
+          include search/search
+        .labels.bar
+          include header/header
+      .timeline-body
+        include scrollable/period-list
+
+.timeline-header
+  .search.bar(ng-controller='SearchController')
+    include search/search
+  .labels.bar
+    include header/header
+.timeline-body.scrollable
+  include scrollable/period-list
+  #timeline-ends

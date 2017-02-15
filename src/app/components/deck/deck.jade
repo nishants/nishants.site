@@ -1,0 +1,4 @@
+li.grid-box.scroll-target(ng-repeat="card in deck._list", data-tags="{{card.tagList}}", ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current < $index - 1, 'selected-tail' : deck._current > $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}")
+  .wrapper
+    a.card(ng-click="deck.select($index)")
+      include ../cards/card

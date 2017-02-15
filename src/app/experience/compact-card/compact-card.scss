@@ -1,0 +1,52 @@
+$logo_effective_width : $logo_width + 2 *$padding;
+$logo_effective_height: $logo_height + 2 *$padding;
+.compact-card{
+  @extend .resize-container;
+  position  : relative;
+  padding   : $padding;
+  min-height: $logo_effective_height;
+
+  .logo{
+    position: absolute;
+    top     : calc(50% - #{$logo_height/2});
+    left    : $padding;
+    width   : $logo_width;
+    height  : $logo_height;
+    img{
+      display: block;
+      max-height: 100%;
+      max-width: 100%;
+      margin: auto;
+    }
+
+  }
+  .detail{
+    float: left;
+    width: calc(100% - #{$logo_effective_width});
+    text-align: left;
+    margin-left: $logo_effective_width;
+    padding-left: $padding;
+    .title, .headline, .description, .caption{
+      display: block;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      font-size: small;
+      line-height: $line_height;
+    }
+    .description, .headline, .caption{
+      font-size: small;
+    }
+    .caption{
+      font-size: small;
+      @extend .light-text;
+      .since{
+        padding-right: $padding/2;
+      }
+      .to{
+        padding: 0px $padding/2;
+      }
+    }
+
+  }
+}

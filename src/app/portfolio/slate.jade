@@ -1,0 +1,11 @@
+ul.tags
+  li(ng-repeat='tag in tags.list', ng-class="{'selected': tag.selected}",ng-click="tags.remove($index)")
+    .tag
+      label(ng-bind='tag.name')
+    span.status.selected
+      .fa.fa-check
+
+ul.deck.grid(ng-class="{'focus' : deck._current != -1}")
+  include ../components/deck/deck
+.modal(ng-controller='modalController')
+  include modal/modal

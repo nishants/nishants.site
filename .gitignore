@@ -2,14 +2,8 @@
 *-compiled.js
 *-compiled.js.map
 *.css.map
-*/**/node_modules/
-*/**/bower_components/
-/src/portfolio/bower_components/
-/src/portfolio/node_modules/
-/src/portfolio/dist/
-/src/portfolio/src/index.css
-/src/portfolio/src/index.html
-/src/portfolio/src/index.css.map
+node_modules/
+bower_components/
 *.log
 *.sass-cache
 modules/**/*.css

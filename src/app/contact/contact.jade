@@ -1,0 +1,3 @@
+textarea.message(ng-model="message.body",placeholder="Message")
+button.send
+  a(href='mailto:{{message.email}}?subject={{message.subject}}&body={{message.body}}') Send

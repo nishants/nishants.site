@@ -1,0 +1,34 @@
+ul.period-list
+  li.period(ng-repeat-start='position in timeline.positions')
+    span.central-line
+    .position
+      .compact-card
+        .logo(ng-if="position.logo")
+          img(ng-src="{{position.logo}}")
+        .detail
+          label.title(ng-bind="position.title")
+          label.headline(ng-bind="position.organisation")
+          p.description(ng-bind="position.description")
+          label.caption
+            span.since(ng-if="!position.period.to") Since
+            span {{position.period.from.month}} {{position.period.from.year}}
+            span(ng-if="position.period.to")
+              span.to to
+              span {{position.period.to.month}} {{position.period.to.year}}
+
+    ul.projects
+      li(ng-repeat='project in position.projects')
+        .compact-card
+          .logo(ng-if="project.logo")
+            img(ng-src="{{project.logo}}")
+          .detail
+            label.title(ng-bind="project.title")
+            label.headline(ng-bind="project.organisation")
+            p.description(ng-bind="project.description")
+            label.caption
+              span.since(ng-if="!project.period.to") Since
+              span {{project.period.from.month}} {{project.period.from.year}}
+              span(ng-if="project.period.to")
+                span.to to
+                span {{project.period.to.month}} {{project.period.to.year}}
+    li.period-change(ng-repeat-end)

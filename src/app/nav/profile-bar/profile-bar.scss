@@ -1,0 +1,25 @@
+.top-bar{
+  .profile-bar{
+    position: relative;
+    @extend .undo-link;
+    .name{
+      text-align: center;
+      line-height: $row_height - $padding;
+      font-size: small;
+      @extend .light-text;
+      @extend .top-bar-transition;
+    }
+    .image{
+      padding: $padding/2;
+      > img{
+        display: block;
+        margin: auto;
+        height: $small_image_size;
+        border-radius: $border_radius;
+        @extend .top-bar-transition;
+      }
+    }
+  }
+}
+
+@import 'profile-bar.transitions';

@@ -1,0 +1,40 @@
+$padding_bottom: $padding*2;
+
+#nishants{
+  .page{
+    .heading{
+      padding-top: $padding*2;
+      .profile-image{
+        padding: $padding/2;
+        overflow: hidden;
+        img {
+          height  : $profile_image_height;
+          width   : $profile_image_width;
+          display : block;
+          margin  : auto;
+          border-radius: $border_radius;
+          opacity: 0.9;
+          @include transition(all $transition_time $transition);
+        }
+      }
+
+      .name{
+        line-height: 25px;
+        label{
+          @extend .fades-and-moves;
+        }
+      }
+      .title{
+        line-height: 20px;
+        font-size: small;
+        @extend .fades-and-moves;
+        @extend .light-text;
+      }
+      .border{
+        border-bottom: 1px solid $black_border;
+        height: $padding_bottom;
+        @extend .fades-and-moves;
+      }
+    }
+  }
+}

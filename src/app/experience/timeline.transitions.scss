@@ -1,0 +1,38 @@
+#nishants.show-stick-experience{
+  .top-bar{
+    opacity: 0;
+  }
+  .top-bar:hover{
+    opacity: 1;
+  }
+  .timeline-header{
+    opacity: 0;
+  }
+  .sticky{
+    .timeline-header{
+      opacity: 1;
+    }
+  }
+}
+
+#nishants.show-stick-experience:not(.scrolling-down){
+  .timeline-body:not(.scrollable) {
+    .period:not(.reading) {
+      @include transition(transform $transition_time $transition);
+      @include transform(translateY(-100%));
+    }
+  }
+}
+
+#nishants.show-stick-experience.scrolling-down{
+  .timeline-body:not(.scrollable) {
+    .period.reading {
+      @include transition(transform $transition_time_quick $transition);
+    }
+    //.period:(.reading) {
+    //  @include transition(transform $transition_time_quick $transition);
+    //  @include transform(translateY(100%));
+    //}
+  }
+}
+

@@ -1,0 +1,25 @@
+$transitionDuration: $transition_time;
+
+$topBarLayer: $top_bar_layer;
+$containerPadding: $padding;
+$contentTransitionDuration : $transitionDuration + 100;
+$cleanupFunction: ease;
+$transition_function: $cleanupFunction;
+$transition_duration : $transitionDuration;
+$cleanupDuration: $transitionDuration;
+
+
+$modal_color: #EEE;
+$loader_size: 50px;
+$frame_bar_height: 40px;
+
+
+#slate{
+  min-height: 100vh;
+  .tags{
+    @extend .fades-and-moves;
+  }
+}
+@import 'modal/modal';
+
+@import 'slate.transitions';

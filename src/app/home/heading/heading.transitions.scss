@@ -1,0 +1,18 @@
+#nishants.show-name .page{
+  .heading .name label, .heading .title{
+    @extend .pulled-to-top;
+  }
+  .heading .border{
+    @include transform(translateY(-$top_bar_height));
+  }
+
+}
+
+#nishants.show-top-bar .page{
+  .heading .profile-image {
+    img{
+      @extend .pulled-to-top;
+    }
+  }
+
+}
