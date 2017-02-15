@@ -3,7 +3,6 @@ $padding_bottom: $padding*2;
 #nishants{
   .page{
     .heading{
-      @extend .solid-surface;
       padding-top: $padding*2;
       .profile-image{
         padding: $padding/2;
@@ -20,11 +19,14 @@ $padding_bottom: $padding*2;
       }
 
       .name{
-        h1{
+        line-height: 25px;
+        label{
           @extend .fades-and-moves;
         }
       }
       .title{
+        line-height: 20px;
+        font-size: small;
         @extend .fades-and-moves;
         @extend .light-text;
       }

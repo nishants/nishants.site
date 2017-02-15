@@ -87,7 +87,7 @@ ul.inline-list {
 .solid-hard-surface, .card {
   background-color: rgba(0, 0, 0, 0.3); }
 
-.solid-surface, #nishants .page.intro .overview .description, #nishants .page .heading, .top-bar .background, .timeline .timeline-header {
+.solid-surface, #nishants .page.intro .overview, .top-bar .background, .timeline .timeline-header {
   background-color: rgba(0, 0, 0, 0.2); }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
@@ -145,7 +145,7 @@ ul.inline-list {
     font-style: italic;
     color: rgba(0, 0, 0, 0.5); }
 
-.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name h1, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me, #slate.page.show-modal .tags, #slate.page.show-modal .title {
+.pulled-to-top, #nishants.show-design .intro .actions ul.navigation > li.design .link, #nishants.show-development .intro .actions ul.navigation > li.development .link, #nishants.show-coaching .intro .actions ul.navigation > li.coaching .link, #nishants.show-experience .intro .actions ul.navigation > li.experience .link, #nishants.show-connect .intro .actions ul.navigation > li.connect .link, #nishants.show-name .page .heading .name label, #nishants.show-name .page .heading .title, #nishants.show-top-bar .page .heading .profile-image img, #nishants.show-social .page ul.contact.social > li, #nishants.show-social .page .about-me, #slate.page.show-modal .tags, #slate.page.show-modal .title {
   opacity: 0;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
@@ -153,7 +153,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.fades-and-moves, #nishants .page .heading .name h1, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate .tags, #slate.page .title, .timeline ul.period-list > li.period .central-line {
+.fades-and-moves, #nishants .page .heading .name label, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate .tags, #slate.page .title, .timeline ul.period-list > li.period .central-line {
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -172,7 +172,9 @@ ul.inline-list {
 #nishants .page.intro {
   padding-top: 20px; }
   #nishants .page.intro .overview {
-    margin: auto; }
+    padding: 10px;
+    margin: auto;
+    min-height: initial; }
     #nishants .page.intro .overview .description, #nishants .page.intro .overview .actions {
       float: left;
       padding: 0px 30px 20px 30px; }
@@ -199,6 +201,11 @@ ul.inline-list {
       -moz-transition: all 300ms ease;
       -o-transition: all 300ms ease;
       transition: all 300ms ease; }
+  #nishants .page .heading .name {
+    line-height: 25px; }
+  #nishants .page .heading .title {
+    line-height: 20px;
+    font-size: small; }
   #nishants .page .heading .border {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 20px; }
@@ -209,13 +216,14 @@ ul.inline-list {
   padding-bottom: 10px; }
   #nishants .intro ul.navigation > li .link {
     display: block;
-    height: 70px;
-    line-height: 70px;
+    height: 60px;
+    line-height: 60px;
+    font-size: small;
     padding: 0px 20px;
     width: 100%;
     margin: auto;
     text-align: right;
-    font-weight: 400;
+    font-weight: 500;
     opacity: 0.8; }
     #nishants .intro ul.navigation > li .link span {
       display: inline-block;
@@ -232,6 +240,7 @@ ul.inline-list {
 
 .about-me {
   margin: auto;
+  font-size: small;
   font-style: italic; }
 
 ul.social.contact > li {

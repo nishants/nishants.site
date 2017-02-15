@@ -1,15 +1,17 @@
 $profile_image_height: 80px;
 $profile_image_width : 80px;
-$option_button_height: 50px;
+$option_button_height: 60px;
 $actions_width       : 300px;
 
 #nishants{
   .page.intro{
-    padding-top: $padding*2;
+    padding-top:  2 * $padding;
     .overview{
+      padding: $padding;
       margin: auto;
+      min-height: initial;
+      @extend .solid-surface;
       @extend .resize-container;
-
       .description, .actions{
         float: left;
         padding: 0px $padding*3 $padding*2 $padding*3;
@@ -21,7 +23,6 @@ $actions_width       : 300px;
         border-left: 1px solid $black_border;
         width: calc(100% - #{$actions_width});
         text-align: left;
-        @extend .solid-surface;
       }
     }
   }
