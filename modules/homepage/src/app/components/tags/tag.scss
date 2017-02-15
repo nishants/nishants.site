@@ -1,6 +1,7 @@
 $status_width: 50px;
 
 ul.tags{
+  display: none;
   @extend .undo-list;
   > li {
     display: inline-block;

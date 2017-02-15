@@ -874,21 +874,23 @@ ul.grid {
     pointer-events: none !important;
     opacity: 0 !important; }
 
-ul.tags > li {
-  display: inline-block;
-  padding: 0px 10px; }
-  ul.tags > li > .tag, ul.tags > li > .status {
-    float: right;
-    padding: 0px; }
-  ul.tags > li .tag {
-    padding-right: 50px;
-    margin-right: 1px;
-    text-transform: capitalize; }
-  ul.tags > li > .status {
-    width: 50px;
-    color: rgba(255, 255, 255, 0.1); }
-ul.tags > li.selected .status {
-  color: #51A7F9; }
+ul.tags {
+  display: none; }
+  ul.tags > li {
+    display: inline-block;
+    padding: 0px 10px; }
+    ul.tags > li > .tag, ul.tags > li > .status {
+      float: right;
+      padding: 0px; }
+    ul.tags > li .tag {
+      padding-right: 50px;
+      margin-right: 1px;
+      text-transform: capitalize; }
+    ul.tags > li > .status {
+      width: 50px;
+      color: rgba(255, 255, 255, 0.1); }
+  ul.tags > li.selected .status {
+    color: #51A7F9; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {
