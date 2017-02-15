@@ -7,9 +7,10 @@ ul.period-list > li {
       float: right;
       clear: right;
       padding-bottom: $padding;
-      > .card{
+      > .compact-card{
         width: calc(100% - #{$padding * 2});
         margin: auto;
+        @extend .solid-surface;
       }
     }
   }

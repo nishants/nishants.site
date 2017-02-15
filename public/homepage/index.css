@@ -85,9 +85,10 @@ ul.inline-list {
   background-size: 16px 16px; }
 
 .solid-hard-surface, .card {
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px; }
 
-.solid-surface, #nishants .page.intro .overview, .top-bar .background, .timeline .timeline-header {
+.solid-surface, #nishants .page.intro .overview, .top-bar .background, .timeline .timeline-header, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
   background-color: rgba(0, 0, 0, 0.2); }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
@@ -693,9 +694,9 @@ ul.period-list > li {
   ul.period-list > li .position {
     padding-left: 10px;
     padding-bottom: 10px; }
-    ul.period-list > li .position > .card {
+    ul.period-list > li .position > .compact-card {
       width: calc(50% - 20px); }
-      ul.period-list > li .position > .card .description {
+      ul.period-list > li .position > .compact-card .description {
         display: none; }
 
 ul.period-list > li ul.projects > li {
@@ -703,7 +704,7 @@ ul.period-list > li ul.projects > li {
   float: right;
   clear: right;
   padding-bottom: 10px; }
-  ul.period-list > li ul.projects > li > .card {
+  ul.period-list > li ul.projects > li > .compact-card {
     width: calc(100% - 20px);
     margin: auto; }
 

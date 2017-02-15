@@ -3,8 +3,9 @@ ul.period-list > li {
   .position {
     padding-left: $padding;
     padding-bottom: $padding;
-    > .card {
+    > .compact-card {
       width: calc(50% - #{$padding * 2});
+      @extend .solid-surface;
       .description{
         display: none;
       }

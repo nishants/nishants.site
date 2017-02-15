@@ -2,7 +2,7 @@ ul.period-list
   li.period(ng-repeat-start='position in timeline.positions')
     span.central-line
     .position
-      .card.compact-card
+      .compact-card
         .logo(ng-if="position.logo")
           img(ng-src="{{position.logo}}")
         .detail
@@ -18,7 +18,7 @@ ul.period-list
 
     ul.projects
       li(ng-repeat='project in position.projects')
-        .card.compact-card
+        .compact-card
           .logo(ng-if="project.logo")
             img(ng-src="{{project.logo}}")
           .detail
