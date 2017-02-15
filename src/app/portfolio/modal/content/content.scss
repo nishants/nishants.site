@@ -8,7 +8,7 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
     padding: 0px;
     @include transition(#{transform $contentTransitionDuration ease, opacity $contentTransitionDuration ease});
     width: calc(100% - #{$cardWidth + 2 * $containerPadding + 2 * $padding});
-    border: 2px solid $black_border;
+    border: 1px solid $black_border;
     box-shadow: $box_shadow;
     background-color: $solid_hard_bg;
     border-radius: $border_radius;
@@ -16,7 +16,7 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
       position: relative;
       z-index: 1;
       pointer-events: all;
-      border-bottom: 2px solid $black_border;
+      border-bottom: 1px solid $black_border;
       line-height: $frame_bar_height;
       background: $pure_solid_bg;
       @extend .resize-container;
@@ -61,7 +61,7 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
     .frame{
       overflow: auto;
       background-color: rgba(255, 255, 255, 1);
-      border: 1px solid $black_border;
+      border: 1px solid transparent;
       pointer-events: all;
       opacity: 0;
     }

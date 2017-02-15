@@ -109,7 +109,7 @@ ul.inline-list {
   color: #51A7F9; }
 
 #nishants {
-  color: rgba(0, 0, 0, 0.7);
+  color: #636365;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
@@ -488,15 +488,15 @@ ul.social.contact .github:hover {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 1px 5px transparent;
   background-color: white;
   border-radius: 2px; }
   #slate .modal .content .frame-bar {
     position: relative;
     z-index: 1;
     pointer-events: all;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     line-height: 40px;
     background: #EEE; }
     #slate .modal .content .frame-bar .title {
@@ -530,7 +530,7 @@ ul.social.contact .github:hover {
   #slate .modal .content .frame {
     overflow: auto;
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
     pointer-events: all;
     opacity: 0; }
   #slate .modal .content .loader {
@@ -619,7 +619,18 @@ ul.social.contact .github:hover {
   font-weight: 400; }
 
 .card:hover, .selected .card {
-  color: #51A7F9; }
+  -webkit-transform: scale(1.06154);
+  -moz-transform: scale(1.06154);
+  -ms-transform: scale(1.06154);
+  -o-transform: scale(1.06154);
+  transform: scale(1.06154); }
+
+.selected .card {
+  -webkit-transform: translateX(5px) translateY(10px) scale(1.06154);
+  -moz-transform: translateX(5px) translateY(10px) scale(1.06154);
+  -ms-transform: translateX(5px) translateY(10px) scale(1.06154);
+  -o-transform: translateX(5px) translateY(10px) scale(1.06154);
+  transform: translateX(5px) translateY(10px) scale(1.06154); }
 
 .card {
   width: 325px;
@@ -627,7 +638,11 @@ ul.social.contact .github:hover {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px 20px;
-  box-shadow: 2px 2px 5px 2px transparent; }
+  box-shadow: 2px 2px 5px 2px transparent;
+  -webkit-transition: transform 100ms ease;
+  -moz-transition: transform 100ms ease;
+  -o-transition: transform 100ms ease;
+  transition: transform 100ms ease; }
   .card img {
     width: 100%; }
   .card .name {

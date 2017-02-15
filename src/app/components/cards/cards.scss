@@ -13,9 +13,11 @@ $card_bg: white;
 
 
 .card:hover, .selected .card{
-  color: $highlight_color;
+  @include transform(scale(($cardWidth + 20px)/$cardWidth));
 }
-
+.selected .card{
+  @include transform(translateX($padding/2) translateY($padding) scale(($cardWidth + $padding*2)/$cardWidth));
+}
 .card{
   @extend .solid-hard-surface;
   width: $cardWidth;
@@ -25,7 +27,7 @@ $card_bg: white;
   img{width: 100%;}
   padding: 2*$padding 2*$padding;
   box-shadow: $shadow;
-
+  @include transition(transform $transition_time_quick $transition);
   .name{
     margin: 2*$padding 0px;
     text-shadow: $text_shadow;
