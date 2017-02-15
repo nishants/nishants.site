@@ -18,6 +18,8 @@
       display: block;
       width: 100%;
       margin: $padding;
+      border: 1px solid $black_border;
+
       @include transition(all $transition_time $transition);
       a {
         @extend .undo-link;
