@@ -10,6 +10,7 @@ $actions_width       : 300px;
       padding: $padding;
       margin: auto;
       min-height: initial;
+      box-shadow: $shadow;
       @extend .solid-surface;
       @extend .resize-container;
       .description, .actions{

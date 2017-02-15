@@ -24,6 +24,7 @@ $card_bg: white;
   border: 1px solid $black_border;
   img{width: 100%;}
   padding: 2*$padding 2*$padding;
+  box-shadow: $shadow;
 
   .name{
     margin: 2*$padding 0px;
