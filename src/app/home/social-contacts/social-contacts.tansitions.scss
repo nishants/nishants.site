@@ -7,4 +7,7 @@
   .about-me,{
     @extend .pulled-to-top;
   }
+  .overview .background,{
+    @include transform(translateY(-100%));
+  }
 }

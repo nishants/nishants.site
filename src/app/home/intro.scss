@@ -7,12 +7,22 @@ $actions_width       : 300px;
   .page.intro{
     padding-top:  2 * $padding;
     .overview{
+      position: relative;
       padding: $padding;
       margin: auto;
       min-height: initial;
-      box-shadow: $shadow;
-      @extend .solid-surface;
       @extend .resize-container;
+      .background{
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        box-shadow: $shadow;
+        @extend .solid-surface;
+        @include transition(transform $transition_time $transition);
+      }
       .description, .actions{
         float: left;
         padding: 0px $padding*3 $padding*2 $padding*3;
