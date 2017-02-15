@@ -122,7 +122,7 @@ ul.inline-list {
     #nishants .main-content .page > .title {
       padding: 10px 50px;
       margin-bottom: 100px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid transparent;
       display: inline-block; }
     #nishants .main-content .page .sticky {
       padding-top: 0px;
@@ -182,7 +182,7 @@ ul.inline-list {
     #nishants .page.intro .overview .actions {
       width: 300px; }
     #nishants .page.intro .overview .description {
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid transparent;
       width: calc(100% - 300px);
       text-align: left; }
 
@@ -208,7 +208,7 @@ ul.inline-list {
     line-height: 20px;
     font-size: small; }
   #nishants .page .heading .border {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid transparent;
     height: 20px; }
 
 #nishants .intro ul.navigation > li {
@@ -466,14 +466,16 @@ ul.social.contact .github:hover {
   width: calc(100% - 365px);
   border: 2px solid #03A9F4;
   box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px; }
   #slate .modal .content .frame-bar {
     position: relative;
     z-index: 1;
     pointer-events: all;
     color: #03A9F4;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    line-height: 40px; }
+    border-bottom: 2px solid #03A9F4;
+    line-height: 40px;
+    background: black; }
     #slate .modal .content .frame-bar .title {
       float: left;
       overflow: hidden;
@@ -497,7 +499,7 @@ ul.social.contact .github:hover {
   #slate .modal .content .loader, #slate .modal .content .frame {
     height: calc(100% - 40px);
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
     -webkit-transition: opacity 400ms ease;
     -moz-transition: opacity 400ms ease;
     -o-transition: opacity 400ms ease;
@@ -505,7 +507,7 @@ ul.social.contact .github:hover {
   #slate .modal .content .frame {
     overflow: auto;
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
     pointer-events: all;
     opacity: 0; }
   #slate .modal .content .loader {
@@ -515,7 +517,7 @@ ul.social.contact .github:hover {
     z-index: 1;
     color: #03A9F4;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
     line-height: 50px;
     font-size: 50px;
     text-align: center;
@@ -600,7 +602,7 @@ ul.social.contact .github:hover {
   width: 325px;
   display: block;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
   padding: 20px 20px; }
   .card img {
     width: 100%; }
@@ -627,12 +629,12 @@ ul.social.contact .github:hover {
   margin: 0px 50px;
   height: 100%;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1); }
+  border: 1px solid transparent; }
   .timeline .sticky-container .timeline {
     border: none;
     overflow: hidden; }
     .timeline .sticky-container .timeline .timeline-header {
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid transparent;
       box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
     .timeline .sticky-container .timeline .period-list {
       position: relative;
@@ -722,7 +724,7 @@ ul.period-list > li ul.projects > li {
 
 .timeline .timeline-header .labels.bar {
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid transparent; }
   .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
     float: left;
     height: 40px;
@@ -730,7 +732,7 @@ ul.period-list > li ul.projects > li {
     width: 50%;
     text-align: center; }
   .timeline .timeline-header .labels.bar .project {
-    border-left: 1px solid rgba(0, 0, 0, 0.1); }
+    border-left: 1px solid transparent; }
 
 .search.bar {
   height: 40px;
@@ -739,7 +741,7 @@ ul.period-list > li ul.projects > li {
   display: none; }
   .search.bar .search-widget {
     max-width: 500px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
     margin: auto; }
     .search.bar .search-widget .icon, .search.bar .search-widget input.query {
       float: left;
@@ -748,9 +750,9 @@ ul.period-list > li ul.projects > li {
       width: 50px;
       height: 33px;
       line-height: 33px;
-      color: rgba(0, 0, 0, 0.1);
+      color: transparent;
       text-align: center;
-      border-right: 1px solid rgba(0, 0, 0, 0.1); }
+      border-right: 1px solid transparent; }
     .search.bar .search-widget input.query {
       width: calc(100% - 50px);
       padding-left: 10px;
@@ -828,7 +830,7 @@ ul.period-list > li ul.projects > li {
     width: 100%;
     resize: none;
     margin: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
     text-align: center; }
   #nishants #connect.page .contact button.send {
     display: block;

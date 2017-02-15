@@ -11,14 +11,15 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
     border: 2px solid $highlight_color;
     box-shadow: $box_shadow;
     background-color: $solid_hard_bg;
-
+    border-radius: $border_radius;
     .frame-bar{
       position: relative;
       z-index: 1;
       pointer-events: all;
       color: $highlight_color;
-      border-bottom: $heavy-border;
+      border-bottom: 2px solid $highlight_color;
       line-height: $frame_bar_height;
+      background: $pure_solid_bg;
       @extend .resize-container;
       .title{
         float: left;
@@ -61,7 +62,7 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
     .frame{
       overflow: auto;
       background-color: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid $black_border;
       pointer-events: all;
       opacity: 0;
     }
@@ -72,7 +73,7 @@ $frame_actions_width: $frame_button_count*$frame_button_width;
       z-index: 1;
       color: $highlight_color;
       text-shadow: $text_shadow;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid $black_border;
       line-height : $loader_size;
       font-size   : $loader_size;
       text-align  : center;
