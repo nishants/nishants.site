@@ -22,12 +22,12 @@ $link_font_size : small;
         @include transition(all $transition_time $transition);
         > a{
           @extend .undo-link;
+          border: 1px solid transparent;
           @include transition(transform $transition_time $transition);
           display: block;
         }
       }
       >li:hover{
-        border: 1px solid $highlight_color;
         > a{
           color: $highlight_color;
         }

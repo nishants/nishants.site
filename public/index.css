@@ -105,7 +105,7 @@ ul.inline-list {
   color: inherit; }
 
 .button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover, ul.tags > li > .tag:hover, ul.tags > li > .status:hover {
-  color: #616161; }
+  color: #51A7F9; }
 
 #nishants {
   color: rgba(0, 0, 0, 0.7);
@@ -241,7 +241,8 @@ ul.inline-list {
     margin: auto;
     text-align: right;
     font-weight: 500;
-    opacity: 0.8; }
+    opacity: 0.8;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
     #nishants .intro ul.navigation > li .link span {
       display: inline-block;
       -webkit-transition: transform 300ms ease;
@@ -270,7 +271,7 @@ ul.social.contact > li {
     text-align: center;
     font-size: small;
     border-radius: 50%;
-    border: 1px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #EEE;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -282,7 +283,7 @@ ul.social.contact > li:hover a {
   -ms-transform: scale(1.5);
   -o-transform: scale(1.5);
   transform: scale(1.5);
-  color: #616161; }
+  color: #51A7F9; }
 ul.social.contact .mailto:hover {
   color: #1a84bc; }
 ul.social.contact .twitter:hover {
@@ -302,11 +303,11 @@ ul.social.contact .github:hover {
   transform: translateY(-108px); }
 
 #nishants.show-social .page .overview .background {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
+  -webkit-transform: translateY(-158px);
+  -moz-transform: translateY(-158px);
+  -ms-transform: translateY(-158px);
+  -o-transform: translateY(-158px);
+  transform: translateY(-158px); }
 
 .top-bar {
   position: fixed;
@@ -367,15 +368,14 @@ ul.social.contact .github:hover {
       -o-transition: all 300ms ease;
       transition: all 300ms ease; }
       .top-bar .navigation-bar .navigation > li > a {
+        border: 1px solid transparent;
         -webkit-transition: transform 300ms ease;
         -moz-transition: transform 300ms ease;
         -o-transition: transform 300ms ease;
         transition: transform 300ms ease;
         display: block; }
-    .top-bar .navigation-bar .navigation > li:hover {
-      border: 1px solid #616161; }
-      .top-bar .navigation-bar .navigation > li:hover > a {
-        color: #616161; }
+    .top-bar .navigation-bar .navigation > li:hover > a {
+      color: #51A7F9; }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
@@ -488,7 +488,7 @@ ul.social.contact .github:hover {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 2px solid #616161;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
   background-color: white;
   border-radius: 2px; }
@@ -496,10 +496,9 @@ ul.social.contact .github:hover {
     position: relative;
     z-index: 1;
     pointer-events: all;
-    color: #616161;
-    border-bottom: 2px solid #616161;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     line-height: 40px;
-    background: white; }
+    background: #EEE; }
     #slate .modal .content .frame-bar .title {
       float: left;
       overflow: hidden;
@@ -539,7 +538,7 @@ ul.social.contact .github:hover {
     top: 40px;
     left: 0;
     z-index: 1;
-    color: #616161;
+    color: #51A7F9;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     line-height: 50px;
@@ -620,7 +619,7 @@ ul.social.contact .github:hover {
   font-weight: 400; }
 
 .card:hover, .selected .card {
-  color: #616161; }
+  color: #51A7F9; }
 
 .card {
   width: 325px;
@@ -695,7 +694,7 @@ ul.social.contact .github:hover {
       left: calc(50% - 1px);
       width: 1px;
       height: 100%;
-      background: #616161;
+      background: #51A7F9;
       -webkit-transform-origin: 0 100%;
       -moz-transform-origin: 0 100%;
       transform-origin: 0 100%;
@@ -966,7 +965,7 @@ ul.tags {
       width: 50px;
       color: rgba(255, 255, 255, 0.1); }
   ul.tags > li.selected .status {
-    color: #616161; }
+    color: #51A7F9; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

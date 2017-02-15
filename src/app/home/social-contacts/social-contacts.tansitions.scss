@@ -8,6 +8,6 @@
     @extend .pulled-to-top;
   }
   .overview .background,{
-    @include transform(translateY(-100%));
+    @include transform(translateY(-$top_bar_height - $padding_big));
   }
 }

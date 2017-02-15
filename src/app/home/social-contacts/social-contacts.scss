@@ -31,7 +31,7 @@ ul.social.contact{
       text-align: center;
       font-size: small;
       border-radius: 50%;
-      border: 1px solid transparent;
+      border: 1px solid $black_border;
       background-color: $button_bg;
       @include transition(all $transition_time $transition);
     }

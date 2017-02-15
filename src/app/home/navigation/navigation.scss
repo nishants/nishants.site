@@ -20,6 +20,8 @@
           text-align: right;
           font-weight: $weight_bold;
           opacity: 0.8;
+          border: 1px solid $black_border;
+
           @extend .button-surface;
           @extend .fades-and-moves;
           span {
