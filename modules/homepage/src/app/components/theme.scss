@@ -31,12 +31,14 @@ $pure_solid_bg: black;
 
 .solid-surface{
   background-color: $solid_bg;
+  border-radius: $border_radius;
 }
 
 .button-surface{
   color: inherit;
   border: 1px solid transparent;
   background-color: $button_bg;
+  border-radius: $border_radius;
 }
 
 .input-surface{

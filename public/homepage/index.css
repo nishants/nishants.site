@@ -89,12 +89,14 @@ ul.inline-list {
   border-radius: 3px; }
 
 .solid-surface, #nishants .page.intro .overview, .top-bar .background, .timeline .timeline-header, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px; }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
   color: inherit;
   border: 1px solid transparent;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px; }
 
 .input-surface, #nishants #connect.page .contact textarea.message {
   background-color: rgba(0, 0, 0, 0.2);
