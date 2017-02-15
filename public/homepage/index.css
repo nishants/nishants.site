@@ -153,7 +153,7 @@ ul.inline-list {
   -o-transform: translateY(-100%);
   transform: translateY(-100%); }
 
-.fades-and-moves, #nishants .page .heading .name h1, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate .tags, #slate.page .title {
+.fades-and-moves, #nishants .page .heading .name h1, #nishants .page .heading .title, #nishants .page .heading .border, #nishants .intro ul.navigation > li .link, .about-me, ul.social.contact > li, #slate .tags, #slate.page .title, .timeline ul.period-list > li.period .central-line {
   -webkit-transition: transform 300ms ease, opacity 300ms ease;
   -moz-transition: transform 300ms ease, opacity 300ms ease;
   -o-transition: transform 300ms ease, opacity 300ms ease;
@@ -643,8 +643,16 @@ ul.social.contact > li:hover a {
       top: 0;
       left: calc(50% - 1px);
       width: 1px;
-      height: calc(100% - 10px);
-      background: rgba(0, 0, 0, 0.1); }
+      height: 100%;
+      background: #51A7F9;
+      -webkit-transform-origin: 0 100%;
+      -moz-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0);
+      -moz-transform: scaleY(0);
+      -ms-transform: scaleY(0);
+      -o-transform: scaleY(0);
+      transform: scaleY(0); }
   .timeline #timeline-ends {
     height: 50px; }
 
@@ -673,6 +681,18 @@ ul.period-list > li ul.projects > li {
   ul.period-list > li ul.projects > li > .card {
     width: calc(100% - 20px);
     margin: auto; }
+
+#nishants.show-stick-experience .timeline-body.scrollable .period-list > li.reading .central-line {
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(1);
+  -moz-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1); }
+#nishants.show-stick-experience .timeline-body.scrollable .period.reading .position {
+  opacity: 0; }
 
 .timeline .timeline-header .labels.bar {
   width: 100%;
@@ -747,12 +767,14 @@ ul.period-list > li ul.projects > li {
       .compact-card .detail .caption .to {
         padding: 0px 5px; }
 
+#nishants.show-stick-experience .top-bar {
+  opacity: 0; }
+#nishants.show-stick-experience .top-bar:hover {
+  opacity: 1; }
 #nishants.show-stick-experience .timeline-header {
   opacity: 0; }
 #nishants.show-stick-experience .sticky .timeline-header {
   opacity: 1; }
-#nishants.show-stick-experience .timeline-body.scrollable .period.reading .position {
-  opacity: 0; }
 
 #nishants.show-stick-experience:not(.scrolling-down) .timeline-body:not(.scrollable) .period:not(.reading) {
   -webkit-transition: transform 300ms ease;

@@ -17,6 +17,7 @@ $header_height : $labels_height +  $search_height;
 
 $box_shadow : 10px 1px 5px $black_border;
 $approx_position_card_height: $padding_big * 2 + $padding;
+$period_change_height: $approx_position_card_height;
 
 .timeline{
   margin: 0px $padding_big;
@@ -87,8 +88,11 @@ $approx_position_card_height: $padding_big * 2 + $padding;
         top     : 0;
         left    : calc(50% - #{$line_width});
         width   : $line_width;
-        height  : calc(100% - #{$padding});
-        background: $black_border;
+        height  : 100%;
+        background: $highlight_color;
+        @extend .fades-and-moves;
+        @include transformOrigin(0 100%);
+        @include transform(scaleY(0));
       }
     }
   }
@@ -101,6 +105,7 @@ $approx_position_card_height: $padding_big * 2 + $padding;
 @import 'sticky';
 @import 'scrollable/position';
 @import 'scrollable/project';
+@import 'scrollable/scrollable.transitions';
 @import 'header/header';
 @import 'search/search';
 @import 'compact-card/compact-card';
