@@ -8,9 +8,9 @@ $placeholder_color: rgba(81, 167, 249, 0.51);
 $theme_color: rgba(0, 0, 0, 0.7);
 $theme_head_color: #9c9c9e;
 
-$black_border  : rgba(0, 0, 0, 0.1);
-$black_border : rgba(0, 0, 0, 0.1);
-$heavy-border: 1px solid rgba(0, 0, 0, 0.1);
+
+$black_border : rgba(0, 0, 0, 0.2);
+$heavy-border: 1px solid rgba(0, 0, 0, 0.2);
 $pure_solid_bg: $hard_bg;
 
 $bg_shade : white;
@@ -20,8 +20,7 @@ $bg_shade_second : #EEE;
 $bar_color: $bg_shade_second;
 $elevated_shadow : 2px 2px 5px 2px rgba(0, 0, 0, 0);
 
-$shadow: 2px 2px 2px 0 rgba(0,0,0,0.1), 2px 1px 5px 0 rgba(0,0,0,0.1), 2px 3px 1px -2px rgba(0,0,0,0.1);
-$elevated_shadow: $shadow;
+$shadow: $elevated_shadow;
 .texture {
   background-color: #eeeeee;
   background-image: url("public/texture/fabric-light.png");
@@ -41,6 +40,7 @@ $elevated_shadow: $shadow;
 .solid-surface{
   background-color: $solid_bg;
   border-radius: $border_radius;
+  border: 1px solid $black_border;
 }
 
 .button-surface{

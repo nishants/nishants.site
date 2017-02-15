@@ -50,7 +50,7 @@ $period_change_height: $approx_position_card_height;
         > li.reading{
           .position{
             .compact-card{
-              box-shadow: $elevated_shadow;
+              border: 1px solid $black_border;
             }
           }
         }

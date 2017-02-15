@@ -92,7 +92,8 @@ ul.inline-list {
 
 .solid-surface, #nishants .page.intro .overview .background, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
   background-color: white;
-  border-radius: 3px; }
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
   color: inherit;
@@ -126,7 +127,7 @@ ul.inline-list {
     #nishants .main-content .page > .title {
       padding: 10px 50px;
       margin-bottom: 100px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
       display: inline-block; }
     #nishants .main-content .page .sticky {
       padding-top: 0px;
@@ -188,7 +189,6 @@ ul.inline-list {
       left: 0;
       height: 100%;
       width: 100%;
-      box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1), 2px 1px 5px 0 rgba(0, 0, 0, 0.1), 2px 3px 1px -2px rgba(0, 0, 0, 0.1);
       -webkit-transition: transform 300ms ease;
       -moz-transition: transform 300ms ease;
       -o-transition: transform 300ms ease;
@@ -242,7 +242,7 @@ ul.inline-list {
     text-align: right;
     font-weight: 500;
     opacity: 0.8;
-    border: 1px solid rgba(0, 0, 0, 0.1); }
+    border: 1px solid rgba(0, 0, 0, 0.2); }
     #nishants .intro ul.navigation > li .link span {
       display: inline-block;
       -webkit-transition: transform 300ms ease;
@@ -271,7 +271,7 @@ ul.social.contact > li {
     text-align: center;
     font-size: small;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #EEE;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -323,7 +323,7 @@ ul.social.contact .github:hover {
     left: 0;
     height: calc(100% - 5px);
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -488,7 +488,7 @@ ul.social.contact .github:hover {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
   background-color: white;
   border-radius: 2px; }
@@ -496,7 +496,7 @@ ul.social.contact .github:hover {
     position: relative;
     z-index: 1;
     pointer-events: all;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     line-height: 40px;
     background: #EEE; }
     #slate .modal .content .frame-bar .title {
@@ -522,7 +522,7 @@ ul.social.contact .github:hover {
   #slate .modal .content .loader, #slate .modal .content .frame {
     height: calc(100% - 40px);
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     -webkit-transition: opacity 400ms ease;
     -moz-transition: opacity 400ms ease;
     -o-transition: opacity 400ms ease;
@@ -530,7 +530,7 @@ ul.social.contact .github:hover {
   #slate .modal .content .frame {
     overflow: auto;
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     pointer-events: all;
     opacity: 0; }
   #slate .modal .content .loader {
@@ -540,7 +540,7 @@ ul.social.contact .github:hover {
     z-index: 1;
     color: #51A7F9;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     line-height: 50px;
     font-size: 50px;
     text-align: center;
@@ -625,9 +625,9 @@ ul.social.contact .github:hover {
   width: 325px;
   display: block;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px 20px;
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1), 2px 1px 5px 0 rgba(0, 0, 0, 0.1), 2px 3px 1px -2px rgba(0, 0, 0, 0.1); }
+  box-shadow: 2px 2px 5px 2px transparent; }
   .card img {
     width: 100%; }
   .card .name {
@@ -657,7 +657,7 @@ ul.social.contact .github:hover {
     border: none;
     overflow: hidden; }
     .timeline .sticky-container .timeline .timeline-header {
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      border: 1px solid rgba(0, 0, 0, 0.2); }
     .timeline .sticky-container .timeline .period-list {
       position: relative;
       min-height: 100vh; }
@@ -676,7 +676,7 @@ ul.social.contact .github:hover {
         .timeline .sticky-container .timeline .period-list > li .projects {
           display: none; }
       .timeline .sticky-container .timeline .period-list > li.reading .position .compact-card {
-        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1), 2px 1px 5px 0 rgba(0, 0, 0, 0.1), 2px 3px 1px -2px rgba(0, 0, 0, 0.1); }
+        border: 1px solid rgba(0, 0, 0, 0.2); }
   .timeline .timeline-body {
     height: calc(100% - 80px);
     overflow: auto; }
@@ -746,7 +746,7 @@ ul.period-list > li ul.projects > li {
 
 .timeline .timeline-header .labels.bar {
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
     float: left;
     height: 40px;
@@ -766,7 +766,7 @@ ul.period-list > li ul.projects > li {
   display: none; }
   .search.bar .search-widget {
     max-width: 500px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     margin: auto; }
     .search.bar .search-widget .icon, .search.bar .search-widget input.query {
       float: left;
@@ -775,9 +775,9 @@ ul.period-list > li ul.projects > li {
       width: 50px;
       height: 33px;
       line-height: 33px;
-      color: rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.2);
       text-align: center;
-      border-right: 1px solid rgba(0, 0, 0, 0.1); }
+      border-right: 1px solid rgba(0, 0, 0, 0.2); }
     .search.bar .search-widget input.query {
       width: calc(100% - 50px);
       padding-left: 10px;
@@ -849,13 +849,13 @@ ul.period-list > li ul.projects > li {
     width: 100%;
     resize: none;
     margin: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     text-align: center; }
   #nishants #connect.page .contact button.send {
     display: block;
     width: 100%;
     margin: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;

@@ -19,7 +19,6 @@ $actions_width       : 300px;
         left: 0;
         height: 100%;
         width: 100%;
-        box-shadow: $shadow;
         @extend .solid-surface;
         @include transition(transform $transition_time $transition);
       }
