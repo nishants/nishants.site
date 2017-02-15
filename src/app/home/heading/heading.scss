@@ -31,7 +31,7 @@ $padding_bottom: $padding*2;
         @extend .light-text;
       }
       .border{
-        border-bottom: 1px solid $black_border;
+        border-bottom: 1px solid transparent;
         height: $padding_bottom;
         @extend .fades-and-moves;
       }

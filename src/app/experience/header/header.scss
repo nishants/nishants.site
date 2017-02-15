@@ -11,9 +11,14 @@
         line-height : $labels_height;
         width       : 50%;
         text-align  : center;
+        background  : $solid_bg;
+        border-radius: $border_radius;
       }
-      .project{
-        border-left: $border;
+
+      //1 px for border
+      .position{
+        width       : calc(50% - 1px);
+        margin-right: 1px;
       }
     }
   }

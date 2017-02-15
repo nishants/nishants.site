@@ -83,10 +83,14 @@ ul.inline-list {
   background-color: #eeeeee;
   background-image: url("public/texture/fabric-light.png"); }
 
+.heading-font, #nishants .main-content .page > .title {
+  color: #9c9c9e; }
+
 .solid-hard-surface, .card {
+  background: white;
   border-radius: 3px; }
 
-.solid-surface, #nishants .page.intro .overview, .timeline .timeline-header, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
+.solid-surface, #nishants .page.intro .overview, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
   background-color: white;
   border-radius: 3px; }
 
@@ -101,10 +105,10 @@ ul.inline-list {
   color: inherit; }
 
 .button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover, ul.tags > li > .tag:hover, ul.tags > li > .status:hover {
-  color: #03A9F4; }
+  color: #616161; }
 
 #nishants {
-  color: #8c8f8f;
+  color: rgba(0, 0, 0, 0.7);
   font-family: "Open Sans", sans-serif;
   text-align: center;
   line-height: 35px; }
@@ -182,7 +186,6 @@ ul.inline-list {
     #nishants .page.intro .overview .actions {
       width: 300px; }
     #nishants .page.intro .overview .description {
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
       width: calc(100% - 300px);
       text-align: left; }
 
@@ -208,7 +211,7 @@ ul.inline-list {
     line-height: 20px;
     font-size: small; }
   #nishants .page .heading .border {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid transparent;
     height: 20px; }
 
 #nishants .intro ul.navigation > li {
@@ -266,7 +269,7 @@ ul.social.contact > li:hover a {
   -ms-transform: scale(1.5);
   -o-transform: scale(1.5);
   transform: scale(1.5);
-  color: #03A9F4; }
+  color: #616161; }
 ul.social.contact .mailto:hover {
   color: #1a84bc; }
 ul.social.contact .twitter:hover {
@@ -350,9 +353,9 @@ ul.social.contact .github:hover {
         transition: transform 300ms ease;
         display: block; }
     .top-bar .navigation-bar .navigation > li:hover {
-      border: 1px solid #03A9F4; }
+      border: 1px solid #616161; }
       .top-bar .navigation-bar .navigation > li:hover > a {
-        color: #03A9F4; }
+        color: #616161; }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
@@ -465,7 +468,7 @@ ul.social.contact .github:hover {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 2px solid #03A9F4;
+  border: 2px solid #616161;
   box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
   background-color: white;
   border-radius: 2px; }
@@ -473,8 +476,8 @@ ul.social.contact .github:hover {
     position: relative;
     z-index: 1;
     pointer-events: all;
-    color: #03A9F4;
-    border-bottom: 2px solid #03A9F4;
+    color: #616161;
+    border-bottom: 2px solid #616161;
     line-height: 40px;
     background: white; }
     #slate .modal .content .frame-bar .title {
@@ -516,7 +519,7 @@ ul.social.contact .github:hover {
     top: 40px;
     left: 0;
     z-index: 1;
-    color: #03A9F4;
+    color: #616161;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     line-height: 50px;
@@ -597,7 +600,7 @@ ul.social.contact .github:hover {
   font-weight: 400; }
 
 .card:hover, .selected .card {
-  color: #03A9F4; }
+  color: #616161; }
 
 .card {
   width: 325px;
@@ -629,14 +632,13 @@ ul.social.contact .github:hover {
 .timeline {
   margin: 0px 50px;
   height: 100%;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1); }
+  position: relative; }
   .timeline .sticky-container .timeline {
     border: none;
     overflow: hidden; }
     .timeline .sticky-container .timeline .timeline-header {
       border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
+      box-shadow: 2px 2px 5px 2px transparent; }
     .timeline .sticky-container .timeline .period-list {
       position: relative;
       min-height: 100vh; }
@@ -655,7 +657,7 @@ ul.social.contact .github:hover {
         .timeline .sticky-container .timeline .period-list > li .projects {
           display: none; }
       .timeline .sticky-container .timeline .period-list > li.reading .position .compact-card {
-        box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.1); }
+        box-shadow: 2px 2px 5px 2px transparent; }
   .timeline .timeline-body {
     height: calc(100% - 80px);
     overflow: auto; }
@@ -673,7 +675,7 @@ ul.social.contact .github:hover {
       left: calc(50% - 1px);
       width: 1px;
       height: 100%;
-      background: #03A9F4;
+      background: #616161;
       -webkit-transform-origin: 0 100%;
       -moz-transform-origin: 0 100%;
       transform-origin: 0 100%;
@@ -731,9 +733,12 @@ ul.period-list > li ul.projects > li {
     height: 40px;
     line-height: 40px;
     width: 50%;
-    text-align: center; }
-  .timeline .timeline-header .labels.bar .project {
-    border-left: 1px solid rgba(0, 0, 0, 0.1); }
+    text-align: center;
+    background: white;
+    border-radius: 2px; }
+  .timeline .timeline-header .labels.bar .position {
+    width: calc(50% - 1px);
+    margin-right: 1px; }
 
 .search.bar {
   height: 40px;
@@ -941,7 +946,7 @@ ul.tags {
       width: 50px;
       color: rgba(255, 255, 255, 0.1); }
   ul.tags > li.selected .status {
-    color: #03A9F4; }
+    color: #616161; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {

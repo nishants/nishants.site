@@ -1,10 +1,12 @@
 $solid_bg : white;
 $solid_hard_bg : white;
 $button_bg : #EEE;
-$highlight_color: #03A9F4;
+$highlight_color: #616161;
 $input_color: #51A7F9;
 $placeholder_color: rgba(81, 167, 249, 0.51);
-$theme_color: #8c8f8f;
+$theme_color: rgba(0, 0, 0, 0.7);
+$theme_head_color: #9c9c9e;
+
 $black_border  : rgba(0, 0, 0, 0.1);
 $black_border : rgba(0, 0, 0, 0.1);
 $heavy-border: 1px solid rgba(0, 0, 0, 0.1);
@@ -15,6 +17,8 @@ $bg_shade_light : rgba(255, 255, 255, 0.1);
 $bg_shade_second : #EEE;
 
 $bar_color: rgba(0, 0, 0, 0.1);
+$elevated_shadow : 2px 2px 5px 2px rgba(0, 0, 0, 0);
+
 .texture {
   background-color: #eeeeee;
   background-image: url("public/texture/fabric-light.png");
@@ -23,7 +27,11 @@ $bar_color: rgba(0, 0, 0, 0.1);
   @extend .texture;
 }
 
+.heading-font{
+  color: $theme_head_color;
+}
 .solid-hard-surface{
+  background: $solid_hard_bg;
   border-radius: $border_radius;
 }
 

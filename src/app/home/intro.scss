@@ -20,7 +20,7 @@ $actions_width       : 300px;
         width: $actions_width;
       }
       .description{
-        border-left: 1px solid $black_border;
+        //border-left: 1px solid $black_border;
         width: calc(100% - #{$actions_width});
         text-align: left;
       }

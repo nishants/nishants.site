@@ -22,7 +22,6 @@ $period_change_height: $approx_position_card_height;
   margin: 0px $padding_big;
   height: 100%;
   position: relative;
-  border  : $border;
 
   .sticky-container{
     .timeline{
@@ -60,10 +59,6 @@ $period_change_height: $approx_position_card_height;
     };
   }
 
-
-  .timeline-header{
-    @extend .solid-surface;
-  }
   .timeline-body{
     height: calc(100% - #{$header_height});
     overflow: auto;
