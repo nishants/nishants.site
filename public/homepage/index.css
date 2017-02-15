@@ -100,7 +100,7 @@ ul.inline-list {
   color: inherit; }
 
 .button-surface:hover, #nishants .intro ul.navigation > li .link:hover, #nishants #connect.page .contact button.send:hover, ul.tags > li > .tag:hover, ul.tags > li > .status:hover {
-  color: #51A7F9; }
+  color: #03A9F4; }
 
 #nishants {
   color: #8c8f8f;
@@ -244,13 +244,29 @@ ul.social.contact > li {
     text-align: center;
     font-size: small;
     border-radius: 50%;
-    border: 1px solid;
+    border: 1px solid transparent;
+    background-color: rgba(0, 0, 0, 0.5);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease; }
 ul.social.contact > li:hover a {
-  color: #51A7F9; }
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  color: #03A9F4; }
+ul.social.contact .mailto:hover {
+  color: #1a84bc; }
+ul.social.contact .twitter:hover {
+  color: #1da1f2; }
+ul.social.contact .stack-overflow:hover {
+  color: #f48024; }
+ul.social.contact .linkedin:hover {
+  color: #1a84bc; }
+ul.social.contact .github:hover {
+  color: inherit; }
 
 #nishants.show-name .page .heading .border {
   -webkit-transform: translateY(-108px);
@@ -323,9 +339,9 @@ ul.social.contact > li:hover a {
         transition: transform 300ms ease;
         display: block; }
     .top-bar .navigation-bar .navigation > li:hover {
-      border: 1px solid #51A7F9; }
+      border: 1px solid #03A9F4; }
       .top-bar .navigation-bar .navigation > li:hover > a {
-        color: #51A7F9; }
+        color: #03A9F4; }
 
 .pull-from-bottom, #nishants:not(.show-navigation) .top-bar ul.navigation > li, #nishants:not(.show-design) .top-bar ul.navigation > li.design, #nishants:not(.show-connect) .top-bar ul.navigation > li.connect, #nishants:not(.show-experience) .top-bar ul.navigation > li.experience, #nishants:not(.show-coaching) .top-bar ul.navigation > li.coaching, #nishants:not(.show-development) .top-bar ul.navigation > li.development {
   -webkit-transform: translateY(-100%);
@@ -438,14 +454,14 @@ ul.social.contact > li:hover a {
   -o-transition: transform 400ms ease, opacity 400ms ease;
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
-  border: 2px solid #51A7F9;
+  border: 2px solid #03A9F4;
   box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.21);
   background-color: rgba(0, 0, 0, 0.3); }
   #slate .modal .content .frame-bar {
     position: relative;
     z-index: 1;
     pointer-events: all;
-    color: #51A7F9;
+    color: #03A9F4;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     line-height: 40px; }
     #slate .modal .content .frame-bar .title {
@@ -487,7 +503,7 @@ ul.social.contact > li:hover a {
     top: 40px;
     left: 0;
     z-index: 1;
-    color: #51A7F9;
+    color: #03A9F4;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     line-height: 50px;
@@ -568,7 +584,7 @@ ul.social.contact > li:hover a {
   font-weight: 400; }
 
 .card:hover, .selected .card {
-  color: #51A7F9; }
+  color: #03A9F4; }
 
 .card {
   width: 325px;
@@ -644,7 +660,7 @@ ul.social.contact > li:hover a {
       left: calc(50% - 1px);
       width: 1px;
       height: 100%;
-      background: #51A7F9;
+      background: #03A9F4;
       -webkit-transform-origin: 0 100%;
       -moz-transform-origin: 0 100%;
       transform-origin: 0 100%;
@@ -912,7 +928,7 @@ ul.tags {
       width: 50px;
       color: rgba(255, 255, 255, 0.1); }
   ul.tags > li.selected .status {
-    color: #51A7F9; }
+    color: #03A9F4; }
 
 @media screen and (max-width: 700px) {
   .no-mobile {
