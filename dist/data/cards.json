@@ -130,6 +130,36 @@
         "lead": "Hides/Shows/Partially-shows",
         "follow" : "the top bar by predicting user intention. Uses JQuery + AngularJS + SCSS achieve super smooth transitions with scalability. Also a design for navigation bar,search bar, ripple effect implementation."
       }
+    },
+    {
+      "type": "ui",
+      "name": "Calendar with Angular",
+      "src": "http://amoeba.social/dump/lessons/calendar/index.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Calendar widget with",
+        "follow" : "AngularJS and SCSS"
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Google Map Search with AngularJS",
+      "src": "http://amoeba.social/dump/google-maps-angular/searchbox.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Using Google Maps Location Search API" ,
+        "follow" : "with Angularjs and SCSS."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "CNN Video Transition",
+      "src": "http://amoeba.social/dump/design-fix/cnn",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Fixing the smoothness for CNN Video Player." ,
+        "follow" : "Sticking a playing video to viewport. CNN removed this interaction from their current website, probably because they never got it right."
+      }
     }
   ]
 }
