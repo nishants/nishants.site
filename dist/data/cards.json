@@ -38,7 +38,7 @@
       "name": "Chakra",
       "no-mobile" : "true",
       "src": "https://boiling-scrubland-7787.herokuapp.com/",
-      "tags": [{"name": "design"},{"name": "development"},{"name": "coaching"}],
+      "tags": [{"name": "design"},{"name": "coaching"}],
       "description": {
         "lead": "Java compiler in browser",
         "follow" : "An experimental app that runs Java inside browsers."
