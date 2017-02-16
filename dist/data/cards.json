@@ -2,17 +2,6 @@
   "cards" : [
     {
       "type": "ui",
-      "name": "RubyLab",
-      "no-mobile" : "true",
-      "src": "http://amoeba.social/practice-labs/ruby-for-qa/",
-      "tags": [{"name": "design"}],
-      "description": {
-        "lead": "Test Driven Development With Ruby",
-        "follow" : "in browser. Needs no machine setup. Create an assignment, create test for it with RSpec and share link. Lifesaver for conducting ruby programing sessions in corporate environments.I can create assignments on demand if you need."
-      }
-    },
-    {
-      "type": "ui",
       "name": "Gaming Experience with Alien Theme",
       "src": "http://nishants.site/lab/star-wars/",
       "tags": [{"name": "design"},{"name": "studio"}],
@@ -42,6 +31,17 @@
       "description": {
         "lead": "Java compiler in browser",
         "follow" : "An experimental app that runs Java inside browsers."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "RubyLab",
+      "no-mobile" : "true",
+      "src": "http://amoeba.social/practice-labs/ruby-for-qa/",
+      "tags": [{"name": "design"}],
+      "description": {
+        "lead": "Test Driven Development With Ruby",
+        "follow" : "in browser. Needs no machine setup. Create an assignment, create test for it with RSpec and share link. Lifesaver for conducting ruby programing sessions in corporate environments.I can create assignments on demand if you need."
       }
     },
     {
