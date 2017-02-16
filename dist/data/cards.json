@@ -61,8 +61,8 @@
       "src": "public/pages/look_like",
       "tags": [{"name": "development"}],
       "description": {
-        "lead": "Online playground look like matchers.",
-        "follow" : "See how to use matchers, also an example with data tables."
+        "lead": "A collection of Rspec matchers, for writing wireframe tests.",
+        "follow" : "Useful for writting data independent tests based on visual pattern matching."
       }
     },
     {
