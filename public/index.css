@@ -79,27 +79,33 @@ ul.inline-list {
   font-family: 'Roboto', sans-serif;
   font-weight: 400; }
 
-.texture, .theme-body-bg, #nishants {
+.texture, .theme-body-bg, #nishants, .top-bar .background {
   background-color: #eeeeee;
   background-image: url("public/texture/fabric-light.png"); }
+
+.surface, .solid-hard-surface, #nishants .page.intro .overview .background, ul.social.contact > li > a, .card, .solid-surface, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card, .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px; }
+
+.elevated-surface, .solid-hard-surface, #nishants .page.intro .overview .background, ul.social.contact > li > a, .card, .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.28); }
 
 .heading-font, #nishants .main-content .page > .title {
   color: #9c9c9e; }
 
-.solid-hard-surface, .card {
-  background: white;
-  border-radius: 3px; }
+.solid-hard-surface, #nishants .page.intro .overview .background, ul.social.contact > li > a, .card {
+  background: white; }
 
-.solid-surface, #nishants .page.intro .overview .background, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
-  background-color: white;
-  border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.2); }
+.solid-surface, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card {
+  background-color: white; }
 
 .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
   color: inherit;
   border: 1px solid transparent;
   background-color: #EEE;
-  border-radius: 3px; }
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.28); }
 
 .input-surface, #nishants #connect.page .contact textarea.message {
   background-color: white;
@@ -271,7 +277,7 @@ ul.social.contact > li {
     text-align: center;
     font-size: small;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: none;
     background-color: #EEE;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -317,13 +323,12 @@ ul.social.contact .github:hover {
   height: 108px;
   overflow: hidden; }
   .top-bar .background {
-    background: #EEE;
     position: absolute;
     top: 0;
     left: 0;
     height: calc(100% - 5px);
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.28);
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -489,7 +494,7 @@ ul.social.contact .github:hover {
   transition: transform 400ms ease, opacity 400ms ease;
   width: calc(100% - 365px);
   border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 10px 1px 5px transparent;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.28);
   background-color: white;
   border-radius: 2px; }
   #slate .modal .content .frame-bar {
@@ -636,9 +641,7 @@ ul.social.contact .github:hover {
   width: 325px;
   display: block;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 20px 20px;
-  box-shadow: 2px 2px 5px 2px transparent;
+  padding: 10px;
   -webkit-transition: transform 100ms ease;
   -moz-transition: transform 100ms ease;
   -o-transition: transform 100ms ease;
@@ -669,7 +672,6 @@ ul.social.contact .github:hover {
   height: 100%;
   position: relative; }
   .timeline .sticky-container .timeline {
-    border: none;
     overflow: hidden; }
     .timeline .sticky-container .timeline .timeline-header {
       border: 1px solid rgba(0, 0, 0, 0.2); }
@@ -761,6 +763,7 @@ ul.period-list > li ul.projects > li {
 
 .timeline .timeline-header .labels.bar {
   width: 100%;
+  border: 1px solid transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   .timeline .timeline-header .labels.bar .position, .timeline .timeline-header .labels.bar .project {
     float: left;

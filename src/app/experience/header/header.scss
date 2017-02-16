@@ -3,7 +3,8 @@
   .timeline-header{
     .labels.bar{
       width: 100%;
-      border-bottom  : $border;
+      border  : 1px solid transparent;
+      border-bottom: 1px solid $black_border;
       @extend .resize-container;
       .position,  .project{
         float       : left;

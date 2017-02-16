@@ -23,10 +23,8 @@ $card_bg: white;
   width: $cardWidth;
   display: block;
   cursor: pointer;
-  border: 1px solid $black_border;
   img{width: 100%;}
-  padding: 2*$padding 2*$padding;
-  box-shadow: $shadow;
+  padding: $padding;
   @include transition(transform $transition_time_quick $transition);
   .name{
     margin: 2*$padding 0px;

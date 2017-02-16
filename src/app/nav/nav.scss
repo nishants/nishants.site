@@ -18,14 +18,13 @@ $shadow_offset: $top_bar_shadow_offset;
   @extend .top-bar-font;
 
   .background{
-    background: $bar_color;
     position: absolute;
     top: 0;
     left: 0;
     height: calc(100% - #{$shadow_offset});
     width: 100%;
-    border-bottom: 1px solid $black_border;
-    //box-shadow: 0 0 5px 1px rgba(1, 1, 1, 0.3);
+    box-shadow: $elevated_shadow;
+    @extend .theme-body-bg;
     @include transition(all $transition_time $transition);
   }
 }

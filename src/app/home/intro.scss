@@ -19,7 +19,7 @@ $actions_width       : 300px;
         left: 0;
         height: 100%;
         width: 100%;
-        @extend .solid-surface;
+        @extend .solid-hard-surface;
         @include transition(transform $transition_time $transition);
       }
       .description, .actions{
