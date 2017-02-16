@@ -21,6 +21,7 @@ $padding_bottom: $padding*2;
       .name{
         line-height: 25px;
         label{
+          @extend .heading-font;
           @extend .fades-and-moves;
         }
       }
