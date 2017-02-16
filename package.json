@@ -40,7 +40,7 @@
     "start": "http-server -a localhost -p 8000 -c-1 ./public",
     "watch": "watch-run -p 'src/**' npm run package",
 
-    "copy-public": "cp -r dist public/public",
+    "copy-public": "cp -r dist/* public/public",
     "dev": "npm run js-dev && npm run scss && npm run jade"
   }
 }
