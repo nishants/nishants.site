@@ -140,6 +140,15 @@
         "lead": "Calendar widget with",
         "follow" : "AngularJS and SCSS"
       }
+    },    {
+      "type": "ui",
+      "name": "Infield Form",
+      "src": "http://amoeba.social/dump/lab/infield",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "A Form design with infield labels,",
+        "follow" : "made with AngularJS and SCSS"
+      }
     },
     {
       "type": "ui",
@@ -160,6 +169,33 @@
         "lead": "Fixing the smoothness for CNN Video Player." ,
         "follow" : "Sticking a playing video to viewport. CNN removed this interaction from their current website, probably because they never got it right."
       }
+    },    {
+      "type": "ui",
+      "name": "Slate Interaction",
+      "src": "http://amoeba.social/dump/concepts/slate/index.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "An interactoin for showing large details for a card, " ,
+        "follow" : "without changing the view, giving a cohesive user experience."
+      }
+    }, {
+      "type": "ui",
+      "name": "Scroll Progress",
+      "src": "http://amoeba.social/dump/lab/scroll-progress/index.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Show progress bar," ,
+        "follow" : "by scroll position."
+      }
+    },{
+      "type": "ui",
+      "name": "Filter Menu Design",
+      "src": "http://amoeba.social/dump/lab/xsaas",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Hierarchical data filter, search and navigation design." ,
+        "follow" : "Useful when data sets are complex and hierarchical in nature. Allows to quickly view,filter and search children of a subset of data to any level."
+      }
     },
     {
       "type": "ui",
@@ -169,6 +205,134 @@
       "description": {
         "lead": "A Navigation design for complex" ,
         "follow" : "sections and articles. Usefule when there a lots of sections in app, each containing number of sub sections."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Scroll Jacking",
+      "src": "http://amoeba.social/dump/lab/scroll/x-scroll.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Capture Scroll Event" ,
+        "follow" : "and convert to vertical/horizontal movements."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Theater Booking",
+      "src": "http://amoeba.social/dump/theater-booking.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Show any kind of complex seat arrangement and book seats" ,
+        "follow" : "for a movie theater. Made with angualr and SCSS."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Wizard Design",
+      "src": "http://amoeba.social/dump/tiktik2",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Wizard with SCSS" ,
+        "follow" : "and AngularJs"
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Circular Loader",
+      "src": "http://amoeba.social/dump/circular-loader.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Circular Loader" ,
+        "follow" : "with jquery."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Shutter Menu",
+      "src": "http://amoeba.social/dump/concepts/mobile-shutter-menu/index.html",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Design for mobile menu." ,
+        "follow" : ""
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Trigger Loader",
+      "src": "http://amoeba.social/dump/rob-the-robe",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Trigger load animation for splash" ,
+        "follow" : "and logo in top bar."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "WhatsApp Theme",
+      "src": "http://amoeba.social/dump/concepts/legally",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "WhatsApp Web client styled theme" ,
+        "follow" : ""
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Form Design",
+      "src": "http://amoeba.social/dump/client-demo/treniq",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Form design with inline help" ,
+        "follow" : ""
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Accordion",
+      "src": "http://amoeba.social/dump/lab/accordian",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "With AngularJS and SCSS" ,
+        "follow" : "."
+      }
+    },    {
+      "type": "ui",
+      "name": "Blinking Owls",
+      "src": "http://amoeba.social/dump/lab/blinking-owls",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Blinking Owls" ,
+        "follow" : "effect with SCSS only."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Blast Button",
+      "src": "http://amoeba.social/dump/lab/blast-button",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Button blast effect" ,
+        "follow" : "using SCSS."
+      }
+    },
+    {
+      "type": "ui",
+      "name": "Tiktik Loader",
+      "src": "http://amoeba.social/dump/lab/branded-loader",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Brand logo" ,
+        "follow" : "converted to a loader. Made with SCSs only."
+      }
+    },    {
+      "type": "ui",
+      "name": "Wave Surfer",
+      "src": "http://amoeba.social/dump/lab/music",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "Music waves" ,
+        "follow" : "and progress bars using wavesurfer."
       }
     }
   ]
