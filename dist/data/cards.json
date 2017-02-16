@@ -160,6 +160,16 @@
         "lead": "Fixing the smoothness for CNN Video Player." ,
         "follow" : "Sticking a playing video to viewport. CNN removed this interaction from their current website, probably because they never got it right."
       }
+    },
+    {
+      "type": "ui",
+      "name": "Tetris Navigation",
+      "src": "http://amoeba.social/dump/concepts/tetris-scroll",
+      "tags": [{"name": "coaching"}],
+      "description": {
+        "lead": "A Navigation design for complex" ,
+        "follow" : "sections and articles. Usefule when there a lots of sections in app, each containing number of sub sections."
+      }
     }
   ]
 }
