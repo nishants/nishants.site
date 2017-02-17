@@ -980,10 +980,10 @@ ul.tags {
   ul.tags > li.selected .status {
     color: #51A7F9; }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .no-mobile {
     display: none !important; } }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   .mobile-only {
     display: none !important; } }
 

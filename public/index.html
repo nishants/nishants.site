@@ -31,211 +31,217 @@ ga('send', 'pageview');
     </script>
   </head>
   <body id="nishants" ng-class="{&quot;show-modal&quot; : deck._current != -1, &quot;show-slate&quot;: ui._show_slate}" ng-app="nishants" class="no-splash">
-    <nav class="top-bar">
-      <div class="background"></div><a href="#home" class="profile-bar link">
-        <div class="image"><img src="public/images/profile.jpg"></div>
-        <div class="name"><span>Nishant Singh</span></div></a>
-      <div class="navigation-bar">
-        <ul class="navigation">
-          <li class="design"><a href="#portolio?tags=design">Apps</a></li>
-          <li class="development"><a href="#portolio?tags=development">Open Source</a></li>
-          <li class="coaching"><a href="#portolio?tags=coaching">Experiments</a></li>
-          <li class="experience"><a href="#experience">Experience</a></li>
-          <li class="connect"><a href="#connect">Connect</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="main-content scroll-container">
-      <div id="home" class="page intro">
-        <div class="overview">
-          <div class="background"></div>
-          <div class="heading">
-            <div class="profile-image"><img src="public/images/profile.jpg"></div>
-            <div class="name">
-              <label>Nishant Singh</label>
-            </div>
-            <div class="title">Designer | Craftsman | Consultant</div>
-            <div class="border"></div>
-          </div>
-          <div class="actions">
-            <ul class="navigation">
-              <li class="design"><a href="#portfolio?tags=design" class="link"><span>Apps</span></a></li>
-              <li class="development"><a href="#portfolio?tags=development" class="link"><span>Open Source</span></a></li>
-              <li class="coaching"><a href="#portfolio?tags=coaching" class="link"><span>Experiments</span></a></li>
-              <li class="experience"><a href="#experience" class="link"><span>Experience</span></a></li>
-              <li class="connect"><a href="#connect" class="link"><span>Connect</span></a></li>
-            </ul>
-          </div>
-          <div class="description">
-            <div class="about-me">
-              <p>I love programming, prototyping, ui design, coaching and mentoring.</p>
-              <p>I have a diverse experience in development, quality assurance and requirement analysis and coaching.</p>
-              <p>I have worked with backends and micro-services in Java(Swing), Ruby(Sinatra/Rails) and single page applications with AngularJS, SCSS and JQuery</p>
-              <p>I have a good understanding of SCRUM, iterative development, continuous integration, test automation, sprint and release planning.</p>
-              <p>I am crazy about design and user experience and I can design beautiful web interactions, that can run at 60 frames per second across browsers.</p>
-            </div>
-            <ul class="contact social">
-              <li><a href="mailto:nishant.singh87@gmail.com" target="_top" class="link mailto btn btn-outline-primary fa fa-envelope"></a></li>
-              <li><a href="https://twitter.com/nshnt_sng" target="_blank" class="link twitter btn btn-outline-primary fa fa-twitter"></a></li>
-              <li><a href="https://www.linkedin.com/in/nishant-singh-b2420946" target="_blank" class="link linkedin btn btn-outline-primary fa fa-linkedin"></a></li>
-              <li><a href="http://stackoverflow.com/users/1065020/dawn" target="_blank" class="link stack-overflow btn btn-outline-primary fa fa-stack-overflow"></a></li>
-              <li><a href="https://github.com/nishants" target="_blank" class="link github btn btn-outline-primary fa fa-github"></a></li>
-            </ul>
-          </div>
+    <div class="no-mobile">
+      <nav class="top-bar">
+        <div class="background"></div><a href="#home" class="profile-bar link">
+          <div class="image"><img src="public/images/profile.jpg"></div>
+          <div class="name"><span>Nishant Singh</span></div></a>
+        <div class="navigation-bar">
+          <ul class="navigation">
+            <li class="design"><a href="#portolio?tags=design">Apps</a></li>
+            <li class="development"><a href="#portolio?tags=development">Open Source</a></li>
+            <li class="coaching"><a href="#portolio?tags=coaching">Experiments</a></li>
+            <li class="experience"><a href="#experience">Experience</a></li>
+            <li class="connect"><a href="#connect">Connect</a></li>
+          </ul>
         </div>
-      </div>
-      <div id="slate" ng-controller="PortfolioController" ng-class="{'show-modal' : deck._current != -1}" class="page slate theme-font">
-        <h1 class="title">Portfolio</h1>
-        <ul class="tags">
-          <li ng-repeat="tag in tags.list" ng-class="{'selected': tag.selected}" ng-click="tags.remove($index)">
-            <div class="tag">
-              <label ng-bind="tag.name"></label>
-            </div><span class="status selected">
-              <div class="fa fa-check"></div></span>
-          </li>
-        </ul>
-        <ul ng-class="{'focus' : deck._current != -1}" class="deck grid">
-          <li ng-repeat="card in deck._list" data-tags="{{card.tagList}}" ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current &lt; $index - 1, 'selected-tail' : deck._current &gt; $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}" class="grid-box scroll-target">
-            <div class="wrapper"><a ng-click="deck.select($index)" class="card">
-                <div ng-if="card.type == &quot;image&quot;" class="image-card"><img ng-src="{{card.image}}"></div>
-                <div ng-if="card.type == &quot;ui&quot;" class="ui-tutorial">
-                  <h2 ng-bind="card.name" class="name"></h2>
-                  <p class="description"><span ng-bind="card.description.lead" class="lead"></span><span ng-bind="card.description.follow" class="follow"></span></p>
-                </div></a></div>
-          </li>
-        </ul>
-        <div ng-controller="modalController" class="modal">
+      </nav>
+      <div class="main-content scroll-container">
+        <div id="home" class="page intro">
           <div class="overview">
-            <div class="card-space"></div>
-            <div class="card-actions">
-              <!--a(target="_blank",href="{{modal._frame._src}}") Open-->
-              <!--button(ng-click="modal.close()") Close-->
+            <div class="background"></div>
+            <div class="heading">
+              <div class="profile-image"><img src="public/images/profile.jpg"></div>
+              <div class="name">
+                <label>Nishant Singh</label>
+              </div>
+              <div class="title">Designer | Craftsman | Consultant</div>
+              <div class="border"></div>
             </div>
-          </div>
-          <div ng-class="{&quot;ready&quot; : modal._frame._ready, &quot;full-screen&quot;: modal._frame._fullscreen, &quot;mobile-screen&quot;: modal._mobile}" class="content">
-            <div class="frame-bar">
-              <div ng-bind="deck.selected().name" class="title"></div>
-              <ul class="actions">
-                <li class="close"><a ng-click="modal.close()" class="fa fa-close"></a></li>
-                <li class="maximize"><a ng-hide="modal._frame._fullscreen" ng-click="modal._frame.fullscren(true)" class="fa fa-expand"></a></li>
-                <li class="minimize"><a ng-show="modal._frame._fullscreen" ng-click="modal._frame.fullscren(false)" class="close fa fa-compress"></a></li>
-                <li ng-hide="modal.props.mobileOnly" class="desktop"><a ng-show="modal._mobile" ng-click="modal.mobile(false)" class="fa fa-desktop"></a></li>
-                <li ng-hide="modal.props.noMobile" class="mobile"><a ng-hide="modal._mobile" ng-click="modal.mobile(true)" class="fa fa-mobile"></a></li>
-                <li class="external-link"><a target="_blank" href="{{modal._frame._src}}" class="fa fa-external-link"></a></li>
+            <div class="actions">
+              <ul class="navigation">
+                <li class="design"><a href="#portfolio?tags=design" class="link"><span>Apps</span></a></li>
+                <li class="development"><a href="#portfolio?tags=development" class="link"><span>Open Source</span></a></li>
+                <li class="coaching"><a href="#portfolio?tags=coaching" class="link"><span>Experiments</span></a></li>
+                <li class="experience"><a href="#experience" class="link"><span>Experience</span></a></li>
+                <li class="connect"><a href="#connect" class="link"><span>Connect</span></a></li>
               </ul>
             </div>
-            <iframe ng-if="modal._show" src="{{modal._frame._src}}" onload="iframeLoaded()" class="frame"></iframe>
-            <div class="loader">
-              <div class="fa fa-circle-o-notch fa-spin"></div>
+            <div class="description">
+              <div class="about-me">
+                <p>I love programming, prototyping, ui design, coaching and mentoring.</p>
+                <p>I have a diverse experience in development, quality assurance and requirement analysis and coaching.</p>
+                <p>I have worked with backends and micro-services in Java(Swing), Ruby(Sinatra/Rails) and single page applications with AngularJS, SCSS and JQuery</p>
+                <p>I have a good understanding of SCRUM, iterative development, continuous integration, test automation, sprint and release planning.</p>
+                <p>I am crazy about design and user experience and I can design beautiful web interactions, that can run at 60 frames per second across browsers.</p>
+              </div>
+              <ul class="contact social">
+                <li><a href="mailto:nishant.singh87@gmail.com" target="_top" class="link mailto btn btn-outline-primary fa fa-envelope"></a></li>
+                <li><a href="https://twitter.com/nshnt_sng" target="_blank" class="link twitter btn btn-outline-primary fa fa-twitter"></a></li>
+                <li><a href="https://www.linkedin.com/in/nishant-singh-b2420946" target="_blank" class="link linkedin btn btn-outline-primary fa fa-linkedin"></a></li>
+                <li><a href="http://stackoverflow.com/users/1065020/dawn" target="_blank" class="link stack-overflow btn btn-outline-primary fa fa-stack-overflow"></a></li>
+                <li><a href="https://github.com/nishants" target="_blank" class="link github btn btn-outline-primary fa fa-github"></a></li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div id="experience" class="page experience">
-        <h1 class="title">Experience</h1>
-        <div ng-controller="TimelineController" class="timeline">
-          <div class="sticky-container">
-            <div class="sticky">
-              <div class="timeline">
-                <div class="timeline-header">
-                  <div ng-controller="SearchController" class="search bar">
-                    <div class="search-widget"><span class="icon">
-                        <div class="fa fa-search"></div></span>
-                      <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
+        <div id="slate" ng-controller="PortfolioController" ng-class="{'show-modal' : deck._current != -1}" class="page slate theme-font">
+          <h1 class="title">Portfolio</h1>
+          <ul class="tags">
+            <li ng-repeat="tag in tags.list" ng-class="{'selected': tag.selected}" ng-click="tags.remove($index)">
+              <div class="tag">
+                <label ng-bind="tag.name"></label>
+              </div><span class="status selected">
+                <div class="fa fa-check"></div></span>
+            </li>
+          </ul>
+          <ul ng-class="{'focus' : deck._current != -1}" class="deck grid">
+            <li ng-repeat="card in deck._list" data-tags="{{card.tagList}}" ng-class="{'selected' : deck._current == $index, 'selected-head' : deck._current &lt; $index - 1, 'selected-tail' : deck._current &gt; $index + 1, 'selected-pre' : deck._current == $index - 1,'selected-post' : deck._current == $index + 1}" class="grid-box scroll-target">
+              <div class="wrapper"><a ng-click="deck.select($index)" class="card">
+                  <div ng-if="card.type == &quot;image&quot;" class="image-card"><img ng-src="{{card.image}}"></div>
+                  <div ng-if="card.type == &quot;ui&quot;" class="ui-tutorial">
+                    <h2 ng-bind="card.name" class="name"></h2>
+                    <p class="description"><span ng-bind="card.description.lead" class="lead"></span><span ng-bind="card.description.follow" class="follow"></span></p>
+                  </div></a></div>
+            </li>
+          </ul>
+          <div ng-controller="modalController" class="modal">
+            <div class="overview">
+              <div class="card-space"></div>
+              <div class="card-actions">
+                <!--a(target="_blank",href="{{modal._frame._src}}") Open-->
+                <!--button(ng-click="modal.close()") Close-->
+              </div>
+            </div>
+            <div ng-class="{&quot;ready&quot; : modal._frame._ready, &quot;full-screen&quot;: modal._frame._fullscreen, &quot;mobile-screen&quot;: modal._mobile}" class="content">
+              <div class="frame-bar">
+                <div ng-bind="deck.selected().name" class="title"></div>
+                <ul class="actions">
+                  <li class="close"><a ng-click="modal.close()" class="fa fa-close"></a></li>
+                  <li class="maximize"><a ng-hide="modal._frame._fullscreen" ng-click="modal._frame.fullscren(true)" class="fa fa-expand"></a></li>
+                  <li class="minimize"><a ng-show="modal._frame._fullscreen" ng-click="modal._frame.fullscren(false)" class="close fa fa-compress"></a></li>
+                  <li ng-hide="modal.props.mobileOnly" class="desktop"><a ng-show="modal._mobile" ng-click="modal.mobile(false)" class="fa fa-desktop"></a></li>
+                  <li ng-hide="modal.props.noMobile" class="mobile"><a ng-hide="modal._mobile" ng-click="modal.mobile(true)" class="fa fa-mobile"></a></li>
+                  <li class="external-link"><a target="_blank" href="{{modal._frame._src}}" class="fa fa-external-link"></a></li>
+                </ul>
+              </div>
+              <iframe ng-if="modal._show" src="{{modal._frame._src}}" onload="iframeLoaded()" class="frame"></iframe>
+              <div class="loader">
+                <div class="fa fa-circle-o-notch fa-spin"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="experience" class="page experience">
+          <h1 class="title">Experience</h1>
+          <div ng-controller="TimelineController" class="timeline">
+            <div class="sticky-container">
+              <div class="sticky">
+                <div class="timeline">
+                  <div class="timeline-header">
+                    <div ng-controller="SearchController" class="search bar">
+                      <div class="search-widget"><span class="icon">
+                          <div class="fa fa-search"></div></span>
+                        <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
+                      </div>
+                    </div>
+                    <div class="labels bar">
+                      <div class="position"><span>Positions</span></div>
+                      <div class="project"><span>Projects</span></div>
                     </div>
                   </div>
-                  <div class="labels bar">
-                    <div class="position"><span>Positions</span></div>
-                    <div class="project"><span>Projects</span></div>
-                  </div>
-                </div>
-                <div class="timeline-body">
-                  <ul class="period-list">
-                    <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
-                      <div class="position">
-                        <div class="compact-card">
-                          <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
-                          <div class="detail">
-                            <label ng-bind="position.title" class="title"></label>
-                            <label ng-bind="position.organisation" class="headline"></label>
-                            <p ng-bind="position.description" class="description"></p>
-                            <label class="caption"><span ng-if="!position.period.to" class="since">Since</span><span>{{position.period.from.month}} {{position.period.from.year}}</span><span ng-if="position.period.to"><span class="to">to</span><span>{{position.period.to.month}} {{position.period.to.year}}</span></span></label>
-                          </div>
-                        </div>
-                      </div>
-                      <ul class="projects">
-                        <li ng-repeat="project in position.projects">
+                  <div class="timeline-body">
+                    <ul class="period-list">
+                      <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
+                        <div class="position">
                           <div class="compact-card">
-                            <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                            <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
                             <div class="detail">
-                              <label ng-bind="project.title" class="title"></label>
-                              <label ng-bind="project.organisation" class="headline"></label>
-                              <p ng-bind="project.description" class="description"></p>
-                              <label class="caption"><span ng-if="!project.period.to" class="since">Since</span><span>{{project.period.from.month}} {{project.period.from.year}}</span><span ng-if="project.period.to"><span class="to">to</span><span>{{project.period.to.month}} {{project.period.to.year}}</span></span></label>
+                              <label ng-bind="position.title" class="title"></label>
+                              <label ng-bind="position.organisation" class="headline"></label>
+                              <p ng-bind="position.description" class="description"></p>
+                              <label class="caption"><span ng-if="!position.period.to" class="since">Since</span><span>{{position.period.from.month}} {{position.period.from.year}}</span><span ng-if="position.period.to"><span class="to">to</span><span>{{position.period.to.month}} {{position.period.to.year}}</span></span></label>
                             </div>
                           </div>
-                        </li>
-                      </ul>
-                      <li ng-repeat-end class="period-change"></li>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="timeline-header">
-            <div ng-controller="SearchController" class="search bar">
-              <div class="search-widget"><span class="icon">
-                  <div class="fa fa-search"></div></span>
-                <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
-              </div>
-            </div>
-            <div class="labels bar">
-              <div class="position"><span>Positions</span></div>
-              <div class="project"><span>Projects</span></div>
-            </div>
-          </div>
-          <div class="timeline-body scrollable">
-            <ul class="period-list">
-              <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
-                <div class="position">
-                  <div class="compact-card">
-                    <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
-                    <div class="detail">
-                      <label ng-bind="position.title" class="title"></label>
-                      <label ng-bind="position.organisation" class="headline"></label>
-                      <p ng-bind="position.description" class="description"></p>
-                      <label class="caption"><span ng-if="!position.period.to" class="since">Since</span><span>{{position.period.from.month}} {{position.period.from.year}}</span><span ng-if="position.period.to"><span class="to">to</span><span>{{position.period.to.month}} {{position.period.to.year}}</span></span></label>
-                    </div>
+                        </div>
+                        <ul class="projects">
+                          <li ng-repeat="project in position.projects">
+                            <div class="compact-card">
+                              <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                              <div class="detail">
+                                <label ng-bind="project.title" class="title"></label>
+                                <label ng-bind="project.organisation" class="headline"></label>
+                                <p ng-bind="project.description" class="description"></p>
+                                <label class="caption"><span ng-if="!project.period.to" class="since">Since</span><span>{{project.period.from.month}} {{project.period.from.year}}</span><span ng-if="project.period.to"><span class="to">to</span><span>{{project.period.to.month}} {{project.period.to.year}}</span></span></label>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <li ng-repeat-end class="period-change"></li>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <ul class="projects">
-                  <li ng-repeat="project in position.projects">
+              </div>
+            </div>
+            <div class="timeline-header">
+              <div ng-controller="SearchController" class="search bar">
+                <div class="search-widget"><span class="icon">
+                    <div class="fa fa-search"></div></span>
+                  <input ng-change="search.search(_query)" ng-model="_query" placeholder="search" class="query">
+                </div>
+              </div>
+              <div class="labels bar">
+                <div class="position"><span>Positions</span></div>
+                <div class="project"><span>Projects</span></div>
+              </div>
+            </div>
+            <div class="timeline-body scrollable">
+              <ul class="period-list">
+                <li ng-repeat-start="position in timeline.positions" class="period"><span class="central-line"></span>
+                  <div class="position">
                     <div class="compact-card">
-                      <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                      <div ng-if="position.logo" class="logo"><img ng-src="{{position.logo}}"></div>
                       <div class="detail">
-                        <label ng-bind="project.title" class="title"></label>
-                        <label ng-bind="project.organisation" class="headline"></label>
-                        <p ng-bind="project.description" class="description"></p>
-                        <label class="caption"><span ng-if="!project.period.to" class="since">Since</span><span>{{project.period.from.month}} {{project.period.from.year}}</span><span ng-if="project.period.to"><span class="to">to</span><span>{{project.period.to.month}} {{project.period.to.year}}</span></span></label>
+                        <label ng-bind="position.title" class="title"></label>
+                        <label ng-bind="position.organisation" class="headline"></label>
+                        <p ng-bind="position.description" class="description"></p>
+                        <label class="caption"><span ng-if="!position.period.to" class="since">Since</span><span>{{position.period.from.month}} {{position.period.from.year}}</span><span ng-if="position.period.to"><span class="to">to</span><span>{{position.period.to.month}} {{position.period.to.year}}</span></span></label>
                       </div>
                     </div>
-                  </li>
-                </ul>
-                <li ng-repeat-end class="period-change"></li>
-              </li>
-            </ul>
-            <div id="timeline-ends"></div>
+                  </div>
+                  <ul class="projects">
+                    <li ng-repeat="project in position.projects">
+                      <div class="compact-card">
+                        <div ng-if="project.logo" class="logo"><img ng-src="{{project.logo}}"></div>
+                        <div class="detail">
+                          <label ng-bind="project.title" class="title"></label>
+                          <label ng-bind="project.organisation" class="headline"></label>
+                          <p ng-bind="project.description" class="description"></p>
+                          <label class="caption"><span ng-if="!project.period.to" class="since">Since</span><span>{{project.period.from.month}} {{project.period.from.year}}</span><span ng-if="project.period.to"><span class="to">to</span><span>{{project.period.to.month}} {{project.period.to.year}}</span></span></label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <li ng-repeat-end class="period-change"></li>
+                </li>
+              </ul>
+              <div id="timeline-ends"></div>
+            </div>
+          </div>
+        </div>
+        <div id="connect" ng-controller="ContactController" class="page">
+          <h1 class="title">Connect</h1>
+          <div class="contact">
+            <textarea ng-model="message.body" placeholder="Message" class="message"></textarea>
+            <button class="send"><a href="mailto:{{message.email}}?subject={{message.subject}}&amp;body={{message.body}}">Send</a></button>
           </div>
         </div>
       </div>
-      <div id="connect" ng-controller="ContactController" class="page">
-        <h1 class="title">Connect</h1>
-        <div class="contact">
-          <textarea ng-model="message.body" placeholder="Message" class="message"></textarea>
-          <button class="send"><a href="mailto:{{message.email}}?subject={{message.subject}}&amp;body={{message.body}}">Send</a></button>
-        </div>
-      </div>
+    </div>
+    <div class="mobile-only">
+      <h1>Oops !</h1>
+      <h3>Not Available On Small Screens.</h3>
     </div>
   </body>
   <div id="footer">

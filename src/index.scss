@@ -1,6 +1,6 @@
 @import '../lib/style/base';
 
-$mobile_at : 700px;
+$mobile_at : 800px;
 @import "app/app";
 
 @media screen and (max-width: $mobile_at) {
