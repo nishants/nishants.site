@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400i,400,500");
+body {
+  margin: 0px; }
+
+body * {
+  box-sizing: border-box; }
+
+label {
+  cursor: inherit; }
+
+input {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  box-sizing: border-box;
+  border: none; }
+
+.resize-container:after, .drop-down ul.options:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+ul.undo-list, .drop-down ul.options, .app-bar ul.actions, ul.navigation-bar, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: block; }
+
+[ng-click] {
+  cursor: pointer; }
+
+.form-component, .input-component, .drop-down .current, .drop-down ul.options > li, button.outline, .game.card button {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.form-component.active, .active.input-component, .drop-down .active.current, .drop-down ul.options > li.active, .form-component:hover, .input-component:hover, .drop-down .current:hover, .drop-down ul.options > li:hover, button.outline:hover, .game.card button:hover, button.active.outline, .game.card button.active, .game.card:hover button {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+.input-component, .drop-down .current, .drop-down ul.options > li {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0px 50px; }
+
+.drop-down {
+  position: relative;
+  z-index: 1;
+  height: 40px;
+  overflow: hidden; }
+  .drop-down ul.options {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: white; }
+    .drop-down ul.options > li {
+      display: block;
+      border: 1px solid transparent; }
+
+.drop-down.active, .drop-down ul.options > li.drop-down:hover, .game.card button.drop-down:hover, .drop-down:hover, .game.card:hover button.drop-down {
+  overflow: visible; }
+
+button.outline, .game.card button {
+  border: 1px solid #8db352;
+  padding: 0px;
+  background: transparent;
+  color: #8db352;
+  font-weight: 500;
+  border-radius: 2px; }
+
+button.outline.active, button.outline:hover, .game.card button:hover, .game.card button.active, .game.card:hover button {
+  background: #8db352;
+  color: rgba(255, 255, 255, 0.9); }
+
+body {
+  background: #fbfbfb;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+  line-height: 16px; }
+  body #content {
+    padding: 50px 20px; }
+    body #content #section {
+      float: left;
+      width: calc(100% - (300px));
+      padding: 0px 20px; }
+
+.app-bar {
+  height: 90px;
+  padding: 10px;
+  background-color: white; }
+  .app-bar .logo {
+    height: 100%;
+    float: left; }
+    .app-bar .logo > img {
+      display: block;
+      height: 100%; }
+  .app-bar ul.actions {
+    float: right;
+    height: 100%; }
+    .app-bar ul.actions > li {
+      line-height: 70px;
+      font-size: 24px;
+      float: left;
+      padding: 0px 20px;
+      color: rgba(0, 0, 0, 0.2); }
+
+ul.navigation-bar {
+  height: 50px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: black;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 10px 0 rgba(0, 0, 0, 0.12); }
+  ul.navigation-bar > li {
+    float: left;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer; }
+  ul.navigation-bar > li.selected {
+    cursor: default;
+    background-color: #8db352; }
+  ul.navigation-bar > li:hover {
+    background-color: #8db352; }
+
+ul.navigation-bar:hover > li.selected {
+  cursor: default;
+  color: #8db352;
+  background-color: inherit; }
+
+#profile-bar {
+  width: 300px;
+  margin-top: 50px;
+  float: left;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
+  #profile-bar .heading {
+    background: #EEE;
+    padding: 10px; }
+    #profile-bar .heading .picture {
+      margin: auto;
+      height: 150px;
+      width: 150px; }
+      #profile-bar .heading .picture > img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%; }
+    #profile-bar .heading .title {
+      padding-top: 10px;
+      font-size: 16px;
+      line-height: 16px;
+      text-align: center; }
+  #profile-bar ul.score-card {
+    text-align: center; }
+    #profile-bar ul.score-card > li {
+      padding: 20px; }
+      #profile-bar ul.score-card > li .value {
+        font-size: 24px;
+        line-height: 24px;
+        color: #8db352; }
+      #profile-bar ul.score-card > li .label {
+        color: rgba(0, 0, 0, 0.5); }
+
+ul.tab-buttons {
+  width: 100%; }
+  ul.tab-buttons > li {
+    float: left;
+    height: 50px;
+    width: 200px;
+    position: relative;
+    left: 14px; }
+    ul.tab-buttons > li .tab-shape {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
+    ul.tab-buttons > li .tab-shape {
+      background: #EEE;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      -webkit-transform: perspective(100px) rotateX(30deg);
+      -moz-transform: perspective(100px) rotateX(30deg);
+      -ms-transform: perspective(100px) rotateX(30deg);
+      -o-transform: perspective(100px) rotateX(30deg);
+      transform: perspective(100px) rotateX(30deg); }
+    ul.tab-buttons > li .label {
+      position: relative;
+      line-height: 50px;
+      text-align: center; }
+  ul.tab-buttons li.explore {
+    float: right;
+    left: -14px; }
+
+ul.tab-buttons > li:hover, ul.tab-buttons > li.selected {
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.5); }
+  ul.tab-buttons > li:hover .tab-shape, ul.tab-buttons > li.selected .tab-shape {
+    background-color: #8db352;
+    box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
+
+.tab-body {
+  position: relative;
+  top: -1px;
+  background: white;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 10px 0 rgba(0, 0, 0, 0.12); }
+  .tab-body .tab-filters {
+    background-color: #8db352;
+    padding: 10px;
+    border-top-right-radius: 2px; }
+    .tab-body .tab-filters > ul > li {
+      float: left; }
+  .tab-body ul.deck {
+    padding: 20px 20px 50px; }
+    .tab-body ul.deck > li {
+      float: left;
+      padding: 10px; }
+
+.game.card {
+  width: 270px;
+  padding: 30px 10px 10px;
+  background: #fbfbfb;
+  line-height: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .game.card .picture {
+    margin: auto;
+    height: 150px;
+    width: 150px; }
+    .game.card .picture > img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%; }
+  .game.card .title {
+    padding-top: 20px;
+    font-weight: 500; }
+  .game.card .by {
+    font-size: 10px; }
+  .game.card .description {
+    padding: 10px 0px;
+    font-size: 12px; }
+  .game.card .words {
+    text-align: center;
+    font-weight: 500;
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0px;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px; }
+    .game.card .words .quote {
+      display: block;
+      text-align: left;
+      font-weight: 300;
+      font-size: 12px; }
+    .game.card .words .quote.right {
+      text-align: right; }
+  .game.card button {
+    margin-top: 20px;
+    width: 100%; }
+
+.game.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+#vocabulary {
+  position: relative;
+  top: -5px; }
+
+@media screen and (max-width: 750px) {
+  .no-mobile {
+    display: none !important; } }
+@media screen and (min-width: 750px) {
+  .mobile-only {
+    display: none !important; } }
+
+/*# sourceMappingURL=index.css.map */
