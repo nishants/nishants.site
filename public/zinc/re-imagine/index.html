@@ -74,33 +74,32 @@
             <div class="tab-filters">
               <ul class="undo-list">
                 <li>
-                  <div value="vocabulary.filters.status.value" options="vocabulary.filters.status.options" class="drop-down">
-                    <div class="current">
-                      <label>Status</label>
-                      <div class="caret fa fa-chevron-down"></div>
-                    </div>
-                    <ul class="options">
-                      <li><span>Bonus</span></li>
-                      <li><span>Locked</span></li>
-                      <li><span>Completed</span></li>
-                      <li><span>Not Opened</span></li>
-                    </ul>
-                  </div>
+                  <div name="Status" reset="All" value="" options="[{value: &quot;Bonus&quot;}, {value: &quot;Locked&quot;}, {value: &quot;Completed&quot;}, {value: &quot;Not Opened&quot;}]" class="status drop-down"></div>
+                </li>
+                <li>
+                  <div name="Assigned" reset="All" value="" options="[{value: &quot;Assigned&quot;}, {value: &quot;Not Assigned&quot;}]" class="assigned drop-down"></div>
+                </li>
+                <li>
+                  <div name="Type" reset="&quot;All&quot;" value="" options="[{value: &quot;Pre Reading&quot;}, {value: &quot;Not Pre Reading&quot;}]" class="pre-reading drop-down"></div>
+                </li>
+                <li>
+                  <div name="Sort" reset="Clear" value="" options="[{value: &quot;Date Started&quot;}, {value: &quot;Last Played&quot;}]" class="sort drop-down"></div>
                 </li>
               </ul>
             </div>
             <ul class="deck">
               <li ng-repeat="game in [{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212},{title: &quot;Fun Words&quot;, by: &quot;Zinc&quot;, description: &quot;Fun Words to learn this summer.&quot;, words: &quot;one, two, three, four&quot;, status: &quot;bonus&quot;, time: 1212}]">
                 <div class="game card">
+                  <div class="rubber_stamp">Assigned</div>
                   <div class="picture"><img src="assets/images/vocab.eg.jpg"></div>
                   <div ng-bind="game.title" class="title"></div>
                   <div class="by"><span>By &nbsp;</span><span ng-bind="game.by"></span></div>
                   <div ng-bind="game.description" class="description"></div>
-                  <div class="words">
-                    <div class="quote fa fa-quote-left"></div><span ng-bind="game.words" class="word"></span>
-                    <div class="quote right fa fa-quote-right"></div>
-                  </div>
-                  <button class="open">Continue</button>
+                  <!--.words-->
+                  <!--  .quote.fa.fa-quote-left-->
+                  <!--  span.word(ng-bind='game.words')-->
+                  <!--  .quote.right.fa.fa-quote-right-->
+                  <button class="open">Open</button>
                 </div>
               </li>
             </ul>
