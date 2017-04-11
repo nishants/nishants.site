@@ -49,9 +49,19 @@ ul.undo-list, .drop-down ul.options, .app-bar ul.actions, ul.navigation-bar, #pr
   background: rgba(255, 255, 255, 0.9);
   padding: 0px 50px; }
 
+button.outline, .game.card button {
+  border: 1px solid #8db352;
+  padding: 0px;
+  background: transparent;
+  color: #8db352;
+  font-weight: 500;
+  border-radius: 2px; }
+
+button.outline.active, button.outline:hover, .game.card button:hover, .game.card button.active, .game.card:hover button {
+  background: #8db352;
+  color: rgba(255, 255, 255, 0.9); }
+
 .drop-down {
-  position: relative;
-  z-index: 2;
   height: 40px;
   overflow: hidden; }
   .drop-down .current {
@@ -65,6 +75,9 @@ ul.undo-list, .drop-down ul.options, .app-bar ul.actions, ul.navigation-bar, #pr
       line-height: inherit;
       float: right; }
   .drop-down ul.options {
+    opacity: 0;
+    position: relative;
+    z-index: 2;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     background: white;
     cursor: pointer;
@@ -76,18 +89,8 @@ ul.undo-list, .drop-down ul.options, .app-bar ul.actions, ul.navigation-bar, #pr
 
 .drop-down.active, .drop-down.form-component:hover, .drop-down.input-component:hover, .drop-down .drop-down.current:hover, .drop-down ul.options > li.drop-down:hover, button.drop-down.outline:hover, .game.card button.drop-down:hover, .game.card:hover button.drop-down {
   overflow: visible; }
-
-button.outline, .game.card button {
-  border: 1px solid #8db352;
-  padding: 0px;
-  background: transparent;
-  color: #8db352;
-  font-weight: 500;
-  border-radius: 2px; }
-
-button.outline.active, button.outline:hover, .game.card button:hover, .game.card button.active, .game.card:hover button {
-  background: #8db352;
-  color: rgba(255, 255, 255, 0.9); }
+  .drop-down.active ul.options, .drop-down.form-component:hover ul.options, .drop-down.input-component:hover ul.options, .drop-down .drop-down.current:hover ul.options, .drop-down ul.options > li.drop-down:hover ul.options, button.drop-down.outline:hover ul.options, .game.card button.drop-down:hover ul.options, .game.card:hover button.drop-down ul.options {
+    opacity: 1; }
 
 .rubber_stamp {
   position: absolute;
@@ -173,7 +176,6 @@ ul.navigation-bar:hover > li.selected {
 
 #profile-bar {
   width: 300px;
-  margin-top: 50px;
   float: left;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -213,37 +215,31 @@ ul.tab-buttons {
     height: 50px;
     width: 200px;
     position: relative;
-    left: 14px; }
-    ul.tab-buttons > li .tab-shape {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
-    ul.tab-buttons > li .tab-shape {
-      background: #EEE;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      -webkit-transform: perspective(100px) rotateX(30deg);
-      -moz-transform: perspective(100px) rotateX(30deg);
-      -ms-transform: perspective(100px) rotateX(30deg);
-      -o-transform: perspective(100px) rotateX(30deg);
-      transform: perspective(100px) rotateX(30deg); }
+    max-width: calc(50% - 10px);
+    background: white;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
     ul.tab-buttons > li .label {
       position: relative;
       line-height: 50px;
       text-align: center; }
-  ul.tab-buttons li.explore {
-    float: right;
-    left: -14px; }
 
-ul.tab-buttons > li:hover, ul.tab-buttons > li.selected {
-  z-index: 1;
-  color: rgba(0, 0, 0, 0.5); }
-  ul.tab-buttons > li:hover .tab-shape, ul.tab-buttons > li.selected .tab-shape {
-    background-color: #8db352;
-    box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
+ul.tab-buttons > li.selected {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: #8db352;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.4);
+  border: 1px solid #8db352; }
+
+ul.tab-buttons:hover > li:not(.selected):hover {
+  color: #8db352;
+  border: 1px solid #8db352; }
 
 .tab-body {
   position: relative;
