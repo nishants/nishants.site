@@ -78,8 +78,7 @@ ul.inline-list {
   font-weight: 400; }
 
 .texture, .theme-body-bg, #nishants, .top-bar .background {
-  background-color: #eeeeee;
-  background-image: url("public/texture/fabric-light.png"); }
+  background-color: white; }
 
 .surface, .solid-hard-surface, #nishants .page.intro .overview .background, ul.social.contact > li > a, .card, .solid-surface, ul.period-list > li .position > .compact-card, ul.period-list > li ul.projects > li > .compact-card, .button-surface, #nishants .intro ul.navigation > li .link, #nishants #connect.page .contact button.send, ul.tags > li > .tag, ul.tags > li > .status {
   border: 1px solid rgba(0, 0, 0, 0.2);
