@@ -29,7 +29,10 @@ ul.undo-list, .drop-down ul.options, ul#flash-messages, .navigation-bar ul.actio
 [ng-click] {
   cursor: pointer; }
 
-.form-component, .input-component, .drop-down .current, .drop-down ul.options > li, button.outline, .game.card button, .vocabset.card .deck button.study-words {
+button {
+  cursor: pointer; }
+
+.form-component, .input-component, .drop-down .current, .drop-down ul.options > li, button.outline, .game.card button {
   display: block;
   height: 45px;
   line-height: 45px;
@@ -41,7 +44,7 @@ ul.undo-list, .drop-down ul.options, ul#flash-messages, .navigation-bar ul.actio
   -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.form-component.active, .active.input-component, .drop-down .active.current, .drop-down ul.options > li.active, .form-component:hover, .input-component:hover, .drop-down .current:hover, .drop-down ul.options > li:hover, button.outline:hover, .game.card button:hover, .vocabset.card .deck button.study-words:hover, button.active.outline, .game.card button.active, .game.card:hover button, .game.card:hover .vocabset.card .deck button.study-words, .vocabset.card .deck .game.card:hover button.study-words, .vocabset.card .deck button.active.study-words {
+.form-component.active, .active.input-component, .drop-down .active.current, .drop-down ul.options > li.active, button.active.outline, .game.card button.active, button.outline:hover, .game.card button:hover {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 
 .input-component, .drop-down .current, .drop-down ul.options > li {
@@ -49,7 +52,10 @@ ul.undo-list, .drop-down ul.options, ul#flash-messages, .navigation-bar ul.actio
   background: rgba(255, 255, 255, 0.9);
   padding: 0px 50px; }
 
-button.outline, .game.card button, .vocabset.card .deck button.study-words {
+.form-component:hover, .input-component:hover, .drop-down .current:hover, .drop-down ul.options > li:hover, button.outline:hover, .game.card button:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+button.outline, .game.card button {
   border: 1px solid #8db352;
   padding: 0px;
   background: transparent;
@@ -57,7 +63,9 @@ button.outline, .game.card button, .vocabset.card .deck button.study-words {
   font-weight: 500;
   border-radius: 2px; }
 
-button.outline.active, button.outline:hover, .game.card button:hover, .vocabset.card .deck button.study-words:hover, .game.card button.active, .game.card:hover button, .game.card:hover .vocabset.card .deck button.study-words, .vocabset.card .deck .game.card:hover button.study-words, .vocabset.card .deck button.active.study-words {
+button.outline:hover, .game.card button:hover,
+button.outline.active,
+.game.card button.active {
   background: #8db352;
   color: rgba(255, 255, 255, 0.9); }
 
@@ -87,9 +95,9 @@ button.outline.active, button.outline:hover, .game.card button:hover, .vocabset.
       display: block;
       border: 1px solid transparent; }
 
-.drop-down.active, .drop-down.form-component:hover, .drop-down.input-component:hover, .drop-down .drop-down.current:hover, .drop-down ul.options > li.drop-down:hover, button.drop-down.outline:hover, .game.card button.drop-down:hover, .vocabset.card .deck button.drop-down.study-words:hover, .game.card:hover button.drop-down {
+.drop-down.active {
   overflow: visible; }
-  .drop-down.active ul.options, .drop-down.form-component:hover ul.options, .drop-down.input-component:hover ul.options, .drop-down .drop-down.current:hover ul.options, .drop-down ul.options > li.drop-down:hover ul.options, button.drop-down.outline:hover ul.options, .game.card button.drop-down:hover ul.options, .vocabset.card .deck button.drop-down.study-words:hover ul.options, .game.card:hover button.drop-down ul.options {
+  .drop-down.active ul.options {
     opacity: 1; }
 
 .rubber_stamp {
@@ -235,9 +243,6 @@ body {
       float: left;
       padding: 0px 20px;
       cursor: pointer; }
-  .navigation-bar ul.actions > li:hover {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: #8db352; }
 
 ul.navigation-links {
   float: left;
@@ -252,13 +257,6 @@ ul.navigation-links {
       display: block;
       color: inherit;
       text-decoration: none; }
-  ul.navigation-links > li.selected {
-    cursor: default;
-    color: rgba(255, 255, 255, 0.9);
-    background-color: #8db352; }
-  ul.navigation-links > li:hover {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: #8db352; }
 
 #profile-bar {
   width: 300px;
@@ -325,10 +323,6 @@ ul.tab-buttons > li.selected {
 
 ul.tab-buttons > li:not(.selected) {
   cursor: pointer; }
-
-ul.tab-buttons:hover > li:not(.selected):hover {
-  color: #8db352;
-  border: 1px solid #8db352; }
 
 .tab-body {
   position: relative;
@@ -406,21 +400,6 @@ ul.tab-buttons:hover > li:not(.selected):hover {
   .game.card button {
     margin-top: 20px;
     width: 100%; }
-
-.game.card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-  .game.card:hover .picture > img {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1); }
-  .game.card:hover .title, .game.card:hover .by, .game.card:hover .description {
-    -webkit-transform: translateX(10px);
-    -moz-transform: translateX(10px);
-    -ms-transform: translateX(10px);
-    -o-transform: translateX(10px);
-    transform: translateX(10px); }
 
 .vocabset.card {
   max-width: 550px;
@@ -598,8 +577,6 @@ ul.tab-buttons:hover > li:not(.selected):hover {
           -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
           -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
           transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .vocabset.card .deck ul.exposures > li .exposure .state.playable:hover {
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
         .vocabset.card .deck ul.exposures > li .exposure .state.completed {
           color: #8db352; }
         .vocabset.card .deck ul.exposures > li .exposure .state.waiting {
@@ -635,6 +612,63 @@ ul.tab-buttons:hover > li:not(.selected):hover {
   position: relative;
   top: -5px; }
 
+@media screen and (min-width: 900px) {
+  #top-bar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw; }
+
+  #content {
+    margin-top: 100px; }
+
+  ul.navigation-links > li:hover {
+    color: #8db352; }
+
+  .state.vocab ul.navigation-links > li.vocabulary,
+  .state.vocab-view ul.navigation-links > li.vocabulary {
+    cursor: default;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #8db352; }
+
+  .home ul.navigation-links > li.home {
+    cursor: default;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #8db352; }
+
+  ul.actions > li:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #8db352; }
+
+  .game.card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    .game.card:hover .picture > img {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1); }
+    .game.card:hover .title, .game.card:hover .by, .game.card:hover .description {
+      -webkit-transform: translateX(10px);
+      -moz-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      -o-transform: translateX(10px);
+      transform: translateX(10px); }
+    .game.card:hover button {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      background: #8db352;
+      color: rgba(255, 255, 255, 0.9); }
+
+  ul.tab-buttons:hover > li:not(.selected):hover {
+    color: #8db352;
+    border: 1px solid #8db352; }
+
+  .vocabset.card .deck ul.exposures > li .state.playable:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+  .no-mobile {
+    display: none !important; } }
 @media screen and (max-width: 750px) {
   .no-mobile {
     display: none !important; } }
