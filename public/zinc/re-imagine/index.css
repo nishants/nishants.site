@@ -293,7 +293,7 @@ ul.navigation-links {
   float: left;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.16); }
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2); }
   #profile-bar .heading {
     background: #EEE;
     padding: 10px; }
@@ -689,7 +689,11 @@ ul.tab-buttons > li:not(.selected) {
 
   .mobile-only {
     display: none !important; } }
-@media screen and (max-width: 910px) {
+@media screen and (min-width: 650px) and (max-width: 910px) {
+  ul#flash-messages {
+    top: 20px;
+    right: 20px; }
+
   body {
     background-color: white; }
     body #content {
@@ -699,46 +703,28 @@ ul.tab-buttons > li:not(.selected) {
         width: 100%;
         padding: 0px; }
 
-  ul.tab-buttons > li, ul.tab-buttons > li.selected {
-    width: 50%;
-    max-width: 50%;
-    border-radius: 0px;
-    border: none;
+  #profile-bar {
+    width: 100%;
+    float: none;
     box-shadow: none;
-    font-weight: 300; }
-  ul.tab-buttons > li:not(.selected) {
-    background-color: #EEE; }
+    border-top: 1px solid rgba(0, 0, 0, 0.2); }
+    #profile-bar .show-score {
+      line-height: 45px;
+      padding: 0px 20px;
+      text-align: center;
+      font-size: 24px;
+      background: #EEE; }
+    #profile-bar .heading {
+      padding: 20px;
+      padding-bottom: 0px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 5px; }
+      #profile-bar .heading .picture {
+        height: 75px;
+        width: 75px; }
 
-  .game.card {
-    width: 100%; }
-
-  .tab-body {
-    box-shadow: none; }
-    .tab-body .tab-filters {
-      padding: 10px;
-      box-shadow: none; }
-      .tab-body .tab-filters > ul > li {
-        float: none;
-        padding: 10px; }
-        .tab-body .tab-filters > ul > li .drop-down {
-          width: 100%; }
-    .tab-body ul.deck {
-      padding: 0px; }
-      .tab-body ul.deck > li {
-        float: none;
-        margin: auto;
-        padding: 20px; }
-
-  .vocabset.card {
-    box-shadow: none;
-    border: none;
-    max-width: 100%; }
-    .vocabset.card .deck {
-      padding: 20px 10px 40px;
-      margin: 10px 10px 40px; }
-
-  .vocabset.card.single-deck .deck {
-    margin: 0px; }
+  #profile-bar:not(.expand) .score-card {
+    display: none; }
 
   .navigation-bar {
     height: auto;
@@ -787,10 +773,59 @@ ul.tab-buttons > li:not(.selected) {
       color: rgba(0, 0, 0, 0.3);
       text-align: center; }
 
+  ul.tab-buttons > li, ul.tab-buttons > li.selected {
+    width: 50%;
+    max-width: 50%;
+    border-radius: 0px;
+    border: none;
+    font-weight: 300; }
+  ul.tab-buttons > li:not(.selected) {
+    background-color: #EEE; }
+  ul.tab-buttons > li.selected {
+    box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1; }
+
+  .tab-body .tab-filters {
+    padding: 10px;
+    box-shadow: none; }
+    .tab-body .tab-filters > ul > li {
+      width: 50%;
+      margin: auto; }
+      .tab-body .tab-filters > ul > li .drop-down {
+        margin: auto; }
+
+  .vocabset.card {
+    box-shadow: none;
+    border: none;
+    max-width: 100%; }
+    .vocabset.card .deck {
+      padding: 20px 10px 40px;
+      margin: 10px 10px 40px; }
+
+  .vocabset.card.single-deck .deck {
+    margin: 0px; }
+
+  .no-mobile {
+    display: none !important; } }
+@media screen and (max-width: 650px) {
+  ul#flash-messages {
+    top: 20px;
+    right: 20px; }
+
+  body {
+    background-color: white; }
+    body #content {
+      padding: 0px; }
+      body #content #section {
+        float: none;
+        width: 100%;
+        padding: 0px; }
+
   #profile-bar {
     width: 100%;
     float: none;
-    box-shadow: none; }
+    box-shadow: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.2); }
     #profile-bar .show-score {
       line-height: 45px;
       padding: 0px 20px;
@@ -808,6 +843,96 @@ ul.tab-buttons > li:not(.selected) {
 
   #profile-bar:not(.expand) .score-card {
     display: none; }
+
+  .navigation-bar {
+    height: auto;
+    padding: 0px;
+    box-shadow: none; }
+
+  ul.navigation-links {
+    float: none;
+    padding: 0px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 20px;
+    border: none;
+    background-color: #EEE; }
+    ul.navigation-links > li {
+      float: none;
+      display: block;
+      color: rgba(0, 0, 0, 0.7) !important;
+      font-weight: 500; }
+    ul.navigation-links > li.current {
+      text-transform: capitalize; }
+
+  ul.navigation-links:not(.expand) > li:not(.current) {
+    display: none; }
+  ul.navigation-links:not(.expand) > li.current {
+    background-color: #8db352; }
+
+  .navigation-bar .logo {
+    height: auto;
+    float: none;
+    width: 100%;
+    padding: 20px; }
+    .navigation-bar .logo > img {
+      height: 70px;
+      width: auto;
+      margin: auto; }
+
+  .navigation-bar ul.actions {
+    float: none;
+    width: 100%; }
+    .navigation-bar ul.actions > li {
+      float: left;
+      display: block;
+      width: 33%;
+      font-size: 14px;
+      padding: 0px 40px;
+      color: rgba(0, 0, 0, 0.3);
+      text-align: center; }
+
+  ul.tab-buttons > li, ul.tab-buttons > li.selected {
+    width: 50%;
+    max-width: 50%;
+    border-radius: 0px;
+    border: none;
+    font-weight: 300; }
+  ul.tab-buttons > li:not(.selected) {
+    background-color: #EEE; }
+  ul.tab-buttons > li.selected {
+    box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1; }
+
+  .game.card {
+    width: 100%; }
+
+  .tab-body {
+    box-shadow: none; }
+    .tab-body .tab-filters {
+      padding: 10px;
+      box-shadow: none; }
+      .tab-body .tab-filters > ul > li {
+        float: none;
+        padding: 10px; }
+        .tab-body .tab-filters > ul > li .drop-down {
+          width: 100%; }
+    .tab-body ul.deck {
+      padding: 0px; }
+      .tab-body ul.deck > li {
+        float: none;
+        margin: auto;
+        padding: 20px; }
+
+  .vocabset.card {
+    box-shadow: none;
+    border: none;
+    max-width: 100%; }
+    .vocabset.card .deck {
+      padding: 20px 10px 40px;
+      margin: 10px 10px 40px; }
+
+  .vocabset.card.single-deck .deck {
+    margin: 0px; }
 
   .no-mobile {
     display: none !important; } }
