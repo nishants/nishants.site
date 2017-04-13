@@ -648,7 +648,7 @@ ul.tab-buttons > li:not(.selected) {
   position: relative;
   top: -5px; }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 910px) {
   #navigation {
     position: fixed;
     z-index: 100;
@@ -694,7 +694,7 @@ ul.tab-buttons > li:not(.selected) {
 
   .mobile-only {
     display: none !important; } }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 910px) {
   body {
     background-color: white; }
     body #content {
