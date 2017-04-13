@@ -695,9 +695,12 @@ ul.tab-buttons > li:not(.selected) {
     right: 20px; }
 
   body {
-    background-color: white; }
+    background-color: #fbfbfb; }
     body #content {
-      padding: 0px; }
+      margin: 10px;
+      padding: 0px;
+      width: calc(100% - 20px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
       body #content #section {
         float: none;
         width: 100%;
@@ -772,6 +775,9 @@ ul.tab-buttons > li:not(.selected) {
       padding: 0px 40px;
       color: rgba(0, 0, 0, 0.3);
       text-align: center; }
+
+  #navigation {
+    background-color: white; }
 
   ul.tab-buttons > li, ul.tab-buttons > li.selected {
     width: 50%;
@@ -813,9 +819,12 @@ ul.tab-buttons > li:not(.selected) {
     right: 20px; }
 
   body {
-    background-color: white; }
+    background-color: #fbfbfb; }
     body #content {
-      padding: 0px; }
+      margin: 10px;
+      padding: 0px;
+      width: calc(100% - 20px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
       body #content #section {
         float: none;
         width: 100%;
@@ -890,6 +899,9 @@ ul.tab-buttons > li:not(.selected) {
       padding: 0px 40px;
       color: rgba(0, 0, 0, 0.3);
       text-align: center; }
+
+  #navigation {
+    background-color: white; }
 
   ul.tab-buttons > li, ul.tab-buttons > li.selected {
     width: 50%;
