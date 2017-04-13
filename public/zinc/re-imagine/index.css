@@ -260,11 +260,6 @@ ul.navigation-links {
   color: rgba(255, 255, 255, 0.9);
   background-color: #8db352; }
 
-ul.navigation-links:not(.expand) > li.current {
-  cursor: default;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: #8db352; }
-
 .navigation-bar ul.actions {
   float: right;
   height: 100%;
@@ -752,17 +747,23 @@ ul.tab-buttons > li:not(.selected) {
 
   ul.navigation-links {
     float: none;
-    padding: 0px; }
+    padding: 0px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin-bottom: 20px;
+    border: none;
+    background-color: #EEE; }
     ul.navigation-links > li {
       float: none;
       display: block;
-      padding-left: 20px;
-      text-align: left; }
+      color: rgba(0, 0, 0, 0.7) !important;
+      font-weight: 500; }
     ul.navigation-links > li.current {
       text-transform: capitalize; }
 
   ul.navigation-links:not(.expand) > li:not(.current) {
     display: none; }
+  ul.navigation-links:not(.expand) > li.current {
+    background-color: #8db352; }
 
   .navigation-bar .logo {
     height: auto;
