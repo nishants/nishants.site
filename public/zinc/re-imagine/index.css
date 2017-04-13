@@ -736,7 +736,8 @@ ul.tab-buttons > li:not(.selected) {
 
   .vocabset.card {
     box-shadow: none;
-    border: none; }
+    border: none;
+    max-width: 100%; }
     .vocabset.card .deck {
       padding: 20px 10px 40px;
       margin: 10px 10px 40px; }
