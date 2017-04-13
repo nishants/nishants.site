@@ -1,8 +1,11 @@
 
-<div id="profile-bar">
+<div id="profile-bar" ng-class="{&quot;expand&quot;: profile.expand}">
   <div class="heading">
     <div class="picture"><img src="assets/images/user.jpg"/></div>
     <div class="title">Nishant Singh</div>
+    <div ng-click="profile.expand = !profile.expand" class="show-score mobile-only">
+      <div class="fa fa-ellipsis-h"></div>
+    </div>
   </div>
   <ul class="score-card">
     <li>

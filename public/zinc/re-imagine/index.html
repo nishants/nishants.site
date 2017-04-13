@@ -13,22 +13,33 @@
 </html>
 <body>
   <div id="app" ng-app="zinc" ng-class="state.name" class="state">
-    <div id="top-bar">
-      <!--.app-bar-->
-      <!--  include app-bar/app-bar-->
+    <div id="navigation">
       <div class="navigation-bar">
         <div class="logo"><img src="assets/images/zinc-logo.png"></div>
-        <ul class="navigation-links">
+        <div class="mobile-only">
+          <ul class="actions">
+            <li class="user"><span class="fa fa-user"></span></li>
+            <li class="nofifications"><span class="fa fa-bell"></span></li>
+            <li class="help"><span class="fa fa-question-circle"></span></li>
+          </ul>
+        </div>
+        <ul ng-class="{&quot;expand&quot;: nav.expand}" ng-click="nav.expand = !nav.expand" class="navigation-links">
+          <li class="current mobile-only">
+            <label ng-bind="state.name" class="name"></label>
+            <div class="fa fa-chevron-down"></div>
+          </li>
           <li class="home"><a ui-sref="home">Dashboard</a></li>
-          <li class="articles">Articles</li>
+          <li class="articles"><a ui-sref="articles">Articles</a></li>
           <li class="vocabulary selected"><a ui-sref="vocab">Vocabulary</a></li>
-          <li class="reports">Reports</li>
+          <li class="reports"><a ui-sref="reports">Reports</a></li>
         </ul>
-        <ul class="actions">
-          <li class="user"><span class="fa fa-user"></span></li>
-          <li class="nofifications"><span class="fa fa-bell"></span></li>
-          <li class="help"><span class="fa fa-question-circle"></span></li>
-        </ul>
+        <div class="no-mobile">
+          <ul class="actions">
+            <li class="user"><span class="fa fa-user"></span></li>
+            <li class="nofifications"><span class="fa fa-bell"></span></li>
+            <li class="help"><span class="fa fa-question-circle"></span></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div id="content">

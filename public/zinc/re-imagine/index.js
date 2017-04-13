@@ -92,6 +92,14 @@ angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locatio
 				url: '/home',
 				templateUrl: 'assets/templates/home-template.html'
 			})
+			.state('articles', {
+				url: '/articles',
+				templateUrl: 'assets/templates/articles-template.html'
+			})
+			.state('reports', {
+				url: '/reports',
+				templateUrl: 'assets/templates/reports-template.html'
+			})
 			.state('vocab', {
 				url: '/vocab',
 				templateUrl: 'assets/templates/vocab-list-template.html',
