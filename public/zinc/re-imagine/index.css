@@ -807,7 +807,7 @@ ul.tab-buttons > li:not(.selected) {
 
   .tab-body .tab-filters {
     padding: 10px;
-    box-shadow: none; }
+    border-radius: 0px; }
     .tab-body .tab-filters > ul > li {
       width: 50%;
       margin: auto; }
@@ -958,7 +958,7 @@ ul.tab-buttons > li:not(.selected) {
     box-shadow: none; }
     .tab-body .tab-filters {
       padding: 10px;
-      box-shadow: none; }
+      border-radius: 0px; }
       .tab-body .tab-filters > ul > li {
         float: none;
         padding: 10px; }
