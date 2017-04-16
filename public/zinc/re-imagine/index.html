@@ -12,7 +12,7 @@
   </head>
 </html>
 <body>
-  <div id="app" ng-app="zinc" ng-class="state.name" class="state">
+  <div id="app" ng-app="zinc" ng-class="{&quot;unloading&quot; : state.loading}" class="state {{state.name}}">
     <div id="navigation">
       <div class="navigation-bar">
         <div class="logo"><img src="assets/images/zinc-logo.png"></div>

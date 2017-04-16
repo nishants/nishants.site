@@ -127,6 +127,29 @@ angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locatio
 				controller: ["$scope", "vocabset", function($scope, vocabset){
 					$scope.vocabset = vocabset;
 				}]
+			})
+			.state('vocab.play', {
+				url: '/:vocabId/deck/:deckId/play',
+				templateUrl: 'assets/templates/game-play-template.html',
+				resolve: {
+					deckParticipation: [
+						"$stateParams",
+						"VocabService",
+						function($stateParams, VocabService){
+							return  VocabService.getGamePlanFor($stateParams.vocabId, $stateParams.deckId );
+						}
+					]
+				},
+				controller: ["$scope", "deckParticipation", function($scope, deckParticipation){
+					$scope.gameplan = deckParticipation.gameplan;
+					$scope.deck     = deckParticipation.deck;
+					$scope.vocabset    = {id: 1};
+					$scope.timer    = {timeLimit: '15s'};
+					$scope.user     = {
+						points: 100,
+						timer : "00:19",
+					}
+				}]
 			});
 
 	$locationProvider.html5Mode({
@@ -134,6 +157,7 @@ angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locatio
 		//requireBase: false
 	});
 }]);
+
 },{}],6:[function(require,module,exports){
 app.value("stateMessages", {
 	"vocab.view"  : "Opening Vocabulary Set",
@@ -155,6 +179,11 @@ angular.module("zinc").service("VocabService", ["$http", function ($http) {
 		getById: function(id){
 			return $http.get("assets/data/vocab-set-:id.json".replace(":id", id)).then(function(response){
 				return response.data.vocabset;
+			});
+		},
+		getGamePlanFor: function(vocabId, deckId){
+			return $http.get("assets/data/vocab-set-:vocabId/deck-participation-:deckId.json".replace(":vocabId", vocabId).replace(":deckId", deckId)).then(function(response){
+				return response.data.deck_participation;
 			});
 		}
 	};

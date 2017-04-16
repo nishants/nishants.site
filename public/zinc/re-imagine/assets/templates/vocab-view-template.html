@@ -36,9 +36,7 @@
           <div ng-if="exposure.completed" class="state completed">
             <div class="fa fa-check"></div>
           </div>
-          <div ng-if="exposure.playable" class="state current playable">
-            <div class="fa fa-play"></div>
-          </div>
+          <div ng-if="exposure.playable" class="state current playable"><a ui-sref="vocab.play({vocabId: 1,deckId: 1})" class="fa fa-play"></a></div>
           <div ng-if="exposure.waiting" class="state current waiting">
             <div class="fa fa-lock"></div>
           </div>

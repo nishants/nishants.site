@@ -1,0 +1,69 @@
+
+<div ng-init="mode={sentence: false, definition: false,synonym: false,image: true}" class="gameplay">
+  <div class="game-header">
+    <div class="vocabset">
+      <div class="picture"><img ng-src="{{deck.set_image_url}}"/></div>
+      <div ng-bind="deck.set_title" class="title"></div>
+    </div>
+    <button class="outline exit-game"><a ui-sref="vocab.view({id: vocabset.id})" class="undo-link">Exit
+        <div class="fa fa-sign-out"></div></a></button>
+  </div>
+  <div class="game-progress">
+    <ul>
+      <li ng-repeat="word in deck.words" ng-class="{&quot;current&quot; : word.current, &quot;done&quot; : word.done}" style="width: calc({{100/deck.words.length}}% - 3px); margin-right: 3px;">
+        <div style="animation:  expand {{timer.timeLimit}} linear" class="progress"></div>
+      </li>
+    </ul>
+  </div>
+  <div class="game-controls">
+    <ul class="labels key-value-list">
+      <li class="timer">
+        <div ng-bind="user.timer" class="value"></div>
+        <div class="key">Timer</div>
+      </li>
+      <li class="points">
+        <div ng-bind="user.points" class="value"></div>
+        <div class="key">Points</div>
+      </li>
+      <li ng-click="volume.off = !volume.off" class="sound">
+        <div class="value">
+          <div ng-show="!volume.off" class="fa fa-volume-up"></div>
+          <div ng-show="volume.off" class="fa fa-volume-off"></div>
+        </div>
+        <div class="key"><span ng-show="!volume.off">Sound On&nbsp;</span><span ng-show="volume.off">Sound Off</span></div>
+      </li>
+    </ul>
+  </div>
+  <div ng-if="mode.sentence" class="game-mode sentence">
+    <h1>Sentence Game</h1>
+  </div>
+  <div ng-if="mode.definition" class="game-mode definition">
+    <h1>Definition Game</h1>
+  </div>
+  <div ng-if="mode.synonym" class="game-mode synonym">
+    <h1>Synonym Game</h1>
+  </div>
+  <div ng-if="mode.image" class="game-mode image">
+    <div class="targets">
+      <div class="target">
+        <label>receive</label>
+      </div>
+      <div class="target">
+        <label>solidity</label>
+      </div>
+    </div>
+    <div class="word">accept</div>
+    <div class="targets">
+      <div class="target">
+        <label>block</label>
+      </div>
+      <div class="target">
+        <label>divel</label>
+      </div>
+    </div>
+  </div>
+  <div ng-show="mode" class="skip">
+    <button class="outline"><a><span>Skip</span>
+        <div class="icon fa fa-reply"></div></a></button>
+  </div>
+</div>

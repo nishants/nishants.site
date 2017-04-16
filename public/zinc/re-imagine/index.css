@@ -15,22 +15,42 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck ul.exposures:after {
+.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck ul.exposures:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.image .targets:after, .game-progress > ul:after {
   content: "";
   display: table;
   clear: both; }
 
-ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck ul.exposures {
+ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.key-value-list, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck ul.exposures, .game-progress > ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
   display: block; }
+
+a.undo-link, .vocabset.card .deck ul.exposures > li .exposure .state.playable a {
+  text-decoration: none;
+  line-height: inherit;
+  color: inherit;
+  display: block; }
+
+a.undo-link:active, .vocabset.card .deck ul.exposures > li .exposure .state.playable a:active {
+  background-color: inherit;
+  color: inherit; }
 
 [ng-click] {
   cursor: pointer; }
 
 button {
   cursor: pointer; }
+
+[ui-view] {
+  -webkit-animation: fadein 300ms;
+  -o-animation: fadein 300ms;
+  -ms-animation: fadein 300ms;
+  animation: fadein 300ms;
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .form-component, .input-component, .drop-down .current, .drop-down ul.options > li, button.outline, .game.card button {
   display: block;
@@ -170,6 +190,7 @@ ul#flash-messages {
   opacity: 1;
   -webkit-animation: loading-state 15s;
   -o-animation: loading-state 15s;
+  -ms-animation: loading-state 15s;
   animation: loading-state 15s; }
 
 @keyframes loading-state {
@@ -209,6 +230,114 @@ ul#flash-messages {
     -ms-transform: scaleX(0.95);
     -o-transform: scaleX(0.95);
     transform: scaleX(0.95); } }
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+ul.key-value-list {
+  text-align: center; }
+  ul.key-value-list > li {
+    padding: 20px; }
+    ul.key-value-list > li .value {
+      font-size: 24px;
+      line-height: 29px; }
+    ul.key-value-list > li .label {
+      color: rgba(0, 0, 0, 0.5); }
+
+@keyframes expand {
+  from {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  to {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
+/* Firefox < 16 */
+@-moz-keyframes expand {
+  from {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  to {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes expand {
+  from {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  to {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
+/* Internet Explorer */
+@-ms-keyframes expand {
+  from {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  to {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
+/* Opera < 12.1 */
+@-o-keyframes expand {
+  from {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0); }
+  to {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1); } }
 body {
   background: #fbfbfb;
   font-family: "Ubuntu", sans-serif;
@@ -288,12 +417,22 @@ ul.navigation-links {
   .navigation-bar .logo {
     width: 300px; }
 
+#navigation {
+  -webkit-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+
 #profile-bar {
   width: 300px;
   float: left;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2); }
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
   #profile-bar .heading {
     background: #EEE;
     padding: 10px; }
@@ -316,11 +455,7 @@ ul.navigation-links {
     #profile-bar ul.score-card > li {
       padding: 20px; }
       #profile-bar ul.score-card > li .value {
-        font-size: 24px;
-        line-height: 29px;
         color: #8db352; }
-      #profile-bar ul.score-card > li .label {
-        color: rgba(0, 0, 0, 0.5); }
 
 ul.tab-buttons {
   width: 100%; }
@@ -608,6 +743,8 @@ ul.tab-buttons > li:not(.selected) {
           -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
           -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
           transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+          .vocabset.card .deck ul.exposures > li .exposure .state.playable a {
+            display: block; }
         .vocabset.card .deck ul.exposures > li .exposure .state.completed {
           color: #8db352; }
         .vocabset.card .deck ul.exposures > li .exposure .state.waiting {
@@ -642,6 +779,129 @@ ul.tab-buttons > li:not(.selected) {
 #vocabulary {
   position: relative;
   top: -5px; }
+
+.gameplay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-color: white; }
+  .gameplay .skip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px; }
+    .gameplay .skip button {
+      width: 200px; }
+      .gameplay .skip button .icon {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
+
+.game-header .vocabset {
+  padding: 10px;
+  float: left; }
+  .game-header .vocabset .title, .game-header .vocabset .picture {
+    float: left; }
+  .game-header .vocabset .title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    text-transform: capitalize; }
+  .game-header .vocabset .picture {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden; }
+    .game-header .vocabset .picture img {
+      display: block;
+      height: 100%;
+      margin: auto; }
+.game-header .exit-game {
+  display: block;
+  float: right;
+  width: 200px;
+  margin: 20px; }
+
+.game-controls > ul.key-value-list > li {
+  float: right; }
+  .game-controls > ul.key-value-list > li .value {
+    color: #8db352; }
+  .game-controls > ul.key-value-list > li .key {
+    font-size: 10px; }
+
+.state.vocab-play #navigation {
+  -webkit-transform: translateY(calc(-100% - 10px));
+  -moz-transform: translateY(calc(-100% - 10px));
+  -ms-transform: translateY(calc(-100% - 10px));
+  -o-transform: translateY(calc(-100% - 10px));
+  transform: translateY(calc(-100% - 10px)); }
+.state.vocab-play #profile-bar {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
+.game-mode.image {
+  text-align: center;
+  font-size: 36px; }
+  .game-mode.image .targets {
+    height: calc(50% - 50px); }
+    .game-mode.image .targets .target {
+      position: relative;
+      float: left;
+      height: 100%;
+      width: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1); }
+      .game-mode.image .targets .target label {
+        position: absolute;
+        top: calc(50% - 18px);
+        width: 300px;
+        left: calc(50% - 150px); }
+  .game-mode.image .word {
+    height: 100px;
+    line-height: 100px;
+    font-size: 48px;
+    width: 100%; }
+
+.game-mode {
+  height: calc(100% - 240px); }
+
+.game-progress {
+  padding: 0px 10px; }
+  .game-progress > ul > li {
+    float: left;
+    height: 5px;
+    background-color: rgba(141, 179, 82, 0.3); }
+    .game-progress > ul > li .progress {
+      height: 100%;
+      width: 100%;
+      background-color: #8db352;
+      -webkit-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      transform-origin: 0 0; }
+    .game-progress > ul > li .progress:not(.playing) {
+      -webkit-transform: scaleX(1) !important;
+      -moz-transform: scaleX(1) !important;
+      -ms-transform: scaleX(1) !important;
+      -o-transform: scaleX(1) !important;
+      transform: scaleX(1) !important; }
+  .game-progress > ul > li:not(.current) .progress {
+    display: none; }
+  .game-progress > ul > li.done {
+    background-color: #8db352; }
+  .game-progress > ul > li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .game-progress > ul > li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
 
 @media screen and (min-width: 910px) {
   #navigation {
@@ -825,6 +1085,28 @@ ul.tab-buttons > li:not(.selected) {
   .vocabset.card.single-deck .deck {
     margin: 0px; }
 
+  .gameplay .skip {
+    width: 100%; }
+    .gameplay .skip button {
+      width: 100%;
+      border: none; }
+
+  .game-controls > ul.key-value-list {
+    width: 100%;
+    text-align: center; }
+    .game-controls > ul.key-value-list > li {
+      float: none;
+      display: inline-block; }
+      .game-controls > ul.key-value-list > li .value {
+        color: #8db352; }
+      .game-controls > ul.key-value-list > li .key {
+        font-size: 10px; }
+
+  .game-header .exit-game {
+    border: none;
+    width: auto;
+    padding: 0px 20px; }
+
   body #content {
     margin: 40px 10px;
     padding: 0px;
@@ -981,6 +1263,28 @@ ul.tab-buttons > li:not(.selected) {
 
   .vocabset.card.single-deck .deck {
     margin: 0px; }
+
+  .gameplay .skip {
+    width: 100%; }
+    .gameplay .skip button {
+      width: 100%;
+      border: none; }
+
+  .game-controls > ul.key-value-list {
+    width: 100%;
+    text-align: center; }
+    .game-controls > ul.key-value-list > li {
+      float: none;
+      display: inline-block; }
+      .game-controls > ul.key-value-list > li .value {
+        color: #8db352; }
+      .game-controls > ul.key-value-list > li .key {
+        font-size: 10px; }
+
+  .game-header .exit-game {
+    border: none;
+    width: auto;
+    padding: 0px 20px; }
 
   .no-mobile {
     display: none !important; } }
