@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-window.app = angular.module("zinc", ['ui.router']);
+window.app = angular.module("zinc", ['ui.router', 'ngDraggable']);
 },{}],2:[function(require,module,exports){
 angular.module("zinc").directive("dropDown", [function () {
 
@@ -84,6 +84,16 @@ app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
 
 },{}],5:[function(require,module,exports){
+angular.module('zinc').controller('ImageGameController', function ($scope) {
+	$scope.current = {
+		word: {name: "accept"},
+		options: [{name: "dearth"}, {name: "receive"}, {name: "aegis"}, {name: "banal"}]
+	};
+	$scope.onDrop = function (option) {
+		alert("You Choose : " + option.name);
+	};
+});
+},{}],6:[function(require,module,exports){
 angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/vocab');
@@ -158,12 +168,12 @@ angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locatio
 	});
 }]);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 app.value("stateMessages", {
 	"vocab.view"  : "Opening Vocabulary Set",
 	"default"     : "Loading ",
 });
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 angular.module("zinc").service("VocabService", ["$http", function ($http) {
 	var service = {
 		list : [],
@@ -189,7 +199,7 @@ angular.module("zinc").service("VocabService", ["$http", function ($http) {
 	};
 	return service;
 }]);
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require("./app/app");
 require("./app/variables");
 require("./app/config");
@@ -197,4 +207,5 @@ require("./app/routes");
 require("./app/components/forms/drop-down");
 require("./app/components/state-loader/state-loader");
 require("./app/vocabulary/vocab-service");
-},{"./app/app":1,"./app/components/forms/drop-down":2,"./app/components/state-loader/state-loader":3,"./app/config":4,"./app/routes":5,"./app/variables":6,"./app/vocabulary/vocab-service":7}]},{},[8]);
+require("./app/game-play/modes/image-game/image-game-controller");
+},{"./app/app":1,"./app/components/forms/drop-down":2,"./app/components/state-loader/state-loader":3,"./app/config":4,"./app/game-play/modes/image-game/image-game-controller":5,"./app/routes":6,"./app/variables":7,"./app/vocabulary/vocab-service":8}]},{},[9]);

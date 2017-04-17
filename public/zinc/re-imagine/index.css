@@ -858,17 +858,30 @@ ul.tab-buttons > li:not(.selected) {
       float: left;
       height: 100%;
       width: 50%;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      overflow: hidden;
+      color: rgba(0, 0, 0, 0.3); }
       .game-mode.image .targets .target label {
         position: absolute;
-        top: calc(50% - 18px);
-        width: 300px;
-        left: calc(50% - 150px); }
+        top: calc(50% - 88px);
+        left: 20px;
+        width: calc(100% - 40px);
+        background-color: #EEE;
+        padding: 70px 0px;
+        overflow: hidden;
+        text-overflow: ellipsis; }
   .game-mode.image .word {
+    position: relative;
+    z-index: 1;
     height: 100px;
     line-height: 100px;
     font-size: 48px;
     width: 100%; }
+  .game-mode.image [ng-drag] {
+    cursor: move;
+    display: inline-block; }
+  .game-mode.image [ng-drop].drag-enter > label {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #8db352; }
 
 .game-mode {
   height: calc(100% - 240px); }
@@ -1107,6 +1120,9 @@ ul.tab-buttons > li:not(.selected) {
     width: auto;
     padding: 0px 20px; }
 
+  .game-mode.image {
+    font-size: 24px; }
+
   body #content {
     margin: 40px 10px;
     padding: 0px;
@@ -1285,6 +1301,9 @@ ul.tab-buttons > li:not(.selected) {
     border: none;
     width: auto;
     padding: 0px 20px; }
+
+  .game-mode.image {
+    font-size: 24px; }
 
   .no-mobile {
     display: none !important; } }
