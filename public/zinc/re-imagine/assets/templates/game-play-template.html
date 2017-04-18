@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="word">
-      <label ng-drag="true" data-allow-transform="true" draggable="false">{{current.word.name}}</label>
+      <label ng-drag="true" data-allow-transform="true" draggable="false"><span class="moving fa fa-arrows"></span><span class="can-drop fa fa-thumb-tack"></span><span>{{current.word.name}}</span></label>
     </div>
     <div class="targets">
       <div ng-repeat="target in current.options.slice(2,4)" ng-drop="true" ng-drop-success="onDrop(target)" class="target">

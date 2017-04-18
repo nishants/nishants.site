@@ -876,12 +876,33 @@ ul.tab-buttons > li:not(.selected) {
     line-height: 100px;
     font-size: 48px;
     width: 100%; }
+    .game-mode.image .word > label {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+    .game-mode.image .word .can-drop, .game-mode.image .word .moving {
+      font-size: 18px;
+      position: relative;
+      vertical-align: super;
+      color: rgba(0, 0, 0, 0.5);
+      display: none; }
   .game-mode.image [ng-drag] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     cursor: move;
     display: inline-block; }
   .game-mode.image [ng-drop].drag-enter > label {
     color: rgba(255, 255, 255, 0.9);
     background-color: #8db352; }
+  .game-mode.image [ng-drag].dragging .moving {
+    display: inline-block; }
+  .game-mode.image [ng-drag].drag-over.dragging .can-drop {
+    display: inline-block; }
+  .game-mode.image [ng-drag].drag-over.dragging .moving {
+    display: none; }
 
 .game-mode {
   height: calc(100% - 240px); }
