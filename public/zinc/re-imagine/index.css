@@ -1071,12 +1071,6 @@ ul.tab-buttons > li:not(.selected) {
     box-shadow: none;
     border: none;
     max-width: 100%; }
-    .vocabset.card .deck {
-      padding: 20px 10px 40px;
-      margin: 10px 10px 40px; }
-
-  .vocabset.card.single-deck .deck {
-    margin: 0px; }
 
   .gameplay .skip {
     width: 100%; }
@@ -1253,12 +1247,6 @@ ul.tab-buttons > li:not(.selected) {
     box-shadow: none;
     border: none;
     max-width: 100%; }
-    .vocabset.card .deck {
-      padding: 20px 10px 40px;
-      margin: 10px 10px 40px; }
-
-  .vocabset.card.single-deck .deck {
-    margin: 0px; }
 
   .gameplay .skip {
     width: 100%; }
