@@ -13,6 +13,7 @@
         "status"   : "in_bonus",
         "enable_at": null,
         "end_bonus_at": "2017-04-13T10:54:09.044-04:00",
+        "bonus" : true,
         "words": "one, two, three, four",
 
         "exposures": [
@@ -50,7 +51,7 @@
         "title"    : "Word Wars - Deck 2",
         "status"   : "in_bonus",
         "enable_at": "2017-04-17T11:11:27.159-04:00",
-        "end_bonus_at": null,
+        "locked": true,
         "words": "nine, ten, eleven, twelve",
 
         "exposures": [

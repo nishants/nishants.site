@@ -16,11 +16,14 @@
     <div class="by">By {{vocabset.by}}</div>
     <div ng-bind="vocabset.description" class="description"></div>
   </div>
-  <div ng-if="vocabset.reader" class="reader">
-    <div ng-bind="vocabset.reader.headline" class="headline title"></div>
-    <div ng-bind="vocabset.reader.text" class="text"></div>
-  </div>
-  <div ng-repeat="deck in vocabset.decks" class="deck">
+  <!--.reader(ng-if='vocabset.reader')-->
+  <!--  .headline.title(ng-bind='vocabset.reader.headline')-->
+  <!--  .text(ng-bind='vocabset.reader.text')-->
+  <div ng-repeat="deck in vocabset.decks" ng-class="{&quot;locked&quot; : deck.locked, &quot;bonus&quot; : deck.bonus}" class="deck">
+    <div ng-if="deck.bonus" class="bonus-message">
+      <label>Bonus expires in 22:01 hours</label>
+      <div class="speak"></div>
+    </div>
     <div class="words-and-progress">
       <div ng-bind="deck.words" class="words"></div>
       <ul class="exposures">
@@ -34,7 +37,10 @@
     </div>
     <div class="deck-actions">
       <button class="outline study">Study</button>
-      <button class="outline play cta"><a ui-sref="vocab.play({vocabId: 1, deckId: 1})">Play</a></button>
+      <button ng-if="!deck.locked" class="outline play cta"><a ui-sref="vocab.play({vocabId: 1, deckId: 1})">Play</a></button>
+      <label ng-if="deck.locked" class="locked fa fa-lock">
+        <div class="timer">24:21</div>
+      </label>
     </div>
   </div>
 </div>

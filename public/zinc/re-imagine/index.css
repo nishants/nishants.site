@@ -15,7 +15,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.image .targets:after, .game-progress > ul:after {
+.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .vocabset.card .deck.bonus .bonus-message:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.image .targets:after, .game-progress > ul:after {
   content: "";
   display: table;
   clear: both; }
@@ -731,12 +731,47 @@ ul.tab-buttons > li:not(.selected) {
   .vocabset.card .deck .deck-actions {
     float: right;
     width: 200px; }
-    .vocabset.card .deck .deck-actions button {
+    .vocabset.card .deck .deck-actions button, .vocabset.card .deck .deck-actions label {
       float: left;
       width: calc(50% - 5px); }
     .vocabset.card .deck .deck-actions button.study {
       border: none;
       margin-right: 10px; }
+    .vocabset.card .deck .deck-actions label.locked {
+      line-height: 22.5px;
+      cursor: not-allowed;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.1);
+      font-size: 18px; }
+      .vocabset.card .deck .deck-actions label.locked .timer {
+        font-size: 12px; }
+.vocabset.card .deck.bonus {
+  padding-top: 30px; }
+  .vocabset.card .deck.bonus .bonus-message {
+    text-align: right;
+    position: relative; }
+    .vocabset.card .deck.bonus .bonus-message label {
+      position: absolute;
+      top: -30px;
+      right: 0px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      float: right;
+      margin: 5px 0px;
+      padding: 0px 10px;
+      border-radius: 2px;
+      color: rgba(255, 255, 255, 0.9); }
+    .vocabset.card .deck.bonus .bonus-message .speak {
+      position: absolute;
+      top: calc(100% - 5px);
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent; }
 
 #vocabulary {
   position: relative;
@@ -939,6 +974,9 @@ ul.tab-buttons > li:not(.selected) {
   ul.tab-buttons:hover > li:not(.selected):hover {
     color: #8db352;
     border: 1px solid #8db352; }
+
+  .vocabset.card {
+    margin-bottom: 50px; }
 
   .mobile-only {
     display: none !important; } }
