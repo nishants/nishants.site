@@ -12,9 +12,9 @@
     "is_timed": true,
     "deck": {
       "id": 5205,
-      "set_image_url": "assets/images/article-cover.jpg",
+      "set_image_url": "//d275xfx9m0lf02.cloudfront.net/assets/default_set_image-1659f5c8217744186d3a1008e4073995874354132993fbbca4762db6dc051107.jpg",
       "set_id": 818,
-      "set_title": "A very long title for the vocab set",
+      "set_title": "testing again",
       "number": 1,
       "title": "testing again - Deck 1",
       "quiz_id": null,

@@ -1,0 +1,59 @@
+
+<div id="crg">
+  <div ng-class="{&quot;selecting-from-passage&quot;: editor.passageSelector.selecting}" class="crg-editor">
+    <div class="editor-bar crg-bar">
+      <button class="primary">Publish</button>
+      <button><a ui-sref="crg.editor.preview">Preview</a></button>
+    </div>
+    <div class="crg-passage">
+      <div ng-init="passage = editor.passage" class="passage">
+        <div class="title"><span>From:&nbsp;</span><span ng-bind="game.from" class="from"></span></div>
+        <div class="author"><span>By&nbsp;</span><span ng-bind="game.by" class="by"></span></div>
+        <div on-text-select="onTextSelect($selection.indices)" class="text phrase-selector selection-pointer">
+          <div class="selection-options">
+            <div class="passage-selection">
+              <button ng-click="editor.passageSelector.selection.setFocus($selection.indices)" ng-show="editor.passageSelector.selection.selectingFocus" class="selectFocus">Set Focus</button>
+              <button ng-click="editor.passageSelector.selection.setPhrase($selection.indices)" ng-show="editor.passageSelector.selection.selectingPhrase" class="selectPhrase">Set Phrase</button>
+            </div>
+          </div>
+          <div ng-repeat="word in passage" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight}" data-word-number="{{$index}}" class="word">{{word.text}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="crg-editor-form">
+      <ul>
+        <li class="zincing skill-group">
+          <div class="accordion-bar crg-bar">
+            <label>Zincing</label>
+            <button><span class="fa fa-plus"></span></button>
+          </div>
+          <div class="skill zinc-visualize">
+            <div class="crg-bar">
+              <label>Visualize</label>
+              <button ng-click="zincVisualizeEditor.add()">Add</button>
+            </div>
+            <ul class="undo-list">
+              <li ng-repeat="visualize in editor.game.zincing.visualize" class="skill-form">
+                <div class="skill-param">
+                  <label class="param-label">Focus</label>
+                  <input type="text" disbaled="true" ng-model="visualize.focus.text" class="param-input"/>
+                </div>
+                <div class="skill-param">
+                  <label class="param-label">Phrase</label>
+                  <input type="text" disbaled="true" ng-model="visualize.phrase.text" class="param-input"/>
+                </div>
+                <div class="skill-param">
+                  <label class="param-label">Transcript</label>
+                  <textarea ng-model="visualize.transcript.text" class="param-input"></textarea>
+                </div>
+                <button ng-click="editor.game.zincing.visualize.splice($index,1)" class="remove">Remove</button>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <div class="passage-selector"></div>
+    </div>
+  </div>
+  <ui-view></ui-view>
+</div>

@@ -1,0 +1,76 @@
+
+<div id="crgameplay">
+  <div class="header">
+    <div class="logo"><img src="assets/images/zinc-logo-small.png"/></div>
+    <div class="crgame-progress">
+      <div class="connector"></div>
+      <ul>
+        <li>Main Idea</li>
+        <li class="current">Zincing</li>
+        <li>Skill Practice</li>
+        <li>Main Idea</li>
+      </ul>
+    </div>
+    <div class="skill-progress">
+      <div class="skill-name">Zinc Skills
+        <ul>
+          <li>Visualize</li>
+          <li>Imagine</li>
+          <li>Key Images</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="options">
+      <div class="points">
+        <div class="value">10</div>
+        <label>Points</label>
+      </div>
+      <div class="sound">
+        <button class="fa fa-volume-up"></button>
+      </div>
+      <div ng-click="game.player.exit()" class="exit">
+        <button class="fa fa-sign-out"></button>
+      </div>
+    </div>
+    <div ng-init="passage = game.passage" class="passage">
+      <div class="title"><span>From:&nbsp;</span><span ng-bind="game.from" class="from"></span></div>
+      <div class="author"><span>By&nbsp;</span><span ng-bind="game.by" class="by"></span></div>
+      <div on-text-select="onTextSelect($selection.indices)" class="text phrase-selector selection-pointer">
+        <div class="selection-options">
+          <div class="passage-selection">
+            <button ng-click="editor.passageSelector.selection.setFocus($selection.indices)" ng-show="editor.passageSelector.selection.selectingFocus" class="selectFocus">Set Focus</button>
+            <button ng-click="editor.passageSelector.selection.setPhrase($selection.indices)" ng-show="editor.passageSelector.selection.selectingPhrase" class="selectPhrase">Set Phrase</button>
+          </div>
+        </div>
+        <div ng-repeat="word in passage" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight}" data-word-number="{{$index}}" class="word">{{word.text}}</div>
+      </div>
+    </div>
+    <div class="transcript">
+      <div class="transcript-dialog">
+        <div class="transcript-message">
+          <div text="game.player.state.transcript.text" typing-speed="20" before-typing="game.player.typing = true;" after-typing="game.player.typing = false;" class="typewriter text"></div>
+        </div>
+        <ul class="select-options">
+          <li ng-repeat="option in game.player.state.options" ng-init="_selected=false" ng-click="_selected = !_selected">
+            <div ng-show="_selected" class="check-box fa fa-check-square"></div>
+            <div ng-hide="_selected" class="check-box fa fa-square-o"></div>
+            <label>{{option.label}}</label>
+          </li>
+        </ul>
+        <ul class="buttons">
+          <li ng-repeat="button in game.player.state.buttons">
+            <button ng-click="button.onClick()" ng-class="{&quot;focus-out&quot;: game.player.typing}">{{button.label}}</button>
+          </li>
+        </ul>
+        <div ng-if="game.player.state.showInput" class="user-input">
+          <textarea ng-model="game.player.input"></textarea>
+          <button ng-class="{&quot;focus-out&quot;: game.player.typing}" ng-click="game.player.state.submitInput(game.player.input)" class="button-outline submit">Submit</button>
+        </div>
+      </div>
+      <div class="transcript-window"><img src="assets/images/transcript-speaker.png"/></div>
+    </div>
+  </div>
+</div>
+<h1 ng-bind="game.selectedText"></h1>
