@@ -797,7 +797,7 @@ app.factory("DisplayAllKeyImages", ["CRGGameService",function (game) {
       }],
       highlightPhrase: {indices: data.keyImages.map(function(keyImage){return keyImage.phrase.indices;}).join().split(",").map(function(index){return parseInt(index)})},
       focusPhrase    : {indices: []},
-      transcript: {text: "Here’s everything we found."}
+      transcript: {text: "Here is everything we found."}
     };
   };
 }]);
