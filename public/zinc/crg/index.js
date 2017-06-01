@@ -159,10 +159,19 @@ app.factory("Passage", [function () {
 }]);
 },{}],7:[function(require,module,exports){
 app.factory("CRGDataService", ["$http",function ($http) {
+  var
+      labelFor = function(scene){
+        return scene.name.replace(/-/g, " ");
+      },
+      setScene = function(scene){
+        scene.label = labelFor(scene)
+        return scene;
+      };
   return {
     getGame: function(id){
       var url = "assets/data/crg-sample-game-data-<id>.json".replace("<id>", id);
       return $http.get(url).then(function(response){
+        response.data.script.scenes = response.data.script.scenes.map(setScene);
         return response.data;
       })
     }
@@ -193,26 +202,41 @@ app.controller('CRGEditorController', ['$scope', '$timeout', 'CRGEditorService',
   $scope.editor = editor;
 }]);
 },{}],10:[function(require,module,exports){
-app.factory("CRGEditorService", ["Passage", "PassageSelector", function (Passage, PassageSelector) {
+app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", function (Passage, PassageSelector, $state) {
   var editorService = {
-        game: {
-          zincing: {
-            imagine : [],
-            visualize : [],
-          }
+        gameId: null,
+        script: {
+          scenes: []
         },
+        passage: {
+          to: null,
+          from: null,
+          text: null,
+        },
+        previewing: [],
         setGameToEdit: function(gameData){
-          editorService.game = gameData;
-          editorService.passageSelector =  PassageSelector(Passage(gameData.passage));
+          editorService.script.gameId   = gameData.id;
+          editorService.script.scenes   = gameData.script.scenes;
+          editorService.passage         = gameData.passage;
+          editorService.passageSelector =  PassageSelector(Passage(editorService.passage));
         },
-        prepareGamePlan : function(){
-          var gameData = JSON.parse(JSON.stringify(editorService.game));
-          gameData.passge ={
-            from: "from book",
-            by  : "by author",
-            text: "this is the text",
-          };
+        prepareGamePlan : function(scenes){
+          var exitScene = editorService.script.scenes[editorService.script.scenes.length - 1];
+          var previewScenes = scenes ? scenes.concat(exitScene) : null,
+              gameData      = JSON.parse(JSON.stringify({
+            passage : editorService.passage,
+            script  : {scenes: previewScenes || editorService.script.scenes}
+          }));
           return gameData;
+        },
+        previewScene: function(scene){
+          editorService.previewing = [scene];
+          $state.go("crg.editor.preview-scenes");
+        },
+        removeScene: function(sceneToRemove){
+          editorService.script.scenes = editorService.script.scenes.filter(function(scene){
+            return sceneToRemove !== scene;
+          });
         },
        passageSelector: null
   };
@@ -337,70 +361,25 @@ app.controller('CRGameplayController', ['$scope', '$timeout', 'CRGPlayer', 'CRGG
   $scope.game = game;
 }]);
 },{}],14:[function(require,module,exports){
-app.service("CRGGameScript", ["ReadingPassageState", "VisualizePhraseState", "ImaginePhraseState", "ExitGameState", "FindAllKeyImages", function (ReadingPassageState, VisualizePhraseState, ImaginePhraseState, ExitGameState, FindAllKeyImages) {
+app.service("CRGGameScript", ["SceneLoader", "$injector", function (SceneLoader, $injector) {
 
-  var scenes = [
-    {
-      groupName: "intro",
-      name: "intro",
-      entry: ReadingPassageState,
-      data: [{}]
-    },
-    {
-      groupName: "zincing",
-      name: "zinc-visualize",
-      entry: VisualizePhraseState,
-      data: []
-    },
-    {
-      groupName: "zincing",
-      name: "zinc-imagine",
-      entry: ImaginePhraseState,
-      data: []
-    },
-    {
-      groupName: "zincing",
-      name: "find-all-key-images",
-      entry: FindAllKeyImages,
-      data: []
-    },
-    {
-      groupName: "exit",
-      name: "exit",
-      entry: ExitGameState,
-      data: [{}]
-    }
-
-  ];
-  var script = {
-    currentScene : scenes[0],
-    scenes: scenes,
-    nextDefinedScene: function(){
-      return script.scenes.filter(function (scene) {
-        return scene.data.length > 0;
-      })[0];
-    },
-    next: function(){
-      var currentScene = script.currentScene,
-          hasMoreSteps = currentScene.data.length > 0,
-          nextScene    = hasMoreSteps ? currentScene : script.nextDefinedScene();
-
-      return nextScene ? nextScene.entry(nextScene.data.shift()): alert("End of game");
-    },
-    getScene: function(name){
-      return script.scenes.filter(function(scene){
-        return name == scene.name;
-      })[0];
-    },
-    load: function(gamePlan){
-      script.currentScene = scenes[0];
-      script.getScene("intro").data          = [{}];
-      script.getScene("exit" ).data          = [{}];
-      script.getScene("zinc-visualize").data = JSON.parse(JSON.stringify(gamePlan.zincing.visualize || []));
-      script.getScene("zinc-imagine").data   = JSON.parse(JSON.stringify(gamePlan.zincing.imagine || []));
-      script.getScene("find-all-key-images").data   = JSON.parse(JSON.stringify(gamePlan.zincing.findAllKeyImages || []));
-    }
+  var getSceneLoader = function(name){
+    return $injector.get(SceneLoader.entries[name]);
   };
+
+  var
+      script = {
+        scenes    : [],
+        sceneIndex: -1,
+        next: function(){
+          var nextScene = script.scenes[script.sceneIndex++];
+          return getSceneLoader(nextScene.name)(nextScene.config);
+        },
+        load: function(scriptData){
+          script.scenes     = scriptData.scenes;
+          script.sceneIndex = 0;
+        }
+      };
   return script;
 }]);
 },{}],15:[function(require,module,exports){
@@ -425,7 +404,7 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "$timeout",function (CRGGa
     },
     load: function(gameData){
       player.passage = Passage(gameData.passage);
-      CRGGameScript.load(gameData);
+      CRGGameScript.load(gameData.script);
       player.start();
     },
     transitTo: function(state){
@@ -1049,6 +1028,18 @@ angular.module("zinc").config(["$stateProvider", "$urlRouterProvider", "$locatio
         }
 
       })
+      .state('crg.editor.preview-scenes', {
+        url: '/preview-scenes',
+        templateUrl: 'assets/templates/crg-preview-template.html',
+        controller: 'CRGameplayController',
+        resolve : {
+          gamePlan: ['CRGEditorService', 'CRGPlayer', function(CRGEditorService, CRGPlayer){
+            var gameData = CRGEditorService.prepareGamePlan(CRGEditorService.previewing);
+            CRGPlayer.load(gameData);
+            return gameData;
+          }]
+        }
+      })
 			.state('vocab', {
 				url: '/vocab',
 				templateUrl: 'assets/templates/vocab-list-template.html',
@@ -1115,6 +1106,15 @@ app.value("passageSelectorHeadings", {
   }
 });
 
+app.value("SceneLoader", {
+  entries: {
+    "intro"                 : "ReadingPassageState",
+    "zinc-visualize"        : "VisualizePhraseState",
+    "zinc-imagine"          : "ImaginePhraseState",
+    "find-all-key-images"   : "FindAllKeyImages",
+    "exit"                  : "ExitGameState"
+  }
+});
 },{}],40:[function(require,module,exports){
 angular.module("zinc").service("VocabService", ["$http", function ($http) {
 	var service = {

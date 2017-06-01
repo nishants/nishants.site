@@ -15,7 +15,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .vocabset.card .deck.bonus .bonus-message:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.drop-squares .targets:after, .image-game .targets:after, .synonym-game .targets:after, .game-progress > ul:after, #crgameplay .header:after, #crgameplay .crgame-progress > ul:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param:after, .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input .input-options:after, .crg-editor-form > ul > li.skill-group .skill .skill-form .scene-options:after, #crgameplay .text:after, #crg .text:after, .crg-options:after {
+.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .vocabset.card .deck.bonus .bonus-message:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.drop-squares .targets:after, .image-game .targets:after, .synonym-game .targets:after, .game-progress > ul:after, #crgameplay .header:after, #crgameplay .crgame-progress > ul:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, .crg-editor-form .scene-editor .accordion-bar:after, .crg-editor-form .scene-editor .scene-config-form .scene-param:after, .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options:after, .crg-editor-form .scene-editor .scene-config-form .scene-options:after, #crgameplay .text:after, #crg .text:after, .crg-options:after {
   content: "";
   display: table;
   clear: both; }
@@ -25,7 +25,7 @@ input {
   overflow: hidden;
   text-overflow: ellipsis; }
 
-ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.key-value-list, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck .words-and-progress ul.exposures, .gameplay .game-body ul.challenges, .game-progress > ul, #crgameplay .crgame-progress > ul, #crgameplay .body .transcript .transcript-dialog ul.buttons, #crgameplay .body .transcript .transcript-dialog ul.select-options, .crg-editor ul.skills-accordion, .crg-editor-form > ul {
+ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.key-value-list, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck .words-and-progress ul.exposures, .gameplay .game-body ul.challenges, .game-progress > ul, #crgameplay .crgame-progress > ul, #crgameplay .body .transcript .transcript-dialog ul.buttons, #crgameplay .body .transcript .transcript-dialog ul.select-options {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -1193,64 +1193,76 @@ ul.tab-buttons > li:not(.selected) {
     -moz-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
     -o-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-  .crg-editor ul.skills-accordion > li {
-    background-color: #fbfbfb; }
-    .crg-editor ul.skills-accordion > li .skill {
-      padding: 20px; }
 
 .crg-editor-form {
   position: relative;
   padding-top: 40px; }
-  .crg-editor-form > ul > li.skill-group {
-    background-color: #fbfbfb;
+  .crg-editor-form textarea, .crg-editor-form input {
+    padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1); }
-    .crg-editor-form > ul > li.skill-group .skill {
-      margin: 20px;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
-      .crg-editor-form > ul > li.skill-group .skill .skill-form {
-        padding: 20px 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-        .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param {
-          margin-bottom: 10px;
-          line-height: 24px; }
-          .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-label, .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input {
-            padding: 10px; }
-          .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-label {
-            width: 200px;
-            float: left;
-            text-align: right;
-            padding-right: 20px; }
-          .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input {
-            float: left;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 2px;
-            width: calc(100% - 200px); }
-            .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input .input-options {
-              margin-bottom: 10px; }
-              .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input .input-options input {
-                float: left;
-                margin-right: 10px;
-                display: inline-block; }
-              .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input .input-options input.correct {
-                width: 20px; }
-              .crg-editor-form > ul > li.skill-group .skill .skill-form .skill-param .param-input .input-options input.usage-label {
-                width: calc(100% - 40px); }
-        .crg-editor-form > ul > li.skill-group .skill .skill-form .scene-options button {
-          float: right; }
-
-.crg-editor .crg-editor-form .crg-bar {
-  background-color: #4990E2; }
-  .crg-editor .crg-editor-form .crg-bar label {
-    float: left;
+  .crg-editor-form input {
     display: block;
-    line-height: 60px;
-    margin-left: 10px;
-    color: rgba(255, 255, 255, 0.9);
-    text-transform: capitalize; }
-  .crg-editor .crg-editor-form .crg-bar button {
-    float: right;
-    color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(255, 255, 255, 0.9); }
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .crg-editor-form textarea {
+    min-height: 150px;
+    resize: vertical; }
+  .crg-editor-form .card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .crg-editor-form .card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .crg-editor-form .scene-editor {
+    margin-bottom: 20px; }
+    .crg-editor-form .scene-editor .accordion-bar {
+      background-color: #4990E2; }
+      .crg-editor-form .scene-editor .accordion-bar button, .crg-editor-form .scene-editor .accordion-bar label {
+        margin: 20px 10px 20px 0px;
+        padding: 10px 20px;
+        display: block; }
+      .crg-editor-form .scene-editor .accordion-bar label {
+        float: left;
+        text-transform: capitalize; }
+      .crg-editor-form .scene-editor .accordion-bar button {
+        float: right;
+        color: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        border-radius: 2px; }
+    .crg-editor-form .scene-editor .scene-config-form {
+      padding: 20px 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+      .crg-editor-form .scene-editor .scene-config-form .scene-param {
+        margin-bottom: 10px;
+        line-height: 24px; }
+        .crg-editor-form .scene-editor .scene-config-form .scene-param .param-label {
+          width: 125px;
+          float: left;
+          text-align: right;
+          padding-right: 20px; }
+        .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input {
+          float: left;
+          border-radius: 2px;
+          width: calc(100% - 125px); }
+          .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options {
+            margin-bottom: 10px; }
+            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input {
+              width: 100%; }
+            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input.check {
+              float: left;
+              width: 20px; }
+            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input.checked {
+              float: left;
+              margin-right: 10px;
+              display: inline-block;
+              width: calc(100% - 40px); }
+      .crg-editor-form .scene-editor .scene-config-form .scene-options button {
+        float: right; }
 
 .crg-editor .crg-bar {
   height: 60px;
@@ -1336,8 +1348,9 @@ ul.tab-buttons > li:not(.selected) {
   #crgameplay .text .word, #crg .text .word {
     display: inline-block;
     height: 24px;
-    line-height: 24px;
-    padding-right: 5px; }
+    line-height: 24px; }
+  #crgameplay .text .word:not(:first-child), #crg .text .word:not(:first-child) {
+    padding: 0px 2.5px; }
   #crgameplay .text .word.line-break, #crg .text .word.line-break {
     display: block;
     height: 10px;
@@ -1345,10 +1358,6 @@ ul.tab-buttons > li:not(.selected) {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
-  #crgameplay .text .word.selected-word, #crg .text .word.selected-word {
-    background-color: #B2D7FF; }
-  #crgameplay .text ::selection, #crg .text ::selection {
-    background-color: #B2D7FF; }
   #crgameplay .text .word.highlight, #crg .text .word.highlight {
     background-color: #3F51B5;
     color: white; }

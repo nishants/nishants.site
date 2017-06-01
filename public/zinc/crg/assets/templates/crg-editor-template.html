@@ -32,77 +32,67 @@
       </div>
     </div>
     <div class="crg-editor-form">
-      <ul>
-        <li class="zincing skill-group">
-          <div class="accordion-bar crg-bar">
-            <label>Zincing</label>
-            <button><span class="fa fa-plus"></span></button>
-          </div>
-          <div class="skill zinc-visualize">
-            <div class="crg-bar">
-              <label>Visualize</label>
-              <button ng-click="editor.sceneEditors.zincing.visualize.add()">Add</button>
+      <div ng-repeat="scene in editor.script.scenes" ng-init="sceneIndex = $index" class="scene-editor card">
+        <div class="accordion-bar">
+          <label>{{$index +1}}. {{scene.label}}</label>
+          <button ng-click="editor.previewScene(scene)" class="remove">Preview</button>
+          <button ng-click="editor.removeScene(scene)" class="remove">Remove</button>
+        </div>
+        <div class="scene-config-form">
+          <div ng-if="scene.name == &quot;zinc-visualize&quot;" class="zinc-visualize">
+            <div class="scene-param">
+              <label class="param-label">Focus</label>
+              <input type="text" disbaled="true" ng-model="scene.config.focus.text" class="param-input"/>
             </div>
-            <ul class="undo-list">
-              <li ng-repeat="visualize in editor.game.zincing.visualize" class="skill-form">
-                <div class="skill-param">
-                  <label class="param-label">Focus</label>
-                  <input type="text" disbaled="true" ng-model="visualize.focus.text" class="param-input"/>
-                </div>
-                <div class="skill-param">
-                  <label class="param-label">Phrase</label>
-                  <input type="text" disbaled="true" ng-model="visualize.phrase.text" class="param-input"/>
-                </div>
-                <div class="skill-param">
-                  <label class="param-label">Transcript</label>
-                  <textarea ng-model="visualize.transcript.text" class="param-input"></textarea>
-                </div>
-                <div class="scene-options">
-                  <button ng-click="" class="remove">Preview</button>
-                  <button ng-click="editor.game.zincing.visualize.splice($index,1)" class="remove">Remove</button>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="skill zinc-imagine">
-            <div class="crg-bar">
-              <label>Imagine</label>
-              <button ng-click="editor.sceneEditors.zincing.imagine.add()">Add</button>
+            <div class="scene-param">
+              <label class="param-label">Phrase</label>
+              <input type="text" disbaled="true" ng-model="scene.config.phrase.text" class="param-input"/>
             </div>
-            <ul class="undo-list">
-              <li ng-repeat="imagine in editor.game.zincing.imagine" class="skill-form">
-                <div class="skill-param">
-                  <label class="param-label">Focus</label>
-                  <input type="text" disbaled="true" ng-model="imagine.focus.text" class="param-input"/>
-                </div>
-                <div class="skill-param">
-                  <label class="param-label">Phrase</label>
-                  <input type="text" disbaled="true" ng-model="imagine.phrase.text" class="param-input"/>
-                </div>
-                <div class="skill-param">
-                  <label class="param-label">Transcript</label>
-                  <textarea ng-model="imagine.transcript.text" class="param-input"></textarea>
-                </div>
-                <div class="skill-param">
-                  <label class="param-label">Correct Usage</label>
-                  <div class="param-input">
-                    <div ng-repeat="usage in imagine.usages" class="input-options">
-                      <input type="checkbox" ng-model="usage.correct" class="correct"/>
-                      <input ng-model="usage.label" class="usage-label"/>
-                    </div>
-                    <button ng-click="imagine.usages.push({label: &quot;&quot;, correct: false})">Add Usage</button>
-                  </div>
-                </div>
-                <div class="scene-options">
-                  <button ng-click="" class="remove">Preview</button>
-                  <button ng-click="editor.game.zincing.imagine.splice($index,1)" class="remove">Remove</button>
-                </div>
-              </li>
-            </ul>
+            <div class="scene-param">
+              <label class="param-label">Transcript</label>
+              <textarea ng-model="scene.config.transcript.text" class="param-input"></textarea>
+            </div>
           </div>
-        </li>
-      </ul>
-      <div class="passage-selector"></div>
+          <div ng-if="scene.name == &quot;zinc-imagine&quot;" class="zinc-imagine">
+            <div class="scene-param">
+              <label class="param-label">Focus</label>
+              <input type="text" disbaled="true" ng-model="scene.config.focus.text" class="param-input"/>
+            </div>
+            <div class="scene-param">
+              <label class="param-label">Phrase</label>
+              <input type="text" disbaled="true" ng-model="scene.config.phrase.text" class="param-input"/>
+            </div>
+            <div class="scene-param">
+              <label class="param-label">Transcript</label>
+              <textarea ng-model="scene.config.transcript.text" class="param-input"></textarea>
+            </div>
+            <div class="scene-param">
+              <label class="param-label">Correct Usage</label>
+              <div class="param-input">
+                <div ng-repeat="usage in scene.config.usages" class="input-options">
+                  <input type="checkbox" ng-model="usage.correct" class="check"/>
+                  <input ng-model="usage.label" class="checked"/>
+                </div>
+                <button ng-click="scene.config.usages.push({label: &quot;&quot;, correct: false})">Add Usage</button>
+              </div>
+            </div>
+          </div>
+          <div ng-if="scene.name == &quot;find-all-key-images&quot;" class="find-all-key-images">
+            <div class="scene-param">
+              <label class="param-label">Key Images</label>
+              <div class="param-input">
+                <div ng-repeat="keyImage in scene.config.keyImages" class="input-options">
+                  <input type="text" disabled="disabled" ng-model="keyImage.phrase.text"/>
+                </div>
+              </div>
+            </div>
+            <div class="scene-param">
+              <label class="param-label">Transcript</label>
+              <textarea ng-model="scene.config.transcript.text" class="param-input"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <ui-view></ui-view>
