@@ -56,10 +56,11 @@
             "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
             "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
           },
+          "answerExplanation" : "A cow eating grass has nothing terrible about it.",
           "transcript": {
             "text"    : "Which one of following is not a good example of \"all those things they don't want to remember\" ?"
           },
-          "usages": [
+          "options": [
             {
               "label"   : "A cow eating grass.",
               "correct" : false
