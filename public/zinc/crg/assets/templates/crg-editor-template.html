@@ -45,11 +45,15 @@
               <div ng-if="scene.name == &quot;text-input&quot;" class="text-input">
                 <div class="scene-param">
                   <label class="param-label">Focus</label>
-                  <input type="text" disbaled="true" ng-model="scene.config.focus.text" class="param-input"/><span set-focus="set-focus" class="param-action fa fa-pencil"></span>
+                  <div class="param-input">
+                    <input type="text" disbaled="true" ng-model="scene.config.focus.text"/><span set-focus="set-focus" class="param-action fa fa-pencil"></span><span ng-click="scene.config.focus = {indices: [], text: []}" class="param-action fa fa-trash-o"></span>
+                  </div>
                 </div>
                 <div class="scene-param">
                   <label class="param-label">Highlight</label>
-                  <input type="text" disbaled="true" ng-model="scene.config.phrase.text" class="param-input"/>
+                  <div class="param-input">
+                    <input type="text" disbaled="true" ng-model="scene.config.phrase.text"/><span set-highlight="set-highlight" class="param-action fa fa-pencil"></span><span ng-click="scene.config.phrase = {indices: [], text: []}" class="param-action fa fa-trash-o"></span>
+                  </div>
                 </div>
                 <div class="scene-param">
                   <label class="param-label">Transcript</label>
@@ -112,11 +116,15 @@
               <div ng-if="scene.name == &quot;yes-no&quot;" class="yes-no">
                 <div class="scene-param">
                   <label class="param-label">Focus</label>
-                  <input type="text" disbaled="true" ng-model="scene.config.focus.text" class="param-input"/><span set-focus="set-focus" class="param-action fa fa-pencil"></span>
+                  <div class="param-input">
+                    <input type="text" disbaled="true" ng-model="scene.config.focus.text"/><span set-focus="set-focus" class="param-action fa fa-pencil"></span><span ng-click="scene.config.focus = {indices: [], text: []}" class="param-action fa fa-trash-o"></span>
+                  </div>
                 </div>
                 <div class="scene-param">
                   <label class="param-label">Highlight</label>
-                  <input type="text" disbaled="true" ng-model="scene.config.phrase.text" class="param-input"/>
+                  <div class="param-input">
+                    <input type="text" disbaled="true" ng-model="scene.config.phrase.text"/><span set-highlight="set-highlight" class="param-action fa fa-pencil"></span><span ng-click="scene.config.phrase = {indices: [], text: []}" class="param-action fa fa-trash-o"></span>
+                  </div>
                 </div>
                 <div class="scene-param">
                   <label class="param-label">Question</label>
