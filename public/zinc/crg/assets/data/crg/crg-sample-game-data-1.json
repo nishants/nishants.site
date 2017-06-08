@@ -11,7 +11,8 @@
         "config": {}
       },
       {
-        "name"        : "zinc-visualize",
+        "group"       : "zincing",
+        "name"        : "text-input",
         "config"      :       {
           "phrase"    : {"indices": [0, 1,2,3,4], "text": "Ships at a distance"},
           "focus"     : {"indices": [0, 1,2,3,4,5,6,7,8,9], "text": "Ships at a distance have every man's wish on board"},
@@ -19,14 +20,16 @@
         }
       },
       {
-        "name"        : "zinc-visualize",
+        "group"        : "zincing",
+        "name"        : "text-input",
         "config"      :   {"phrase": {"indices": [34,35,36,37,38,39], "text": "looks aways in resignation"} ,
           "focus"     :  {"indices": [34,35,36,37,38,39,40,41,42,43], "text": "For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time."},
           "transcript": {"text": "What do you imagine when you read \"looks aways in resignation\"  in first sentence ?"}
         }
       },
       {
-        "name": "zinc-imagine",
+        "group"       : "zincing",
+        "name"        : "yes-no",
         "config"      : {
           "phrase"    : {
             "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
@@ -36,7 +39,23 @@
             "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
             "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
           },
-          "existsInPassage": false,
+          "question"  : "Does the author give any specific examples of highlighted phrase",
+          "expectedYes"  : false,
+          "wrongAnswerMessage": "Stop trying too hard. There was no example."
+        }
+      },
+      {
+        "group"       : "zincing",
+        "name"        : "multi-choice",
+        "config"      : {
+          "phrase"    : {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
+            "text"    : "all those things they don't want to remember"
+          },
+          "focus": {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
+            "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
+          },
           "transcript": {
             "text"    : "Which one of following is not a good example of \"all those things they don't want to remember\" ?"
           },

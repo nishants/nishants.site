@@ -15,7 +15,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .vocabset.card .deck.bonus .bonus-message:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.drop-squares .targets:after, .image-game .targets:after, .synonym-game .targets:after, .game-progress > ul:after, #crgameplay .header:after, #crgameplay .crgame-progress > ul:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, .crg-editor-form .scene-editor .accordion-bar:after, .crg-editor-form .scene-editor .scene-config-form .scene-param:after, .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options:after, .crg-editor-form .scene-editor .scene-config-form .scene-options:after, #crgameplay .text:after, #crg .text:after, .crg-options:after {
+.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, ul.navigation-links:after, .navigation-bar ul.actions:after, ul.tab-buttons:after, .tab-body .tab-filters > ul:after, .tab-body ul.deck:after, .vocabset.card .assigned:after, .vocabset.card .deck:after, .vocabset.card .deck .words-and-progress ul.exposures:after, .vocabset.card .deck .deck-actions:after, .vocabset.card .deck.bonus .bonus-message:after, .game-header:after, .game-header .vocabset:after, .game-controls:after, .game-controls > ul.key-value-list:after, .game-mode.drop-squares .targets:after, .image-game .targets:after, .synonym-game .targets:after, .game-progress > ul:after, #crgameplay .header:after, #crgameplay .crgame-progress > ul:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, .crg-editor-form .scene-group .accordion-bar:after, #crgameplay .text:after, #crg .text:after, .crg-options:after, .scene-config-form .scene-param:after, .scene-config-form .scene-param .param-input:after, .scene-config-form .scene-param .param-input .input-options:after, .scene-config-form .scene-actions:after {
   content: "";
   display: table;
   clear: both; }
@@ -25,7 +25,7 @@ input {
   overflow: hidden;
   text-overflow: ellipsis; }
 
-ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.key-value-list, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck .words-and-progress ul.exposures, .gameplay .game-body ul.challenges, .game-progress > ul, #crgameplay .crgame-progress > ul, #crgameplay .body .transcript .transcript-dialog ul.buttons, #crgameplay .body .transcript .transcript-dialog ul.select-options {
+ul.undo-list, .drop-down ul.options, ul#flash-messages, ul.key-value-list, ul.navigation-links, .navigation-bar ul.actions, #profile-bar ul.score-card, ul.tab-buttons, .tab-body ul.deck, .vocabset.card .deck .words-and-progress ul.exposures, .gameplay .game-body ul.challenges, .game-progress > ul, #crgameplay .crgame-progress > ul, #crgameplay .body .transcript .transcript-dialog ul.buttons, #crgameplay .body .transcript .transcript-dialog ul.select-options, #crgameplay .body .transcript .transcript-dialog ul.select-options-result, .crg-editor-form .scene-group ul.scenes {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -1159,10 +1159,24 @@ ul.tab-buttons > li:not(.selected) {
       padding: 10px; }
     #crgameplay .body .transcript .transcript-dialog ul.buttons li > {
       display: block; }
-    #crgameplay .body .transcript .transcript-dialog ul.select-options > li {
+    #crgameplay .body .transcript .transcript-dialog ul.select-options > li, #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li {
       display: block;
-      padding: 10px 0px;
-      margin-bottom: 10px; }
+      padding: 10px;
+      margin: 10px; }
+      #crgameplay .body .transcript .transcript-dialog ul.select-options > li label, #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li label {
+        font-weight: 400; }
+    #crgameplay .body .transcript .transcript-dialog ul.select-options-result label {
+      color: rgba(255, 255, 255, 0.9); }
+      #crgameplay .body .transcript .transcript-dialog ul.select-options-result label .marker {
+        padding-right: 10px; }
+    #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li.correct {
+      background-color: #8db352; }
+      #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li.correct .wrong {
+        display: none; }
+    #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li.wrong {
+      background-color: #ff5722; }
+      #crgameplay .body .transcript .transcript-dialog ul.select-options-result > li.wrong .correct {
+        display: none; }
     #crgameplay .body .transcript .transcript-dialog .user-input textarea {
       display: block;
       width: 100%;
@@ -1184,6 +1198,19 @@ ul.tab-buttons > li:not(.selected) {
       margin: 10px;
       padding: 0px 50px; }
 
+.state.crg-editor-preview-scenes #navigation {
+  -webkit-transform: translateY(calc(-100% - 10px));
+  -moz-transform: translateY(calc(-100% - 10px));
+  -ms-transform: translateY(calc(-100% - 10px));
+  -o-transform: translateY(calc(-100% - 10px));
+  transform: translateY(calc(-100% - 10px)); }
+.state.crg-editor-preview-scenes #profile-bar {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
 .crg-editor {
   padding: 20px;
   max-width: 700px;
@@ -1196,17 +1223,11 @@ ul.tab-buttons > li:not(.selected) {
 
 .crg-editor-form {
   position: relative;
-  padding-top: 40px; }
-  .crg-editor-form textarea, .crg-editor-form input {
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1); }
-  .crg-editor-form input {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-  .crg-editor-form textarea {
-    min-height: 150px;
-    resize: vertical; }
+  padding-top: 40px;
+  -webkit-transition: opacity 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: opacity 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: opacity 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
   .crg-editor-form .card {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
@@ -1217,52 +1238,55 @@ ul.tab-buttons > li:not(.selected) {
     transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
   .crg-editor-form .card:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-  .crg-editor-form .scene-editor {
-    margin-bottom: 20px; }
-    .crg-editor-form .scene-editor .accordion-bar {
-      background-color: #4990E2; }
-      .crg-editor-form .scene-editor .accordion-bar button, .crg-editor-form .scene-editor .accordion-bar label {
-        margin: 20px 10px 20px 0px;
-        padding: 10px 20px;
+  .crg-editor-form .scene-group {
+    border: 1px solid rgba(0, 0, 0, 0.1); }
+    .crg-editor-form .scene-group .accordion-bar {
+      background-color: #4990E2;
+      line-height: 60px;
+      height: 60px; }
+      .crg-editor-form .scene-group .accordion-bar button, .crg-editor-form .scene-group .accordion-bar label {
+        margin-right: 10px;
+        padding: 0px 20px;
         display: block; }
-      .crg-editor-form .scene-editor .accordion-bar label {
+      .crg-editor-form .scene-group .accordion-bar label {
         float: left;
         text-transform: capitalize; }
-      .crg-editor-form .scene-editor .accordion-bar button {
+      .crg-editor-form .scene-group .accordion-bar .expand-icon {
+        margin-right: 5px; }
+      .crg-editor-form .scene-group .accordion-bar button {
         float: right;
         color: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: none;
         background-color: transparent;
         border-radius: 2px; }
-    .crg-editor-form .scene-editor .scene-config-form {
-      padding: 20px 10px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-      .crg-editor-form .scene-editor .scene-config-form .scene-param {
-        margin-bottom: 10px;
-        line-height: 24px; }
-        .crg-editor-form .scene-editor .scene-config-form .scene-param .param-label {
-          width: 125px;
-          float: left;
-          text-align: right;
-          padding-right: 20px; }
-        .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input {
-          float: left;
-          border-radius: 2px;
-          width: calc(100% - 125px); }
-          .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options {
-            margin-bottom: 10px; }
-            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input {
-              width: 100%; }
-            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input.check {
-              float: left;
-              width: 20px; }
-            .crg-editor-form .scene-editor .scene-config-form .scene-param .param-input .input-options input.checked {
-              float: left;
-              margin-right: 10px;
-              display: inline-block;
-              width: calc(100% - 40px); }
-      .crg-editor-form .scene-editor .scene-config-form .scene-options button {
-        float: right; }
+    .crg-editor-form .scene-group ul.scenes {
+      padding: 20px;
+      background-color: #fbfbfb; }
+      .crg-editor-form .scene-group ul.scenes .scene-editor {
+        margin-bottom: 20px;
+        border-radius: 2px;
+        overflow: hidden;
+        width: 100%;
+        background-color: white; }
+        .crg-editor-form .scene-group ul.scenes .scene-editor .scene-title {
+          padding: 10px;
+          text-transform: capitalize;
+          background-color: #EEE;
+          -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+          -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+          -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+      .crg-editor-form .scene-group ul.scenes .scene-editor:hover .scene-title {
+        background-color: #4990E2;
+        color: white; }
+  .crg-editor-form .scene-group:not(.expand) .accordion-bar .expand-icon {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+  .crg-editor-form .scene-group:not(.expand) ul.scenes {
+    display: none; }
 
 .crg-editor .crg-bar {
   height: 60px;
@@ -1280,12 +1304,13 @@ ul.tab-buttons > li:not(.selected) {
     background-color: #4990E2;
     color: rgba(255, 255, 255, 0.9); }
   .crg-editor .crg-bar .selection-heading {
-    display: none; }
-
-.crg-editor.selecting-from-passage .editor-bar.crg-bar .actions {
-  display: none; }
-.crg-editor.selecting-from-passage .editor-bar.crg-bar .selection-heading {
-  display: block; }
+    display: none;
+    background: #4990E2;
+    height: 100%;
+    padding: 20px 10px;
+    font-size: 21px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center; }
 
 .crg-editor-form .passage-selector {
   position: absolute;
@@ -1312,6 +1337,14 @@ ul.tab-buttons > li:not(.selected) {
   -o-transform: scale(1);
   transform: scale(1);
   opacity: 1; }
+
+.crg-editor.selecting-from-passage .editor-bar.crg-bar .actions {
+  display: none; }
+.crg-editor.selecting-from-passage .editor-bar.crg-bar .selection-heading {
+  display: block; }
+.crg-editor.selecting-from-passage .crg-editor-form {
+  opacity: 0;
+  pointer-events: none; }
 
 #crgameplay .passage .title, #crg .passage .title {
   font-size: 36px;
@@ -1354,6 +1387,7 @@ ul.tab-buttons > li:not(.selected) {
   #crgameplay .text .word.line-break, #crg .text .word.line-break {
     display: block;
     height: 10px;
+    opacity: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -1384,6 +1418,66 @@ ul.tab-buttons > li:not(.selected) {
 
 .about-crg h5, .about-crg h3 {
   margin: 20px 0px 0px; }
+
+.scenes .add-scenes button {
+  width: calc(100% - 20px);
+  margin: 10px; }
+
+.scene-config-form {
+  padding: 20px 10px; }
+  .scene-config-form textarea, .scene-config-form input {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: calc(100% - 60px); }
+  .scene-config-form input {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .scene-config-form textarea {
+    min-height: 150px;
+    resize: vertical; }
+  .scene-config-form button {
+    float: right;
+    padding: 5px 30px;
+    margin-left: 10px; }
+  .scene-config-form .scene-param {
+    margin-bottom: 30px;
+    line-height: 24px; }
+    .scene-config-form .scene-param .param-label {
+      width: 125px;
+      float: left;
+      text-align: right;
+      padding-right: 20px; }
+    .scene-config-form .scene-param .param-input {
+      float: left;
+      border-radius: 2px;
+      width: calc(100% - 125px); }
+      .scene-config-form .scene-param .param-input input, .scene-config-form .scene-param .param-input .param-action {
+        float: left; }
+      .scene-config-form .scene-param .param-input .param-action {
+        display: block;
+        width: 30px;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer; }
+      .scene-config-form .scene-param .param-input button {
+        float: right;
+        margin-right: 60px; }
+      .scene-config-form .scene-param .param-input .input-options {
+        margin-bottom: 10px; }
+        .scene-config-form .scene-param .param-input .input-options input.check {
+          float: left;
+          width: 20px; }
+        .scene-config-form .scene-param .param-input .input-options input.checked {
+          float: left;
+          margin-right: 10px;
+          display: inline-block;
+          width: calc(100% - 100px); }
+    .scene-config-form .scene-param .param-input.no-edit button {
+      margin-right: 80px; }
+  .scene-config-form .scene-actions {
+    margin-right: 60px;
+    padding: 10px 0px; }
 
 @media screen and (min-width: 910px) {
   #navigation {

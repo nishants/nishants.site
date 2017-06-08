@@ -3,10 +3,13 @@
   <h3>Sample Passages</h3>
   <ul class="crg-options">
     <li>
-      <label>From their eyes were watching Gods</label><a ui-sref="crg.gameplay({id: 1})">Play</a><a ui-sref="crg.editor({id: 1})">Edit</a>
+      <label>From their eyes were watching Gods</label><a ui-sref="crg.gameplay({id: 1})">Play</a><a ui-sref="crg.editor({id: 1})">Edit</a><a href="assets/data/crg/crg-sample-game-data-1.json">Data</a>
     </li>
     <li>
-      <label>Frankenstein</label><a ui-sref="crg.gameplay({id: 2})">Play</a><a ui-sref="crg.editor({id: 2})">Edit</a>
+      <label>Frankenstein</label><a ui-sref="crg.gameplay({id: 2})">Play</a><a ui-sref="crg.editor({id: 2})">Edit</a><a href="assets/data/crg/crg-sample-game-data-2.json">Data</a>
+    </li>
+    <li>
+      <label>Harlem</label><a ui-sref="crg.gameplay({id: 3})">Play</a><a ui-sref="crg.editor({id: 3})">Edit</a><a href="assets/data/crg/crg-sample-game-data-3.json">Data</a>
     </li>
   </ul>
   <div class="about-crg">
@@ -46,8 +49,9 @@
     <p>
       <h5>State</h5>
       <ul>
-        <li>defines what to show to end user</li>
-        <li>defines what happens when user performs an action</li>
+        <li>defines what get rendered in a scene</li>
+        <li>a scene can have one or more state</li>
+        <li>if a scene needs different elements to be rendered, its better to put them in different states to keep them small and testable.</li>
       </ul>
     </p>
     <p>
