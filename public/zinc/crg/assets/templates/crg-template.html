@@ -13,7 +13,7 @@
     </li>
   </ul>
   <div class="about-crg">
-    <h3>What is this ?</h3>
+    <h3>About It</h3>
     <ul>
       <li>A simple version of Close Reading Game.</li>
       <li>It can create a new game, edit a game and play a game.</li>
@@ -69,10 +69,12 @@
     </p>
     <h5>Scenes as State Machine</h5>
     <ul>
-      <li>Each scene consists of a number of states</li>
-      <li>UI is rendered based on current scene and state</li>
+      <li>Each scene can have one or more states</li>
+      <li>UI is rendered based on current scene and its state</li>
       <li>Player moves from one state to another based on user actions</li>
       <li>A state can be easily added, changed or removed without affecting any other state</li>
-    </ul><img src="assets/images/proto/state-machine.png"/>
+      <li>Breaking a scene into states is recommended to keep it modular and testable</li>
+      <li>For example multi choice question scene has ask-question and show-result states</li>
+    </ul>
   </div>
 </ui-view>
