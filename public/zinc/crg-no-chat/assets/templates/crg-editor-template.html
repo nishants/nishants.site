@@ -26,7 +26,8 @@
               <button ng-click="editor.passageSelector.selection.setFocus($selection.indices)" ng-show="editor.passageSelector.selection.selectingFocus" class="selectFocus">Set Focus</button>
               <button ng-click="editor.passageSelector.selection.setPhrase($selection.indices)" ng-show="editor.passageSelector.selection.selectingPhrase" class="selectPhrase">Set Phrase</button>
             </div>
-          </div><span ng-repeat="word in passage.words" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight, &quot;focus&quot;: word.focus, &quot;flash&quot;: word.flash}" data-word-number="{{$index}}" class="word">{{word.text}}</span>
+          </div>
+          <div ng-repeat="word in passage.words" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight, &quot;focus&quot;: word.focus, &quot;flash&quot;: word.flash}" data-word-number="{{$index}}" class="word">{{word.text}}</div>
         </div>
       </div>
     </div>
@@ -75,13 +76,7 @@
                 <div class="scene-param">
                   <label class="param-label">Question</label>
                   <div class="param-input">
-                    <textarea ng-model="scene.config.question"></textarea>
-                  </div>
-                </div>
-                <div class="scene-param">
-                  <label class="param-label">Correct Message</label>
-                  <div class="param-input">
-                    <textarea ng-model="scene.config.correctMessage"></textarea>
+                    <textarea ng-model="scene.config.transcript.text"></textarea>
                   </div>
                 </div>
                 <div class="scene-param">
@@ -115,18 +110,6 @@
                   <label class="param-label">Message</label>
                   <div class="param-input">
                     <textarea ng-model="scene.config.transcript.text"></textarea>
-                  </div>
-                </div>
-                <div class="scene-param">
-                  <label class="param-label">Find More Message</label>
-                  <div class="param-input">
-                    <textarea ng-model="scene.config.findMoreMessage"></textarea>
-                  </div>
-                </div>
-                <div class="scene-param">
-                  <label class="param-label">Success Message</label>
-                  <div class="param-input">
-                    <textarea ng-model="scene.config.minimumSelectedMessage"></textarea>
                   </div>
                 </div>
               </div>

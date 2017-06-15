@@ -8,9 +8,7 @@
     "scenes": [
       {
         "name"  : "intro",
-        "config": {
-          "group" : "intro"
-        }
+        "config": {}
       },
       {
         "group"       : "zincing",
@@ -24,9 +22,7 @@
       {
         "group"        : "zincing",
         "name"        : "text-input",
-        "config"      :   {
-          "group"        : "zincing",
-          "phrase": {"indices": [34,35,36,37,38,39], "text": "looks aways in resignation"} ,
+        "config"      :   {"phrase": {"indices": [34,35,36,37,38,39], "text": "looks aways in resignation"} ,
           "focus"     :  {"indices": [34,35,36,37,38,39,40,41,42,43], "text": "For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time."},
           "transcript": {"text": "What do you imagine when you read \"looks aways in resignation\"  in first sentence ?"}
         }
@@ -35,7 +31,6 @@
         "group"       : "zincing",
         "name"        : "yes-no",
         "config"      : {
-          "group"        : "zincing",
           "phrase"    : {
             "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
             "text"    : "all those things they don't want to remember"
@@ -53,7 +48,6 @@
         "group"       : "zincing",
         "name"        : "multi-choice",
         "config"      : {
-          "group"        : "zincing",
           "phrase"    : {
             "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
             "text"    : "all those things they don't want to remember"
@@ -63,33 +57,32 @@
             "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
           },
           "answerExplanation" : "A cow eating grass has nothing terrible about it.",
-          "question": "Which one of following is not a good example of \"all those things they don't want to remember\" ?",
-          "correctMessage" : "Good. Sor you understand what the phrase means.",
+          "transcript": {
+            "text"    : "Which one of following is not a good example of \"all those things they don't want to remember\" ?"
+          },
           "options": [
             {
               "label"   : "A cow eating grass.",
-              "correct" : true
+              "correct" : false
             },
             {
               "label"   : "A baby being dropped.",
-              "correct" : false
+              "correct" : true
             },
             {
               "label"   : "Getting fired from job.",
-              "correct" : false
+              "correct" : true
             },
             {
               "label": "A scary nightmare.",
-              "correct": false
+              "correct": true
             }
           ]
         }
       },
       {
         "name"  : "exit",
-        "config": {
-          "group"        : "zincing"
-        }
+        "config": {}
       }
     ]
   }
