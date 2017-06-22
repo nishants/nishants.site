@@ -53,44 +53,54 @@
           </div>
         </div>
       </div>
-      <div class="chat-window">
-        <div class="video-container"><img src="assets/images/transcript-speaker.png"/></div>
-        <div scroll-to-bottom-on-resize="scroll-to-bottom-on-resize" class="chat-history">
-          <ul class="dialogues">
-            <li ng-repeat="dialogue in game.player.chat.dialogues" ng-class="dialogue.sender.type" class="dialogue"><img ng-src="{{dialogue.sender.image}}" class="sender"/>
-              <div class="message">
-                <div ng-bind="dialogue.text" class="message-text"></div>
-              </div>
-            </li>
-            <li class="agent dialogue"><img ng-src="{{game.player.chat.agent.image}}" class="sender"/>
-              <div class="message">
-                <div text="game.player.state.transcript.text" typing-speed="50" before-typing="game.player.chat.input.ready = false;" after-typing="game.player.chat.input.ready = true" class="typewriter message-text"></div>
-              </div>
-            </li>
-          </ul>
+      <div ng-class="{&quot;show-chat&quot; : game.player.mode.chat, &quot;show-full-screen-video&quot; : game.player.video.fullscreen}" class="chat-window">
+        <div class="chat-shutter">
+          <div class="video-container">
+            <div id="crg-video-player" video-player="video-player" video-url="game.player.video.url" video-type="game.player.video.type" after-video="game.player.video.ended()" class="video-player"></div>
+          </div>
+          <div ng-click="game.player.mode.chat = !game.player.mode.chat" class="toggle-chat-mode">
+            <div class="showing-video-mode">
+              <label>Show Transcript</label><span class="fa fa-chevron-down"></span>
+            </div>
+            <div class="showing-chat-mode">
+              <label>Show Video</label><span class="fa fa-chevron-down"></span>
+            </div>
+          </div>
+          <div scroll-to-bottom-on-resize="scroll-to-bottom-on-resize" class="chat-history">
+            <ul class="dialogues">
+              <li ng-repeat="dialogue in game.player.chat.dialogues" ng-class="dialogue.sender.type" class="dialogue"><img ng-src="{{dialogue.sender.image}}" class="sender"/>
+                <div class="message">
+                  <div ng-bind="dialogue.text" class="message-text"></div>
+                </div>
+              </li>
+              <li class="agent dialogue"><img ng-src="{{game.player.chat.agent.image}}" class="sender"/>
+                <div class="message">
+                  <div text="game.player.state.transcript.text" typing-speed="25" before-typing="game.player.chat.input.ready = false;" after-typing="game.player.chat.input.ready = true" class="typewriter message-text"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div ng-class="{&quot;ready&quot; :game.player.chat.input.ready}" class="chat-input user dialogue"><img ng-src="{{game.player.chat.user.image}}" class="sender"/>
-          <div class="message">
-            <div class="message-text">
-              <div class="placeholder">
-                <label ng-if="game.player.state.placeholder" ng-bind="game.player.state.placeholder"></label>
-              </div>
-              <ul class="select-options">
-                <li ng-repeat="option in game.player.state.options" ng-init="option.input=false" ng-click="option.input = !option.input">
-                  <div ng-show="option.input" class="check-box selected fa fa-check-square"></div>
-                  <div ng-hide="option.input" class="check-box fa fa-square-o"></div>
-                  <label>{{option.label}}</label>
-                </li>
-              </ul>
-              <ul class="buttons">
-                <li ng-repeat="button in game.player.state.buttons">
-                  <button ng-click="button.onClick()">{{button.label}}</button>
-                </li>
-              </ul>
-              <div ng-if="game.player.state.showInput" class="user-input">
-                <textarea ng-model="game.player.input"></textarea>
-                <button ng-click="game.player.state.submitInput(game.player.input)" ng-class="{&quot;disabled-input&quot;: !game.player.input.length}" class="button-outline submit">Submit</button>
-              </div>
+        <div ng-class="{&quot;ready&quot; :game.player.chat.input.ready}" class="chat-input">
+          <div class="chat-input-form">
+            <div class="placeholder">
+              <label ng-if="game.player.state.placeholder" ng-bind="game.player.state.placeholder"></label>
+            </div>
+            <ul class="select-options">
+              <li ng-repeat="option in game.player.state.options" ng-init="option.input=false" ng-click="option.input = !option.input">
+                <div ng-show="option.input" class="check-box selected fa fa-check-square"></div>
+                <div ng-hide="option.input" class="check-box fa fa-square-o"></div>
+                <label>{{option.label}}</label>
+              </li>
+            </ul>
+            <ul class="buttons">
+              <li ng-repeat="button in game.player.state.buttons">
+                <button ng-click="button.onClick()">{{button.label}}</button>
+              </li>
+            </ul>
+            <div ng-if="game.player.state.showInput" class="user-input">
+              <textarea ng-model="game.player.input" placeholder="Type here"></textarea>
+              <button ng-click="game.player.state.submitInput(game.player.input)" ng-class="{&quot;disabled-input&quot;: !game.player.input.length}" class="button-outline submit">Submit</button>
             </div>
           </div>
         </div>

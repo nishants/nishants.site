@@ -4,12 +4,25 @@
     "by": "LANGSTON HUGHES",
     "text": "Does it dry up\nlike a raisin in the sun?\nOr fester like a sore—\nAnd then run?\nDoes it stink like rotten meat?\nOr crust and sugar over—\nlike a syrupy sweet?\nMaybe it just sags\nlike a heavy load.\nOr does it explode?\n"
   },
+  "agent": {
+    "smallProfilePicture": "assets/images/agents/sara.png",
+    "videoPlaceholder": "assets/images/agents/sara-video-placeholder.png"
+  },
   "script": {
     "scenes": [
       {
-        "name"  : "intro",
+        "name"  : "play-video",
         "config": {
-          "group" : "intro"
+          "group" : "intro",
+          "canSkip"  :  true,
+          "autoNext" : true,
+          "sceneLoadVideo" : {
+            "fullscreen" : false,
+            "type" : "no type defined",
+            "url" : "assets/videos/sara/read-passage-first.mp4",
+            "type" : "video/mp4",
+            "transcript" : "Read the passage to on the left."
+          }
         }
       },
       {

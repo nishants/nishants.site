@@ -1,57 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 window.app = angular.module("crg", ['ui.router', 'ngDraggable']);
 },{}],2:[function(require,module,exports){
-app.directive("typewriter",["$timeout", function($timeout){
-  return {
-    restrict: "C",
-    scope: false,
-    link: function(scope, element, attrs){
-      if(attrs.text){
-        var chars = [],
-            $e    = $(element),
-            speed = parseInt(attrs.typingSpeed) || 100,
-            done  = true,
-            lastTimeout,
-            beforeTyping = function(){
-              $timeout(function(){
-                done = false;
-                attrs.beforeTyping && scope.$eval(attrs.beforeTyping);
-              });
-            },
-            afterTyping = function(){
-              $timeout(function(){
-                done = true;
-                attrs.afterTyping && scope.$eval(attrs.afterTyping);
-              });
-            },
-            clear = function(){
-              $e.html('');
-            },
-            type = function(){
-              clearTimeout(lastTimeout);
-              if(chars.length > 0){
-                $e.append(chars.shift());
-                if(done){
-                  beforeTyping();
-                }
-              }else{
-                if(!done){
-                  afterTyping();
-                }
-              }
-              lastTimeout = setTimeout(type, speed);
-            };
-        scope.$watch(attrs.text, function(text){
-          clear();
-          chars = text.split('');
-          clearTimeout(lastTimeout);
-          lastTimeout = setTimeout(type, speed);
-        });
-      }
-    }
-  };
-}])
-},{}],3:[function(require,module,exports){
 app.directive("dropDown", [function () {
 
 	return {
@@ -85,7 +34,7 @@ app.directive("dropDown", [function () {
 		}
 	};
 }]);
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 app.run(["$rootScope", "stateMessages" ,function($rootScope, stateMessages){
 	var state = {
 			name				: "",
@@ -131,6 +80,59 @@ app.run(["$rootScope", "stateMessages" ,function($rootScope, stateMessages){
 
 	$rootScope.state = state;
 }]);
+},{}],4:[function(require,module,exports){
+app.directive("typewriter",["$timeout", function($timeout){
+  return {
+    restrict: "C",
+    scope: true,
+    template: "<span class='letters'><span class='letter' ng-repeat='letter in letters track by $index'>{{letter}}</span><span>",
+    link: function(scope, element, attrs){
+      if(attrs.text){
+        var $e    = $(element),
+            speed = parseInt(attrs.typingSpeed) || 100,
+            lastTimeout,
+            nextLetter = 0,
+            stopTimer = function(){
+              $timeout.cancel(lastTimeout);
+            },
+            type = function(){
+              if(nextLetter < scope.letters.length){
+                $($e.find(".letter")[nextLetter++]).addClass("display");
+              }else{
+                stopTyping();
+              }
+              if(!scope.done){
+                lastTimeout = $timeout(type, speed);
+              }
+            },
+            startTyping = function(){
+              stopTimer();
+              $timeout(function(){
+                $(".letters").addClass("typing");
+                scope.done = false;
+                nextLetter = 0;
+                attrs.beforeTyping && scope.$eval(attrs.beforeTyping);
+                lastTimeout = $timeout(type, speed);
+              });
+            },
+            stopTyping = function(){
+              $timeout(function(){
+                $(".letters").removeClass("typing");
+                scope.done = true;
+                attrs.afterTyping && scope.$eval(attrs.afterTyping);
+              });
+              stopTimer();
+            };
+        scope.$watch(attrs.text, function(text){
+          scope.letters = text.split("");
+          startTyping();
+          $(".letters").html(text);
+          stopTyping();
+        });
+      }
+    }
+  };
+}])
 },{}],5:[function(require,module,exports){
 app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
@@ -158,6 +160,77 @@ app.factory("Passage", [function () {
   };
 }]);
 },{}],7:[function(require,module,exports){
+app.directive("videoPlayer", [ "VideoPlayerService", function(VideoPlayerService){
+
+  return {
+    restrict : "A",
+    scope    : true,
+    link     : function(scope, element, attrs){
+      var videoEnded = function(){
+            scope.$eval(attrs.afterVideo);
+          };
+      var resetVideo = function(){
+        var $e = $(element),
+            videoElement = $e.find("video")[0]
+        $e.addClass("no-video");
+        videoElement.pause();
+      };
+
+      var setVideo = function (video) {
+        var thumbnail = scope.game.player.chat.agent.videoThumbnail,
+            videoTemplate = '<video width="100%"><source ></video><div class="no-video-place-holder"><img src="<video-thumbnail>"></div>';
+        $(element).html('');
+        $(element).html(videoTemplate.replace("<video-thumbnail>", thumbnail));
+
+        var $e = $(element),
+            videoType = video.type,
+            $video = $e.find("video"),
+            videoElement = $video[0];
+
+        $video.find("source").attr("src", video.url)
+        $video.find("source").attr("type", videoType)
+
+        if (video.url.length) {
+          $video.on("ended", videoEnded);
+          $e.removeClass("no-video");
+          videoElement.play();
+        } else {
+          resetVideo()
+        }
+      };
+      VideoPlayerService.onVideoLoad(setVideo)
+      VideoPlayerService.onStop(resetVideo)
+    }
+  };
+}]);
+},{}],8:[function(require,module,exports){
+app.service("VideoPlayerService", ["CRGGameService", "$rootScope",function (game, $rootScope) {
+  var videoPlayer = {
+    pendingVideo: null,
+    loadVideo : null,
+    onStop: function (callback) {
+      videoPlayer.stopVideo = callback;
+    },
+    onVideoLoad: function (callback) {
+      videoPlayer.loadVideo = callback;
+      if(videoPlayer.pendingVideo){
+        videoPlayer.loadVideo(videoPlayer.pendingVideo);
+      }
+    },
+    play: function (video) {
+      if(videoPlayer.loadVideo){
+        videoPlayer.loadVideo(video);
+      } else{
+        videoPlayer.pendingVideo = video;
+      }
+    },
+    stop: function(){
+      videoPlayer.stopVideo && videoPlayer.stopVideo();
+    }
+  };
+  return videoPlayer;
+}]);
+},{}],9:[function(require,module,exports){
 app.factory("CRGDataService", ["$http", "SceneLoader",function ($http, SceneLoader) {
   var
       labelFor = function(scene){
@@ -177,14 +250,17 @@ app.factory("CRGDataService", ["$http", "SceneLoader",function ($http, SceneLoad
     }
   };
 }]);
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 require("./components/passage/passage");
+require("./components/video-player-directive");
+require("./components/video-player-service");
+
 require("./player/crgameplay");
 require("./editor/crg-editor");
 require("./scenes/scenes");
 require("./crg-data-service");
 
-},{"./components/passage/passage":6,"./crg-data-service":7,"./editor/crg-editor":11,"./player/crgameplay":19,"./scenes/scenes":37}],9:[function(require,module,exports){
+},{"./components/passage/passage":6,"./components/video-player-directive":7,"./components/video-player-service":8,"./crg-data-service":9,"./editor/crg-editor":13,"./player/crgameplay":21,"./scenes/scenes":41}],11:[function(require,module,exports){
 app.controller('CRGEditorController', ['$scope', '$timeout', 'CRGEditorService', function ($scope, $timeout, CRGEditorService) {
   var editor  = CRGEditorService;
 
@@ -200,7 +276,7 @@ app.controller('CRGEditorController', ['$scope', '$timeout', 'CRGEditorService',
 
   $scope.editor = editor;
 }]);
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", function (Passage, PassageSelector, $state) {
   var findScene = function(name){
     return function(scene){
@@ -222,6 +298,7 @@ app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", functio
           editorService.script.gameId   = gameData.id;
           editorService.script.scenes   = gameData.script.scenes;
           editorService.passage         = gameData.passage;
+          editorService.agent           = gameData.agent;
           editorService.passageSelector =  PassageSelector(Passage(editorService.passage));
         },
         prepareGamePlan : function(scenes){
@@ -229,6 +306,7 @@ app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", functio
           var previewScenes = scenes ? scenes.concat(exitScene) : null,
               gameData      = JSON.parse(JSON.stringify({
             passage : editorService.passage,
+            agent   : editorService.agent,
             script  : {scenes: previewScenes || editorService.script.scenes}
           }));
           return gameData;
@@ -253,12 +331,12 @@ app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", functio
   };
   return editorService;
 }]);
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./crg-editor-controller');
 require('./preview/crg-preview-controller');
 require('./crg-editor-service');
 require('./passage-selector');
-},{"./crg-editor-controller":9,"./crg-editor-service":10,"./passage-selector":12,"./preview/crg-preview-controller":13}],12:[function(require,module,exports){
+},{"./crg-editor-controller":11,"./crg-editor-service":12,"./passage-selector":14,"./preview/crg-preview-controller":15}],14:[function(require,module,exports){
 app.factory("PassageSelector", ["passageSelectorHeadings", function (passageSelectorHeadings) {
   var scrollTime = 500,
       scrollBackOffset = 200,
@@ -367,11 +445,11 @@ app.factory("PassageSelector", ["passageSelectorHeadings", function (passageSele
     return passageSelector;
   };
 }]);
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 app.controller('CRGPreviewController', [function () {
   window.scrollTo(0,0);
 }]);
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 app.directive("scrollToBottomOnResize", [function(){
 
   return {
@@ -379,33 +457,31 @@ app.directive("scrollToBottomOnResize", [function(){
     scope    : false,
     link     : function(scope, element, attrs){
 
-      var scrollToBottom = function(){
-        var $chatHistory = $(".chat-history")
-        $chatHistory.stop().animate({scrollTop: $chatHistory[0].scrollHeight}, 100, 'swing', function () {});
-      };
+      var
+          scrollToBottom = function () {
+            var $chatHistory = $(".chat-history")
+            $chatHistory.stop().animate({scrollTop: $chatHistory[0].scrollHeight}, 100, 'swing', function () {
+            });
+          },
+          resize = function () {
+            var $dialogues         = $(".chat-history"),
+                inputHeight        = $(".chat-input").height();
 
-      var chatInputIsReady = function () {
-        var $chatHistory = $(".chat-history"),
-            paddingBottom = $(".chat-input").height() + 10,
-            chatHistory = $chatHistory[0];
+            $dialogues.css("padding-bottom",inputHeight);
+          },
+          updateChatHistory = function (ready) {
+            resize();
+            scrollToBottom();
+          };
 
-        $chatHistory.css("padding-bottom", paddingBottom + "px")
-      };
-      var hideChatInput = function(){
-        $(".chat-history").css("padding-bottom", "50px");
-      };
-      scope.$watch("game.player.chat.input.ready", function(ready){
-        ready ? chatInputIsReady() : hideChatInput();
-        scrollToBottom();
-      });
+      scope.$watch("game.player.chat.input.ready", updateChatHistory);
     }
   };
 }]);
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 app.controller('CRGameplayController', ['$scope', '$timeout', 'CRGPlayer', 'CRGGameService', 'gamePlan', function ($scope, $timeout, CRGPlayer, CRGGameService, gamePlan) {
 
   var game    = CRGGameService;
-  game.player = CRGPlayer;
 
   $scope.onTextSelect = function(indexes){
     $timeout(function(){
@@ -416,10 +492,9 @@ app.controller('CRGameplayController', ['$scope', '$timeout', 'CRGPlayer', 'CRGG
     });
   };
 
-  game.player.chat.reset();
   $scope.game = game;
 }]);
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 app.service("CRGGameScript", ["SceneLoader", "$injector", function (SceneLoader, $injector) {
 
   var getSceneLoader = function(name){
@@ -441,23 +516,24 @@ app.service("CRGGameScript", ["SceneLoader", "$injector", function (SceneLoader,
       };
   return script;
 }]);
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 app.factory("CRGGameService", [function () {
   var game = {
     player: null
   };
   return game;
 }]);
-},{}],18:[function(require,module,exports){
-app.service("CRGPlayer", ["CRGGameScript", "Passage", "$timeout",function (CRGGameScript, Passage, $timeout) {
+},{}],20:[function(require,module,exports){
+app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$timeout",function (CRGGameScript, Passage, VideoPlayerService, $timeout) {
   var FLASH_TIMEOUT = 3000,
       user  = {
         type : "user",
-        image: "assets/images/user.jpg",
+        image: "assets/images/anonymous.png",
       },
       agent = {
         type : "agent",
-        image: "assets/images/transcript-speaker.png",
+        image: null,
+        videoThumbnail: null,
       };
   var player = {
     points: 10,
@@ -466,6 +542,33 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "$timeout",function (CRGGa
     typing: true,
     selectedText: null,
     passage: null,
+    mode: {chat: false},
+    video: {
+      url: '',
+      type: '',
+      fullscreen: false,
+      whenDone: function(){},
+      ended: function(){
+        $timeout(function(){
+          player.video.whenDone();
+        });
+      },
+      play: function(video){
+        player.video.url  = video.url;
+        player.video.type = video.type;
+        player.video.fullscreen = video.fullscreen;
+        VideoPlayerService.stop();
+        VideoPlayerService.play(video);
+        return {
+          then: function(callback){
+            player.video.whenDone = callback;
+          }
+        };
+      },
+      stop: function(){
+        VideoPlayerService.stop();
+      }
+    },
     chat: {
       agent: agent,
       user: user,
@@ -497,18 +600,25 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "$timeout",function (CRGGa
     },
     load: function(gameData){
       player.passage = Passage(gameData.passage);
+      player.chat.agent.image = gameData.agent.smallProfilePicture;
+      player.chat.agent.videoThumbnail = gameData.agent.videoPlaceholder;
       CRGGameScript.load(gameData.script);
       player.start();
     },
     reset: function(){
       player.input = '';
       player.chat.input.ready = false;
+      player.video.stop();
+      player.video.url = "";
+      player.video.type = "";
+      player.video.fullscreen = false;
     },
     transitTo: function(state){
       player.reset();
       player.state = state;
       player.setHighlightText(state.highlightPhrase);
       player.setFocusText(state.focusPhrase);
+      state.load();
     },
     state: null,
     setFocusText: function(phrase){
@@ -551,7 +661,7 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "$timeout",function (CRGGa
   };
   return player;
 }]);
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 require('./crg-game-service');
 require('./crg-game-controller');
 require('./phrase-selector');
@@ -559,7 +669,7 @@ require('./selection-pointer');
 require('./crg-player-service');
 require('./crg-game-script');
 require('./chat-window/chat-history/scroll-bottom-on-resize');
-},{"./chat-window/chat-history/scroll-bottom-on-resize":14,"./crg-game-controller":15,"./crg-game-script":16,"./crg-game-service":17,"./crg-player-service":18,"./phrase-selector":20,"./selection-pointer":21}],20:[function(require,module,exports){
+},{"./chat-window/chat-history/scroll-bottom-on-resize":16,"./crg-game-controller":17,"./crg-game-script":18,"./crg-game-service":19,"./crg-player-service":20,"./phrase-selector":22,"./selection-pointer":23}],22:[function(require,module,exports){
 app.directive("phraseSelector", [function () {
   var getSelectionText = function (){
 
@@ -602,7 +712,7 @@ app.directive("phraseSelector", [function () {
 }]);
 
 
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 app.directive("selectionPointer", [function () {
 
   return {
@@ -627,7 +737,7 @@ app.directive("selectionPointer", [function () {
 }]);
 
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 app.directive("setFocus", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -644,7 +754,7 @@ app.directive("setFocus", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 app.directive("setHighlight", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -662,7 +772,7 @@ app.directive("setHighlight", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 app.directive("addKeyImage", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -679,8 +789,8 @@ app.directive("addKeyImage", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],25:[function(require,module,exports){
-app.factory("BaseScene", [function () {
+},{}],27:[function(require,module,exports){
+app.factory("BaseScene", ["CRGGameService", function (game) {
   return function(scene, config){
     scene.group             = config.group;
     scene.showInput         = !!scene.submitInput;
@@ -689,13 +799,23 @@ app.factory("BaseScene", [function () {
     scene.focusPhrase       = scene.focusPhrase     || {indices: []};
     scene.transcript        = scene.transcript      || {text: ""};
     scene.submitInput       = scene.submitInput     || function(userInput){};
+    scene.load              = function(){
+      scene._loadTime        = (new Date()).getTime();
+      if(config.sceneLoadVideo){
+        game.player.video.play(config.sceneLoadVideo).then(function(){
+          scene._videoEndedAt   = (new Date()).getTime();
+          if(scene.afterVideo){
+            scene.afterVideo();
+          }
+        });
+      }
+    };
 
     scene.textSelectedIsClose = scene.textSelectedIsClose;
-
     return scene;
   };
 }]);
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 app.factory("ExitGameState", [function () {
   return function () {
     var state = {
@@ -714,7 +834,7 @@ app.factory("ExitGameState", [function () {
     return state;
   };
 }]);
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 app.factory("DoneReadingPassageState", ["EnterMainIdeaState", "CRGGameService", "BaseScene", function (EnterMainIdeaState, game, BaseScene) {
   return function(config){
     var transcript = "Did the passage make sense ?";
@@ -746,7 +866,7 @@ app.factory("DoneReadingPassageState", ["EnterMainIdeaState", "CRGGameService", 
     return BaseScene(state, config);
   };
 }]);
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 app.factory("EnterMainIdeaState", ["CRGGameService", "BaseScene",function (game, BaseScene) {
   return function(config){
     var transcript = "Describe the main idea in 120 characters or less.";
@@ -761,28 +881,34 @@ app.factory("EnterMainIdeaState", ["CRGGameService", "BaseScene",function (game,
     }, config);
   };
 }]);
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 app.factory("ReadingPassageState", ["DoneReadingPassageState", "CRGGameService", "BaseScene", function (DoneReadingPassageState, game, BaseScene) {
   return function(config){
     var agentSays = "Before Attempting any skills, read the passage to the left.";
     var userSaid = "I am done!";
-    return BaseScene({
+
+    var state = {
+      load: function () {
+        game.player.video.play(config.sceneLoadVideo).then(function () {
+          state.buttons = [
+            {
+              label: userSaid,
+              onClick: function () {
+                game.player.chat.add.fromAgent(agentSays);
+                game.player.chat.add.fromUser(userSaid);
+                game.player.transitTo(DoneReadingPassageState(config))
+              }
+            }
+          ];
+        });
+      },
       showInput: false,
       transcript: {text: agentSays},
-      buttons: [
-        {
-          label: userSaid,
-          onClick: function () {
-            game.player.chat.add.fromAgent(agentSays);
-            game.player.chat.add.fromUser(userSaid);
-            game.player.transitTo(DoneReadingPassageState(config))
-          }
-        }
-      ]
-    }, config);
+    };
+    return BaseScene(state, config);
   };
 }]);
-},{}],30:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 app.service("FindPhraseEditor", ['SceneLoader', function (SceneLoader) {
 
   var findPhraseEditor = {
@@ -804,7 +930,7 @@ app.service("FindPhraseEditor", ['SceneLoader', function (SceneLoader) {
       };
   return findPhraseEditor;
 }]);
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 app.factory("DisplayAllKeyImages", ["CRGGameService", "BaseScene",function (game, BaseScene) {
 
   return function(config, data){
@@ -824,7 +950,7 @@ app.factory("DisplayAllKeyImages", ["CRGGameService", "BaseScene",function (game
     }, config);
   };
 }]);
-},{}],32:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 app.factory("FindAllKeyImages", ["CRGGameService", "DisplayAllKeyImages",  "BaseScene", function (game, DisplayAllKeyImages, BaseScene) {
   var MIN_SELECTION_DISTANCE = 0.5,
       numberLabels = {
@@ -909,7 +1035,7 @@ app.factory("FindAllKeyImages", ["CRGGameService", "DisplayAllKeyImages",  "Base
     return BaseScene(state, config);
   };
 }]);
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 app.service("MultiChoiceEditor", ['SceneLoader', function (SceneLoader) {
 
   var multiChoiceEditor = {
@@ -930,7 +1056,7 @@ app.service("MultiChoiceEditor", ['SceneLoader', function (SceneLoader) {
       };
   return multiChoiceEditor;
 }]);
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "BaseScene", function (MultiChoiceResult, game, BaseScene) {
   return function (config) {
     var selectedByUser = function (option) {
@@ -949,7 +1075,11 @@ app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "B
             game.player.chat.add.fromAgent(config.question);
             game.player.chat.add.fromUser(selectedOptions);
 
-            game.player.transitTo(MultiChoiceResult(config, state.options));
+            if(config.correctMessage){
+              game.player.transitTo(MultiChoiceResult(config, state.options));
+            } else{
+              game.player.toNextScene();
+            }
           }
         }],
       options: config.options.map(function(usage){
@@ -965,7 +1095,7 @@ app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "B
     return BaseScene(state, config);
   };
 }]);
-},{}],35:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 app.factory("MultiChoiceResult", ["CRGGameService", "BaseScene", function (game, BaseScene) {
   return function (config, input) {
     var correctMessage = config.correctMessage || "That's correct.";
@@ -1000,7 +1130,78 @@ app.factory("MultiChoiceResult", ["CRGGameService", "BaseScene", function (game,
     return BaseScene(state, config);
   };
 }]);
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
+app.factory("PlayVideoState", ["DoneReadingPassageState", "CRGGameService", "BaseScene", function (DoneReadingPassageState, game, BaseScene) {
+  return function(config){
+    var userSaid = config.nextButtonLabel,
+        agentSaid = config.sceneLoadVideo.transcript,
+        skipMessage = config.skipMessage || 'Skip',
+        buttons     = config.nextButton ? []:[];
+
+    var state = {
+      afterVideo: function () {
+        if(config.autoNext){
+          game.player.toNextScene();
+        }else{
+          state.buttons = [
+            {
+              label: userSaid,
+              onClick: function () {
+                game.player.chat.add.fromAgent(agentSaid);
+                game.player.chat.add.fromUser(userSaid);
+                game.player.toNextScene();
+              }
+            }
+          ];
+        }
+      },
+      buttons: config.canSkip ? [{
+
+        label: skipMessage,
+        onClick: function () {
+          game.player.chat.add.fromAgent(agentSaid);
+          game.player.chat.add.fromUser(skipMessage);
+          game.player.toNextScene();
+        }
+      }] : [],
+      transcript: {text: agentSaid},
+    };
+    return BaseScene(state, config);
+  };
+}]);
+},{}],39:[function(require,module,exports){
+app.factory("ReadingTextState", ["CRGGameService", "BaseScene", function (game, BaseScene) {
+
+  return function (config) {
+
+    var
+        getTime = function(){return (new Date()).getTime();},
+        timeForAction = config.waitForAction.timeToWait*1000,
+        askToWaitVideo = config.waitForAction.beforeTimeVideo,
+        state = {
+          afterVideo: function () {
+            state.buttons = [{
+              label: config.nextButtonLabel,
+              onClick: function () {
+                var timePassed = (getTime() - state._videoEndedAt),
+                    shouldWait = timeForAction > timePassed;
+                if (shouldWait) {
+                  game.player.video.play(askToWaitVideo);
+                } else {
+                  game.player.toNextScene();
+                }
+              }
+            }
+            ]
+          },
+          buttons: [],
+          transcript: {text: config.sceneLoadVideo.transcript}
+        };
+
+    return BaseScene(state, config);
+  };
+}]);
+},{}],40:[function(require,module,exports){
 app.controller("SceneEditorController", ['$scope','$injector', 'MultiChoiceEditor', 'SceneLoader', function ($scope, $injector, MultiChoiceEditor, SceneLoader) {
 
   var sceneConfigs = [];
@@ -1018,7 +1219,7 @@ app.controller("SceneEditorController", ['$scope','$injector', 'MultiChoiceEdito
     multiChoice: MultiChoiceEditor
   };
 }]);
-},{}],37:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 require('./scene-editor-controller');
 require('./crg-base-scene');
 require('./components/set-focus-directive');
@@ -1045,7 +1246,10 @@ require('./key-images/states/find-all-key-images-state');
 require('./key-images/states/display-all-key-images-state');
 require('./key-images/find-phrase-editor');
 
-},{"./components/set-focus-directive":22,"./components/set-highlight-directive":23,"./components/set-key-image-directive":24,"./crg-base-scene":25,"./exit/states/exit-game-state":26,"./intro/states/done-reading-passage-state":27,"./intro/states/enter-main-idea-state":28,"./intro/states/reading-passage-state":29,"./key-images/find-phrase-editor":30,"./key-images/states/display-all-key-images-state":31,"./key-images/states/find-all-key-images-state":32,"./multi-choice/multi-choice-editor":33,"./multi-choice/states/ask-multi-choice-question-state":34,"./multi-choice/states/multi-choice-result-state":35,"./scene-editor-controller":36,"./text-input/states/text-input-state":38,"./text-input/text-input-editor":39,"./yes-no-choice/states/ask-question":40,"./yes-no-choice/states/wrong-answer":41,"./yes-no-choice/yes-no-editor":42}],38:[function(require,module,exports){
+require('./play-video/play-video-state');
+require('./reading-text/reading-text-state');
+
+},{"./components/set-focus-directive":24,"./components/set-highlight-directive":25,"./components/set-key-image-directive":26,"./crg-base-scene":27,"./exit/states/exit-game-state":28,"./intro/states/done-reading-passage-state":29,"./intro/states/enter-main-idea-state":30,"./intro/states/reading-passage-state":31,"./key-images/find-phrase-editor":32,"./key-images/states/display-all-key-images-state":33,"./key-images/states/find-all-key-images-state":34,"./multi-choice/multi-choice-editor":35,"./multi-choice/states/ask-multi-choice-question-state":36,"./multi-choice/states/multi-choice-result-state":37,"./play-video/play-video-state":38,"./reading-text/reading-text-state":39,"./scene-editor-controller":40,"./text-input/states/text-input-state":42,"./text-input/text-input-editor":43,"./yes-no-choice/states/ask-question":44,"./yes-no-choice/states/wrong-answer":45,"./yes-no-choice/yes-no-editor":46}],42:[function(require,module,exports){
 app.factory("TextInputState", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
   return function (config) {
     var transcript = config.transcript.text || "What do you imagine when you read the highlighted text ?";
@@ -1063,7 +1267,7 @@ app.factory("TextInputState", ["CRGGameService", "BaseScene", function ( game, B
     return BaseScene(state, config);
   };
 }]);
-},{}],39:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 app.service("TextInputEditor", ['SceneLoader', function (SceneLoader) {
 
   var textInputEditor = {
@@ -1083,7 +1287,7 @@ app.service("TextInputEditor", ['SceneLoader', function (SceneLoader) {
       };
   return textInputEditor;
 }]);
-},{}],40:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 app.factory("AskQuestion", ['CRGGameService', 'WrongAnswerToYesNo',  'BaseScene', function (game, WrongAnswerToYesNo, BaseScene) {
   return function (config) {
     var state = {
@@ -1109,7 +1313,7 @@ app.factory("AskQuestion", ['CRGGameService', 'WrongAnswerToYesNo',  'BaseScene'
     return BaseScene(state, config);
   };
 }]);
-},{}],41:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 app.factory("WrongAnswerToYesNo", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
   return function (config) {
     var state = {
@@ -1127,7 +1331,7 @@ app.factory("WrongAnswerToYesNo", ["CRGGameService", "BaseScene", function ( gam
     return BaseScene(state, config);
   };
 }]);
-},{}],42:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 app.service("YesNoEditor", ['SceneLoader', function (SceneLoader) {
 
   var textInputEditor = {
@@ -1149,7 +1353,7 @@ app.service("YesNoEditor", ['SceneLoader', function (SceneLoader) {
       };
   return textInputEditor;
 }]);
-},{}],43:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/crg');
@@ -1163,8 +1367,10 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
 				templateUrl: 'assets/templates/crg-gameplay-template.html',
         controller: 'CRGameplayController',
         resolve : {
-          gamePlan: ['CRGDataService', 'CRGPlayer', '$stateParams', function(CRGDataService, CRGPlayer, $stateParams){
+          gamePlan: ['CRGDataService', 'CRGPlayer', 'CRGGameService','$stateParams', function(CRGDataService, CRGPlayer,game,  $stateParams){
             return CRGDataService.getGame($stateParams.id).then(function(gameData){
+              game.player = CRGPlayer;
+              CRGPlayer.chat.reset();
               CRGPlayer.load(gameData);
               return gameData;
             });
@@ -1188,8 +1394,10 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
         templateUrl: 'assets/templates/crg-preview-template.html',
         controller: 'CRGameplayController',
         resolve : {
-          gamePlan: ['CRGEditorService', 'CRGPlayer', function(CRGEditorService, CRGPlayer){
+          gamePlan: ['CRGEditorService', 'CRGGameService', 'CRGPlayer', function(CRGEditorService, game, CRGPlayer){
             var gameData = CRGEditorService.prepareGamePlan();
+            game.player = CRGPlayer;
+            CRGPlayer.chat.reset();
             CRGPlayer.load(gameData);
             return gameData;
           }]
@@ -1201,8 +1409,10 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
         templateUrl: 'assets/templates/crg-preview-template.html',
         controller: 'CRGameplayController',
         resolve : {
-          gamePlan: ['CRGEditorService', 'CRGPlayer', function(CRGEditorService, CRGPlayer){
+          gamePlan: ['CRGEditorService', 'CRGGameService', 'CRGPlayer', function(CRGEditorService, game, CRGPlayer){
             var gameData = CRGEditorService.prepareGamePlan(CRGEditorService.previewing);
+            game.player = CRGPlayer;
+            CRGPlayer.chat.reset();
             CRGPlayer.load(gameData);
             return gameData;
           }]
@@ -1210,7 +1420,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
       });
 }]);
 
-},{}],44:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 app.value("stateMessages", {
   "default"     : "Loading ",
 });
@@ -1230,6 +1440,14 @@ app.value("SceneLoader", {
   "intro"                 :{
     entry: "ReadingPassageState",
     label: "Main Idea"
+  },
+  "reading-text-scene" :{
+    entry: "ReadingTextState",
+    label: "Play Video"
+  },
+  "play-video"                 :{
+    entry: "PlayVideoState",
+    label: "Play Video"
   },
   "text-input"            :{
     entry: "TextInputState",
@@ -1256,14 +1474,14 @@ app.value("SceneLoader", {
     label: "Exit"
   }
 });
-},{}],45:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 require("./app/app");
 require("./app/variables");
 require("./app/config");
 require("./app/routes");
 require("./app/components/forms/drop-down");
 require("./app/components/state-loader/state-loader");
-require("./app/components/animations/typewriter");
+require("./app/components/typewriter/typewriter");
 
 require("./app/crg/crg");
-},{"./app/app":1,"./app/components/animations/typewriter":2,"./app/components/forms/drop-down":3,"./app/components/state-loader/state-loader":4,"./app/config":5,"./app/crg/crg":8,"./app/routes":43,"./app/variables":44}]},{},[45]);
+},{"./app/app":1,"./app/components/forms/drop-down":2,"./app/components/state-loader/state-loader":3,"./app/components/typewriter/typewriter":4,"./app/config":5,"./app/crg/crg":10,"./app/routes":47,"./app/variables":48}]},{},[49]);
