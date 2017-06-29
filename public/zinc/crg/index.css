@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:400i,400,500");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400i,400,500");
 @import url("https://fonts.googleapis.com/css?family=Lato:400i,400,500");
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400i,400,500");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond:400i,400,500");
 body {
   margin: 0px; }
 
@@ -17,7 +18,7 @@ input {
   box-sizing: border-box;
   border: none; }
 
-.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, #crgameplay:after, .chat-input ul.select-options > li:after, .chat-window .dialogue:after, #crgameplay .header:after, #crgameplay .crgame-progress > ul:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, .crg-editor-form .scene-group .accordion-bar:after, #crgameplay .text:after, #crg .text:after, .crg-options:after, .scene-config-form .scene-param:after, .scene-config-form .scene-param .param-input:after, .scene-config-form .scene-param .param-input .input-options:after, .scene-config-form .scene-actions:after {
+.resize-container:after, .drop-down ul.options:after, ul#flash-messages > li:after, #crgameplay:after, .chat-input ul.select-options > li:after, .chat-window .dialogue:after, #crgameplay .header:after, #crgameplay .body:after, .crg-preview-modal .crg-editor-preview-bar:after, #crgameplay .crgame-progress > ul:after, .crg-editor-form .scene-group .accordion-bar:after, #crgameplay .text:after, #crg .text:after, .crg-options:after, .scene-config-form .scene-param:after, .scene-config-form .scene-param .param-input:after, .scene-config-form .scene-param .param-input .input-options:after, .scene-config-form .scene-actions:after {
   content: "";
   display: table;
   clear: both; }
@@ -49,6 +50,28 @@ a.undo-link:active, button.outline a:active {
 button {
   cursor: pointer; }
 
+.green-light, #crgameplay .crgame-progress > ul > li.current:before {
+  background: #97c058;
+  background: -moz-radial-gradient(center, ellipse cover, #97c058 0%, rgba(121, 153, 70, 0.85) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #97c058), color-stop(100%, rgba(121, 153, 70, 0.85)));
+  background: -webkit-radial-gradient(center, ellipse cover, #97c058 0%, rgba(121, 153, 70, 0.85) 100%);
+  background: -o-radial-gradient(center, ellipse cover, #97c058 0%, rgba(121, 153, 70, 0.85) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #97c058 0%, rgba(121, 153, 70, 0.85) 100%);
+  background: radial-gradient(ellipse at center, #97c058 0%, rgba(121, 153, 70, 0.85) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c058', endColorstr='#799946', GradientType=1 ); }
+
+.black-bar, .chat-window .toggle-chat-mode {
+  background: #4f504f;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #4f504f 1%, #0e0e0e 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #4f504f 1%, #0e0e0e 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #4f504f 1%, #0e0e0e 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f504f', endColorstr='#0e0e0e',GradientType=0 );
+  /* IE6-9 */ }
+
 [ui-view] {
   -webkit-animation: fadein 300ms;
   -o-animation: fadein 300ms;
@@ -59,7 +82,7 @@ button {
   -o-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.form-component, .input-component, .drop-down .current, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit, .drop-down ul.options > li, button.outline {
+.form-component, .input-component, .drop-down .current, .drop-down ul.options > li, button.outline {
   display: block;
   height: 45px;
   line-height: 45px;
@@ -71,16 +94,16 @@ button {
   -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.form-component.active, .active.input-component, .drop-down .active.current, .drop-down #crgameplay .crgame-progress.intro > ul > li.active.intro, #crgameplay .drop-down .crgame-progress.intro > ul > li.active.intro, .drop-down #crgameplay .crgame-progress.zincing > ul > li.active.zincing, #crgameplay .drop-down .crgame-progress.zincing > ul > li.active.zincing, .drop-down #crgameplay .crgame-progress.exit > ul > li.active.exit, #crgameplay .drop-down .crgame-progress.exit > ul > li.active.exit, .drop-down ul.options > li.active, button.active.outline, button.outline:hover, button.outline.cta:hover,
+.form-component.active, .active.input-component, .drop-down .active.current, .drop-down ul.options > li.active, button.active.outline, button.outline:hover, button.outline.cta:hover,
 button.outline.cta.active {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 
-.input-component, .drop-down .current, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit, .drop-down ul.options > li {
+.input-component, .drop-down .current, .drop-down ul.options > li {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.9);
   padding: 0px 50px; }
 
-.form-component:hover, .input-component:hover, .drop-down .current:hover, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro:hover, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro:hover, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing:hover, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing:hover, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit:hover, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit:hover, .drop-down ul.options > li:hover, button.outline:hover {
+.form-component:hover, .input-component:hover, .drop-down .current:hover, .drop-down ul.options > li:hover, button.outline:hover {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 
 button.outline {
@@ -112,14 +135,14 @@ button.outline.cta.active {
 .drop-down {
   height: 45px;
   overflow: hidden; }
-  .drop-down .current, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit {
+  .drop-down .current {
     padding: 0px 20px; }
-    .drop-down .current .placeholder, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro .placeholder, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro .placeholder, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing .placeholder, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing .placeholder, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit .placeholder, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit .placeholder, .drop-down .current .caret, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro .caret, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro .caret, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing .caret, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing .caret, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit .caret, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit .caret {
+    .drop-down .current .placeholder, .drop-down .current .caret {
       color: rgba(0, 0, 0, 0.3);
       font-weight: 300; }
-    .drop-down .current label.value, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro label.value, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro label.value, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing label.value, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing label.value, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit label.value, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit label.value {
+    .drop-down .current label.value {
       font-weight: 500; }
-    .drop-down .current .caret, .drop-down #crgameplay .crgame-progress.intro > ul > li.intro .caret, #crgameplay .drop-down .crgame-progress.intro > ul > li.intro .caret, .drop-down #crgameplay .crgame-progress.zincing > ul > li.zincing .caret, #crgameplay .drop-down .crgame-progress.zincing > ul > li.zincing .caret, .drop-down #crgameplay .crgame-progress.exit > ul > li.exit .caret, #crgameplay .drop-down .crgame-progress.exit > ul > li.exit .caret {
+    .drop-down .current .caret {
       line-height: inherit;
       float: right; }
   .drop-down ul.options {
@@ -414,7 +437,7 @@ ul.key-value-list {
 
 body {
   background: white;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 14px;
   line-height: 16px;
   margin: 0px;
@@ -550,27 +573,8 @@ body {
     -moz-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
     -o-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-  .chat-input button {
-    -webkit-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
-    -moz-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
-    -o-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-  .chat-input button.disabled-input {
-    pointer-events: none;
-    cursor: not-allowed;
-    opacity: 0.5; }
-  .chat-input button.focus-out {
-    opacity: 0; }
-  .chat-input button {
-    line-height: 35px;
-    padding: 0px;
-    border-radius: 40px;
-    background-color: #AC499C;
-    color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    font-weight: 500; }
+    .chat-input .chat-input-form button {
+      width: 100%; }
   .chat-input .placeholder label {
     display: block;
     text-align: center;
@@ -583,17 +587,6 @@ body {
     background: #EEE;
     padding: 10px;
     border: 1px solid #AC499C; }
-    .chat-input .user-input textarea {
-      display: block;
-      text-align: center;
-      width: 100%;
-      height: 180px;
-      border: none;
-      border-radius: 2px;
-      margin-bottom: 10px;
-      background-color: transparent;
-      outline: none;
-      resize: none; }
   .chat-input ul.select-options > li {
     padding: 10px 0px; }
     .chat-input ul.select-options > li .check-box, .chat-input ul.select-options > li label {
@@ -671,7 +664,6 @@ body {
 
 .chat-window .toggle-chat-mode {
   position: relative;
-  background-color: #4A4A4A;
   height: 40px;
   line-height: 40px;
   overflow: hidden;
@@ -697,6 +689,15 @@ body {
 
 .chat-window .video-container {
   overflow: hidden; }
+  .chat-window .video-container button.skip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid transparent;
+    outline: none; }
   .chat-window .video-container .video-player {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     height: 182px;
@@ -747,62 +748,28 @@ body {
 .state.crg-gameplay #disqus_thread, .state.crg-editor #disqus_thread, .state.crg-editor-preview #disqus_thread {
   display: none; }
 
-#crgameplay .header .logo, #crgameplay .header .crgame-progress, #crgameplay .header .skill-progress {
-  float: left;
-  height: 80px; }
-#crgameplay .header .logo {
-  width: 150px;
-  overflow: hidden;
-  padding: 10px; }
-  #crgameplay .header .logo img {
-    display: block;
-    margin: auto;
-    height: 100%; }
-#crgameplay .header .crgame-progress {
-  width: calc(100% - 150px); }
-
-#crgameplay .crgame-progress {
+#crgameplay .header {
   padding-top: 10px;
-  position: relative; }
-  #crgameplay .crgame-progress > ul {
+  overflow: hidden; }
+  #crgameplay .header .logo, #crgameplay .header .crgame-progress, #crgameplay .header .skill-progress {
+    float: left;
+    height: 90px; }
+  #crgameplay .header .logo {
     position: relative;
-    z-index: 1; }
-    #crgameplay .crgame-progress > ul > li {
-      float: left;
-      width: 25%; }
-      #crgameplay .crgame-progress > ul > li label {
-        padding-top: 10px;
-        font-weight: 400; }
-    #crgameplay .crgame-progress > ul > li:before {
-      content: " ";
+    top: -5px;
+    width: 150px;
+    overflow: hidden;
+    padding: 10px; }
+    #crgameplay .header .logo img {
+      height: 50px;
       display: block;
-      height: 20px;
-      width: 20px;
-      background-color: #EEE;
-      border-radius: 50%;
-      -webkit-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
-      -moz-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
-      -o-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
-      transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-  #crgameplay .crgame-progress .connector {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 75%;
-    height: 2px;
-    background-color: #EEE; }
-
-#crgameplay .crgame-progress > ul > li.current:before, #crgameplay .crgame-progress.intro > ul > li.intro:before, #crgameplay .crgame-progress.zincing > ul > li.zincing:before, #crgameplay .crgame-progress.exit > ul > li.exit:before {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
-  background-color: #3F51B5; }
+      margin: auto; }
+  #crgameplay .header .crgame-progress {
+    width: calc(100% - 150px); }
 
 #crgameplay .body {
-  min-height: calc(100vh - 100px);
-  padding-top: 40px;
+  min-height: calc(100vh - 110px);
+  padding-top: 10px;
   text-align: center;
   position: relative; }
   #crgameplay .body .controls, #crgameplay .body .passage {
@@ -827,10 +794,19 @@ body {
     margin-bottom: 40px; }
     #crgameplay .body .controls .sound button, #crgameplay .body .controls .exit button {
       border-radius: 50%;
-      padding: 20px;
+      padding: 15px;
+      font-size: 18px;
       background-color: transparent;
       outline: none;
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      color: rgba(0, 0, 0, 0.7);
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+      -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      -moz-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      -o-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    #crgameplay .body .controls .sound button:hover, #crgameplay .body .controls .exit button:hover {
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .crg-preview-modal .crg-editor-preview-bar {
   background-color: #fbfbfb;
@@ -842,6 +818,73 @@ body {
 
 .state.crg-editor-preview-scenes .crg-editor, .state.crg-editor-preview .crg-editor {
   display: none; }
+
+#crgameplay .crgame-progress {
+  padding-top: 10px;
+  position: relative; }
+  #crgameplay .crgame-progress > ul {
+    position: relative;
+    z-index: 1; }
+    #crgameplay .crgame-progress > ul > li {
+      float: left;
+      width: 25%; }
+      #crgameplay .crgame-progress > ul > li label {
+        padding-top: 10px;
+        font-weight: 500; }
+    #crgameplay .crgame-progress > ul > li:before {
+      content: " ";
+      display: block;
+      height: 20px;
+      width: 20px;
+      background-color: #EEE;
+      border-radius: 50%;
+      -webkit-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      -moz-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      -o-transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    #crgameplay .crgame-progress > ul > li.current:before {
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    #crgameplay .crgame-progress > ul > li:not(.current) label {
+      font-weight: 400;
+      color: #EEE; }
+  #crgameplay .crgame-progress .connector {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 75%;
+    height: 2px;
+    background-color: #EEE; }
+
+.text-selection-help {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  height: 100vh;
+  width: 100vw; }
+  .text-selection-help .help-container {
+    background-color: white;
+    max-width: 768px;
+    margin: auto; }
+    .text-selection-help .help-container .help-image {
+      height: calc(100% - 100px);
+      overflow: hidden; }
+      .text-selection-help .help-container .help-image img {
+        display: block;
+        height: 100%;
+        margin: auto; }
+    .text-selection-help .help-container .close-help {
+      padding: 20px; }
+      .text-selection-help .help-container .close-help button.crg {
+        display: block;
+        margin: auto;
+        padding: 20px 100px;
+        width: 300px; }
 
 .crg-editor {
   padding: 20px;
@@ -979,7 +1022,7 @@ body {
   pointer-events: none; }
 
 #crgameplay .passage, #crg .passage {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "EB Garamond", serif;
   padding-right: 20px;
   word-wrap: break-word; }
   #crgameplay .passage .title, #crg .passage .title {
@@ -1003,6 +1046,20 @@ body {
     height: 24px;
     line-height: 24px;
     padding-right: 5px; }
+    #crgameplay .text .selection-options .text-selection, #crg .text .selection-options .text-selection {
+      position: relative;
+      top: -25px; }
+      #crgameplay .text .selection-options .text-selection button, #crg .text .selection-options .text-selection button {
+        padding: 0px 40px; }
+      #crgameplay .text .selection-options .text-selection .pointer, #crg .text .selection-options .text-selection .pointer {
+        position: relative;
+        top: -1px;
+        margin-left: 20px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 10px 0 10px;
+        border-color: #99418a transparent transparent transparent; }
     #crgameplay .text .selection-options .close-enough-selection, #crg .text .selection-options .close-enough-selection {
       position: relative;
       top: -5px;
@@ -1025,8 +1082,12 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
+  #crgameplay .text .word.selected-word, #crg .text .word.selected-word {
+    background-color: #B2D7FF; }
+  #crgameplay .text ::selection, #crg .text ::selection {
+    background-color: transparent; }
   #crgameplay .text .word.highlight, #crg .text .word.highlight {
-    background-color: #3F51B5;
+    background-color: #8db352;
     color: white; }
   #crgameplay .text .word.flash, #crg .text .word.flash {
     -webkit-transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1042,10 +1103,54 @@ body {
   user-select: none;
   opacity: 0.1; }
 
+#crgameplay button.crg {
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  outline: none;
+  background: #ac499b;
+  background: -moz-linear-gradient(top, #ac499b 0%, #99418a 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ac499b), color-stop(100%, #99418a));
+  background: -webkit-linear-gradient(top, #ac499b 0%, #99418a 100%);
+  background: -o-linear-gradient(top, #ac499b 0%, #99418a 100%);
+  background: -ms-linear-gradient(top, #ac499b 0%, #99418a 100%);
+  background: linear-gradient(to bottom, #ac499b 0%, #99418a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac499b', endColorstr='#99418a', GradientType=0 );
+  -webkit-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 300ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+#crgameplay button.crg.disabled-input {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5; }
+#crgameplay button.crg.focus-out {
+  opacity: 0; }
+#crgameplay button.crg {
+  line-height: 35px;
+  padding: 0px;
+  border-radius: 40px;
+  background-color: #AC499C;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  font-weight: 500; }
+#crgameplay textarea {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 120px;
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  outline: none;
+  resize: none; }
+
 .video-player {
   position: relative;
   background-color: black;
-  overflow: hidden; }
+  overflow: hidden;
+  border: 1px solid #434443; }
   .video-player .no-video-place-holder {
     position: absolute;
     top: 0;

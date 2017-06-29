@@ -3,19 +3,19 @@
   <div class="crg-player">
     <div class="header">
       <div class="logo"><img src="assets/images/zinc-logo-small.png"/></div>
-      <div ng-class="game.player.state.group" class="crgame-progress">
+      <div class="crgame-progress">
         <div class="connector"></div>
         <ul>
-          <li class="intro">
+          <li ng-class="{&quot;current&quot; : game.player.state.group == &quot;intro&quot;}" class="intro">
             <label>Main Idea</label>
           </li>
-          <li class="zincing">
+          <li ng-class="{&quot;current&quot; : game.player.state.group == &quot;zincing&quot;}" class="zincing">
             <label>Zincing</label>
           </li>
-          <li class="skills">
+          <li ng-class="{&quot;current&quot; : game.player.state.group == &quot;skills&quot;}" class="skills">
             <label>Skill Practice</label>
           </li>
-          <li class="exit">
+          <li ng-class="{&quot;current&quot; : game.player.state.group == &quot;exit&quot;}" class="exit">
             <label>Main Idea</label>
           </li>
         </ul>
@@ -42,6 +42,10 @@
             <div ng-show="game.player.state.textSelectedIsClose" class="close-enough-selection">
               <label>Almost there. You need to select complete phrase</label>
             </div>
+            <div ng-show="game.player.state.selectingText" class="text-selection">
+              <button ng-click="game.player.submitText($selection)" class="crg select-phrase">Select Text</button>
+              <div class="pointer"></div>
+            </div>
             <div class="passage-selection">
               <button ng-click="editor.passageSelector.selection.setFocus($selection.indices)" ng-show="editor.passageSelector.selection.selectingFocus" class="selectFocus">Set Focus</button>
               <button ng-click="editor.passageSelector.selection.setPhrase($selection.indices)" ng-show="editor.passageSelector.selection.selectingPhrase" class="selectPhrase">Set Phrase</button>
@@ -55,13 +59,16 @@
     <div class="chat-shutter">
       <div class="video-container">
         <div id="crg-video-player" video-player="video-player" video-url="game.player.video.url" video-type="game.player.video.type" after-video="game.player.video.ended()" class="video-player"></div>
+        <button ng-if="game.player.state.skip.allowed" ng-click="game.player.state.skip.onClick()" class="skip"><span>Skip</span>
+          <div class="fa fa-chevron-right"></div>
+        </button>
       </div>
       <div ng-click="game.player.mode.chat = !game.player.mode.chat" class="toggle-chat-mode">
         <div class="showing-video-mode">
           <label>Show Transcript</label><span class="fa fa-chevron-down"></span>
         </div>
         <div class="showing-chat-mode">
-          <label>Show Video</label><span class="fa fa-chevron-down"></span>
+          <label>Show Video</label><span class="fa fa-chevron-up"></span>
         </div>
       </div>
       <div scroll-to-bottom-on-resize="scroll-to-bottom-on-resize" class="chat-history">
@@ -81,9 +88,6 @@
     </div>
     <div ng-class="{&quot;ready&quot; :game.player.chat.input.ready}" class="chat-input">
       <div class="chat-input-form">
-        <div class="placeholder">
-          <label ng-if="game.player.state.placeholder" ng-bind="game.player.state.placeholder"></label>
-        </div>
         <ul class="select-options">
           <li ng-repeat="option in game.player.state.options" ng-init="option.input=false" ng-click="option.input = !option.input">
             <div ng-show="option.input" class="check-box selected fa fa-check-square"></div>
@@ -93,15 +97,22 @@
         </ul>
         <ul class="buttons">
           <li ng-repeat="button in game.player.state.buttons">
-            <button ng-click="button.onClick()">{{button.label}}</button>
+            <button ng-click="button.onClick()" class="crg">{{button.label}}</button>
           </li>
         </ul>
         <div ng-if="game.player.state.showInput" class="user-input">
           <textarea ng-model="game.player.input" placeholder="Type here"></textarea>
-          <button ng-click="game.player.state.submitInput(game.player.input)" ng-class="{&quot;disabled-input&quot;: !game.player.input.length}" class="button-outline submit">Submit</button>
+          <button ng-click="game.player.state.submitInput(game.player.input)" ng-class="{&quot;disabled-input&quot;: !game.player.input.length}" class="crg button-outline submit">Save</button>
         </div>
       </div>
     </div>
   </div>
+  <div ng-show="game.player.state.showTextSelectionHelp" class="text-selection-help">
+    <div class="help-container">
+      <div class="help-image"><img src="assets/images/text-selection-help.gif"/></div>
+      <div class="close-help">
+        <button ng-click="game.player.state.showTextSelectionHelp = false" class="crg">Got It</button>
+      </div>
+    </div>
+  </div>
 </div>
-<h1 ng-bind="player.selectedText"></h1>

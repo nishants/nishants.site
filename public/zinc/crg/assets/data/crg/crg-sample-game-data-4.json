@@ -126,72 +126,12 @@
 
       {
         "group"       : "zincing",
-        "name"        : "find-phrase",
-        "config":       {
+        "name"        : "text-input",
+        "config"      :       {
           "group"       : "zincing",
+          "phrase"    : {"indices": [0, 1,2,3,4], "text": "Ships at a distance"},
           "focus"     : {"indices": [0, 1,2,3,4,5,6,7,8,9], "text": "Ships at a distance have every man's wish on board"},
-          "expectedCorrectAnswers" : 1,
-          "wrongAttemptsAllowed" : 3,
-          "correctOptions": [
-            {
-              "phrase": {
-                "indices": [0, 1,2,3],
-                "text": "Ships at a distance"
-              },
-              "successVideo" : {
-                "url" : "assets/videos/diana/ships-at-distance-is-correct.mp4",
-                "type" : "video/mp4",
-                "transcript" : "Nice work! Great job noticing that what Hurston wants you to picture is the whole phrase, right? Not just “ships” but “ships at a distance."
-              }
-
-            }
-          ],
-          "partialCorrectOptions": [
-            {
-              "phrase": {
-                "indices": [0],
-                "text": "Ships"
-              },
-              "successVideo" : {
-                "url" : "assets/videos/diana/full-phrase-ships-at-distance.mp4",
-                "type" : "video/mp4",
-                "transcript" : "Cool. Maybe you’re picturing a sailboat or a cruise ship. That’s a great start. Now take it all the way. Hurston wants you to picture more than just ships. You need to take in the whole phrase — “ships at a distance."
-              }
-            },
-            {
-              "phrase": {
-                "indices": [1,2,3],
-                "text": "at a distance"
-              },
-              "successVideo" : {
-                "url" : "assets/videos/diana/what-at-a-distance.mp4",
-                "type" : "video/mp4",
-                "transcript" : "What’s at a distance? Highlight the whole phrase "
-              }
-            }
-          ],
-          "wrongAttemptMessages" : [
-            {
-              "url" : "assets/videos/diana/wrong-attempt-1.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Look, if you try hard enough, you could probably come up with an image in your brain for any word, but what’s the strongest visual in this sentence? What’s easiest to picture? "
-            },
-            {
-              "url" : "assets/videos/diana/try-again.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Try again !"
-            },
-            {
-              "url" : "assets/videos/diana/easiest-one-was.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Well, the easiest one we could see was “ships at a distance.”"
-            }
-          ],
-          "sceneLoadVideo" : {
-            "url" : "assets/videos/diana/visualize-from-first-sentence.mp4",
-            "type" : "video/mp4",
-            "transcript" : "So, highlight a word or phrase you can easily picture from the first sentence."
-          }
+          "transcript": {"text": "What do you imagine when you read \"Ships at a distance\"  in first sentence ?"}
         }
       },
       {
@@ -199,14 +139,63 @@
         "name"        : "text-input",
         "config"      :   {
           "group"        : "zincing",
-          "phrase"  : {"indices": [0, 1,2,3], "text": "Ships at a distance"},
-          "focus"     : {"indices": [0, 1,2,3,4,5,6,7,8,9], "text": "Ships at a distance have every man's wish on board"},
-          "sceneLoadVideo" : {
-            "url" : "assets/videos/diana/describe-ships-at-distance.mp4",
-            "type" : "video/mp4",
-            "transcript" : "Type a short description of what you’re picturing in the chat."
+          "phrase": {"indices": [34,35,36,37,38,39], "text": "looks aways in resignation"} ,
+          "focus"     :  {"indices": [34,35,36,37,38,39,40,41,42,43], "text": "For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time."},
+          "transcript": {"text": "What do you imagine when you read \"looks aways in resignation\"  in first sentence ?"}
+        }
+      },
+      {
+        "group"       : "zincing",
+        "name"        : "yes-no",
+        "config"      : {
+          "group"        : "zincing",
+          "phrase"    : {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
+            "text"    : "all those things they don't want to remember"
           },
-          "transcript": {"text": "Type a short description of what you’re picturing in the chat. "}
+          "focus": {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
+            "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
+          },
+          "question"  : "Does the author give any specific examples of highlighted phrase",
+          "expectedYes"  : false,
+          "wrongAnswerMessage": "Stop trying too hard. There was no example."
+        }
+      },
+      {
+        "group"       : "zincing",
+        "name"        : "multi-choice",
+        "config"      : {
+          "group"        : "zincing",
+          "phrase"    : {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65],
+            "text"    : "all those things they don't want to remember"
+          },
+          "focus": {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
+            "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
+          },
+          "answerExplanation" : "A cow eating grass has nothing terrible about it.",
+          "question": "Which one of following is not a good example of \"all those things they don't want to remember\" ?",
+          "correctMessage" : "Good. Sor you understand what the phrase means.",
+          "options": [
+            {
+              "label"   : "A cow eating grass.",
+              "correct" : true
+            },
+            {
+              "label"   : "A baby being dropped.",
+              "correct" : false
+            },
+            {
+              "label"   : "Getting fired from job.",
+              "correct" : false
+            },
+            {
+              "label": "A scary nightmare.",
+              "correct": false
+            }
+          ]
         }
       },
       {

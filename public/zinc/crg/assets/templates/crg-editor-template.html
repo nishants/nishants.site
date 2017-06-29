@@ -22,6 +22,10 @@
             <div ng-show="game.player.state.textSelectedIsClose" class="close-enough-selection">
               <label>Almost there. You need to select complete phrase</label>
             </div>
+            <div ng-show="game.player.state.selectingText" class="text-selection">
+              <button ng-click="game.player.submitText($selection)" class="crg select-phrase">Select Text</button>
+              <div class="pointer"></div>
+            </div>
             <div class="passage-selection">
               <button ng-click="editor.passageSelector.selection.setFocus($selection.indices)" ng-show="editor.passageSelector.selection.selectingFocus" class="selectFocus">Set Focus</button>
               <button ng-click="editor.passageSelector.selection.setPhrase($selection.indices)" ng-show="editor.passageSelector.selection.selectingPhrase" class="selectPhrase">Set Phrase</button>
@@ -95,7 +99,13 @@
                   </div>
                 </div>
               </div>
-              <div ng-if="scene.name == &quot;find-all-key-images&quot;" class="find-all-key-images">
+              <div ng-if="scene.name == &quot;find-phrase&quot;" class="find-phrase">
+                <div class="scene-param">
+                  <label class="param-label">Focus</label>
+                  <div class="param-input">
+                    <input type="text" disbaled="true" ng-model="scene.config.focusPhrase.text"/><span set-focus="set-focus" class="param-action fa fa-pencil"></span><span ng-click="scene.config.focus = {indices: [], text: []}" class="param-action fa fa-trash-o"></span>
+                  </div>
+                </div>
                 <div class="scene-param">
                   <label class="param-label">Phrases</label>
                   <div class="param-input">
@@ -130,6 +140,8 @@
                   </div>
                 </div>
               </div>
+              <!--.find-all-key-images(ng-if='scene.name == "find-all-key-images"')-->
+              <!--  include key-images/find-all-key-images-->
               <div ng-if="scene.name == &quot;yes-no&quot;" class="yes-no">
                 <div class="scene-param">
                   <label class="param-label">Focus</label>
@@ -164,7 +176,7 @@
           </li>
           <ul class="add-scenes undo-list">
             <li ng-repeat="config in sceneConfigs">
-              <button ng-click="editor.addScene(config.editor.createFor(group))" class="outline"><span>Add &nbsp;</span><span ng-bind="config.label"></span><span>&nbsp; Scene</span></button>
+              <button ng-click="editor.addScene(config.editor.createFor(group))" class="outline"><span ng-bind="config.label"></span><span>&nbsp; Scene</span></button>
             </li>
           </ul>
         </ul>
