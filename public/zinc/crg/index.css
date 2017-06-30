@@ -1179,7 +1179,9 @@ body {
   background: black; }
   .demo-player video {
     display: block;
-    margin: auto; }
+    margin: auto;
+    max-height: calc(100vh - 100px);
+    max-width: 100%; }
 
 .scenes .add-scenes button {
   width: calc(100% - 20px);
