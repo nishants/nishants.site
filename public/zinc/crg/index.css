@@ -1174,6 +1174,13 @@ body {
 .about-crg h5, .about-crg h3 {
   margin: 20px 0px 0px; }
 
+.demo-player {
+  padding: 20px;
+  background: black; }
+  .demo-player video {
+    display: block;
+    margin: auto; }
+
 .scenes .add-scenes button {
   width: calc(100% - 20px);
   margin: 10px; }
