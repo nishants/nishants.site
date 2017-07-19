@@ -81,63 +81,137 @@ app.run(["$rootScope", "stateMessages" ,function($rootScope, stateMessages){
 	$rootScope.state = state;
 }]);
 },{}],4:[function(require,module,exports){
-app.directive("typewriter",["$timeout", function($timeout){
+app.factory("Throttle", ["$timeout", function ($timeout) {
+  return function (time) {
+    var throttle = {
+      timeout: undefined,
+      work: function(){},
+      push: function (work) {
+        throttle.clear();
+        throttle.work     = work;
+        throttle.timeout  = setTimeout(throttle.flush, time);
+      },
+      clear: function(){
+        clearTimeout(throttle.timeout);
+      },
+      flush: function(){
+        throttle.work();
+      },
+    };
+    return throttle;
+  };
+}]);
+},{}],5:[function(require,module,exports){
+app.directive("typewriter",["TYPING_SPEED", "$timeout", function(typingSpeed, $timeout){
   return {
     restrict: "C",
-    scope: true,
-    template: "<span class='letters'><span class='letter' ng-repeat='letter in letters track by $index'>{{letter}}</span><span>",
+    scope   : false,
     link: function(scope, element, attrs){
       if(attrs.text){
         var $e    = $(element),
-            speed = parseInt(attrs.typingSpeed) || 100,
-            lastTimeout,
-            nextLetter = 0,
+            speed = parseInt(attrs.typingSpeed) || typingSpeed,
+            timer,
             stopTimer = function(){
-              $timeout.cancel(lastTimeout);
+              clearInterval(timer);
             },
             type = function(){
-              if(nextLetter < scope.letters.length){
-                $($e.find(".letter")[nextLetter++]).addClass("display");
-              }else{
-                stopTyping();
-              }
-              if(!scope.done){
-                lastTimeout = $timeout(type, speed);
-              }
+              var nextLetter = $e.find(".letter:not(.display)").first();
+              nextLetter.length ? $(nextLetter).addClass("display")  : stopTyping();
+            },
+            setText= function(text){
+              var letters = text.split(""),
+                  toLetterElement = function(letter){
+                    return "<span class='letter'>{{letter}}</span>".replace("{{letter}}", letter.trim().length ? letter : '&nbsp;' );
+                  },
+                  element = letters.map(toLetterElement).join("\n");
+              $e.html(element);
             },
             startTyping = function(){
               stopTimer();
-              $timeout(function(){
-                $(".letters").addClass("typing");
-                scope.done = false;
-                nextLetter = 0;
-                attrs.beforeTyping && scope.$eval(attrs.beforeTyping);
-                lastTimeout = $timeout(type, speed);
-              });
+              setText(scope.$eval(attrs.text));
+              attrs.beforeTyping && scope.$eval(attrs.beforeTyping);
+              timer = setInterval(type, speed);
             },
             stopTyping = function(){
               $timeout(function(){
-                $(".letters").removeClass("typing");
-                scope.done = true;
                 attrs.afterTyping && scope.$eval(attrs.afterTyping);
               });
               stopTimer();
+            },
+            clear = function(){
+              setText("");
+              stopTimer();
+              $e.addClass("no-show");
             };
         scope.$watch(attrs.text, function(text){
-          scope.letters = text.split("");
-          startTyping();
-          $(".letters").html(text);
-          stopTyping();
+          text ? startTyping() : clear();
         });
       }
     }
   };
 }])
-},{}],5:[function(require,module,exports){
+
+},{}],6:[function(require,module,exports){
+app.directive("viewportSafariFix",["$timeout", function($timeout){
+  return {
+    restrict: "C",
+    scope   : false,
+    link: function(scope, element, attrs){
+      var fixViewport = function () {
+        var viewPortHeight = $(window).innerHeight() - 20;
+        $(element).height(viewPortHeight);
+      };
+      if(window.safari !== undefined){
+        $(window).on("resize",fixViewport);
+        $(window).trigger("resize");
+      }
+    }
+  };
+}]);
+},{}],7:[function(require,module,exports){
 app.value("remote", "https://findfalcone.herokuapp.com");
 app.value("requestConfig", {headers: {Accept: "application/json", "Content-Type": "application/json"}});
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
+app.directive("maskPhrase", [function(){
+
+  return {
+    restrict : "C",
+    scope    : false,
+    link     : function(scope, element, attrs){
+      var phrase = scope.$eval(attrs.phrase),
+          phraseElements = phrase.indices.map(function(wordIndex){
+            return $(".word[data-word-number=<word-index>]".replace("<word-index>", wordIndex))
+          }),
+          maskDimensions = function(phraseElements){
+            var first = phraseElements[0],
+                firstPosition = first.position(),
+                inlineWidth   = 0;
+            phraseElements.forEach(function(word){
+              inlineWidth += word.outerWidth()
+            });
+            return {
+              top   : firstPosition.top,
+              left  : firstPosition.left,
+              height: first.outerHeight(),
+              width : inlineWidth,
+            };
+          },
+          applyMask = function($element, mask){
+            $element.css("top",     "<top>px".replace("<top>", mask.top));
+            $element.css("left",    "<left>px".replace("<left>", mask.left));
+            $element.css("height",  "<height>px".replace("<height>", mask.height));
+            $element.css("width",   "<width>px".replace("<width>", mask.width));
+          };
+
+      $(window).on("resize", function(){
+        applyMask($(element), maskDimensions(phraseElements));
+      });
+      $(window).trigger("resize");
+    }
+  };
+}]);
+},{}],9:[function(require,module,exports){
 app.factory("Passage", [function () {
   var toSelectableNodes = function(paragraphs){
         var nodes = [];
@@ -159,7 +233,32 @@ app.factory("Passage", [function () {
     };
   };
 }]);
-},{}],7:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
+app.service("UserActionLogService", [function(){
+
+  var service = {
+    log: [],
+    reset: function(){
+      service.log = [];
+    },
+    logButton: function(sceneId, buttonId){
+      service.log.push({
+        time    : (new Date()).getTime(),
+        type    : "button",
+        sceneId : sceneId,
+        name    : buttonId,
+      });
+      console.log(sceneId+"."+buttonId);
+    },
+    getAction : function(sceneId, name){
+      return service.log.filter(function(log){
+        return log.sceneId == sceneId && log.name == name;
+      })[0];
+    }
+  };
+  return service;
+}]);
+},{}],11:[function(require,module,exports){
 app.directive("videoPlayer", [ "VideoPlayerService", function(VideoPlayerService){
 
   return {
@@ -203,7 +302,7 @@ app.directive("videoPlayer", [ "VideoPlayerService", function(VideoPlayerService
     }
   };
 }]);
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 app.service("VideoPlayerService", ["CRGGameService", "$rootScope",function (game, $rootScope) {
   var videoPlayer = {
     pendingVideo: null,
@@ -230,7 +329,7 @@ app.service("VideoPlayerService", ["CRGGameService", "$rootScope",function (game
   };
   return videoPlayer;
 }]);
-},{}],9:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 app.factory("CRGDataService", ["$http", "SceneLoader",function ($http, SceneLoader) {
   var
       labelFor = function(scene){
@@ -250,17 +349,19 @@ app.factory("CRGDataService", ["$http", "SceneLoader",function ($http, SceneLoad
     }
   };
 }]);
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require("./components/passage/passage");
+require("./components/passage/drag-drop-relations/drag-drop-relations");
 require("./components/video-player-directive");
 require("./components/video-player-service");
+require("./components/user-action-log-service");
 
 require("./player/crgameplay");
 require("./editor/crg-editor");
 require("./scenes/scenes");
 require("./crg-data-service");
 
-},{"./components/passage/passage":6,"./components/video-player-directive":7,"./components/video-player-service":8,"./crg-data-service":9,"./editor/crg-editor":13,"./player/crgameplay":21,"./scenes/scenes":43}],11:[function(require,module,exports){
+},{"./components/passage/drag-drop-relations/drag-drop-relations":8,"./components/passage/passage":9,"./components/user-action-log-service":10,"./components/video-player-directive":11,"./components/video-player-service":12,"./crg-data-service":13,"./editor/crg-editor":17,"./player/crgameplay":25,"./scenes/scenes":49}],15:[function(require,module,exports){
 app.controller('CRGEditorController', ['$scope', '$timeout', 'CRGEditorService', function ($scope, $timeout, CRGEditorService) {
   var editor  = CRGEditorService;
 
@@ -276,13 +377,20 @@ app.controller('CRGEditorController', ['$scope', '$timeout', 'CRGEditorService',
 
   $scope.editor = editor;
 }]);
-},{}],12:[function(require,module,exports){
-app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", function (Passage, PassageSelector, $state) {
+},{}],16:[function(require,module,exports){
+app.factory("CRGEditorService", ["Passage", "PassageSelector", "SceneGroups", "$state", function (Passage, PassageSelector, SceneGroups, $state) {
   var findScene = function(name){
     return function(scene){
       return scene.name == name;
     };
   };
+  var sceneGroups = Object.keys(SceneGroups).map(function(group){
+    return {
+      name: group,
+      label: SceneGroups[group].label,
+      subgroups: SceneGroups[group].subgroups
+    };
+  });
   var editorService = {
         gameId: null,
         script: {
@@ -293,6 +401,7 @@ app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", functio
           from: null,
           text: null,
         },
+        sceneGroups: sceneGroups,
         previewing: [],
         setGameToEdit: function(gameData){
           editorService.script.gameId   = gameData.id;
@@ -331,12 +440,12 @@ app.factory("CRGEditorService", ["Passage", "PassageSelector", "$state", functio
   };
   return editorService;
 }]);
-},{}],13:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 require('./crg-editor-controller');
 require('./preview/crg-preview-controller');
 require('./crg-editor-service');
 require('./passage-selector');
-},{"./crg-editor-controller":11,"./crg-editor-service":12,"./passage-selector":14,"./preview/crg-preview-controller":15}],14:[function(require,module,exports){
+},{"./crg-editor-controller":15,"./crg-editor-service":16,"./passage-selector":18,"./preview/crg-preview-controller":19}],18:[function(require,module,exports){
 app.factory("PassageSelector", ["passageSelectorHeadings", function (passageSelectorHeadings) {
   var scrollTime = 500,
       scrollBackOffset = 200,
@@ -445,11 +554,11 @@ app.factory("PassageSelector", ["passageSelectorHeadings", function (passageSele
     return passageSelector;
   };
 }]);
-},{}],15:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 app.controller('CRGPreviewController', [function () {
   window.scrollTo(0,0);
 }]);
-},{}],16:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 app.directive("scrollToBottomOnResize", [function(){
 
   return {
@@ -465,7 +574,7 @@ app.directive("scrollToBottomOnResize", [function(){
           },
           resize = function () {
             var $dialogues         = $(".chat-history"),
-                inputHeight        = $(".chat-input").height();
+                inputHeight        = $(".console-user-input").height();
 
             $dialogues.css("padding-bottom",inputHeight);
           },
@@ -475,10 +584,11 @@ app.directive("scrollToBottomOnResize", [function(){
           };
 
       scope.$watch("game.player.chat.input.ready", updateChatHistory);
+      $('.console-user-input').bind("DOMSubtreeModified",updateChatHistory);
     }
   };
 }]);
-},{}],17:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 app.controller('CRGameplayController', ['$scope', '$timeout', 'CRGPlayer', 'CRGGameService', 'gamePlan', function ($scope, $timeout, CRGPlayer, CRGGameService, gamePlan) {
 
   var game    = CRGGameService;
@@ -492,14 +602,39 @@ app.controller('CRGameplayController', ['$scope', '$timeout', 'CRGPlayer', 'CRGG
     });
   };
 
+  $scope.onTextSelectTouch = function(indexes){
+    $timeout(function(){
+      game.selectedText = indexes.map(function (index) {
+        return game.player.passage.words[index].text;
+      }).join(" ");
+      var selection = {indices: indexes, text: game.selectedText};
+      game.player.onTextSelection(selection);
+      game.player.submitText(selection);
+    });
+  };
+
   $scope.game = game;
 }]);
-},{}],18:[function(require,module,exports){
-app.service("CRGGameScript", ["SceneLoader", "$injector", function (SceneLoader, $injector) {
+},{}],22:[function(require,module,exports){
+app.service("CRGGameScript", ["SceneLoader", "$injector", "SceneGroups", function (SceneLoader, $injector, SceneGroups) {
 
-  var getSceneLoader = function(name){
-    return $injector.get(SceneLoader[name].entry);
-  };
+  var
+      getSceneLoader = function(name){
+        return $injector.get(SceneLoader[name].entry);
+      },
+      groupName = function(scene){
+        return scene.config.group;
+      },
+      uniqueGroups = function(element, index, allGroups){
+        return index == allGroups.indexOf(element);
+      },
+      toGroup=  function(groupName){
+        var sceneGroup = SceneGroups[groupName];
+        return {
+          name: groupName,
+          label: sceneGroup.label
+        };
+      };
 
   var
       script = {
@@ -512,19 +647,22 @@ app.service("CRGGameScript", ["SceneLoader", "$injector", function (SceneLoader,
         load: function(scriptData){
           script.scenes     = scriptData.scenes;
           script.sceneIndex = 0;
+        },
+        getGroups: function(){
+          return script.scenes.map(groupName).filter(uniqueGroups).map(toGroup);
         }
       };
   return script;
 }]);
-},{}],19:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 app.factory("CRGGameService", [function () {
   var game = {
     player: null
   };
   return game;
 }]);
-},{}],20:[function(require,module,exports){
-app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$timeout",function (CRGGameScript, Passage, VideoPlayerService, $timeout) {
+},{}],24:[function(require,module,exports){
+app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "SceneGroups", "$timeout",function (CRGGameScript, Passage, VideoPlayerService, SceneGroups, $timeout) {
   var FLASH_TIMEOUT = 3000,
       user  = {
         type : "user",
@@ -545,6 +683,8 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$ti
     typing: true,
     selectedText: null,
     passage: null,
+    subgroups: [],
+    groups: [],
     mode: {chat: false},
     video: {
       url: '',
@@ -560,6 +700,8 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$ti
         player.video.url  = video.url;
         player.video.type = video.type;
         player.video.fullscreen = video.fullscreen;
+        player.video.canSkip    = video.canSkip;
+
         VideoPlayerService.stop();
         VideoPlayerService.play(video);
         return {
@@ -606,9 +748,11 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$ti
       player.chat.agent.image = gameData.agent.smallProfilePicture;
       player.chat.agent.videoThumbnail = gameData.agent.videoPlaceholder;
       CRGGameScript.load(gameData.script);
+      player.groups = CRGGameScript.getGroups();
       player.start();
     },
     reset: function(){
+      resetSelection();
       player.input = '';
       player.chat.input.ready = false;
       player.video.stop();
@@ -621,6 +765,7 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$ti
       player.state = state;
       player.setHighlightText(state.highlightPhrase);
       player.setFocusText(state.focusPhrase);
+      player.subgroups = SceneGroups[state.group].subgroups;
       state.load();
     },
     state: null,
@@ -670,7 +815,7 @@ app.service("CRGPlayer", ["CRGGameScript", "Passage", "VideoPlayerService", "$ti
   };
   return player;
 }]);
-},{}],21:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 require('./crg-game-service');
 require('./crg-game-controller');
 require('./phrase-selector');
@@ -678,8 +823,8 @@ require('./selection-pointer');
 require('./crg-player-service');
 require('./crg-game-script');
 require('./chat-window/chat-history/scroll-bottom-on-resize');
-},{"./chat-window/chat-history/scroll-bottom-on-resize":16,"./crg-game-controller":17,"./crg-game-script":18,"./crg-game-service":19,"./crg-player-service":20,"./phrase-selector":22,"./selection-pointer":23}],22:[function(require,module,exports){
-app.directive("phraseSelector", [function () {
+},{"./chat-window/chat-history/scroll-bottom-on-resize":20,"./crg-game-controller":21,"./crg-game-script":22,"./crg-game-service":23,"./crg-player-service":24,"./phrase-selector":26,"./selection-pointer":27}],26:[function(require,module,exports){
+app.directive("phraseSelector", ["Throttle", function (Throttle) {
   var getSelectionText = function (){
 
     var selection = window.getSelection();
@@ -704,16 +849,32 @@ app.directive("phraseSelector", [function () {
     restrict: "C",
     scope   : true,
     link    : function (scope, element, attrs) {
-      var highlightSelected = function () {
-        var selections = getSelectionText();
-        $("[data-word-number]").removeClass("selected-word");
-        selections.forEach(function(dataWordNumber){
-          var selector = "[data-word-number='<number>']".replace('<number>', dataWordNumber);
-          $(selector).addClass("selected-word");
-        });
-        scope.$selection.indices = selections;
-        scope.$eval(attrs.onTextSelect);
-      };
+      var
+          throttle = Throttle(2000),
+          selectForTouch = function (selections) {
+            throttle.push(function(){
+              scope.$selection.indices = selections;
+              scope.$eval(attrs.onTextSelectTouch);
+            });
+          },
+          setTouchMenu = function(selections){
+            scope.$selection.indices = selections;
+            scope.$eval(attrs.onTextSelect);
+          },
+          isTouchDevice = function(selections){
+            return $("html").hasClass("touch");
+          },
+          highlightSelected = function () {
+            var selections = getSelectionText();
+            if(selections.length){
+              $("[data-word-number]").removeClass("selected-word");
+              selections.forEach(function(dataWordNumber){
+                var selector = "[data-word-number='<number>']".replace('<number>', dataWordNumber);
+                $(selector).addClass("selected-word");
+              });
+              isTouchDevice() ?  selectForTouch(selections) : setTouchMenu(selections);
+            }
+          };
       document.addEventListener("selectionchange", highlightSelected, false);
       scope.$selection = {indices: []};
     }
@@ -721,7 +882,7 @@ app.directive("phraseSelector", [function () {
 }]);
 
 
-},{}],23:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 app.directive("selectionPointer", [function () {
 
   return {
@@ -746,7 +907,7 @@ app.directive("selectionPointer", [function () {
 }]);
 
 
-},{}],24:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 app.directive("setFocus", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -763,7 +924,7 @@ app.directive("setFocus", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],25:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 app.directive("setHighlight", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -781,7 +942,7 @@ app.directive("setHighlight", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],26:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 app.directive("addKeyImage", ['CRGEditorService', function(CRGEditorService){
 
   return {
@@ -798,21 +959,31 @@ app.directive("addKeyImage", ['CRGEditorService', function(CRGEditorService){
     }
   };
 }]);
-},{}],27:[function(require,module,exports){
-app.factory("BaseScene", ["CRGGameService", function (game) {
+},{}],31:[function(require,module,exports){
+app.factory("BaseScene", ["CRGGameService", "UserActionLogService", "$q", function (game, UserActionLogService, $q) {
   return function(scene, config){
+    scene.sceneId           = scene.sceneId;
     scene.group             = config.group;
-    scene.showInput         = !!scene.submitInput;
+    scene.subgroup          = config.subgroup;
+    scene.showInput         = scene.showInput;
 
-    scene.buttons           = scene.buttons         || [];
     scene.highlightPhrase   = scene.highlightPhrase || {indices: []};
     scene.focusPhrase       = scene.focusPhrase     || {indices: []};
     scene.transcript        = scene.transcript      || {text: ""};
     scene.submitInput       = scene.submitInput     || function(userInput){};
     scene.load              = function(){
+      if(config.condition){
+        var condition   = config.condition,
+            savedAction = UserActionLogService.getAction(condition.sceneId, condition.action),
+            skip        = !(!!savedAction == !!condition.expected);
+        if(skip)  {
+          scene.toNextScene();
+          return;
+        }
+      }
       scene._loadTime        = (new Date()).getTime();
       if(config.sceneLoadVideo){
-        game.player.video.play(config.sceneLoadVideo).then(function(){
+        scene.playVideo(config.sceneLoadVideo).then(function(){
           scene._videoEndedAt   = (new Date()).getTime();
           if(scene.afterVideo){
             scene.afterVideo();
@@ -823,10 +994,192 @@ app.factory("BaseScene", ["CRGGameService", function (game) {
 
     scene.showTextSelectionHelp   = scene.showTextSelectionHelp;
     scene.textSelectedIsClose     = scene.textSelectedIsClose;
+    scene.drag          = null;
+    scene.dragRelations = scene.dragRelations || [];
+
+    scene.dropBoxes  = scene.dropBoxes || [];
+    scene.playVideo = function(video){
+      game.player.video.stop();
+      scene.playTranscript(video.transcript);
+      var onVideoEnd = $q.defer();
+      game.player.video.play(video).then(function(){
+        scene.agentSaid(video.transcript);
+        scene.clearTranscript();
+        onVideoEnd.resolve(video);
+      });
+      return onVideoEnd.promise;
+    };
+    scene.toNextScene = function(){
+      game.player.toNextScene();
+    };
+
+    scene.highlight = function(phrase){
+      scene.highlightPhrase = phrase;
+      game.player.setHighlightText(scene.highlightPhrase);
+    };
+
+    scene.clearTranscript = function(){
+      scene.transcript = {text: ""};
+    };
+    scene.playTranscript = function(text){
+      scene.transcript = {text: text};
+    };
+    scene.setButtons = function(buttons){
+      scene.buttons = buttons.map(function(button){
+        return {
+          label: button.label,
+          onClick: function(){
+            UserActionLogService.logButton(scene.sceneId, button.label)
+            button.onClick();
+          }
+        };
+      })   ;
+    };
+    scene.userSaid = function(text){
+      game.player.chat.add.fromUser(text);
+    };
+    scene.agentSaid = function(text){
+      game.player.chat.add.fromAgent(text);
+    };
+    scene.transitTo = function(state){
+      game.player.transitTo(state);
+    };
+    scene.setButtons(scene.buttons|| []);
     return scene;
   };
 }]);
-},{}],28:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
+app.service("DragDropTextEditor", ['SceneLoader', function (SceneLoader) {
+
+  var editor = {
+        createFor: function(group){
+          return             {
+            "group"       : group,
+            "name"        : "drag-drop-text",
+            label         : SceneLoader["drag-drop-text"].label,
+            "config"      : {
+              "group"       : group,
+              "phrase": {"indices": [], "text"  : ""},
+              "focus": {"indices" : [], "text"  : ""},
+              "transcript": {"text"    : ""},
+              "options": []
+            }
+          };
+        }
+      };
+  return editor;
+}]);
+},{}],33:[function(require,module,exports){
+app.factory("DragDropTextState", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
+  return function (config) {
+    var state = {
+      transcript     : config.transcript,
+      highlightPhrase: config.phrase,
+      focusPhrase    : config.focus,
+      dragText       : null,
+      dragTarget     : null,
+      dragRelations  : config.relations,
+      draggingRelation   : null,
+      expectedCorrectAnswers : config.expectedCorrectAnswers || config.relations.length,
+      answeredCorrect : 0,
+      wrongAttemptsAllowed: config.wrongAttemptsAllowed || config.wrongAttemptMessages.length || 0,
+      wrongAttempts   : 0,
+      draggingText   : function(relation){
+                        state.draggingRelation = relation;
+                       },
+      droppedTextOnRelation: function(relation){
+        var correctDrop = relation.droppable.indices.join() == state.draggingRelation.droppable.indices.join();
+        correctDrop ? state.correctlyDroppedText(relation): state.wrongTextDropped(relation);
+      },
+      correctlyDroppedText: function(relation){
+        var noneLeft = ++state.answeredCorrect == state.expectedCorrectAnswers;
+        state.userSaid(relation.droppable.text);
+        state.highlight(relation.droppable);
+        noneLeft && state.endState();
+      },
+      wrongTextDropped: function(relation){
+        var noAttemptLeft = (++state.wrongAttempts ==  state.wrongAttemptsAllowed),
+            video =  config.wrongAttemptMessages[(state.wrongAttempts -1)%config.wrongAttemptMessages.length];
+        if(video){
+          state.playVideo(video).then(function(){
+            noAttemptLeft && state.endState();
+          });
+        } else {
+          noAttemptLeft && state.endState();
+        }
+      },
+      endState: function(){
+        state.showResult();
+        if(config.onFinish){
+          state.playVideo(config.onFinish).then(function(){
+            state.toNextScene();
+          });
+        }else{
+          state.toNextScene();
+        }
+      },
+      showResult: function(){
+        var draggables = [].concat.apply([], config.relations.map(function(relation){
+              return relation.draggable.indices;
+            })),
+            dropppables = [].concat.apply([], config.relations.map(function(relation){
+              return relation.droppable.indices;
+            }));
+
+        state.highlight({indices: draggables.concat(dropppables)})
+      }
+    };
+    return BaseScene(state, config);
+  };
+}]);
+},{}],34:[function(require,module,exports){
+app.service("DragDropEditor", ['SceneLoader', function (SceneLoader) {
+
+  var editor = {
+        createFor: function(group){
+          return             {
+            "group"       : group,
+            "name"        : "drag-drop",
+            label         : SceneLoader["drag-drop"].label,
+            "config"      : {
+              "group"       : group,
+              "phrase": {"indices": [], "text"  : ""},
+              "focus": {"indices" : [], "text"  : ""},
+              "transcript": {"text"    : ""},
+              "options": []
+            }
+          };
+        }
+      };
+  return editor;
+}]);
+},{}],35:[function(require,module,exports){
+app.factory("DragDropState", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
+  return function (config) {
+    var transcript = config.transcript.text || "";
+    var state = {
+      transcript: {text: transcript},
+      highlightPhrase: config.phrase,
+      focusPhrase    : config.focus,
+      dropBoxes      : [
+                        {
+                          label: "Drag and drop your answer here",
+                          onDrop: function(){
+                            window.getSelection().empty();
+                            setTimeout(function(){
+                              alert("Got it !");
+                            },500);
+                          },
+                        }
+                      ],
+      onTextSelection   : function(selectedPhrase){
+        state.drag = selectedPhrase;
+      }
+    };
+    return BaseScene(state, config);
+  };
+}]);
+},{}],36:[function(require,module,exports){
 app.factory("ExitGameState", ["BaseScene", function (BaseScene) {
   return function (config) {
     var state = {
@@ -845,7 +1198,7 @@ app.factory("ExitGameState", ["BaseScene", function (BaseScene) {
     return BaseScene(state, config);
   };
 }]);
-},{}],29:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 app.service("FindPhraseSceneEditor", ['SceneLoader', function (SceneLoader) {
 
   var findPhraseEditor = {
@@ -867,8 +1220,8 @@ app.service("FindPhraseSceneEditor", ['SceneLoader', function (SceneLoader) {
       };
   return findPhraseEditor;
 }]);
-},{}],30:[function(require,module,exports){
-app.factory("FindPhrase", ["CRGGameService", "DisplayAllKeyImages",  "BaseScene", function (game, DisplayAllKeyImages, BaseScene) {
+},{}],38:[function(require,module,exports){
+app.factory("FindPhrase", ["BaseScene", function ( BaseScene) {
 
   var phraseId = function(phrase){
         return phrase.indices.join("-");
@@ -879,64 +1232,104 @@ app.factory("FindPhrase", ["CRGGameService", "DisplayAllKeyImages",  "BaseScene"
           indexed[phraseId(option.phrase)] = option;
         });
         return indexed;
+      },
+      MIN_SELECTION_DISTANCE = 0.66,
+      selectionDistance = function(selection, expectedPhrase){
+        var common = selection.indices.filter(function(index){
+          return expectedPhrase.indices.indexOf(parseInt(index)) > -1;
+        });
+        return common;
+      },
+      findCloseMatch = function(selected, options, min_match){
+        var match = null;
+        options.forEach(function(option){
+          var commonChars = selectionDistance(selected, option.phrase),
+              matches     = commonChars.length/option.phrase.indices.length > min_match;
+          match = matches ? option : match;
+        });
+        return match;
       };
   return function (config) {
     var state = {
+      highlightPhrase     : config.phrase,
       focusPhrase         : config.focus,
       transcript          : {text : config.sceneLoadVideo.transcript},
       selectingText       : true,
+      disabledSelection   : false,
       correctOptions      : optionId(config.correctOptions),
       partialCorrectOptions: optionId(config.partialCorrectOptions),
       wrongAttemptLeft     : config.wrongAttemptsAllowed,
+      expectedCorrectAnswers     :  config.expectedCorrectAnswers || config.correctOptions.length,
       onTextSelection   : function(selectedPhrase){
-        state.selectingText = true;
+        !state.disabledSelection && (state.selectingText = true);
       },
       submitTextSelection: function(selectedPhrase){
-        var correctOption = state.correctOptions[phraseId(selectedPhrase)],
-            partialCorrectOption = state.partialCorrectOptions[phraseId(selectedPhrase)];
+        var correctOption         = state.correctOptions[phraseId(selectedPhrase)],
+            partialCorrectOption  = state.partialCorrectOptions[phraseId(selectedPhrase)],
+            closeMatch             = (correctOption || partialCorrectOption) ? null : findCloseMatch(selectedPhrase, config.correctOptions, MIN_SELECTION_DISTANCE);
         state.selectingText = false;
-        game.player.chat.add.fromAgent(state.transcript.text);
         if(!!correctOption){
           state.onCorrectSelection(correctOption);
         } else if(!!partialCorrectOption){
           state.onPartialCorrectSelection(partialCorrectOption);
-        } else{
+        } else if(closeMatch){
+          state.onCorrectSelection(closeMatch);
+        }else{
           state.onWrongAttempt(selectedPhrase);
         }
       },
       onCorrectSelection: function(selection){
-        state.highlightPhrase.indices = state.highlightPhrase.indices.concat(selection.phrase.indices);
-        game.player.setHighlightText(state.highlightPhrase);
-        game.player.video.stop();
-        game.player.chat.add.fromUser(selection.phrase.text);
-        state.transcript.text = selection.successVideo.transcript
-        game.player.video.play(selection.successVideo).then(function(){
-          game.player.toNextScene();
-          game.player.chat.add.fromAgent(state.transcript.text);
+        state.expectedCorrectAnswers--;
+        state.highlight({indices: state.highlightPhrase.indices.concat(selection.phrase.indices)});
+        state.userSaid(selection.phrase.text);
+        state.transcript.text = selection.successVideo.transcript;
+        if(!state.expectedCorrectAnswers) {
+          state.buttons = [];
+          state.disabledSelection = true;
+        }
+        state.playVideo(selection.successVideo).then(function(){
+          if(!state.expectedCorrectAnswers) {
+            state.allCorrectSelected();
+          }
         });
       },
+      allCorrectSelected: function(){
+        state.showAllCorrect();
+        if(config.showAllSelectionsVideo){
+          state.playVideo(config.showAllSelectionsVideo).then(function(){
+            state.endGame();
+          });
+        }else{
+          state.endGame();
+        }
+      },
+      showAllCorrect: function(){
+        var correctOptionIndices = config.correctOptions.map(function(option){
+          return option.phrase.indices;
+        });
+        state.highlight({indices: [].concat.apply([], correctOptionIndices)});
+      },
+      endGame: function(){
+        state.buttons = [{
+          label: "Proceed",
+          onClick : function(){
+            state.toNextScene();
+          }
+        }];
+      },
       onPartialCorrectSelection: function(option){
-        game.player.video.stop();
-        game.player.chat.add.fromUser(option.phrase.text);
-
+        state.userSaid(option.phrase.text);
         state.transcript.text = option.successVideo.transcript;
-        game.player.video.play(option.successVideo);
+        state.playVideo(option.successVideo);
       },
       onWrongAttempt: function(phrase){
-        game.player.video.stop();
-        game.player.chat.add.fromUser(phrase.text);
         var video = config.wrongAttemptMessages[config.wrongAttemptMessages.length - (state.wrongAttemptLeft--)];
         state.transcript.text = video.transcript;
         if(!state.wrongAttemptLeft){
-          state.highlightPhrase.indices = [].concat.apply([], config.correctOptions.map(function(option){return option.phrase.indices;}));
-          game.player.setHighlightText(state.highlightPhrase);
+          state.allCorrectSelected();
+        }else{
+          state.playVideo(video).then(function(){});
         }
-        game.player.video.play(video).then(function(){
-          if(!state.wrongAttemptLeft){
-            game.player.chat.add.fromAgent(state.transcript.text);
-            game.player.toNextScene();
-          }
-        });
       },
       buttons: [{
         label: "Help",
@@ -948,215 +1341,41 @@ app.factory("FindPhrase", ["CRGGameService", "DisplayAllKeyImages",  "BaseScene"
     return BaseScene(state, config);
   };
 }]);
-},{}],31:[function(require,module,exports){
-app.factory("DoneReadingPassageState", ["EnterMainIdeaState", "CRGGameService", "BaseScene", function (EnterMainIdeaState, game, BaseScene) {
+},{}],39:[function(require,module,exports){
+app.factory("GenericSceneState", ["BaseScene", function ( BaseScene) {
   return function(config){
-    var transcript = "Did the passage make sense ?";
-    var acceptInput = function(message){
-      game.player.chat.add.fromAgent(transcript);
-      game.player.chat.add.fromUser(message);
-
-      game.player.transitTo(EnterMainIdeaState(config));
-    };
-
 
     var state = {
-      transcript: {text: transcript},
-      buttons: [
-        {
-          label: "Definitely",
-          onClick: function () {
-            acceptInput("Definitely");
-          }}, {
-          label: "Sort of",
-          onClick: function () {
-            acceptInput("Sort of");
-          }}, {
-          label: "Not Really",
-          onClick: function () {
-            acceptInput("Not Really");
-          }}]
-    };
-    return BaseScene(state, config);
-  };
-}]);
-},{}],32:[function(require,module,exports){
-app.factory("EnterMainIdeaState", ["CRGGameService", "BaseScene",function (game, BaseScene) {
-  return function(config){
-    var transcript = "Describe the main idea in 120 characters or less.";
-    return BaseScene({
-      transcript: {text: transcript},
-      submitInput : function(userInput){
-        game.player.chat.add.fromAgent(transcript);
-        game.player.chat.add.fromUser(userInput);
-
-        game.player.toNextScene();
-      }
-    }, config);
-  };
-}]);
-},{}],33:[function(require,module,exports){
-app.factory("ReadingPassageState", ["DoneReadingPassageState", "CRGGameService", "BaseScene", function (DoneReadingPassageState, game, BaseScene) {
-  return function(config){
-    var agentSays = "Before Attempting any skills, read the passage to the left.";
-    var userSaid = "I am done!";
-
-    var state = {
-      load: function () {
-        game.player.video.play(config.sceneLoadVideo).then(function () {
-          state.buttons = [
-            {
-              label: userSaid,
-              onClick: function () {
-                game.player.chat.add.fromAgent(agentSays);
-                game.player.chat.add.fromUser(userSaid);
-                game.player.transitTo(DoneReadingPassageState(config))
-              }
-            }
-          ];
-        });
-      },
-      showInput: false,
-      transcript: {text: agentSays},
-    };
-    return BaseScene(state, config);
-  };
-}]);
-},{}],34:[function(require,module,exports){
-app.service("FindPhraseEditor", ['SceneLoader', function (SceneLoader) {
-
-  var findPhraseEditor = {
-        createFor: function(group){
-          return             {
-            "group"       : group,
-            "name"        : "find-all-key-images",
-            label         : SceneLoader["find-all-key-images"].label,
-            "config":       {
-              "transcript" : {"text": ""},
-              "expectedCorrectAnswers" : 1,
-              placeholder         : 'Select text form passage',
-              "findMoreMessage": "Carry on. Find <selections-left> more.",
-              "minimumSelectedMessage" : "Well done! However, we found <more-options> more.",
-              "keyImages": []
-            }
-          };
-        }
-      };
-  return findPhraseEditor;
-}]);
-},{}],35:[function(require,module,exports){
-app.factory("DisplayAllKeyImages", ["CRGGameService", "BaseScene",function (game, BaseScene) {
-
-  return function(config, data){
-    var allImagesWords = config.keyImages.map(function(keyImage){return keyImage.phrase.indices;}).join().split(",").map(function(index){return parseInt(index)});
-
-    game.player.flashHighlight({indices: allImagesWords}, true)
-    var transcript = config.minimumSelectedMessage || "Here is everything we found.";
-    return BaseScene({
-      buttons     : [{
-        label: "Proceed",
-        onClick: function(){
-          game.player.toNextScene();
-        },
-      }],
-      highlightPhrase: {indices: config.keyImages.map(function(keyImage){return keyImage.phrase.indices;}).join().split(",").map(function(index){return parseInt(index)})},
-      transcript: {text: transcript.replace("<more-options>", data.moreOptions)}
-    }, config);
-  };
-}]);
-},{}],36:[function(require,module,exports){
-app.factory("FindAllKeyImages", ["CRGGameService", "DisplayAllKeyImages",  "BaseScene", function (game, DisplayAllKeyImages, BaseScene) {
-  var MIN_SELECTION_DISTANCE = 0.5,
-      numberLabels = {
-        1 : "one",
-        2 : "two",
-        3 : "three",
-        4 : "four",
-        5 : "five",
-        6 : "six",
-        7 : "seven",
-        8 : "eight",
-        9 : "nine",
-        10 : "ten",
-        11 : "eleven",
-        12 : "twelve",
-        13 : "thirteen",
-        14 : "fourteen",
-        15 : "fifteen",
-      },
-      selectionDistance = function(selection, expectedPhrase){
-        var common = selection.indices.filter(function(index){
-          return expectedPhrase.indices.indexOf(parseInt(index)) > -1;
-        });
-        return common.length/selection.indices.length;
-      },
-      selectionIsCloseEnough = function(selected, options){
-        var closeEnough = options.filter(function(expected){
-          return selectionDistance(selected, expected) > MIN_SELECTION_DISTANCE;
-        });
-        return closeEnough.length;
-      },
-      expectedSelectionIndex = function(selected, options){
-        var foundOptionIndex = -1;
-        options.forEach(function (expected, index) {
-          var isExpected = selected.indices.length == expected.indices.length && selectionDistance(selected, expected) == 1;
-          foundOptionIndex = isExpected ? index: foundOptionIndex;
-        })
-        return foundOptionIndex;
-      },
-      getPhrase = function(keyImage){
-        return keyImage.phrase;
-      };
-  return function (config) {
-    var findMoreMessageTemplate = config.findMoreMessage || "Good. Find <selections-left> more.";
-    var state = {
-      showTextSelectionHelp: false,
-      transcript        : {text : config.transcript.text},
-      expectedSelections  : config.keyImages.map(getPhrase),
-      textSelectedIsClose : false,
-      placeholder         : config.placeholder || 'Select text form passage',
-      expectedCorrectAnswers: config.expectedCorrectAnswers || config.keyImages.length,
-      onTextSelection   : function(selectedPhrase){
-        var selectedOptionIndex = expectedSelectionIndex(selectedPhrase, state.expectedSelections),
-            isCorrect = selectedOptionIndex > -1,
-            closeEnough = !isCorrect && selectionIsCloseEnough(selectedPhrase, state.expectedSelections);
-
-        state.textSelectedIsClose = closeEnough;
-        isCorrect && state.onCorrectSelection(selectedPhrase,selectedOptionIndex);
-      },
-      buttons: [{
-        label: "Help",
-        onClick: function(){
-          state.showTextSelectionHelp = true;
-        }
-      }],
-      onCorrectSelection: function(phrase, selectedOptionIndex){
-        state.expectedSelections.splice(selectedOptionIndex, 1);
-        game.player.flashHighlight({indices: phrase.indices.map(function(i){return parseInt(i);})}, true);
-
-        game.player.chat.add.fromAgent(state.transcript.text);
-        game.player.chat.add.fromUser('"' + phrase.text + '"');
-
-        var correctAnsers = config.keyImages.length - state.expectedSelections.length,
-            selectionsLeft = state.expectedCorrectAnswers - correctAnsers ;
-        if(!selectionsLeft){
-          state.allExpectedPhrasesSelected();
-        } else{
-          var nextMessage = findMoreMessageTemplate.replace("<selections-left>", numberLabels[selectionsLeft]);
-          state.transcript.text = nextMessage;
+      sceneId        : config.sceneId,
+      highlightPhrase: config.phrase || {indices: []},
+      message        : !config.message ?  undefined : {
+        text: config.message.text,
+        button: {
+          label: config.message.button.label,
+          onClick: function(){
+            state.userSaid(config.message.button.label);
+            state.toNextScene()
+          }
         }
       },
-      allExpectedPhrasesSelected: function(){
-        var data = {
-          moreOptions: numberLabels[config.keyImages.length - state.expectedCorrectAnswers]
-        };
-        config.keyImages.length > 1 ? game.player.transitTo(DisplayAllKeyImages(config, data)):game.player.toNextScene();
+      buttons        : (config.buttons || []).map(function(button){
+        return {
+          label: button.label,
+          onClick : function(){
+            state.userSaid(button.label);
+            state.toNextScene();
+          }
+        }
+      }),
+      showInput   : config.showInput,
+      submitInput : function (userInput) {
+        state.toNextScene();
       }
     };
     return BaseScene(state, config);
   };
 }]);
-},{}],37:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 app.service("MultiChoiceEditor", ['SceneLoader', function (SceneLoader) {
 
   var multiChoiceEditor = {
@@ -1177,8 +1396,8 @@ app.service("MultiChoiceEditor", ['SceneLoader', function (SceneLoader) {
       };
   return multiChoiceEditor;
 }]);
-},{}],38:[function(require,module,exports){
-app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "BaseScene", function (MultiChoiceResult, game, BaseScene) {
+},{}],41:[function(require,module,exports){
+app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "BaseScene", function (MultiChoiceResult, BaseScene) {
   return function (config) {
     var selectedByUser = function (option) {
           return option.input;
@@ -1193,13 +1412,13 @@ app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "B
           label: 'Submit',
           onClick: function(){
             var selectedOptions = state.options.filter(selectedByUser).map(optionText).join(", ").replace(new RegExp(',$'), '');
-            game.player.chat.add.fromAgent(config.question);
-            game.player.chat.add.fromUser(selectedOptions);
+            state.agentSaid(config.question);
+            state.userSaid(selectedOptions);
 
             if(config.correctMessage){
-              game.player.transitTo(MultiChoiceResult(config, state.options));
+              state.transitTo(MultiChoiceResult(config, state.options));
             } else{
-              game.player.toNextScene();
+              state.toNextScene();
             }
           }
         }],
@@ -1209,15 +1428,14 @@ app.factory("AskMultiChoiceQuestion", ["MultiChoiceResult", "CRGGameService", "B
           correct: usage.correct,
         }
       }),
-      transcript: {text: config.question},
-      highlightPhrase: config.phrase,
+      highlightPhrase: config.highlight,
       focusPhrase    : config.focus,
     };
     return BaseScene(state, config);
   };
 }]);
-},{}],39:[function(require,module,exports){
-app.factory("MultiChoiceResult", ["CRGGameService", "BaseScene", function (game, BaseScene) {
+},{}],42:[function(require,module,exports){
+app.factory("MultiChoiceResult", ["BaseScene", function ( BaseScene) {
   return function (config, input) {
     var correctMessage = config.correctMessage || "That's correct.";
     var
@@ -1239,8 +1457,8 @@ app.factory("MultiChoiceResult", ["CRGGameService", "BaseScene", function (game,
         {
           label: 'Proceed',
           onClick: function(){
-            game.player.chat.add.fromAgent(message);
-            game.player.toNextScene();
+            state.agentSaid(message);
+            state.toNextScene();
           }
         }],
       //result: result,
@@ -1251,46 +1469,8 @@ app.factory("MultiChoiceResult", ["CRGGameService", "BaseScene", function (game,
     return BaseScene(state, config);
   };
 }]);
-},{}],40:[function(require,module,exports){
-app.factory("PlayVideoState", ["DoneReadingPassageState", "CRGGameService", "BaseScene", function (DoneReadingPassageState, game, BaseScene) {
-  return function(config){
-    var userSaid = config.nextButtonLabel,
-        agentSaid = config.sceneLoadVideo.transcript,
-        skipMessage = config.skipMessage || 'Skip',
-        buttons     = config.nextButton ? []:[];
-
-    var state = {
-      afterVideo: function () {
-        if(config.autoNext){
-          game.player.toNextScene();
-        }else{
-          state.buttons = [
-            {
-              label: userSaid,
-              onClick: function () {
-                game.player.chat.add.fromAgent(agentSaid);
-                game.player.chat.add.fromUser(userSaid);
-                game.player.toNextScene();
-              }
-            }
-          ];
-        }
-      },
-      skip: {
-        allowed: config.canSkip,
-        onClick: function () {
-          game.player.chat.add.fromAgent(agentSaid);
-          game.player.chat.add.fromUser(skipMessage);
-          game.player.toNextScene();
-        }
-      },
-      transcript: {text: agentSaid},
-    };
-    return BaseScene(state, config);
-  };
-}]);
-},{}],41:[function(require,module,exports){
-app.factory("ReadingTextState", ["CRGGameService", "BaseScene", function (game, BaseScene) {
+},{}],43:[function(require,module,exports){
+app.factory("PauseAndReadState", ["BaseScene", function ( BaseScene) {
 
   return function (config) {
 
@@ -1300,19 +1480,19 @@ app.factory("ReadingTextState", ["CRGGameService", "BaseScene", function (game, 
         askToWaitVideo = config.waitForAction.beforeTimeVideo,
         state = {
           afterVideo: function () {
-            state.buttons = [{
+            state.setButtons([{
               label: config.nextButtonLabel,
               onClick: function () {
                 var timePassed = (getTime() - state._videoEndedAt),
                     shouldWait = timeForAction > timePassed;
+                state.userSaid(config.nextButtonLabel);
                 if (shouldWait) {
-                  game.player.video.play(askToWaitVideo);
+                  state.playVideo(askToWaitVideo);
                 } else {
-                  game.player.toNextScene();
+                  state.toNextScene();
                 }
               }
-            }
-            ]
+            }]);
           },
           buttons: [],
           transcript: {text: config.sceneLoadVideo.transcript}
@@ -1321,16 +1501,111 @@ app.factory("ReadingTextState", ["CRGGameService", "BaseScene", function (game, 
     return BaseScene(state, config);
   };
 }]);
-},{}],42:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
+app.service("PlayVideoEditor", ['SceneLoader', function (SceneLoader) {
+
+  var editor = {
+        createFor: function(group){
+          return             {
+            "group"       : group,
+            "name"        : "play-video",
+            label         : SceneLoader["play-video"].label,
+            "config"      : {
+              "group"     : group,
+              "canSkip"   :  true,
+              "autoNext"  :  true,
+              "sceneLoadVideo" : {
+                "fullscreen" : false,
+                "url"        : "",
+                "type"       : "video/mp4",
+                "transcript" : ""
+              }
+            }
+          };
+        }
+      };
+  return editor;
+}]);
+},{}],45:[function(require,module,exports){
+app.factory("PlayVideoState", ["BaseScene", function (BaseScene) {
+  return function (config) {
+    var
+        state = {
+          afterVideo: function () {
+            config.autoNext ? state.toNextScene() : state.setButtons([{
+                label: config.nextButtonLabel || 'Proceed',
+                onClick: function(){
+                  state.toNextScene();
+                }}]);
+          },
+          skip: {
+            onClick: function(){
+              state.agentSaid(config.sceneLoadVideo.transcript);
+              state.toNextScene();
+            }
+          }
+        };
+    return BaseScene(state, config);
+  };
+}]);
+},{}],46:[function(require,module,exports){
+app.service("PollResultEditor", ['SceneLoader', function (SceneLoader) {
+
+  var editor = {
+        createFor: function(group){
+          return             {
+            "group"       : group,
+            "name"        : "poll-result",
+            label         : SceneLoader["poll-result"].label,
+            "config"      : {
+              "group"       : group,
+              "phrase": {"indices": [], "text"  : ""},
+              "focus": {"indices" : [], "text"  : ""},
+              "transcript": {"text"    : ""},
+            }
+          };
+        }
+      };
+  return editor;
+}]);
+},{}],47:[function(require,module,exports){
+app.factory("PollResultState", ["BaseScene", function (BaseScene) {
+  return function (config) {
+    var resultSummary = function(){
+      return  + config.pollResult.map(function(result){
+        return "<label>(<score>%)".replace("<label>", result.label).replace("<score>", result.score);
+      }).join(", ");
+    };
+    var transcript = resultSummary();
+    var state = {
+      highlightPhrase : config.highlight,
+      focusPhrase     : config.focus,
+      pollResult      : config.pollResult,
+      buttons         : [
+        {
+          label  : "Proceed",
+          onClick: function(){
+            state.toNextScene();
+          }
+        }
+      ]
+    };
+    return BaseScene(state, config);
+  };
+}]);
+},{}],48:[function(require,module,exports){
 app.controller("SceneEditorController", ['$scope','$injector', 'MultiChoiceEditor', 'SceneLoader', function ($scope, $injector, MultiChoiceEditor, SceneLoader) {
 
   var sceneConfigs = [];
   for(var scene in SceneLoader){
     var config = SceneLoader[scene];
-    config.name = scene;
     if(config.editor){
-      config.editor = $injector.get(config.editor)
-      sceneConfigs.push(config);
+      sceneConfigs.push({
+        name: scene,
+        entry: config.entry,
+        label: config.label,
+        editor: $injector.get(config.editor),
+      });
     }
   }
 
@@ -1339,20 +1614,25 @@ app.controller("SceneEditorController", ['$scope','$injector', 'MultiChoiceEdito
     multiChoice: MultiChoiceEditor
   };
 }]);
-},{}],43:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 require('./scene-editor-controller');
 require('./crg-base-scene');
 require('./components/set-focus-directive');
 require('./components/set-highlight-directive');
 require('./components/set-key-image-directive');
 
-require('./intro/states/reading-passage-state');
-require('./intro/states/done-reading-passage-state');
-require('./intro/states/enter-main-idea-state');
 require('./exit/states/exit-game-state');
+
+require('./generic-scene/generic-scene-state');
 
 require('./text-input/text-input-editor');
 require('./text-input/states/text-input-state');
+
+require('./drag-and-drop/drag-and-drop-editor');
+require('./drag-and-drop/states/drag-drop-state');
+
+require('./drag-and-drop-on-text/drag-and-drop-text-editor');
+require('./drag-and-drop-on-text/states/drag-and-drop-text-state');
 
 require('./yes-no-choice/states/ask-question');
 require('./yes-no-choice/states/wrong-answer');
@@ -1362,35 +1642,34 @@ require('./multi-choice/multi-choice-editor');
 require('./multi-choice/states/ask-multi-choice-question-state');
 require('./multi-choice/states/multi-choice-result-state');
 
-require('./key-images/states/find-all-key-images-state');
-require('./key-images/states/display-all-key-images-state');
-require('./key-images/find-phrase-editor');
 
 require('./find-phrase/states/find-phrase-state');
 require('./find-phrase/find-phrase-editor');
 
+require('./poll-result/states/poll-result-state');
+require('./poll-result/poll-result-editor');
+
 require('./play-video/play-video-state');
-require('./reading-text/reading-text-state');
+require('./play-video/play-video-editor');
 
-},{"./components/set-focus-directive":24,"./components/set-highlight-directive":25,"./components/set-key-image-directive":26,"./crg-base-scene":27,"./exit/states/exit-game-state":28,"./find-phrase/find-phrase-editor":29,"./find-phrase/states/find-phrase-state":30,"./intro/states/done-reading-passage-state":31,"./intro/states/enter-main-idea-state":32,"./intro/states/reading-passage-state":33,"./key-images/find-phrase-editor":34,"./key-images/states/display-all-key-images-state":35,"./key-images/states/find-all-key-images-state":36,"./multi-choice/multi-choice-editor":37,"./multi-choice/states/ask-multi-choice-question-state":38,"./multi-choice/states/multi-choice-result-state":39,"./play-video/play-video-state":40,"./reading-text/reading-text-state":41,"./scene-editor-controller":42,"./text-input/states/text-input-state":44,"./text-input/text-input-editor":45,"./yes-no-choice/states/ask-question":46,"./yes-no-choice/states/wrong-answer":47,"./yes-no-choice/yes-no-editor":48}],44:[function(require,module,exports){
-app.factory("TextInputState", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
+require('./pause-and-read/reading-text-state');
+
+},{"./components/set-focus-directive":28,"./components/set-highlight-directive":29,"./components/set-key-image-directive":30,"./crg-base-scene":31,"./drag-and-drop-on-text/drag-and-drop-text-editor":32,"./drag-and-drop-on-text/states/drag-and-drop-text-state":33,"./drag-and-drop/drag-and-drop-editor":34,"./drag-and-drop/states/drag-drop-state":35,"./exit/states/exit-game-state":36,"./find-phrase/find-phrase-editor":37,"./find-phrase/states/find-phrase-state":38,"./generic-scene/generic-scene-state":39,"./multi-choice/multi-choice-editor":40,"./multi-choice/states/ask-multi-choice-question-state":41,"./multi-choice/states/multi-choice-result-state":42,"./pause-and-read/reading-text-state":43,"./play-video/play-video-editor":44,"./play-video/play-video-state":45,"./poll-result/poll-result-editor":46,"./poll-result/states/poll-result-state":47,"./scene-editor-controller":48,"./text-input/states/text-input-state":50,"./text-input/text-input-editor":51,"./yes-no-choice/states/ask-question":52,"./yes-no-choice/states/wrong-answer":53,"./yes-no-choice/yes-no-editor":54}],50:[function(require,module,exports){
+app.factory("TextInputState", ["BaseScene", function (BaseScene) {
   return function (config) {
-    var transcript = config.transcript.text || "What do you imagine when you read the highlighted text ?";
     var state = {
-      transcript: {text: transcript},
-      highlightPhrase: config.phrase,
+      highlightPhrase: config.highlight,
       focusPhrase    : config.focus,
+      showInput      : true,
       submitInput: function (userInput) {
-        game.player.chat.add.fromAgent(transcript);
-        game.player.chat.add.fromUser(userInput);
-
-        game.player.toNextScene();
+        state.userSaid(userInput);
+        state.toNextScene();
       }
     };
     return BaseScene(state, config);
   };
 }]);
-},{}],45:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 app.service("TextInputEditor", ['SceneLoader', function (SceneLoader) {
 
   var textInputEditor = {
@@ -1410,51 +1689,63 @@ app.service("TextInputEditor", ['SceneLoader', function (SceneLoader) {
       };
   return textInputEditor;
 }]);
-},{}],46:[function(require,module,exports){
-app.factory("AskQuestion", ['CRGGameService', 'WrongAnswerToYesNo',  'BaseScene', function (game, WrongAnswerToYesNo, BaseScene) {
+},{}],52:[function(require,module,exports){
+app.factory("AskQuestion", ['WrongAnswerToYesNo',  'BaseScene', function ( WrongAnswerToYesNo, BaseScene) {
   return function (config) {
-    var state = {
-      showInput: false,
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: function(){
-            config.expectedYes ? game.player.toNextScene() : game.player.transitTo(WrongAnswerToYesNo(config));
-          }
+    var
+        onCorrectAnswer = function(answer){
+          state.setButtons([]);
+          state.playVideo(config.correctAnswerMessageVideo).then(function(){
+            state.toNextScene();
+          });
         },
-        {
-          label: 'No',
-          onClick: function(){
-            config.expectedYes ? game.player.transitTo(WrongAnswerToYesNo(config)) :  game.player.toNextScene();
-          }
-        }
-      ],
-      transcript        : {text: config.question},
-      highlightPhrase   : config.phrase,
-      focusPhrase       : config.focus
+        onWrongAnswer = function(){
+          state.transitTo(WrongAnswerToYesNo(config));
+        },
+        state = {
+          showInput: false,
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: function(){
+                state.userSaid("Yes");
+                config.expectedYes ? onCorrectAnswer("Yes") : onWrongAnswer();
+              }
+            },
+            {
+              label: 'No',
+              onClick: function(){
+                state.userSaid("No");
+                config.expectedYes ?  onWrongAnswer("No") : onCorrectAnswer();
+              }
+            }
+          ],
+          highlightPhrase   : config.phrase,
+          focusPhrase       : config.focus
     };
     return BaseScene(state, config);
   };
 }]);
-},{}],47:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 app.factory("WrongAnswerToYesNo", ["CRGGameService", "BaseScene", function ( game, BaseScene) {
   return function (config) {
     var state = {
-      buttons: [
-        {
-          label: 'Proceed',
-          onClick: function(){
-            game.player.toNextScene();
-          }
-        }],
-      transcript: {text: config.wrongAnswerMessage},
+      buttons: [],
+      transcript: {text: config.wrongAnswerMessageVideo.transcript},
       highlightPhrase: config.phrase,
-      focusPhrase    : config.focus
+      focusPhrase    : config.focus,
+      afterVideo: function(){
+        game.player.toNextScene();
+      }
     };
-    return BaseScene(state, config);
+    return BaseScene(state, {
+      group: config.group,
+      subgroup: config.subgroup,
+      sceneLoadVideo: config.wrongAnswerMessageVideo
+    });
   };
 }]);
-},{}],48:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 app.service("YesNoEditor", ['SceneLoader', function (SceneLoader) {
 
   var textInputEditor = {
@@ -1476,14 +1767,22 @@ app.service("YesNoEditor", ['SceneLoader', function (SceneLoader) {
       };
   return textInputEditor;
 }]);
-},{}],49:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function($stateProvider, $urlRouterProvider, $locationProvider){
 
-	$urlRouterProvider.otherwise('/crg');
+	$urlRouterProvider.otherwise('/crg-home');
 	$stateProvider
 			.state('crg', {
 				url: '/crg',
 				templateUrl: 'assets/templates/crg-template.html'
+			})
+      .state('crg-home', {
+				url: '/crg-home',
+				templateUrl: 'assets/templates/crg-home-template.html'
+			})
+      .state('crg-demo', {
+				url: '/crg-demo',
+				templateUrl: 'assets/templates/crg-demo-template.html'
 			})
 			.state('crg.gameplay', {
 				url: '/play/:id',
@@ -1543,7 +1842,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
       });
 }]);
 
-},{}],50:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 app.value("stateMessages", {
   "default"     : "Loading ",
 });
@@ -1559,23 +1858,38 @@ app.value("passageSelectorHeadings", {
   }
 });
 
+app.value("TYPING_SPEED", 100);
+
 app.value("SceneLoader", {
-  "intro"                 :{
-    entry: "ReadingPassageState",
-    label: "Main Idea"
+  "pause-and-read" :{
+    entry: "PauseAndReadState",
+    label: "Pause and Read",
+    editor: "PlayVideoEditor"
   },
-  "reading-text-scene" :{
-    entry: "ReadingTextState",
-    label: "Play Video"
+  "generic-scene" :{
+    entry: "GenericSceneState",
+    label: "Generic Scene",
+    editor: "PlayVideoEditor"
   },
   "play-video"                 :{
     entry: "PlayVideoState",
-    label: "Play Video"
+    label: "Play Video",
+    editor: "PlayVideoEditor",
   },
   "text-input"            :{
     entry: "TextInputState",
     label: "Input Text",
     editor: "TextInputEditor",
+  },
+  "drag-drop"            :{
+    entry: "DragDropState",
+    label: "Drag and Drop To Box",
+    editor: "DragDropEditor",
+  },
+  "drag-drop-text"            :{
+    entry: "DragDropTextState",
+    label: "Drag and Drop To Text",
+    editor: "DragDropTextEditor",
   },
   "multi-choice"          :{
     entry: "AskMultiChoiceQuestion",
@@ -1597,19 +1911,53 @@ app.value("SceneLoader", {
     label: "Find Phrase",
     editor: "FindPhraseSceneEditor"
   },
+  "poll-result"   :{
+    entry: "PollResultState",
+    label: "Poll Result",
+    editor: "PollResultEditor"
+  },
   "exit"                  : {
     entry: "ExitGameState",
     label: "Exit"
   }
 });
-},{}],51:[function(require,module,exports){
+
+app.value("SceneGroups", {
+  "intro": {
+    label: "Main Idea",
+    subgroups: []
+  },
+  "zincing": {
+    label: "Zincing",
+    subgroups: [
+      {id: "visualize"  , label:"Visualise"},
+      {id: "imagine"    , label:"Imagine"},
+      {id: "key-images" , label:"Key Images"}
+    ]
+  },
+  "navigators": {
+    label: "Navigators",
+    subgroups: [
+      {id: "road-signs"  , label:"Road Signs"},
+      {id: "pronouns"    , label:"Pronouns"},
+      {id: "explainers" , label:"Explainers"}
+    ]
+  },
+  "exit": {
+    label: "Main Idea",
+    subgroups: []
+  }
+})
+},{}],57:[function(require,module,exports){
 require("./app/app");
 require("./app/variables");
 require("./app/config");
 require("./app/routes");
+require("./app/components/viewport-safari-fix");
 require("./app/components/forms/drop-down");
+require("./app/components/throttle");
 require("./app/components/state-loader/state-loader");
 require("./app/components/typewriter/typewriter");
 
 require("./app/crg/crg");
-},{"./app/app":1,"./app/components/forms/drop-down":2,"./app/components/state-loader/state-loader":3,"./app/components/typewriter/typewriter":4,"./app/config":5,"./app/crg/crg":10,"./app/routes":49,"./app/variables":50}]},{},[51]);
+},{"./app/app":1,"./app/components/forms/drop-down":2,"./app/components/state-loader/state-loader":3,"./app/components/throttle":4,"./app/components/typewriter/typewriter":5,"./app/components/viewport-safari-fix":6,"./app/config":7,"./app/crg/crg":14,"./app/routes":55,"./app/variables":56}]},{},[57]);

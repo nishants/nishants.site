@@ -1,0 +1,97 @@
+{
+  "passage": {
+    "from"  : "Their Eyes Were Watching God",
+    "by"    : "Zora Neal Hurston",
+    "text"  : "Ships at a distance have every man's wish on board. For some they come in with the tide. For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time. That is the life of men. \n Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget. The dream is the truth. Then they act and do things accordingly."
+  },
+  "agent": {
+    "smallProfilePicture": "assets/images/agents/diana.png",
+    "videoPlaceholder": "assets/images/agents/diana-video-placeholder.png"
+  },
+  "script": {
+    "scenes": [
+      {
+        "name"  : "play-video",
+        "config": {
+          "group"       : "intro",
+          "autoNext"    : true,
+          "sceneLoadVideo" : {
+            "fullscreen"  : false,
+            "url"         : "assets/videos/diana-voice-over/1.2.Welcome.mp4",
+            "type"        : "video/mp4",
+            "transcript"  : "Welcome back to Zinc. Today we’re going to work with the opening to Zora Neal Hurston’s book, Their Eyes Were Watching God.",
+            "canSkip"     : true
+          }
+        }
+      },
+      {
+        "name"        : "drag-drop-text",
+        "config"      :   {
+          "group"     : "navigators",
+          "subgroup"  : "pronouns",
+          "phrase"    : {
+            "indices": [12, 20],
+            "text": "they"
+          },
+          "relations" : [
+            {
+              "draggable": {
+                "indices": [12],
+                "text": "they"
+              },
+              "droppable": {
+                "indices": [0],
+                "text": "Ships"
+              }
+            },
+            {
+              "draggable": {
+                "indices": [20],
+                "text": "they"
+              },
+              "droppable": {
+                "indices": [0],
+                "text": "Ships"
+              }
+            }
+          ],
+          "expectedCorrectAnswers" : 1,
+          "wrongAttemptMessages" : [
+            {
+              "url" : "assets/videos/diana-voice-over/3.6a-nops-try-again.mp4",
+              "type" : "video/mp4",
+              "transcript" : "Nope. Try again."
+            },
+            {
+              "url" : "assets/videos/diana-voice-over/3.6b-still-not-right.mp4",
+              "type" : "video/mp4",
+              "transcript" : "Still not right. Give it another shot."
+            },
+            {
+              "url" : "assets/videos/diana-voice-over/3.6c-not-clicking.mp4",
+              "type" : "video/mp4",
+              "transcript" : "Hm. It’s not clicking for you. Here’s what we mean. "
+            }
+          ],
+          "sceneLoadVideo" : {
+            "url" : "assets/videos/diana-voice-over/3.5-take-the-word-they.mp4",
+            "type" : "video/mp4",
+            "transcript" : "Take the word \"they” in the second and third sentences. Who’s \"they”? Drag and drop \"they” onto the word or phrase that \"they” represents."
+          },
+          "onFinish" : {
+            "url" : "assets/videos/diana-voice-over/3.7-the-only-thing.mp4",
+            "type" : "video/mp4",
+            "transcript" : "The only thing that’s been mentioned that could come in with the tide or sail forever on the horizon would be the SHIPS, so \"they\" has to mean \"ships\"."
+          }
+        }
+      },
+      {
+        "name"  : "exit",
+        "config": {
+          "group"        : "exit"
+        }
+      }
+
+    ]
+  }
+}

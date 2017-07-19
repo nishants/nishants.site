@@ -25,7 +25,7 @@
         }
       },
       {
-        "name"  : "reading-text-scene",
+        "name"  : "pause-and-read",
         "config": {
           "group"    : "intro",
           "nextButtonLabel" : "I am done!",
