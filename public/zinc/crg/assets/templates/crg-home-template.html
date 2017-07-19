@@ -6,5 +6,9 @@
     <div>Prototype</div>
   </div>
   <button><a ui-sref="crg.gameplay({id: 1})">Try Now</a></button>
-  <button><a ui-sref="crg-demo()">View Demo</a></button>
+  <button><a ui-sref="crg-demo()">View Demo</a></button><a id="mac-download" href="http://nishants.site/downloads/Zinc.app.zip">Download</a>
+  <script>
+    var isMacos = window.navigator.platform == "MacIntel";
+    !isMacos && document.getElementById("mac-download").remove()
+  </script>
 </div>

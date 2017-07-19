@@ -866,14 +866,12 @@ app.directive("phraseSelector", ["Throttle", function (Throttle) {
           },
           highlightSelected = function () {
             var selections = getSelectionText();
-            if(selections.length){
-              $("[data-word-number]").removeClass("selected-word");
-              selections.forEach(function(dataWordNumber){
-                var selector = "[data-word-number='<number>']".replace('<number>', dataWordNumber);
-                $(selector).addClass("selected-word");
-              });
-              isTouchDevice() ?  selectForTouch(selections) : setTouchMenu(selections);
-            }
+            $("[data-word-number]").removeClass("selected-word");
+            selections.forEach(function(dataWordNumber){
+              var selector = "[data-word-number='<number>']".replace('<number>', dataWordNumber);
+              $(selector).addClass("selected-word");
+            });
+            isTouchDevice() ?  selectForTouch(selections) : setTouchMenu(selections);
           };
       document.addEventListener("selectionchange", highlightSelected, false);
       scope.$selection = {indices: []};

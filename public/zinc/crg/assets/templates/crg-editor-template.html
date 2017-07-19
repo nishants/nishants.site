@@ -45,7 +45,7 @@
                 <!--span(ng-bind='relation.droppable.text')-->
               </div>
             </div>
-          </div><span ng-repeat="word in passage.words" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight, &quot;focus&quot;: word.focus, &quot;flash&quot;: word.flash}" data-word-number="{{$index}}" class="word">{{word.text}}</span>
+          </div><span ng-repeat="word in passage.words" ng-class="{&quot;line-break&quot; : word.linebreak, &quot;highlight&quot;: word.highlight, &quot;focus&quot;: word.focus, &quot;flash&quot;: word.flash}" data-word-number="{{$index}}" ng-show="word.text.length || word.linebreak" class="word">{{word.text}}</span>
         </div>
       </div>
     </div>

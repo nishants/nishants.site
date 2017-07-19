@@ -1211,7 +1211,7 @@ body {
         font-weight: 400; }
   #crgameplay .text .word, #crg .text .word {
     display: inline-block; }
-  #crgameplay .text .word:after, #crg .text .word:after {
+  #crgameplay .text .word:not(.line-break):after, #crg .text .word:not(.line-break):after {
     content: " ";
     display: inline-block;
     width: 5px; }
