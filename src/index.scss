@@ -1,17 +1,1 @@
-@import '../lib/style/base';
-
-$mobile_at : 800px;
 @import "app/app";
-
-@media screen and (max-width: $mobile_at) {
-  @import "app/app.mobile";
-  .no-mobile{
-    display: none !important;
-  }
-}
-
-@media screen and (min-width: $mobile_at) {
-  .mobile-only{
-    display: none !important;
-  }
-}

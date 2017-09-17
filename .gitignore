@@ -1,9 +1,7 @@
 .idea
 *-compiled.js
 *-compiled.js.map
-*.css.map
-node_modules/
-bower_components/
-*.log
-*.sass-cache
-modules/**/*.css
+/.sass-cache/
+/bower_components/
+/node_modules/
+*.DS_Store

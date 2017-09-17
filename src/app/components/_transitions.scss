@@ -1,0 +1,17 @@
+$slow_time: 500ms;
+$transition_time: 300ms;
+$transition_time_quick: 150ms;
+$transition_function: cubic-bezier(.25,.8,.25,1);
+
+$transition : all $transition_time $transition_function;
+
+$shadow_transition : $transition;
+$shadow_transition_function : $transition_function;
+
+$state_transition_function: $transition_function;
+$state_transition_time    : $slow_time;
+
+[ui-view]{
+  @include animation(fadein $transition_time);
+  @include animationFunction($transition_function);
+}
