@@ -1,5 +1,6 @@
 {
   "passage": {
+    "id"    : 6,
     "from"  : "Their Eyes Were Watching God",
     "by"    : "Zora Neal Hurston",
     "text"  : "Ships at a distance have every man's wish on board. For some they come in with the tide. For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time. That is the life of men. \n Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget. The dream is the truth. Then they act and do things accordingly."
@@ -14,10 +15,10 @@
         "name"  : "play-video",
         "config": {
           "group" : "intro",
-          "canSkip"  :  true,
           "autoNext" : true,
           "sceneLoadVideo" : {
             "fullscreen" : false,
+            "canSkip"  :  true,
             "url" : "assets/videos/diana/introduction.mp4",
             "type" : "video/mp4",
             "transcript" : "Hi there. I’m Diana. I live in Brooklyn. I love to read. My favorite book right now is The Fire Next Time by James Baldwin, but, in general, reading makes me smarter, helps me understand more about the world and other people and opens up tons of opportunities in life. But, here at Zinc, we realize a lot of people—maybe even most people—don’t enjoy reading. For us, that’s like saying you don’t enjoy eating! But, if you couldn’t taste the food and got no nutritional value from it, of course you wouldn’t enjoy it! So our mission here is to help you not only understand what a text says, but also appreciate HOW the writer put the text together, so you can experience more success at advanced reading and get more out of it if you’re already successful. Check it out!"

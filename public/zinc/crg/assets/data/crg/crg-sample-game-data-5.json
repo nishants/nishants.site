@@ -1,5 +1,6 @@
 {
   "passage": {
+    "id"    : 5,
     "from"  : "Their Eyes Were Watching God",
     "by"    : "Zora Neal Hurston",
     "text"  : "Ships at a distance have every man's wish on board. For some they come in with the tide. For others they sail forever on the horizon, never out of sight, never landing until the watcher turn his eyes away in resignation, his dreams mocked to death by time. That is the life of men. \n Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget. The dream is the truth. Then they act and do things accordingly."
@@ -11,77 +12,89 @@
   "script": {
     "scenes": [
       {
-        "name"  : "play-video",
-        "config": {
-          "group"       : "intro",
-          "autoNext"    : true,
+        "name"        : "poll-result",
+        "config"      :   {
+          "group"     : "zincing",
+          "subgroup"  : "key-images",
+          "highlight" : {"indices": [0, 1,2,3], "text": "Ships at a distance"},
+          "focus"     : {"indices": [0, 1,2,3,4,5,6,7,8,9], "text": "Ships at a distance have every man's wish on board"},
+          "attemptsAllowed": 3,
+          "pollResult" : [
+            {
+              "value":  "horizon",
+              "score" : 32
+            },
+            {
+              "value":  "far",
+              "score" : 28
+            },            {
+              "value":  "Travel",
+              "score" : 24
+            },
+            {
+              "value":  "business",
+              "score" : 19
+            },
+            {
+              "value":  "cargo",
+              "score" : 17
+            },
+            {
+              "value":  "adventure",
+              "score" : 12
+            }
+          ],
+          "wrongAttemptMessages" : [
+            {
+              "url"          : "assets/videos/diana-voice-over/12.a-interesting-no-else.mp4",
+              "type"         : "video/mp4",
+              "transcript"   : "Interesting. No one else has thought of that before."
+            }
+          ],
+          "correctAttemptMessages" : [
+            {
+              "url"          : "assets/videos/diana-voice-over/12.b-great-other-students.mp4",
+              "type"         : "video/mp4",
+              "transcript"   : "Great. Other students had that same association!"
+            }
+          ],
+          "sceneFinishVideo" : {
+            "url"          : "assets/videos/diana-voice-over/12.c-here-are-top.mp4",
+            "type"         : "video/mp4",
+            "transcript"   : "Here are the top five things others students said."
+          },
           "sceneLoadVideo" : {
-            "fullscreen"  : false,
-            "url"         : "assets/videos/diana-voice-over/1.2.Welcome.mp4",
-            "type"        : "video/mp4",
-            "transcript"  : "Welcome back to Zinc. Today we’re going to work with the opening to Zora Neal Hurston’s book, Their Eyes Were Watching God.",
-            "canSkip"     : true
+            "url"          : "assets/videos/diana/key-image-poll-result.mp4",
+            "type"         : "video/mp4",
+            "transcript"   : "What does “ships at a distance” make you think. Go with whatever comes to mind. Just notice, and type the first three things you think of in the chat. !"
           }
         }
       },
       {
-        "name"        : "drag-drop-text",
-        "config"      :   {
-          "group"     : "navigators",
-          "subgroup"  : "pronouns",
-          "phrase"    : {
-            "indices": [12, 20],
-            "text": "they"
+        "name"        : "yes-no",
+        "config"      : {
+          "group"         : "zincing",
+          "subgroup"      : "imagine",
+          "focus": {
+            "indices" : [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
+            "text"    : "Now, women forget all those things they don't  want to remember, and remember everything they don't want to forget."
           },
-          "relations" : [
-            {
-              "draggable": {
-                "indices": [12],
-                "text": "they"
-              },
-              "droppable": {
-                "indices": [0],
-                "text": "Ships"
-              }
-            },
-            {
-              "draggable": {
-                "indices": [20],
-                "text": "they"
-              },
-              "droppable": {
-                "indices": [0],
-                "text": "Ships"
-              }
-            }
-          ],
-          "expectedCorrectAnswers" : 1,
-          "wrongAttemptMessages" : [
-            {
-              "url" : "assets/videos/diana-voice-over/3.6a-nops-try-again.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Nope. Try again."
-            },
-            {
-              "url" : "assets/videos/diana-voice-over/3.6b-still-not-right.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Still not right. Give it another shot."
-            },
-            {
-              "url" : "assets/videos/diana-voice-over/3.6c-not-clicking.mp4",
-              "type" : "video/mp4",
-              "transcript" : "Hm. It’s not clicking for you. Here’s what we mean. "
-            }
-          ],
+          "question"  : "Does the author give any specific examples of highlighted phrase",
+          "expectedYes"  : false,
           "sceneLoadVideo" : {
-            "url" : "assets/videos/diana-voice-over/3.5-take-the-word-they.mp4",
+            "url" : "assets/videos/diana-voice-over/2.8-take-the.mp4",
             "type" : "video/mp4",
-            "transcript" : "Take the word \"they” in the second and third sentences. Who’s \"they”? Drag and drop \"they” onto the word or phrase that \"they” represents."
+            "transcript" : "Take the highlighted phrase. Does Hurston give a specific example you can picture of those things women don’t want to remember?"
           },
-          "onFinish" : {
-            "url" : "assets/videos/diana-voice-over/3.7-the-only-thing.mp4",
+          "correctAnswerMessageVideo": {
+            "url" : "assets/videos/diana-voice-over/2.10-thats-right.mp4",
             "type" : "video/mp4",
-            "transcript" : "The only thing that’s been mentioned that could come in with the tide or sail forever on the horizon would be the SHIPS, so \"they\" has to mean \"ships\"."
+            "transcript" : "That’s right. She doesn’t give any specific examples of the kinds of things women might not wanna remember. You turn that phrase into a meaning in your head by IMAGINING— what could she mean? If you read the whole book, you’ll get a better sense for what she had in mind. "
+          },
+          "wrongAnswerMessageVideo": {
+            "url" : "assets/videos/diana-voice-over/2.9-huhh-where.mp4",
+            "type" : "video/mp4",
+            "transcript" : "Huh??? Where??? Never make stuff up when you’re reading!! She doesn’t give any specific examples of the kinds of things women might not wanna remember. You turn that phrase into a meaning in your head by IMAGINING what she might mean. If you read the whole book, you’ll get a better sense for what she had in mind. "
           }
         }
       },
