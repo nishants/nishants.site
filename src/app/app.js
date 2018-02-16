@@ -1,1 +1,3 @@
-window.app = angular.module("nishants.site", ['ui.router']);
+window.app = angular.module("nishants.site", []);
+
+require("./components/fixed-scroller/fixed-scroller-controller");
