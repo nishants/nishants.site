@@ -16,7 +16,7 @@
           "sceneLoadVideo": {
             "fullscreen": true ,
             "label"     : "Intro",
-            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950751/lowd/01-intro.mp4",
+            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897452/01-intro.mov",
             "type"      : "video/mp4",
             "transcript": "This lessson is on Ruby essentials. We will study about arrays, strings, methods and dictionaries. Just enough to begin with writting our first end to end test.",
             "canSkip"   : true
@@ -62,36 +62,36 @@
               "incorrectAllowed"   : 1,
               "onCorrectMessages"  : [
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950797/lowd/thats-correct.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898541/thats-correct.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Thats correct"
                 },
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950830/lowd/good.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898530/good.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Good"
                 },
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/one-more.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898513/one-more.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Good ! find one more."
                 }
               ],
               "onInCorrectMessages": [],
               "onFinishByFailure"  :  {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950834/lowd/we-will-see-again.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898530/we-will-see-again.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "No problem, we will see the same question again."
               },
               "onFinishBySuccess"  : {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898729/awesome.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Awesome"
               }
             }
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950687/lowd/02-assess-methods.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897467/02-assess-methods.mov",
             "type": "video/mp4",
             "transcript": "Lets begin with methods.Which of the following is correct way of invoking a method. Do not worry if you dont know the correct answer we will see this question again later."
           }
@@ -135,7 +135,7 @@
             ]
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950686/lowd/03-parethesis.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897548/03-parethesis.mov",
             "type": "video/mp4",
             "transcript": "So as you see, methods can be delcared without parenthesis. They can also be invoked without parenthesis. Though you can also invoke the method with the parenthesis if you like to.",
             "confirmForExit" : true
@@ -173,19 +173,19 @@
               "onCorrectMessages"  : [],
               "onInCorrectMessages": [],
               "onFinishByFailure"  :  {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898515/nops-thats-not-right.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Nops, that is not right"
               },
               "onFinishBySuccess"  : {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898729/awesome.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Awesome"
               }
             }
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950654/lowd/04-assess-methods.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897394/04-assess-methods.mov",
             "type": "video/mp4",
             "transcript": "Take a look at the method on the right side. Which of the following is true about it ?"
           }
@@ -220,7 +220,7 @@
             ]
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950730/lowd/05-about-methods-returns.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518901334/05-about-methods-returns.mov",
             "type": "video/mp4",
             "transcript": "In ruby, method returns the last line automatically. So you do not need to use the return statement at all. Both the method definitions on the left essentially do the same thing.",
             "confirmForExit" : true
@@ -233,11 +233,11 @@
           "group"   : "navigators",
           "subgroup": "road-signs",
           "sceneId" : "06-assess-methods-parenthesis-again",
-            "condition": {
-              "expected": false,
-              "sceneId" : "02-assess-methods-parenthesis",
-              "action"  : "multi-choice-result"
-            },
+          "condition": {
+            "expected": false,
+            "sceneId" : "02-assess-methods-parenthesis",
+            "action"  : "multi-choice-result"
+          },
           "slide"   : {
             "title" : "Methods",
             "sections": [
@@ -262,36 +262,36 @@
               "incorrectAllowed"   : 1,
               "onCorrectMessages"  : [
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950797/lowd/thats-correct.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898541/thats-correct.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Thats correct"
                 },
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950830/lowd/good.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898530/good.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Good"
                 },
                 {
-                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/one-more.mp4",
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898513/one-more.mov",
                   "type"        : "video/mp4",
                   "transcript"  : "Good ! find one more."
                 }
               ],
               "onInCorrectMessages": [],
               "onFinishByFailure"  :  {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898515/nops-thats-not-right.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Nops, that is not right"
               },
               "onFinishBySuccess"  : {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898729/awesome.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Awesome"
               }
             }
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950677/lowd/05-challenge.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897589/05-challenge.mov",
             "type": "video/mp4",
             "transcript": "Can you answer this question now ? Which of the following is correct way of invoking a method in ruby."
           }
@@ -321,19 +321,19 @@
               "onCorrectMessages"  : [],
               "onInCorrectMessages": [],
               "onFinishByFailure"  :  {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898515/nops-thats-not-right.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Nops, that is not right"
               },
               "onFinishBySuccess"  : {
-                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/nice.mp4",
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898728/nice.mov",
                 "type"        : "video/mp4",
                 "transcript"  : "Nice !"
               }
             }
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950749/lowd/06-assess-arrays.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897507/06-assess-arrays.mov",
             "type": "video/mp4",
             "transcript": "Lets talk about the arrays now. Which of the following are correct about arrays in ruby"
           }
@@ -360,7 +360,7 @@
             ]
           },
           "sceneLoadVideo": {
-            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950728/lowd/09-array-about.mp4",
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518897698/09-array-about.mov",
             "type": "video/mp4",
             "transcript": "In ruby you can declare an array using [] or Array.new. You do not need to declare the size of array, unlike java. Ruby will automatically increase the size of your array as required.",
             "confirmForExit" : true
@@ -403,7 +403,7 @@
                   "response" : {
                     "endChallenge" : true,
                     "video" : {
-                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518898729/awesome.mov",
                       "type"        : "video/mp4",
                       "transcript"  : "Awesome"
                     }
@@ -413,7 +413,7 @@
                   "evaluate": "!all-days,!full-names",
                   "response" : {
                     "video" : {
-                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950823/lowd/check-if-seven-elements.mp4",
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518931203/check-if-seven-elements.mov",
                       "type"        : "video/mp4",
                       "transcript"  : "You need to return all days of week, check if your array returns seven elements"
                     }
@@ -423,7 +423,7 @@
                   "evaluate": "all-days,!full-names",
                   "response" : {
                     "video" : {
-                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950822/lowd/check-for-spells.mp4",
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518931211/check-for-spells.mov",
                       "type"        : "video/mp4",
                       "transcript"  : "You need to return the full names of the days. Check for how you spell the names of days."
                     }
@@ -436,7 +436,7 @@
             }
           },
           "sceneLoadVideo": {
-            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950712/lowd/10-array-days-of-week.mp4",
+            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518932848/10-array-days-of-week.mov",
             "type"      : "video/mp4",
             "transcript": "Go ahead and define an array in ruby. You must create a method that returns an array containing the full names of all days of week, i.e. sunday, monday and so on"
           }

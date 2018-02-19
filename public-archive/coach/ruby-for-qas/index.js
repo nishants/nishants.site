@@ -375,11 +375,6 @@ app.run(['$localStorage', '$rootScope', function ($localStorage, $rootScope) {
   }
 }]);
 
-app.run(["$rootScope", function ($rootScope) {
-  var expiration = new Date(2018, 2, 25),
-      now = new Date();
-    $rootScope.expired = now.getTime() > expiration.getTime()
-}])
 },{}],14:[function(require,module,exports){
 app.directive("maskPhrase", ["$timeout", function($timeout){
 
@@ -4055,10 +4050,10 @@ app.value("SkillVideos", {
 },{}],98:[function(require,module,exports){
 app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function($stateProvider, $urlRouterProvider, $locationProvider){
 
-	$urlRouterProvider.otherwise('/crg/play/ruby-for-qa');
+	$urlRouterProvider.otherwise('/coach/play/ruby-for-qa');
 	$stateProvider
-			.state('crg', {
-				url: '/crg',
+			.state('coach', {
+				url: '/coach',
 				templateUrl: 'assets/templates/crg-template.html'
 			})
       .state('crg-home', {
@@ -4094,7 +4089,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
 				templateUrl: 'assets/templates/crg-scene-editor-template.html',
         controller: "SceneEditorController"
 			})
-			.state('crg.gameplay', {
+			.state('coach.gameplay', {
 				url: '/play/:id',
 				templateUrl: 'assets/templates/crg-gameplay-template.html',
         controller: 'CRGameplayController',
@@ -4109,7 +4104,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
           }]
         }
 			})
-      .state('crg.gameplay.scene', {
+      .state('coach.gameplay.scene', {
 				url: '/scenes?select"',
 				templateUrl: 'assets/templates/crg-gameplay-template.html',
         controller: 'CRGameplayController',
@@ -4128,7 +4123,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
           }]
         }
 			})
-      .state('crg.editor', {
+      .state('coach.editor', {
         url: '/editor/:id',
         templateUrl: 'assets/templates/crg-editor-template.html',
         controller: 'CRGEditorController',
@@ -4140,7 +4135,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
           }]
         }
       })
-      .state('crg.editor.preview', {
+      .state('coach.editor.preview', {
         url: '/preview',
         templateUrl: 'assets/templates/crg-preview-template.html',
         controller: 'CRGameplayController',
@@ -4155,7 +4150,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",function
         }
 
       })
-      .state('crg.editor.preview-scenes', {
+      .state('coach.editor.preview-scenes', {
         url: '/preview-scenes',
         templateUrl: 'assets/templates/crg-preview-template.html',
         controller: 'CRGameplayController',
