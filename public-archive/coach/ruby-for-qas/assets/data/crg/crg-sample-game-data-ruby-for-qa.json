@@ -1,0 +1,455 @@
+{
+  "scriptId": "ruby-for-qa-1",
+  "agent": {
+    "smallProfilePicture": "assets/images/agents/thandie-video-placeholder.png",
+    "videoPlaceholder": "assets/images/agents/thandie-video-placeholder.png"
+  },
+  "script": {
+    "scenes": [
+      {
+        "name": "play-video",
+        "config": {
+          "group": "intro",
+          "sceneId": "1.1.about-thandie",
+          "nextButtonLabel": "Next",
+          "autoNext" : true,
+          "sceneLoadVideo": {
+            "fullscreen": true ,
+            "label"     : "Intro",
+            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950751/lowd/01-intro.mp4",
+            "type"      : "video/mp4",
+            "transcript": "This lessson is on Ruby essentials. We will study about arrays, strings, methods and dictionaries. Just enough to begin with writting our first end to end test.",
+            "canSkip"   : true
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "02-assess-methods-parenthesis",
+          "slide"   : {
+            "title" : "Methods",
+            "sections": [
+              {
+                "title": "",
+                "text": "Methods with no parameters can be invoked or declared without any parenthesis."
+              },
+              {"title": "", "readOnlyCode": {
+                "code": [
+                  "def call_me",
+                  "  puts 'i have no params' ",
+                  "end",
+                  "",
+                  "call_me # works without parenthesis",
+                  "call_me() # parenthesis are optional"
+                ]}}
+            ]
+          },
+          "multiChoice": {
+            "noOfSelectionsAllowed" : 1,
+            "question"  : "Which of the following is correct way to invoke a method with no argument in ruby",
+            "options": [
+              {"label": "method_name[]"},
+              {"label": "method", "correct": true},
+              {"label": "method()", "correct": true},
+              {"label": "method_name(a, b)", "correct": true},
+              {"label": "method_name a, b", "correct": true}
+            ],
+            "attempts"             : {
+              "correctExpected"    : 4,
+              "incorrectAllowed"   : 1,
+              "onCorrectMessages"  : [
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950797/lowd/thats-correct.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Thats correct"
+                },
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950830/lowd/good.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Good"
+                },
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/one-more.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Good ! find one more."
+                }
+              ],
+              "onInCorrectMessages": [],
+              "onFinishByFailure"  :  {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950834/lowd/we-will-see-again.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "No problem, we will see the same question again."
+              },
+              "onFinishBySuccess"  : {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Awesome"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950687/lowd/02-assess-methods.mp4",
+            "type": "video/mp4",
+            "transcript": "Lets begin with methods.Which of the following is correct way of invoking a method. Do not worry if you dont know the correct answer we will see this question again later."
+          }
+        }
+      },
+
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "03-about-method-parenthesis",
+          "condition": {
+            "expected": false,
+            "sceneId" : "02-assess-methods-parenthesis",
+            "action"  : "multi-choice-result"
+          },
+          "slide"   : {
+            "title" : "Methods",
+            "sections": [
+              {
+                "title": "",
+                "text": "Methods with no parameters can be invoked or declared without any parenthesis."
+              },
+              {"title": "Skip parenthesis while declaring :", "readOnlyCode": {
+                "code": [
+                  "def call_me",
+                  "  puts 'i have no params' ",
+                  "end"
+                ]}},
+
+              {"title": "Skip parenthesis while invoking :", "readOnlyCode": {
+                "code": [
+                  "call_me  # works without parenthesis"
+                ]}},
+
+              {"title": "This is valid too : ", "readOnlyCode": {
+                "code": [
+                  "call_me() # parenthesis are optional"
+                ]}}
+            ]
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950686/lowd/03-parethesis.mp4",
+            "type": "video/mp4",
+            "transcript": "So as you see, methods can be delcared without parenthesis. They can also be invoked without parenthesis. Though you can also invoke the method with the parenthesis if you like to.",
+            "confirmForExit" : true
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "04-assess-methods-returns",
+          "slide"   : {
+            "title" : "Returning from Method",
+            "sections": [
+              {"title": "", "readOnlyCode": {
+                "code": [
+                  "def call_me",
+                  "  'foo bar' ",
+                  "end"
+                ]}}
+            ]
+          },
+          "multiChoice": {
+            "noOfSelectionsAllowed" : 1,
+            "question"  : "",
+            "options": [
+              {"label": "it returns nothing"},
+              {"label": "it returns string 'foo bar'", "correct": true},
+              {"label": "this will result in error"}
+            ],
+            "attempts"             : {
+              "correctExpected"    : 1,
+              "incorrectAllowed"   : 1,
+              "onCorrectMessages"  : [],
+              "onInCorrectMessages": [],
+              "onFinishByFailure"  :  {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Nops, that is not right"
+              },
+              "onFinishBySuccess"  : {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Awesome"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950654/lowd/04-assess-methods.mp4",
+            "type": "video/mp4",
+            "transcript": "Take a look at the method on the right side. Which of the following is true about it ?"
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "05-about-methods-returns",
+          "condition" : {
+            "expected": false,
+            "sceneId" : "04-assess-methods-returns",
+            "action"  : "multi-choice-result"
+          },
+          "slide"   : {
+            "title" : "Returning from Method",
+            "sections": [
+              {"title": "This method returns 'foo bar' :", "readOnlyCode": {
+                "code": [
+                  "def call_me",
+                  "  'foo bar' ",
+                  "end"
+                ]}},
+              {"title": "Following does the same thing : ", "readOnlyCode": {
+                "code": [
+                  "def call_me",
+                  "  return 'foo bar' ",
+                  "end"
+                ]}}
+            ]
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950730/lowd/05-about-methods-returns.mp4",
+            "type": "video/mp4",
+            "transcript": "In ruby, method returns the last line automatically. So you do not need to use the return statement at all. Both the method definitions on the left essentially do the same thing.",
+            "confirmForExit" : true
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "06-assess-methods-parenthesis-again",
+            "condition": {
+              "expected": false,
+              "sceneId" : "02-assess-methods-parenthesis",
+              "action"  : "multi-choice-result"
+            },
+          "slide"   : {
+            "title" : "Methods",
+            "sections": [
+              {
+                "title": "",
+                "text": "Methods can be invoked or declared without any parenthesis."
+              }
+            ]
+          },
+          "multiChoice": {
+            "noOfSelectionsAllowed" : 1,
+            "question"  : "Which of the following is correct way to invoke a method with no argument in ruby",
+            "options": [
+              {"label": "method_name[]"},
+              {"label": "method", "correct": true},
+              {"label": "method()", "correct": true},
+              {"label": "method_name(a, b)", "correct": true},
+              {"label": "method_name a, b", "correct": true}
+            ],
+            "attempts"             : {
+              "correctExpected"    : 4,
+              "incorrectAllowed"   : 1,
+              "onCorrectMessages"  : [
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950797/lowd/thats-correct.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Thats correct"
+                },
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950830/lowd/good.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Good"
+                },
+                {
+                  "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/one-more.mp4",
+                  "type"        : "video/mp4",
+                  "transcript"  : "Good ! find one more."
+                }
+              ],
+              "onInCorrectMessages": [],
+              "onFinishByFailure"  :  {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Nops, that is not right"
+              },
+              "onFinishBySuccess"  : {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Awesome"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950677/lowd/05-challenge.mp4",
+            "type": "video/mp4",
+            "transcript": "Can you answer this question now ? Which of the following is correct way of invoking a method in ruby."
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "07-assess-arrays",
+          "slide"   : {
+            "title" : "Arrays",
+            "sections": []
+          },
+          "multiChoice": {
+            "noOfSelectionsAllowed" : 1,
+            "question"  : "",
+            "options": [
+              {"label": "When creating an array you must provide the size of it"},
+              {"label": "Ruby automatically increases size of array as required", "correct": true},
+              {"label": "Array.new(9) will result in error"}
+            ],
+            "attempts"             : {
+              "correctExpected"    : 1,
+              "incorrectAllowed"   : 1,
+              "onCorrectMessages"  : [],
+              "onInCorrectMessages": [],
+              "onFinishByFailure"  :  {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950796/lowd/nops-thats-not-right.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Nops, that is not right"
+              },
+              "onFinishBySuccess"  : {
+                "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/nice.mp4",
+                "type"        : "video/mp4",
+                "transcript"  : "Nice !"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950749/lowd/06-assess-arrays.mp4",
+            "type": "video/mp4",
+            "transcript": "Lets talk about the arrays now. Which of the following are correct about arrays in ruby"
+          }
+        }
+      },
+
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "road-signs",
+          "sceneId" : "08-about-arrays",
+          "condition" : {
+            "expected": false,
+            "sceneId" : "07-assess-arrays",
+            "action"  : "multi-choice-result"
+          },
+          "slide"   : {
+            "title" : "Arrays",
+            "sections": [
+              {"title": "Following creates and empty array", "readOnlyCode": {"code": ["empty_array = [ ]"]}},
+              {"title": "Following creates an array with three elements: ", "readOnlyCode": {"code": ["array_with_three_elements = ['one', 'two', 'three']"]}},
+              {"title": "You can also use Array.new", "readOnlyCode": {"code": ["empty_array = Array.new"]}}
+            ]
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950728/lowd/09-array-about.mp4",
+            "type": "video/mp4",
+            "transcript": "In ruby you can declare an array using [] or Array.new. You do not need to declare the size of array, unlike java. Ruby will automatically increase the size of your array as required.",
+            "confirmForExit" : true
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "zincing",
+          "subgroup": "visualize",
+          "sceneId": "09-create-array",
+          "slide" : {
+            "title" : "Create Array",
+            "codingChallenge" :              {
+              "title": "Create a methods that returns an array containing full names of all days of a week.",
+              "worksheet": [
+                "def days_of_week",
+                " [] # write you code here",
+                "end"
+              ],
+              "solution": [
+                "def days_of_week",
+                "  ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']",
+                "end"
+              ],
+              "validators": [
+                "it('success')",
+                "expect(days_of_week.map{|day| day.downcase}.sort).to equal([\"friday\", \"monday\", \"saturday\", \"sunday\", \"thursday\", \"tuesday\", \"wednesday\"])",
+
+                "it('all-days')",
+                "expect(days_of_week.length).to equal(7) unless days_of_week.nil?",
+
+                "it('full-names')",
+                "expect(days_of_week.reduce(0) { |sum, element| sum + element.length }).to equal(50) unless days_of_week.nil?"
+              ],
+              "scenarios": [
+                {
+                  "evaluate": "success",
+                  "response" : {
+                    "endChallenge" : true,
+                    "video" : {
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950793/lowd/awesome.mp4",
+                      "type"        : "video/mp4",
+                      "transcript"  : "Awesome"
+                    }
+                  }
+                },
+                {
+                  "evaluate": "!all-days,!full-names",
+                  "response" : {
+                    "video" : {
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950823/lowd/check-if-seven-elements.mp4",
+                      "type"        : "video/mp4",
+                      "transcript"  : "You need to return all days of week, check if your array returns seven elements"
+                    }
+                  }
+                },
+                {
+                  "evaluate": "all-days,!full-names",
+                  "response" : {
+                    "video" : {
+                      "url"         : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950822/lowd/check-for-spells.mp4",
+                      "type"        : "video/mp4",
+                      "transcript"  : "You need to return the full names of the days. Check for how you spell the names of days."
+                    }
+                  }
+                }
+              ],
+              "progressScenarios": [
+                {"name": "success", "label": "7 days of week", "expectedLabel": "All days of week"}
+              ]
+            }
+          },
+          "sceneLoadVideo": {
+            "url"       : "http://res.cloudinary.com/dgjuvbcqc/video/upload/v1518950712/lowd/10-array-days-of-week.mp4",
+            "type"      : "video/mp4",
+            "transcript": "Go ahead and define an array in ruby. You must create a method that returns an array containing the full names of all days of week, i.e. sunday, monday and so on"
+          }
+        }
+      },
+
+      {
+        "name": "exit",
+        "config": {
+          "group": "exit",
+          "sceneId": "exit-skill-intro"
+        }
+      }
+    ]
+  }
+}
