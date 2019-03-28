@@ -1,0 +1,7 @@
+.scroller(ng-controller='ScrollerController', ng-class="scroller.state.name")
+  .circle
+  .bulb-outline
+    include bulb-outline
+  include bulb
+  form
+    button(ng-repeat='state in states', ng-click='scroller.state = state') {{state.name}}

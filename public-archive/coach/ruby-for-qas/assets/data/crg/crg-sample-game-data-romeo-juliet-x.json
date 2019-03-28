@@ -1,0 +1,205 @@
+{
+  "passage": {
+    "id"    : "romeo-juliet",
+    "from"  : "Romeo and Juliet",
+    "by"    : "William Shakespeare",
+    "dialogues" : [
+      {
+        "label": "Romeo",
+        "text": "Lady, by yonder blessed moon I vow, \n That tips with silver all these fruit-tree tops--"
+      },
+      {
+        "label": "Juliet",
+        "text": "O, swear not by the moon, the inconstant moon, \n That monthly changes in her circled orb, \n Lest that thy love prove likewise variable. "
+      },
+      {
+        "label": "Romeo",
+        "text": "What shall I swear by?"
+      },
+      {
+        "label": "Juliet",
+        "text": "Do not swear at all. \n Or if thou wilt, swear by thy gracious self, \n Which is the god of my idolatry, \n And I'll believe thee. "
+      },
+      {
+        "label": "Romeo",
+        "text": "If my heart's dear love--"
+      },
+      {
+        "label": "Juliet",
+        "text": "Well, do not swear: although I joy in thee, \n I have no joy of this contract tonight. \n It is too rash, too unadvised, too sudden;\n Too like the lightning, which doth cease to be \n Ere one can say 'It lightens.' Sweet, good night! \n This bud of love, by summer's ripening breath,\n May prove a beauteous flower when next we meet. "
+      }
+    ]
+  },
+  "agent": {
+    "smallProfilePicture": "assets/images/agents/sophia.png",
+    "videoPlaceholder": "assets/images/agents/sophia-video-placeholder.png"
+  },
+  "script": {
+    "scenes": [
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "exit",
+          "sceneId" : "6.1-main-idea-mcq",
+          "multiChoice": {
+            "noOfSelectionsAllowed" : 1,
+            "question"  : "Which of these best sums up the main idea of this scene",
+            "options": [
+              {
+                "label": "Girls are too cautious, while boys are too reckless.",
+                "response" : {
+                  "video": {
+                    "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510833014/assets/crg-demo/sophia-rj/T_RJ_8.1.1_480p_Clipped.mov",
+                    "type"        : "video/mp4",
+                    "transcript"  : "Shaking my cabesa, here. First of all, neither one of them is being \"cautious,\" much less \"too cautious.\" Secondly, these are just two characters, so they wouldn't represent ALL people of the same sex, and, thirdly, this just isn't what the scene is about. Try again."
+                  }
+                }
+              },
+              {
+                "label": "A deal is a deal, and you have to stick to it no matter what.",
+                "response" : {
+                  "video": {
+                    "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510832938/assets/crg-demo/sophia-rj/T_RJ_8.1.2_480p_Clipped.mov",
+                    "type"        : "video/mp4",
+                    "transcript"  : "Wha...??? No one says that. Try again"
+                  }
+                }
+              },
+              {"correct": true,"label": "Juliet struggles with her strong feelings for Romeo, wanting to trust them but fearing their sudden intensity."},
+              {
+                "label": "Romeo can't make up his mind whether to express his full feelings to Juliet or keep them to himself.",
+                "response" : {
+                  "video": {
+                    "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510832943/assets/crg-demo/sophia-rj/T_RJ_8.1.4_480p_Clipped.mov",
+                    "type"        : "video/mp4",
+                    "transcript"  : "Nah. Romeo's mind is clearly made up, and he's not being in any way shy about expressing his feelings. Try again."
+                  }
+                }
+              },
+              {
+                "label": "It's easier to be open about your feelings at nighttime, especially when the moon is out. ",
+                "response" : {
+                  "video": {
+                    "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510832932/assets/crg-demo/sophia-rj/T_RJ_8.1.5_480p_Clipped.mov",
+                    "type"        : "video/mp4",
+                    "transcript"  : "I mean, maybe, but that's definitely not the MAIN IDEA of this scene. Try again."
+                  }
+                }
+              }
+            ],
+            "attempts"             : {
+              "correctExpected"    : 1,
+              "incorrectAllowed"   : 5,
+              "onCorrectMessages"  : [],
+              "onInCorrectMessages": [],
+              "onFinishByFailure"  :  {
+                "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510831943/assets/crg-demo/sophia-rj/T_RJ_1.02_480p_Clipped.mov",
+                "type"        : "video/mp4",
+                "transcript"  : "Huh? Who's that? Never make stuff up that isn't there. The only \"lady\" he could be talking to is Juliet."
+              }
+            ,
+              "onFinishBySuccess"  : {
+                "url"         : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510831943/assets/crg-demo/sophia-rj/T_RJ_1.01_480p_Clipped.mov",
+                "type"        : "video/mp4",
+                "transcript"  : "yeah..."
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url"  : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1511903166/assets/crg-demo/sophia-rj/T_RJ_8.1_480p_Clipped.mov",
+            "type" : "video/mp4",
+            "transcript": "Which of these best sums up the main idea of this scene"
+          }
+        }
+      },
+      {
+        "name": "generic-scene",
+        "config": {
+          "group"   : "exit",
+          "sceneId" : "6.2-truely-in-love-quotes",
+          "showQuotes" : [
+            {"text": "They could say whatever, but it wouldn't really matter if I didn't feel the same.", "by"  : "Kate"},
+            {"text": "Something that shows they're paying attention to who I really am and not just how I look and how I dress.", "by"  : "Julia"},
+            {"text": "Notice the way I dress, how I look, how I act, my smile and how I treat other people.", "by"  : "Wilma"}
+          ],
+          "buttons": [{"label": "Proceed"}],
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510832954/assets/crg-demo/sophia-rj/T_RJ_8.2.1_480p_Clipped.mov",
+            "type": "video/mp4",
+            "transcript": "Here are some cool responses from other users"
+          }
+        }
+      },
+
+      {
+        "name": "exit",
+        "config": {
+          "group": "exit",
+          "sceneId": "exit-mlk"
+        }
+      }
+    ]
+  },
+
+
+
+  "skillVideos": {
+    "zincing"   : {
+      "default"   : {
+        "url"       : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.1_480_clipped.mov",
+        "type"      : "video/mp4",
+        "transcript": "Reading definitely takes a kind of an effort that other media don't. Video puts images directly into our brains. Easy. Reading takes more effort, cause our brains need to sound out the words and convert them into images and meanings. We call that ZINCING - taking words off the page and turning them into pictures and meanings in your head. Obviously, we all love to chill and just do easy stuff, but funny thing is, once you get comfortable with Zincing and other skills, your brain loves the effort of reading."
+      },
+      "visualize": {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.2_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "Your first reading move should always be to find words you can easily picture. Even in the most difficult text, a word or phrase you can picture is like a hand-hold when you're climbing a rock wall. Picture whatever you can, and then use those images to start figuring out what the whole text means.  "
+      },
+      "key-images": {
+        "url"       : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.3_480_clipped.mov",
+        "type"      : "video/mp4",
+        "transcript": "If a writer says, \"She had nice brown eyes,\" you just picture them, but, if she says, \"She had brown eyes that sparkled like sunlight on glistening sea stones,\" you're getting a lot more to work with. You can imagine the brown eyes. You also picture sunlight on shiny stones in the sea. When you find a strong image like that, you wanna let yourself really see it. Then, when it's really happening in your imagination, you wanna notice all the other feelings and thoughts around that image. That's how you use a key image."
+      },
+      "imagine": {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.4_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "If a writer says, \"She had brown eyes,\" you can easily visualize that. But when a writer says something less visual, like, \"She hoped for good opportunities in her new home,\" you also need to picture something. What might these \"opportunities\" be? Think of something that makes sense and keep reading to find out more."
+      }
+    },
+    "navigators": {
+      "default" : {
+        "url"       : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.5_480_clipped.mov",
+        "type"      : "video/mp4",
+        "transcript": "If you're driving a car, the paint on the road, the signs, the lights, signals from other cars - all this stuff tells you how to navigate. When you're reading, picking up the navigation clues let's you understand what the writer meant."
+      },
+      "road-signs" : {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.6_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "Two types of road signs in a text - TRANSITION WORDS, like however, also, because, and - and punctuation - colons, semi-colons, commas, dashes and even periods. Mostly, the punctuation let's you know to expect an explanation or more details."
+      },
+      "pronouns" : {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.7_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "Pronouns are words that act as place holders for other words - she, he, they, it, that, this. When you see a pronoun, make sure you connect it with the word or phrase it's replacing. \"This led to blah, blah, blah...\" What's \"this\"? You'll usually find pronouns replacing words or phrases that have just been mentioned or are about to be mentioned."
+      },
+      "explainers" : {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.8_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "When a writer says something that's not completely clear, you should expect them to explain. Sometimes they give you punctuation, like a colon or dash or comma that announces, \"here's the explanation!\" Sometimes they just go on and explain. "
+      }
+    },
+    "tone": {
+      "default" : {
+        "url"       : "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.9_480_clipped.mov",
+        "type"      : "video/mp4",
+        "transcript": "Tone refers to the feelings behind the words. Is the author excited, or critical or angry or unsure? Look for words and phrases with a lot of flavor or contrasts between words to convey the writer's feelings."
+      },
+      "contrast" : {
+        "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510219709/assets/crg-demo/henry-mlk/H_8.9_480_clipped.mov",
+        "type": "video/mp4",
+        "transcript": "Tone refers to the feelings behind the words. Is the author excited, or critical or angry or unsure? Look for words and phrases with a lot of flavor or contrasts between words to convey the writer's feelings."
+      }
+    }
+
+  }
+}

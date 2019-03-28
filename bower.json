@@ -1,12 +1,12 @@
 {
-  "name": "nishants.site",
+  "name": "star-wars",
   "description": "A gaming app with HTML5 and CSS3",
   "main": "",
   "authors": [
     "nishant <nishant.singh87@gmail.com>"
   ],
   "license": "WTFPL",
-  "homepage": "https://github.com/nishants/nishants.site",
+  "homepage": "https://github.com/nishants/star-wars",
   "private": true,
   "ignore": [
     "**/.*",
@@ -17,6 +17,7 @@
   "dependencies": {
     "angular": "angularjs#1.5.11",
     "angular-mocks": "~1.5.0",
-    "jquery": "^3.1.1"
+    "angular-ui-router": "ui-router#^0.4.2",
+    "ngDraggable": "^0.1.11"
   }
 }

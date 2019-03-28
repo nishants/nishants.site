@@ -1,0 +1,18 @@
+
+$shadow: 0 5px 5px 0 rgba(0,0,0,.16), 0 5px 10px 0 rgba(0,0,0,.12);
+$shadow_horizontal: 2px 0px 2px rgba(0, 0, 0, 0.2);
+
+$card_shadow:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$card_elevated_shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;
+$button_shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+$bar_shadow: 0 2px 5px rgba(0,0,0,.26);
+$bar_shadow_inverted: 0 -2px 5px rgba(0,0,0,.26);
+
+.black-bar{
+  background: #4f504f; /* Old browsers */
+  background: -moz-linear-gradient(top, #4f504f 1%, #0e0e0e 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #4f504f 1%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #4f504f 1%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f504f', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+}

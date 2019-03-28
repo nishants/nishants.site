@@ -1,0 +1,114 @@
+{
+  "passage": {
+    "id"    : "martin-luther",
+    "from"  : "I Have a Dream",
+    "by"    : "Martin Luther King, Jr",
+    "text"  : "We have also come to this hallowed spot to remind America of the fierce urgency of now. This is no time to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism. Now is the time to make real the promises of democracy. Now is the time to rise from the dark and desolate valley of segregation to the sunlit path of racial justice. Now is the time to lift our nation from the quicksands of racial injustice to the solid rock of brotherhood. Now is the time to make justice a reality for all of God's children."
+  },
+  "agent": {
+    "smallProfilePicture": "assets/images/agents/sophia.png",
+    "videoPlaceholder": "assets/images/agents/sophia-video-placeholder.png"
+  },
+  "script": {
+    "scenes": [
+      {
+        "name"       : "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "explainers",
+          "sceneId"   : "4.2-segregation-image",
+          "highlight" : {"indices" : [61]},
+          "focus"     : {"indices": [48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68]},
+          "dragDropText"  : {
+            "draggables"  : [{"indices": [61]}],
+            "droppables"  : [{"indices": [56,57,58,59] }],
+            "correct"     : [
+              {
+                "draggable" : {"indices": [61]},
+                "droppable" : {"indices": [56,57,58,59] }
+              }
+            ],
+            "highlightAtEnd": {"indices": [56,57,58,59]},
+            "knownIncorrect": [],
+            "attempts"             : {
+              "correctExpected"    : 1,
+              "incorrectAllowed"   : 2,
+              "onCorrectMessages"  : [],
+              "onInCorrectMessages": [
+                {
+                  "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510047269/assets/crg-demo/henry-mlk/H_4.5.2_480_Clipped.mov",
+                  "type": "video/mp4",
+                  "transcript": "Look again. The what of segregation?"
+                }
+              ],
+              "onFinishByFailure"  :  {
+                "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510047209/assets/crg-demo/henry-mlk/H_4.5.3_480_clipped.mov",
+                "type": "video/mp4",
+                "transcript": "Nah. Notice how he says, \"the dark and desolate valley of segregation\"? He's comparing segregation to a dark, empty valley. "
+              },
+              "onFinishBySuccess"  : {
+                "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510047199/assets/crg-demo/henry-mlk/H_1.3.1_480_Clipped.mov",
+                "type": "video/mp4",
+                "transcript": "Exactly !"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510047163/assets/crg-demo/henry-mlk/H_4.5_480_Clipped.mov",
+            "type": "video/mp4",
+            "transcript": "Drag and drop \"segregation\" onto the image King uses to describe it."
+          }
+        }
+      },
+      {
+        "name"       : "generic-scene",
+        "config": {
+          "group"   : "navigators",
+          "subgroup": "explainers",
+          "sceneId"   : "4.3-racial-justice",
+          "focus"     : {"indices": [48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68]},
+          "dragDropText"  : {
+            "draggables"  : [{"indices": [67,68]}],
+            "droppables"  : [{"indices": [64,65] }],
+            "correct"     : [
+              {
+                "draggable" : {"indices": [67,68]},
+                "droppable" : {"indices": [64,65] }
+              }
+            ],
+            "highlightAtEnd": {"indices": [64,65]},
+            "knownIncorrect": [],
+            "attempts"             : {
+              "correctExpected"    : 1,
+              "incorrectAllowed"   : 2,
+              "onCorrectMessages"  : [],
+              "onInCorrectMessages": [
+                {
+                  "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510218555/assets/crg-demo/henry-mlk/H_4.6.2_480_clipped.mov",
+                  "type": "video/mp4",
+                  "transcript": "No...What's King connecting \"racial justice\" to? The what \"of racial justice\"?"
+                }
+              ],
+              "onFinishByFailure"  :  {
+                "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510218555/assets/crg-demo/henry-mlk/H_4.6.3_480_clipped.mov",
+                "type": "video/mp4",
+                "transcript": "Nope. See how King compares a \"sunlit path\" to \"racial justice.\" If you really see that image in your mind and feel what that feels like, you get the idea King wants you to have about \"racial justice.\""
+              },
+              "onFinishBySuccess"  : {
+                "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510218555/assets/crg-demo/henry-mlk/H_4.6.1_480_clipped.mov",
+                "type": "video/mp4",
+                "transcript": "Good!"
+              }
+            }
+          },
+          "sceneLoadVideo": {
+            "url": "http://res.cloudinary.com/zinc-learning-labs/video/upload/v1510218555/assets/crg-demo/henry-mlk/H_4.6_480_clipped.mov",
+            "type": "video/mp4",
+            "transcript": "Drag and drop \"racial justice\" onto the image King uses to describe that."
+          }
+        }
+      }
+    ]
+  }
+}
+

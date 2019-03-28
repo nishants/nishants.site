@@ -1,0 +1,34 @@
+
+$weight_bold  : 700;
+$weight_normal: 400;
+$weight_light : 300;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Lato:#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:#{$weight_light}i,#{$weight_normal},#{$weight_bold}');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans:300,400,700');
+
+$font_family          : 'Ubuntu', sans-serif;
+$system_font_family   :  'Lato', sans-serif;
+//$system_font_family   :  $font_family;
+$crg_title_font_family:  'Open Sans', sans-serif;
+$content_font_family:  'Libre Baskerville', serif;
+//$content_font_family:  'Open Sans', sans-serif;
+//$content_font_family  :  'Raleway', sans-serif;
+
+
+$line_height      : 18px;
+
+$giant_font       : 48px;
+$sub_giant_font   : 36px;
+$huge_font        : 32px;
+$extra_large_font : 24px;
+$very_large_font  : 21px;
+$large_font       : 16px;
+$larger_font      : 18px;
+$normal_font      : 14px;
+$small_font       : 12px;
+$smaller_font     : 11px;
+$extra_small_font : 10px;

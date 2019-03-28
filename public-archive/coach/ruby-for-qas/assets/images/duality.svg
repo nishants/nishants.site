@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="850" height="850" id="svg2" sodipodi:version="0.32" inkscape:version="0.46dev+devel" version="1.0" sodipodi:docname="Yin and Yang.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs>
+    <filter inkscape:collect="always" id="filter3073">
+      <feGaussianBlur inkscape:collect="always" stdDeviation="12.375" id="feGaussianBlur3075"/>
+    </filter>
+  </defs>
+  <metadata id="metadata7"/>
+  <g inkscape:label="Background" inkscape:groupmode="layer" id="layer1" style="display: inline;">
+    <path sodipodi:type="arc" style="opacity: 0.5; fill: rgb(127, 127, 127); fill-opacity: 1; stroke: rgb(127, 127, 127); stroke-width: 25; stroke-linecap: butt; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1; filter: url(&quot;#filter3073&quot;);" id="pathShadowGlow" sodipodi:cx="400" sodipodi:cy="400" sodipodi:rx="400" sodipodi:ry="400" d="M 800,400 A 400,400 0 1 1 0,400 A 400,400 0 1 1 800,400 z" inkscape:label="#Background Shadow/Glow - NOT part of the diagram but necessary for clarity on black or white backgrounds" transform="translate(25, 25)"/>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Yin and Yang Symbol">
+    <g id="gYinAndYang" inkscape:label="#Yin and Yang" transform="matrix(-1, 0, 0, -1, 850, 850)">
+      <g transform="matrix(-1, 0, 0, -1, 825, 825)" style="fill: rgb(0, 0, 0); fill-opacity: 1;" inkscape:label="#Yin" id="gYin">
+        <path style="fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 0.5; stroke-linecap: butt; stroke-miterlimit: 4; stroke-opacity: 1;" d="M 425,25 C 204.2,25 25,204.2 25,425 C 25,645.8 204.2,825 425,825 C 314.6,825 225,735.4 225,625 C 225,514.6 314.6,425 425,425 C 535.4,425 625,335.4 625,225 C 625,114.6 535.4,25 425,25 z M 425,162.5 C 459.5,162.5 487.5,190.5 487.5,225 C 487.5,259.5 459.5,287.5 425,287.5 C 390.5,287.5 362.5,259.5 362.5,225 C 362.5,190.5 390.5,162.5 425,162.5 z" transform="matrix(-1, 0, 0, -1, 825, 825)" id="pathYinBG"/>
+        <path transform="matrix(1.25, 0, 0, 1.25, -100, -50)" sodipodi:type="arc" style="opacity: 1; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 0.5; stroke-linecap: butt; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;" id="pathYinS" sodipodi:cx="400" sodipodi:cy="200" sodipodi:rx="50" sodipodi:ry="50" d="M 450,200 A 50,50 0 1 1 350,200 A 50,50 0 1 1 450,200 z" inkscape:label="#Yin Spot"/>
+      </g>
+      <g inkscape:label="#Yang" id="gYang">
+        <path id="pathYangBG" d="M 425,25 C 535.4,25 625,114.6 625,225 C 625,335.4 535.4,425 425,425 C 314.6,425 225,514.6 225,625 C 225,735.4 314.6,825 425,825 C 645.8,825 825,645.8 825,425 C 825,204.2 645.8,25 425,25 z M 425,562.5 C 459.5,562.5 487.5,590.5 487.5,625 C 487.5,659.5 459.5,687.5 425,687.5 C 390.5,687.5 362.5,659.5 362.5,625 C 362.5,590.5 390.5,562.5 425,562.5 z" style="fill: rgb(255, 255, 255); fill-opacity: 1; stroke: none; stroke-width: 0.5; stroke-linecap: butt; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;"/>
+        <path inkscape:label="#Yang Spot" transform="matrix(1.25, 0, 0, -1.25, -75, 475)" d="M 450,200 A 50,50 0 1 1 350,200 A 50,50 0 1 1 450,200 z" sodipodi:ry="50" sodipodi:rx="50" sodipodi:cy="200" sodipodi:cx="400" id="pathYangS" style="fill: rgb(255, 255, 255); fill-opacity: 1; stroke: none; stroke-width: 0.5; stroke-linecap: butt; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;" sodipodi:type="arc"/>
+      </g>
+    </g>
+  </g>
+</svg>

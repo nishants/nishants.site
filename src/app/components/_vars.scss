@@ -1,0 +1,35 @@
+$modal_layer: 10;
+$button_width: 200px;
+$input_height : 45px;
+
+$border_radius: 2px;
+$message_border_radius: 5px;
+
+$card_width: 270px;
+$profile_bar_width: 300px;
+
+$top_bar_height: 90px;
+$navigation_bar_height: 50px;
+
+$padding : 10px;
+$round_image_size: 150px;
+$round_image_size_mobile: 75px;
+
+$flash_messsage_position: $navigation_bar_height + 2*$padding;
+$top_bar_layer: 100;
+
+$mobile_min_action_space: 45px;
+$logo_height_on_mobile: 70px;
+
+
+$game_header_image_size: 60px;
+$game_progress_height: 5px;
+$game_progress_roundness: 5px;
+$skip_game_height: 65px;
+$game_header_height: $game_progress_height + 170px;
+
+$gameplay_body_height: calc(100% - #{$game_header_height});
+$gameplay_inner_height: calc(100% - #{$skip_game_height});
+
+$crg_passage_max_width: 750px;
+
