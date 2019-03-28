@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300i,400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:300i,400,700");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300i,400,700");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond:300i,400,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans:300,400,700");
+body * {
+  box-sizing: border-box; }
+
+label {
+  cursor: inherit; }
+
+input {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  box-sizing: border-box;
+  border: none; }
+
+.resize-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.overflow-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+ul.undo-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: block; }
+
+a.undo-link {
+  text-decoration: none;
+  line-height: inherit;
+  color: inherit;
+  display: block; }
+
+a.undo-link:active {
+  background-color: inherit;
+  color: inherit; }
+
+[ng-click] {
+  cursor: pointer; }
+
+button {
+  cursor: pointer; }
+
+.black-bar {
+  background: #4f504f;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #4f504f 1%, #0e0e0e 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #4f504f 1%, #0e0e0e 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #4f504f 1%, #0e0e0e 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f504f', endColorstr='#0e0e0e',GradientType=0 );
+  /* IE6-9 */ }
+
+[ui-view] {
+  -webkit-animation: fadein 300ms;
+  -o-animation: fadein 300ms;
+  -ms-animation: fadein 300ms;
+  animation: fadein 300ms;
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+body {
+  margin: 0px;
+  padding: 0px; }
+
+@keyframes float {
+  0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+.scroller {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  -webkit-transition: background 300ms ease, transform 300ms ease;
+  -moz-transition: background 300ms ease, transform 300ms ease;
+  -o-transition: background 300ms ease, transform 300ms ease;
+  transition: background 300ms ease, transform 300ms ease; }
+  .scroller .bulb, .scroller .bulb-outline {
+    position: absolute;
+    height: 168px;
+    width: 108px;
+    left: calc(50% - 54px);
+    top: calc(50% - 84px);
+    -webkit-transition: opacity 300ms ease;
+    -moz-transition: opacity 300ms ease;
+    -o-transition: opacity 300ms ease;
+    transition: opacity 300ms ease; }
+  .scroller .circle {
+    position: absolute;
+    height: 238px;
+    width: 238px;
+    left: calc(50% - 119px);
+    top: calc(50% - 119px);
+    background-color: black;
+    border-radius: 50%;
+    -webkit-transition: transform 300ms ease;
+    -moz-transition: transform 300ms ease;
+    -o-transition: transform 300ms ease;
+    transition: transform 300ms ease;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+  .scroller .bulb {
+    opacity: 0;
+    filter: blur(5px) grayscale(100%); }
+
+.scroller.one-sketch {
+  background-color: #fbfbfb; }
+  .scroller.one-sketch .circle {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
+  .scroller.one-sketch .bulb-outline {
+    opacity: 0; }
+  .scroller.one-sketch .bulb {
+    opacity: 1;
+    filter: blur(5px) grayscale(100%); }
+
+.scroller.two-begin {
+  background-color: #eee;
+  -webkit-transform: translateY(-5vh);
+  -moz-transform: translateY(-5vh);
+  -ms-transform: translateY(-5vh);
+  -o-transform: translateY(-5vh);
+  transform: translateY(-5vh); }
+  .scroller.two-begin .circle {
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2); }
+  .scroller.two-begin .bulb-outline {
+    opacity: 0; }
+  .scroller.two-begin .bulb {
+    opacity: 1;
+    filter: blur(2px) grayscale(50%); }
+
+.scroller.three-expand {
+  background-color: rgba(0, 0, 0, 0.62);
+  -webkit-transform: translateY(-10vh);
+  -moz-transform: translateY(-10vh);
+  -ms-transform: translateY(-10vh);
+  -o-transform: translateY(-10vh);
+  transform: translateY(-10vh); }
+  .scroller.three-expand .circle {
+    -webkit-transform: scale(5);
+    -moz-transform: scale(5);
+    -ms-transform: scale(5);
+    -o-transform: scale(5);
+    transform: scale(5); }
+  .scroller.three-expand .bulb-outline {
+    opacity: 0; }
+  .scroller.three-expand .bulb {
+    opacity: 1;
+    filter: blur(0) grayscale(50%); }
+
+.scroller.four-fill {
+  background-color: black;
+  -webkit-transform: translateY(-25vh);
+  -moz-transform: translateY(-25vh);
+  -ms-transform: translateY(-25vh);
+  -o-transform: translateY(-25vh);
+  transform: translateY(-25vh); }
+  .scroller.four-fill .circle {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+  .scroller.four-fill .bulb-outline {
+    opacity: 0; }
+  .scroller.four-fill .bulb {
+    opacity: 1;
+    filter: blur(0) grayscale(0%);
+    -webkit-animation: float 6s ease-in-out infinite;
+    -o-animation: float 6s ease-in-out infinite;
+    -ms-animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite; }
+
+form {
+  position: fixed;
+  bottom: 0; }
+
+/*# sourceMappingURL=index.css.map */

@@ -10,19 +10,4 @@ app.controller("ScrollerController",["$scope", function($scope){
   $scope.scroller = {};
 }]);
 
-var Scroller = {
-  states : {
-    current: null,
-    all    : [],
-    add: function(state){
-
-    },
-    start: function(){
-
-    },
-    _onScroll: function(){
-      console.log("scrolled")
-    }
-  }
-};
-window.Scroller = Scroller;
+require("./scroller");
